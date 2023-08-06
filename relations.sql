@@ -11,6 +11,7 @@ DELETE FROM Offer;
 DELETE FROM Review;
 DELETE FROM WrittenBy;
 
+
 -- Book
 -- ISBN VARCHAR(50) NOT NULL,
 -- title VARCHAR(100) NOT NULL,
