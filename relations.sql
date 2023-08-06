@@ -2,7 +2,7 @@ DELETE FROM Book;
 DELETE FROM Author;
 DELETE FROM Address;
 DELETE FROM Publisher;
-DELETE FROM User;
+DELETE FROM UserMan;
 DELETE FROM Delivary_Man;
 DELETE FROM Book_Man;
 DELETE FROM Notification;
@@ -11,6 +11,15 @@ DELETE FROM Offer;
 DELETE FROM Review;
 DELETE FROM WrittenBy;
 
+
+-- Publisher 
+-- name VARCHAR(100) NOT NULL,
+-- address VARCHAR(200),
+-- website VARCHAR(50),
+-- email VARCHAR(50),
+-- contactNo NUMERIC(15, 0)
+INSERT INTO Publisher VALUES ('Mermaid Media & Publications', '218 Elephant Road, Bata Signal, Dhaka', NULL, 'mermaidmediabd@gmail.com', 01731495857);
+INSERT INTO Publisher VALUES ('Tamralipi', '38/2A, Banglabazar, Dhaka-1100', NULL, NULL, NULL);
 
 -- Book
 -- ISBN VARCHAR(50) NOT NULL,
@@ -35,15 +44,6 @@ INSERT INTO Author VALUES ('Ananya Shahrin Promi', 2003, NULL, NULL, 'Bangladesh
 INSERT INTO Author VALUES ('Muhammed Zafar Iqbal', 1952, NULL, 'Writer', 'Bangladeshi');
 INSERT INTO Author VALUES ('Humayun Ahmed', 1948, 2012, 'Novelist', 'Bangladeshi');
 INSERT INTO Author VALUES ('Paulo Coelho', 1947, NULL, 'Lyricist', 'Brazilian');
-
--- Publisher 
--- name VARCHAR(100) NOT NULL,
--- address VARCHAR(200),
--- website VARCHAR(50),
--- email VARCHAR(50),
--- contactNo NUMERIC(15, 0)
-INSERT INTO Publisher VALUES ('Mermaid Media & Publications', '218 Elephant Road, Bata Signal, Dhaka', NULL, 'mermaidmediabd@gmail.com', 01731495857);
-INSERT INTO Publisher VALUES ('Tamralipi', '38/2A, Banglabazar, Dhaka-1100', NULL, NULL, NULL);
 
 -- WrittenBy 
 -- ISBN VARCHAR(50) NOT NULL,
