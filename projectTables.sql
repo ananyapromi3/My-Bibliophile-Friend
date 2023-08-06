@@ -7,9 +7,9 @@ CREATE TABLE Author (
 	PRIMARY KEY (name)
 );
 CREATE TABLE Address (
-	latitude FLOAT NOT NULL,
-	longitude FLOAT NOT NULL,
-	PRIMARY KEY (latitude, longitude),
+	latitude NUMERIC(3, 7) NOT NULL,
+	longitude NUMERIC(3, 7) NOT NULL,
+	PRIMARY KEY (latitude, longitude)
 );
 CREATE TABLE Publisher (
 	name VARCHAR(100) NOT NULL,
@@ -19,7 +19,7 @@ CREATE TABLE Publisher (
 	contactNo NUMERIC(15, 0),
 	PRIMARY KEY (name)
 );
-CREATE TABLE User (
+CREATE TABLE UserMan (
 	emailID VARCHAR(50) NOT NULL,
 	contactNo1 NUMERIC(15, 0),
 	contactNo2 NUMERIC(15, 0),
@@ -36,14 +36,14 @@ CREATE TABLE Delivary_Man (
 	delivaryManID NUMERIC(10, 0) NOT NULL,
 	emailID VARCHAR(50) NOT NULL,
 	PRIMARY KEY (emailID),
-	FOREIGN KEY (emailID) REFERENCES User(emailID),
+	FOREIGN KEY (emailID) REFERENCES UserMan(emailID),
 	UNIQUE (delivaryManID)
 );
 CREATE TABLE Book_Man (
 	bookManID NUMERIC(10, 0) NOT NULL,
 	emailID VARCHAR(50) NOT NULL,
 	PRIMARY KEY (emailID),
-	FOREIGN KEY (emailID) REFERENCES User(emailID),
+	FOREIGN KEY (emailID) REFERENCES UserMan(emailID),
 	UNIQUE (bookManID)
 );
 CREATE TABLE Notification (
@@ -51,7 +51,7 @@ CREATE TABLE Notification (
 	message VARCHAR(500),
 	userEmailID VARCHAR(50) NOT NULL,
 	PRIMARY KEY (time),
-	FOREIGN KEY (userEmailID) REFERENCES User(emailID)
+	FOREIGN KEY (userEmailID) REFERENCES UserMan(emailID)
 );
 CREATE TABLE Book (
 	ISBN VARCHAR(50) NOT NULL,
@@ -94,7 +94,7 @@ CREATE TABLE Review (
 	reviewID NUMERIC(10, 0) NOT NULL,
 	emailID VARCHAR(50) NOT NULL,
 	PRIMARY KEY (reviewID),
-	FOREIGN KEY (emailID) REFERENCES User(emailID)
+	FOREIGN KEY (emailID) REFERENCES UserMan(emailID)
 );
 CREATE TABLE WrittenBy (
 	ISBN VARCHAR(50) NOT NULL,
