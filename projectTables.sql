@@ -1,10 +1,10 @@
 CREATE TABLE Author (
 	name VARCHAR(100) NOT NULL,
-	bornOn NUMERIC(4, 0) NOT NULL,
+	bornOn NUMERIC(4, 0),
 	diedOn NUMERIC(4, 0),
 	type VARCHAR(50),
 	nationality VARCHAR(20),
-	PRIMARY KEY (name, bornOn)
+	PRIMARY KEY (name)
 );
 CREATE TABLE Address (
 	latitude NUMERIC(3, 7) NOT NULL,
@@ -21,7 +21,6 @@ CREATE TABLE Publisher (
 );
 CREATE TABLE UserMan (
 	emailID VARCHAR(50) NOT NULL,
-	password VARCHAR(50) NOT NULL,
 	contactNo1 NUMERIC(15, 0),
 	contactNo2 NUMERIC(15, 0),
 	firstName VARCHAR(50) NOT NULL,
@@ -58,8 +57,8 @@ CREATE TABLE Book (
 	ISBN VARCHAR(50) NOT NULL,
 	title VARCHAR(100) NOT NULL,
 	pageCount NUMERIC(5, 0),
-	language VARCHAR(10) NOT NULL,
-	genre VARCHAR(10) NOT NULL,
+	language VARCHAR(20) NOT NULL,
+	genre VARCHAR(50) NOT NULL,
 	publishYear NUMERIC(4, 0),
 	price NUMERIC(5, 2),
 	coverPhoto VARCHAR(100),
@@ -100,7 +99,8 @@ CREATE TABLE Review (
 CREATE TABLE WrittenBy (
 	ISBN VARCHAR(50) NOT NULL,
 	name VARCHAR(100) NOT NULL,
-	PRIMARY KEY (ISBN, name),
+	bornOn NUMERIC(4, 0),
+	PRIMARY KEY (ISBN, name, bornOn),
 	FOREIGN KEY (ISBN) REFERENCES Book(ISBN),
-	FOREIGN KEY (name) REFERENCES Author(name)
+	FOREIGN KEY (name, bornOn) REFERENCES Author(name, bornON)
 );

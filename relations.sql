@@ -107,7 +107,7 @@ INSERT INTO Book VALUES ('978-984-94754-4-6', 'The Forgotten Forest', 320, 'Engl
 INSERT INTO Book VALUES ('978-984-94754-5-3', 'The Moonlight Sonata', 340, 'English', 'Romance', 2023, 22.25, 'moonlight_sonata.jpg', 'Adventure Press');
 INSERT INTO Book VALUES ('978-984-94754-6-0', 'The Forbidden Island', 380, 'English', 'Mystery', 2020, 24.00, 'forbidden_island.jpg', 'Adventure Press');
 INSERT INTO Book VALUES ('978-984-94754-7-7', 'The Lost City', 290, 'English', 'Adventure', 2022, 20.99, 'lost_city.jpg', 'Chronicle Books');
-INSERT INTO Book VALUES ('978-984-94754-8-4', 'The Quest for Knowledge', 360, 'English', 'Science Fiction', 2021, 23.50, 'quest_for_knowledge.jpg', 'Chron');
+INSERT INTO Book VALUES ('978-984-94754-8-4', 'The Quest for Knowledge', 360, 'English', 'Science Fiction', 2021, 23.50, 'quest_for_knowledge.jpg', 'Chronicle Books');
 
 
 -- Author
@@ -159,14 +159,12 @@ INSERT INTO Author VALUES ('Emma White', 1975, NULL, 'Romance', 'Australian');
 INSERT INTO Author VALUES ('Daniel Green', 1983, NULL, 'Fantasy', 'British');
 INSERT INTO Author VALUES ('Emily Blue', 1988, NULL, 'Science Fiction', 'American');
 INSERT INTO Author VALUES ('Sophia Silver', 1981, NULL, 'Mystery', 'Canadian');
-INSERT INTO Author VALUES ('Michael Blue', 1979, NULL, 'Science Fiction', 'Irish');
 INSERT INTO Author VALUES ('Olivia Gray', 1986, NULL, 'Fantasy', 'British');
 INSERT INTO Author VALUES ('David White', 1972, NULL, 'Science Fiction', 'American');
 INSERT INTO Author VALUES ('Emma Black', 1984, NULL, 'Mystery', 'Canadian');
 INSERT INTO Author VALUES ('Daniel Blue', 1977, NULL, 'Adventure', 'British');
 INSERT INTO Author VALUES ('Sophia Silver', 1989, NULL, 'Fantasy', 'Australian');
 INSERT INTO Author VALUES ('John Smith', 1970, NULL, 'Non-fiction', 'Irish');
-INSERT INTO Author VALUES ('Oliver Gray', 1992, NULL, 'Adventure', 'Canadian');
 INSERT INTO Author VALUES ('Alice Green', 1985, NULL, 'Mystery', 'British');
 INSERT INTO Author VALUES ('David Black', 1981, NULL, 'Fantasy', 'American');
 INSERT INTO Author VALUES ('Lucy White', 1979, NULL, 'Science Fiction', 'Australian');
@@ -177,36 +175,7 @@ INSERT INTO Author VALUES ('Olivia Gray', 1972, NULL, 'Fantasy', 'American');
 
 -- WrittenBy 
 -- ISBN VARCHAR(50) NOT NULL,
--- name VARCHAR(100) NOT NULL
-INSERT INTO WrittenBy VALUES ('978-984-94751', 'Ananya Shahrin Promi');
-INSERT INTO WrittenBy VALUES ('984-70096-0357-0', 'Muhammed Zafar Iqbal');
-INSERT INTO WrittenBy VALUES ('978-984-94751-1-8', 'Emily Green');
-INSERT INTO WrittenBy VALUES ('978-984-94751-1-8', 'Daniel Green');
-INSERT INTO WrittenBy VALUES ('978-984-94751-2-5', 'David White');
-INSERT INTO WrittenBy VALUES ('978-984-94751-3-2', 'Emma Black');
-INSERT INTO WrittenBy VALUES ('978-984-94751-4-9', 'Daniel Blue');
-INSERT INTO WrittenBy VALUES ('978-984-94751-5-6', 'Sophia Silver');
-INSERT INTO WrittenBy VALUES ('978-984-94751-6-3', 'John Smith');
-INSERT INTO WrittenBy VALUES ('978-984-94751-7-0', 'Olivia Rose');
-INSERT INTO WrittenBy VALUES ('978-984-94751-8-7', 'Michael Brown');
-INSERT INTO WrittenBy VALUES ('978-984-94751-9-4', 'Alice Green');
-INSERT INTO WrittenBy VALUES ('978-984-94752-0-0', 'David Black');
-INSERT INTO WrittenBy VALUES ('978-984-94752-1-7', 'Daniel Blue');
-INSERT INTO WrittenBy VALUES ('978-984-94752-2-4', 'David White');
-INSERT INTO WrittenBy VALUES ('978-984-94752-3-1', 'Emma Black');
-INSERT INTO WrittenBy VALUES ('978-984-94752-4-8', 'Sophia Silver');
-INSERT INTO WrittenBy VALUES ('978-984-94752-5-5', 'John Smith');
-INSERT INTO WrittenBy VALUES ('978-984-94752-6-2', 'Olivia Rose');
-INSERT INTO WrittenBy VALUES ('978-984-94752-7-9', 'Michael Brown');
-INSERT INTO WrittenBy VALUES ('978-984-94752-8-6', 'Alice Green');
-INSERT INTO WrittenBy VALUES ('978-984-94752-9-3', 'David Black');
-INSERT INTO WrittenBy VALUES ('978-984-94753-0-9', 'Emily Green');
-INSERT INTO WrittenBy VALUES ('978-984-94753-1-6', 'Daniel White');
-INSERT INTO WrittenBy VALUES ('978-984-94753-2-3', 'Sophia Silver');
-INSERT INTO WrittenBy VALUES ('978-984-94753-3-0', 'John Black');
-INSERT INTO WrittenBy VALUES ('978-984-94753-4-7', 'Lucy White');
-INSERT INTO WrittenBy VALUES ('978-984-94753-5-4', 'Sophia Silver');
-INSERT INTO WrittenBy VALUES ('978-984-94753-6-1', 'John Black');
-INSERT INTO WrittenBy VALUES ('978-984-94753-7-8', 'Lucy White');
-INSERT INTO WrittenBy VALUES ('978-984-94754-1-5', 'David White');
-INSERT INTO WrittenBy VALUES ('978-984-94754-2-2', 'Emma Black');
+-- name VARCHAR(100) NOT NULL,
+-- bornOn NUMERIC(4, 0)
+INSERT INTO WrittenBy VALUES ('978-984-94751', 'Ananya Shahrin Promi', 2003);
+INSERT INTO WrittenBy VALUES ('984-70096-0357-0', 'Muhammed Zafar Iqbal', 1952);
