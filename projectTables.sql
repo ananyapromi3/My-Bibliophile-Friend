@@ -1,10 +1,10 @@
 CREATE TABLE Author (
 	name VARCHAR(100) NOT NULL,
-	bornOn NUMERIC(4, 0),
+	bornOn NUMERIC(4, 0) NOT NULL,
 	diedOn NUMERIC(4, 0),
 	type VARCHAR(50),
 	nationality VARCHAR(20),
-	PRIMARY KEY (name)
+	PRIMARY KEY (name, bornOn)
 );
 CREATE TABLE Address (
 	latitude NUMERIC(3, 7) NOT NULL,
@@ -21,6 +21,7 @@ CREATE TABLE Publisher (
 );
 CREATE TABLE UserMan (
 	emailID VARCHAR(50) NOT NULL,
+	password VARCHAR(50) NOT NULL,
 	contactNo1 NUMERIC(15, 0),
 	contactNo2 NUMERIC(15, 0),
 	firstName VARCHAR(50) NOT NULL,
