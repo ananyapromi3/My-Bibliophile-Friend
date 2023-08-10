@@ -6,17 +6,17 @@ export default function App() {
   return (
     <div>
       <h1>HIIIIIII</h1>
-      <button onClick={() => router.push('/BookFriend/login')} >
-        Bookman login
+      <button onClick={() => router.push('/bookFriend/login')} >
+        User login
       </button>
-      <button onClick={() => router.push('/BookFriend/signup')} >
-        Bookman signup
+      <button onClick={() => router.push('/bookFriend/signup')} >
+        User signup
       </button>
-      <button onClick={() => router.push('/DelivaryMan/login')} >
-        Delivery login
+      <button onClick={() => router.push('/delivaryMan/login')} >
+        Delivery Man login
       </button>
-      <button onClick={() => router.push('/DelivaryMan/signup')} >
-        Delivery signup
+      <button onClick={() => router.push('/delivaryMan/signup')} >
+        Delivery Man signup
       </button>
     </div>
   )

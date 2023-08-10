@@ -33,4 +33,4 @@ async function runApp() {
   }
 }
 
-// runApp();
+runApp();
