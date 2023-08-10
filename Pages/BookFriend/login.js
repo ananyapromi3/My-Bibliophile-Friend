@@ -1,17 +1,35 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 export default function Login() {
-  const [Username, setUsername]= usestate('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  function handleClick() {
+    console.log(`You are ` + ` ${email}`);
+  }
   return (
     <div>
       <h1>Welcome to bookman login</h1>
       <label>
-        Username: <input name="username" defaultValue="username"/>
+        email:
+        <input
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          name="email"
+          // defaultValue="email"
+        />
       </label>
-      <br/>
+      <br />
       <label>
-        Password: <input name="password" defaultValue="password" />
+        Password:
+        <input
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          name="password"
+          // defaultValue="password"
+        />
       </label>
+      <br />
+      <button onClick={handleClick}>Login</button>
     </div>
   );
 }
