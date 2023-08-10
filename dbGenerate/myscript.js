@@ -13,12 +13,12 @@ async function runApp() {
 
     const result = await connection.execute(
       `SELECT delivaryManID, emailID
-         FROM DELIVARYMAN
-         WHERE delivaryManID = :id`,
-      [1001] // bind value for :id
+         FROM DELIVARYMAN`
+        //  WHERE delivaryManID = :id`,
+      // [1001] // bind value for :id
     );
 
-    console.log(result);
+    // console.log(result);
     console.log(result.rows);
   } catch (err) {
     console.log(err);
