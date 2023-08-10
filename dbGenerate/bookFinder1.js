@@ -65,7 +65,7 @@ async function runApp() {
 
       // console.log(book.book_type);
 
-      // console.log(`INSERT INTO BOOK VALUES('${ISBN}', '${title}', ${pageCount}, '${language}', ${publishYear}, NULL, '${coverPhoto}', '${sum}', '${genre}');`);
+      // console.log(`INSERT INTO BOOK VALUES('${ISBN}', '${title}', ${pageCount}, '${language}', ${publishYear}, NULL, '${coverPhoto}', NULL, '${sum}', '${genre}');`);
       // await connection.execute(
       //   `INSERT INTO BOOK VALUES('${ISBN}', '${title}', ${pageCount}, '${language}', '${genre}', ${publishYear}, NULL, '${coverPhoto}', NULL)`
       // );
