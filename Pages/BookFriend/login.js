@@ -1,3 +1,5 @@
+import React from "react";
+import Link from 'next/link';
 import { useState } from "react";
 
 export default function Login() {
@@ -5,6 +7,7 @@ export default function Login() {
   const [password, setPassword] = useState("");
   function handleClick() {
     console.log(`You are ` + ` ${email}`);
+    <div>You are ` + ` ${email}</div>
   }
   return (
     <div>
@@ -29,7 +32,9 @@ export default function Login() {
         />
       </label>
       <br />
-      <button onClick={handleClick}>Login</button>
+      <button name="loginButton" onClick={handleClick}>
+        Login
+      </button>
     </div>
   );
 }

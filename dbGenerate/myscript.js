@@ -1,6 +1,8 @@
 const oracledb = require("oracledb");
 const axios = require("axios");
 
+oracledb.outFormat = oracledb.OUT_FORMAT_OBJECT;
+
 async function runApp() {
   let connection;
   try {
@@ -12,9 +14,8 @@ async function runApp() {
     console.log("Succesfully connected to Oracle Database");
 
     const result = await connection.execute(
-      `SELECT delivaryManID, emailID
-         FROM DELIVARYMAN`
-        //  WHERE delivaryManID = :id`,
+      `SELECT * FROM BOOK`
+      //  WHERE delivaryManID = :id`,
       // [1001] // bind value for :id
     );
 
