@@ -1,6 +1,6 @@
-// import runQuery from "../../dbGenerate/query";
-const oracledb = require("oracledb");
-oracledb.outFormat = oracledb.OUT_FORMAT_OBJECT;
+import runQuery from "../../dbGenerate/query";
+// const oracledb = require("oracledb");
+// oracledb.outFormat = oracledb.OUT_FORMAT_OBJECT;
 
 export default function BooksInfo({ books }) {
   return (
@@ -17,31 +17,32 @@ export default function BooksInfo({ books }) {
   );
 }
 
-export async function getServerSideProps() {
-  let connection;
+export async function getStaticProps() {
+  // let connection;
+  let data;
   try {
-    connection = await oracledb.getConnection({
-      user: "project",
-      password: "12345",
-      connectString: "localhost/orclpdb",
-    });
-    // const response = await connection.execute(query);
-    const response = await connection.execute(`SELECT ISBN, TITLE FROM BOOK`);
-    const data = await response.json();
-    return {
-      props: {
-        books: data,
-      },
-    };
+    //   connection = await oracledb.getConnection({
+    //     user: "project",
+    //     password: "12345",
+    //     connectString: "localhost/orclpdb",
+    //   });
+    const response = await runQuery(`SELECT ISBN, TITLE FROM BOOK`);
+    //   const response = await connection.execute(`SELECT ISBN, TITLE FROM BOOK`);
+    data = await response.json();
   } catch (err) {
     console.log(err);
   } finally {
-    if (connection) {
-      try {
-        await connection.close();
-      } catch (err) {
-        console.log(err);
-      }
-    }
+    //   if (connection) {
+    //     try {
+    //       await connection.close();
+    //     } catch (err) {
+    //       console.log(err);
+    //     }
+    // }
   }
+  return {
+    props: {
+      books: data,
+    },
+  };
 }
