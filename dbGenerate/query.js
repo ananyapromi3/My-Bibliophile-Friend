@@ -1,7 +1,7 @@
 // import { response } from "express";
 
-const oracledb = require("oracledb");
-oracledb.outFormat = oracledb.OUT_FORMAT_OBJECT;
+import oracledb from "oracledb";
+// oracledb.outFormat = oracledb.OUT_FORMAT_OBJECT;
 
 // async function runQuery(query) {
 //   connection = await oracledb.getConnection({
