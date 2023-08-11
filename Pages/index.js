@@ -21,6 +21,10 @@ export default function App() {
       <button onClick={() => router.push("/delivaryMan/signup")}>
         Delivery Man signup
       </button>
+      <br/>
+      <button onClick={() => router.push("/books")}>
+        See Book List
+      </button>
     </div>
   );
 }

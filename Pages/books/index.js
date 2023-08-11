@@ -1,14 +1,16 @@
-import runQuery from "../../dbGenerate/query";
+import runQuery from "../../oracle/query";
+import Book from "../../components/book";
 
 export default function BooksInfo({ books }) {
   return (
     <div>
       <h1>List of Books</h1>
+      <hr/>
+      <br/>
       {books.map((book) => {
         return (
           <div key={book.ISBN}>
-            <img src={book.COVERPHOTO} alt="No photo available" width="100" />
-            <h4>{book.TITLE}</h4>
+            <Book book={book} />
           </div>
         );
       })}
@@ -17,7 +19,7 @@ export default function BooksInfo({ books }) {
 }
 
 export async function getServerSideProps() {
-  const response = await runQuery(`SELECT * FROM BOOK`);
+  const response = await runQuery(`SELECT * FROM BOOK ORDER BY BOOK.TITLE ASC`);
   return {
     props: {
       books: response.rows,

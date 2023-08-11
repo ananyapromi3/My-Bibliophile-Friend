@@ -5,7 +5,13 @@ export default function App({ Component, pageProps }) {
   const [user, setUser] = useState(null);
   return (
     <>
-      <div>My bibliophile friend</div>
+      <div>
+        <h1>MY BIBLIOPHILE FRIEND</h1>
+      </div>
+      <hr />
+      <hr />
+      <br />
+      <br />
       <Component {...pageProps} />
     </>
   );
