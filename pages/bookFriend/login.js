@@ -3,16 +3,12 @@ import Link from "next/link";
 import { useState } from "react";
 
 export default function Login() {
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [loginInfo, setLoginInfo] = useState({
     email: "",
     password: "",
   });
   const handleClick = async () => {
-    // console.log(`You are ` + ` ${email}`);
-    // <div>You are ` + ` ${email}</div>
     try {
       const response = await fetch(`/api/bookFriend/login`, {
         method: "POST",
@@ -22,10 +18,8 @@ export default function Login() {
         },
       });
       const data = await response.json();
-      // setSearchResults(data);
       console.log(data);
-      // setSearchResults(data);
-      // console.log("hi" + data);
+      setSearchResults(data);
     } catch (error) {
       console.error("Error searching:", error);
     }
@@ -39,7 +33,6 @@ export default function Login() {
           email:
           <input
             type="email"
-            // value={email}
             onChange={(e) =>
               setLoginInfo((prevState) => ({
                 email: e.target.value,
@@ -47,7 +40,6 @@ export default function Login() {
               }))
             }
             name="email"
-            // defaultValue="email"
           />
         </label>
         <br />
@@ -55,7 +47,6 @@ export default function Login() {
           Password:
           <input
             type="password"
-            // value={password}
             onChange={(e) =>
               setLoginInfo((prevState) => ({
                 email: prevState.email,
@@ -63,7 +54,6 @@ export default function Login() {
               }))
             }
             name="password"
-            // defaultValue="password"
           />
         </label>
         <br />
