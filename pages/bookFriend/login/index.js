@@ -8,8 +8,9 @@ export default function Login() {
     email: "",
     password: "",
   });
-  const handleClick = async () => {
+  const handleClick = async (event) => {
     try {
+      event.preventDefault();
       const response = await fetch(`/api/bookFriend/login`, {
         method: "POST",
         body: JSON.stringify(loginInfo),
@@ -18,12 +19,16 @@ export default function Login() {
         },
       });
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
       setSearchResults(data);
+      if (data[0]) {
+        alert(`You are: ${data[0].FIRSTNAME + " " + data[0].LASTNAME}`);
+      } else {
+        alert(`Wrong information`);
+      }
     } catch (error) {
       console.error("Error searching:", error);
     }
-    console.log(data);
   };
   return (
     <form onSubmit={handleClick}>

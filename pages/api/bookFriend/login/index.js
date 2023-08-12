@@ -6,8 +6,8 @@ export default async function handler(req, res) {
   const email = loginInfo.email;
   const password = loginInfo.password;
   const response = await runQuery(
-    `SELECT * FROM USERMAN WHERE EMAILID LIKE '${email}'`
+    `SELECT * FROM USERMAN WHERE EMAILID LIKE '${email}' AND PASSWORD LIKE '${password}'`
   );
   console.log(response.rows);
-  res.json(response.rows);
+  res.status(200).json(response.rows);
 }
