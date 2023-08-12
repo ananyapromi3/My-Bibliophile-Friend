@@ -1,13 +1,32 @@
-import runQuery from "../../oracle/query";
+import { useState } from "react";
 import Book from "../../components/book";
 
-export default function BooksInfo({ books }) {
+export default function Search() {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+
+  const handleSearch = async () => {
+    try {
+      const response = await fetch(`/api/books?term=${searchTerm}`);
+      const data = await response.json();
+      setSearchResults(data);
+    //   console.log(data);
+    } catch (error) {
+      console.error("Error searching:", error);
+    }
+  };
+
   return (
     <div>
-      <h1>List of Books</h1>
-      <hr/>
-      <br/>
-      {books.map((book) => {
+      <h1>Book List Search</h1>
+      <br />
+      <input
+        type="text"
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
+      <button onClick={handleSearch}>Search</button>
+      {searchResults.map((book, index) => {
         return (
           <div key={book.ISBN}>
             <Book book={book} />
@@ -16,13 +35,4 @@ export default function BooksInfo({ books }) {
       })}
     </div>
   );
-}
-
-export async function getServerSideProps() {
-  const response = await runQuery(`SELECT * FROM BOOK ORDER BY BOOK.TITLE ASC`);
-  return {
-    props: {
-      books: response.rows,
-    },
-  };
 }

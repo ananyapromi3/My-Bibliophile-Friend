@@ -3,18 +3,21 @@ import { useRouter } from "next/router";
 
 export default function App() {
   const router = useRouter();
-  const handleClick = () => {
-    router.push("/bookFriend/login");
-  };
+  // const handleClick = () => {
+  //   router.push("/bookFriend/login");
+  // };
   return (
     <div>
       <h1>WELCOME TO OUR PAGE</h1>
-      <button onClick={() => router.push("/bookFriend/login")}>
+      {/* <button onClick={() => router.push("/bookFriend/login")}>
         User login
-      </button>
-      <button onClick={() => router.push("/bookFriend/signup")}>
-        User signup
-      </button>
+      </button> */}
+      <Link href="/bookFriend/login">
+        <button>User login</button>
+      </Link>
+      <Link href="/bookFriend/signup">
+        <button>User signup</button>
+      </Link>
       <button onClick={() => router.push("/delivaryMan/login")}>
         Delivery Man login
       </button>
@@ -22,11 +25,11 @@ export default function App() {
         Delivery Man signup
       </button>
       <br />
-      <button onClick={() => router.push("/books")}>See Book List</button>
-      <br />
-      <button onClick={() => router.push("/books/search")}>
-        Search in Book List
+      <button onClick={() => router.push("/books/booklist")}>
+        See Book List
       </button>
+      <br />
+      <button onClick={() => router.push("/books")}>Search in Book List</button>
     </div>
   );
 }
