@@ -18,6 +18,7 @@ export default function Book({ book }) {
       <h4>Published in: {book.PUBLISHYEAR || "No information"}</h4>
       <h4>Summary: {book.SUMMARY || "No information"}</h4>
       <h5>Price: {book.PRICE || "No information"}</h5>
+      <button>Make offer</button>
       <hr />
     </div>
   );
