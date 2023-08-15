@@ -50,11 +50,11 @@ export default function Home() {
 
   return (
     <div>
-      <Head>
+      {/* <Head>
         <title>Image Uploader</title>
         <meta name="description" content="Upload your image to Cloudinary!" />
         <link rel="icon" href="/favicon.ico" />
-      </Head>
+      </Head> */}
 
       <main>
         <h1>UPLOAD YOUR BOOK IMAGE</h1>

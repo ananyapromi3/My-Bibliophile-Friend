@@ -8,6 +8,7 @@ export default async function runQuery(query) {
     connectString: "localhost/orclpdb",
   });
   const response = await connection.execute(query);
+  await connection.commit();
   await connection.close();
   return response;
 }

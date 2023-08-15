@@ -1,7 +1,10 @@
 import { useState } from "react";
-import Book from "../../components/bookOffer";
+import { useRouter } from "next/router";
+import Book from "../../../components/book";
 
 export default function Search() {
+  const router = useRouter();
+  const userId = router.query.userId;
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 
@@ -10,7 +13,6 @@ export default function Search() {
       const response = await fetch(`/api/books?term=${searchTerm}`);
       const data = await response.json();
       setSearchResults(data);
-    //   console.log(data);
     } catch (error) {
       console.error("Error searching:", error);
     }
@@ -18,7 +20,7 @@ export default function Search() {
 
   return (
     <div>
-      <h1>Book List Search</h1>
+      <h1>Book List Search for {userId}</h1>
       <br />
       <input
         type="text"
