@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 import Author from "./author";
+import Search from "../pages/bookFriend/books/[userId]";
 
 export default function Book({ book }) {
   const isbn = book.ISBN;
@@ -8,6 +9,7 @@ export default function Book({ book }) {
   const userId = router.query.userId;
   const [imageSrc, setImageSrc] = useState();
   const [uploadData, setUploadData] = useState();
+  const [uploadFlag, setUploadFlag] = useState(0);
   const [offerInfo, setOfferInfo] = useState({
     bookISBN: isbn,
     time: new Date(),
@@ -28,6 +30,7 @@ export default function Book({ book }) {
 
   async function handleOnSubmit(event) {
     event.preventDefault();
+    setUploadFlag(1);
     const form = event.currentTarget;
     const fileInput = Array.from(form.elements).find(
       ({ name }) => name === "file"
@@ -52,6 +55,8 @@ export default function Book({ book }) {
       photoURL: data.secure_url,
     }));
     setUploadData(data);
+    setImageSrc("");
+    event.target.reset();
   }
 
   const makeOffer = async () => {
@@ -63,7 +68,7 @@ export default function Book({ book }) {
       userId: prevState.userId,
       photoURL: prevState.photoURL,
     }));
-    const response = await fetch(`/api/bookFriend/bookOffer`, {
+    const response = await fetch(`/api/bookFriend/books`, {
       method: "POST",
       body: JSON.stringify(offerInfo),
       headers: {
@@ -71,7 +76,28 @@ export default function Book({ book }) {
       },
     });
     const data = await response.json();
+    console.log(data);
+    if (data.msg == "OFFER CREATED") {
+      alert("Offer Created");
+    } else {
+      alert("Could not create offer");
+    }
+    router.push(`/bookFriend/books/${offerInfo.userId}`);
+    setOfferInfo((prevState) => ({
+      bookISBN: "",
+      time: time,
+      message: "",
+      userId: prevState.userId,
+      photoURL: "",
+    }));
+    // formToReset.reset();
   };
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setUploadFlag(0);
+    e.target.reset();
+  }
 
   return (
     <div key={book.ISBN}>
@@ -111,40 +137,38 @@ export default function Book({ book }) {
             <button>Upload Files</button>
           </p>
         )}
-        {uploadData && (
-          <code>
-            <p>Uploaded</p>
-          </code>
-        )}
+        {uploadData && uploadFlag && <p>Uploaded</p>}
       </form>
-      <label>
-        Tell about the book:{" "}
-        <input
+      <form onSubmit={handleSubmit}>
+        <label>
+          Tell about the book:{" "}
+          <input
+            onChange={(e) =>
+              setOfferInfo((prevState) => ({
+                bookISBN: prevState.bookISBN,
+                time: prevState.time,
+                message: e.target.value,
+                userId: prevState.userId,
+                photoURL: prevState.photoURL,
+              }))
+            }
+          />
+        </label>
+        <button
+          onClick={makeOffer}
           onChange={(e) =>
             setOfferInfo((prevState) => ({
-              bookISBN: prevState.bookISBN,
+              bookISBN: book.ISBN,
               time: prevState.time,
-              message: e.target.value,
+              message: prevState.message,
               userId: prevState.userId,
               photoURL: prevState.photoURL,
             }))
           }
-        />
-      </label>
-      <button
-        onClick={makeOffer}
-        onChange={(e) =>
-          setOfferInfo((prevState) => ({
-            bookISBN: book.ISBN,
-            time: prevState.time,
-            message: prevState.message,
-            userId: prevState.userId,
-            photoURL: prevState.photoURL,
-          }))
-        }
-      >
-        Make offer
-      </button>
+        >
+          Make offer
+        </button>
+      </form>
       <hr />
       <hr />
     </div>

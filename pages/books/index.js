@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Book from "../../components/bookOffer";
+import Book from "../../components/book";
 
 export default function Search() {
   const [searchTerm, setSearchTerm] = useState("");

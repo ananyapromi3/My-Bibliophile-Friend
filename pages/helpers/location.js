@@ -13,6 +13,7 @@ function App() {
     try {
       const location = await axios.get("https://ipapi.co/json");
       setCurrLocation(location.data);
+      console.log(currLocationJs);
     } catch (err) {
       console.log(err);
     }
@@ -22,6 +23,8 @@ function App() {
     navigator.geolocation.getCurrentPosition((position) => {
       console.log(position);
       const { latitude, longitude } = position.coords;
+      console.log(latitude);
+      console.log(longitude);
       setCurrLocationJs({ latitude, longitude });
     });
   };

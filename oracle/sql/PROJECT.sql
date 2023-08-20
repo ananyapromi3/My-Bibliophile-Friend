@@ -11,7 +11,7 @@
  Target Server Version : 190000 (Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production)
  File Encoding         : 65001
 
- Date: 11/08/2023 23:00:37
+ Date: 21/08/2023 05:15:19
 */
 
 
@@ -42,6 +42,7 @@ DISABLE ROW MOVEMENT
 -- ----------------------------
 -- Records of ADDRESS
 -- ----------------------------
+INSERT INTO "PROJECT"."ADDRESS" VALUES ('23.7661639', '90.3588734');
 INSERT INTO "PROJECT"."ADDRESS" VALUES ('34.0522', '-118.2437');
 INSERT INTO "PROJECT"."ADDRESS" VALUES ('34.052235', '-118.243683');
 INSERT INTO "PROJECT"."ADDRESS" VALUES ('37.7749', '-122.4194');
@@ -81,6 +82,8 @@ DISABLE ROW MOVEMENT
 -- ----------------------------
 -- Records of AUTHOR
 -- ----------------------------
+INSERT INTO "PROJECT"."AUTHOR" VALUES ('Daffodil Jackson', '1991', '2012', 'Poet', 'British');
+INSERT INTO "PROJECT"."AUTHOR" VALUES ('Abrar Rahman Abir', '2000', NULL, 'Novelist', 'Bangladeshi');
 INSERT INTO "PROJECT"."AUTHOR" VALUES ('Daffodil Hill Press', NULL, NULL, NULL, NULL);
 INSERT INTO "PROJECT"."AUTHOR" VALUES ('Amy Ingalls, Pryor Rayburn, and Jennie Roberts', NULL, NULL, NULL, NULL);
 INSERT INTO "PROJECT"."AUTHOR" VALUES ('Elizabeth Dale', NULL, NULL, NULL, NULL);
@@ -456,6 +459,7 @@ INSERT INTO "PROJECT"."BOOK" VALUES ('9781434230096', 'Taking a Break', '144', '
 INSERT INTO "PROJECT"."BOOK" VALUES ('9781442401754', 'Comic Crazy ... Take 2!', '64', 'English', NULL, NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/9781442401754.jpeg', NULL, 'Fans went so crazy for it the first time, Spotlight''s doing a second installment of SpongeBob''sComic Crazy!', 'Trade Fiction');
 INSERT INTO "PROJECT"."BOOK" VALUES ('9780525421412', 'Whiteout', '272', 'English', '2009', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/9780525421412.jpeg', NULL, 'A teacher is found dead in a whiteout blizzard. If Chass doesn''t act fast, she could be next . . . Whiteout continues the story of Chastity, who has been on the run with her mother for as long as she can remember. Stumbling through a whiteout blizzard in Greenville, Minnesota, Chass trips over a dead body, and then sees a mysterious man disappear into the storm. With her haunted past, Chass knows all about running from killers, and she is sure that Kyle Van Epps is back. But Chass is sick of running, and if she hopes to ever have a normal life again, she has only one choice: find the killer before the killer finds her. ', 'Trade Fiction');
 INSERT INTO "PROJECT"."BOOK" VALUES ('9780553495034', 'The Widow and the King', '624', 'English', NULL, NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/9780553495034.jpeg', NULL, 'This stunning book opens 12 years after the end of The Cup of the World and tells the story of Ambrose, son of Phaedra and last in the king''s line, who is living exiled with his mother in the dilapidated manor of Tarceny. Ambrose''s life is threatened by the hooded priest of the Undercraft, an ancestral spirit of pure evil who must end Ambrose''s life in order to survive himself. And even when Ambrose is hidden within the house of the Widow of Develin, a hallowed place of learning and haven of education, the priest and his minions slowly and subtly infiltrate within, subverting the minds of those most educated and powerful and leaving Ambrose in mortal danger.', 'Trade Fiction');
+INSERT INTO "PROJECT"."BOOK" VALUES ('133-234-1837', 'Premer Tajmohol', '100', 'Bangla', '2023', '220', 'https://i.ytimg.com/vi/eNA5yIE84eU/maxresdefault.jpg', NULL, NULL, 'Romantic');
 INSERT INTO "PROJECT"."BOOK" VALUES ('978-984-94751-1-8', 'Chander Gari', '63', 'Bangla', '2020', '200', 'https://ds.rokomari.store/rokomari110/ProductNew20190903/260X372/663552a53_197285.jpg', 'Mermaid Media & Publications', 'They are six young people full of youthfulness. After completing the course of college life, he entered the university only. The story of their adventurous journey is described in the novel ''Chander Gari''. A small group of youngsters, who named themselves BLAST. On the one hand, various events. Traditions, murders with friends, misunderstandings, while Chander gari''s driver Aziz - who is close to these youngsters; How can they reach their desired destination by driving Chander gari with indomitable courage and skill. The story of the novel is developed in the narrative. How dreams are shaped by the extreme will of youth. Vali''s journey comes to fruition - the description of it is revealed in writer Ananya Shahreen Promi''s novel ''Chander Gari''.', 'Novel');
 INSERT INTO "PROJECT"."BOOK" VALUES ('9781434221308', 'Cheerleading Really Is a Sport', '56', 'English', '2011', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/9781434221308.jpeg', NULL, 'Alicia''s brother Danny and his friends are always putting down cheerleading. One of them even said the cheerleaders don''t belong at the Victory School. But Alicia knows that everyone on the team has something special, like her super jumping ability. She just has to prove to Danny and the others that cheerleading really is a sport.', 'Trade Fiction');
 INSERT INTO "PROJECT"."BOOK" VALUES ('9781434220578', 'Don''t Break the Balance Beam!', '56', 'English', '2011', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/9781434220578.jpeg', NULL, 'Kenzie''s super strength makes her a super tumbler. But it causes all sorts of problems on the balance beam. When she doesn''t control her strength, she falls off or even worse. If she doesn''t learn to control her strength soon, all of her teammates will be laughing and saying one thing: don''t break the balance beam!', 'Trade Fiction');
@@ -532,10 +536,10 @@ DISABLE ROW MOVEMENT
 -- ----------------------------
 -- Records of DELIVARYMAN
 -- ----------------------------
-INSERT INTO "PROJECT"."DELIVARYMAN" VALUES ('1001', 'user1@example.com');
-INSERT INTO "PROJECT"."DELIVARYMAN" VALUES ('1002', 'user2@example.com');
-INSERT INTO "PROJECT"."DELIVARYMAN" VALUES ('1003', 'user3@example.com');
-INSERT INTO "PROJECT"."DELIVARYMAN" VALUES ('1004', 'user4@example.com');
+INSERT INTO "PROJECT"."DELIVARYMAN" VALUES ('5001', 'user1@example.com');
+INSERT INTO "PROJECT"."DELIVARYMAN" VALUES ('5002', 'user2@example.com');
+INSERT INTO "PROJECT"."DELIVARYMAN" VALUES ('5003', 'user3@example.com');
+INSERT INTO "PROJECT"."DELIVARYMAN" VALUES ('5004', 'user4@example.com');
 
 -- ----------------------------
 -- Table structure for EXCHANGEOFFER
@@ -564,13 +568,13 @@ DISABLE ROW MOVEMENT
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for NOTIFICATION
+-- Table structure for NOTIFICATION1
 -- ----------------------------
-DROP TABLE "PROJECT"."NOTIFICATION";
-CREATE TABLE "PROJECT"."NOTIFICATION" (
-  "TIME" TIMESTAMP(6) VISIBLE NOT NULL,
-  "MESSAGE" VARCHAR2(500 BYTE) VISIBLE,
-  "USEREMAILID" VARCHAR2(50 BYTE) VISIBLE NOT NULL
+DROP TABLE "PROJECT"."NOTIFICATION1";
+CREATE TABLE "PROJECT"."NOTIFICATION1" (
+  "NOTIFICATIONID" NUMBER(10,0) VISIBLE NOT NULL,
+  "EMAILWHOREQUESTED" VARCHAR2(50 BYTE) VISIBLE NOT NULL,
+  "OFFERID" NUMBER(10,0) VISIBLE NOT NULL
 )
 LOGGING
 NOCOMPRESS
@@ -585,7 +589,7 @@ DISABLE ROW MOVEMENT
 ;
 
 -- ----------------------------
--- Records of NOTIFICATION
+-- Records of NOTIFICATION1
 -- ----------------------------
 
 -- ----------------------------
@@ -593,19 +597,23 @@ DISABLE ROW MOVEMENT
 -- ----------------------------
 DROP TABLE "PROJECT"."OFFER";
 CREATE TABLE "PROJECT"."OFFER" (
-  "DECLAREDATE" DATE VISIBLE NOT NULL,
   "OFFERID" NUMBER(10,0) VISIBLE NOT NULL,
   "MESSAGE" VARCHAR2(500 BYTE) VISIBLE,
   "BOOKCONDITIONPHOTO" VARCHAR2(100 BYTE) VISIBLE NOT NULL,
   "USEREMAILID" VARCHAR2(50 BYTE) VISIBLE NOT NULL,
   "ISBN" VARCHAR2(50 BYTE) VISIBLE NOT NULL,
-  "EXCHANGEID" NUMBER(10,0) VISIBLE
+  "TIME" TIMESTAMP(6) VISIBLE,
+  "STATUS" VARCHAR2(10 BYTE) VISIBLE
 )
 LOGGING
 NOCOMPRESS
 PCTFREE 10
 INITRANS 1
 STORAGE (
+  INITIAL 65536 
+  NEXT 1048576 
+  MINEXTENTS 1
+  MAXEXTENTS 2147483645
   BUFFER_POOL DEFAULT
 )
 PARALLEL 1
@@ -616,6 +624,55 @@ DISABLE ROW MOVEMENT
 -- ----------------------------
 -- Records of OFFER
 -- ----------------------------
+INSERT INTO "PROJECT"."OFFER" VALUES ('1', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user7@example.com', '9780813372617', TO_TIMESTAMP('2023-08-14 21:07:58.000000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
+INSERT INTO "PROJECT"."OFFER" VALUES ('2', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user7@example.com', '9780813372617', TO_TIMESTAMP('2023-08-14 21:11:16.000000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
+INSERT INTO "PROJECT"."OFFER" VALUES ('3', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user7@example.com', '9780813372617', TO_TIMESTAMP('2023-08-15 03:13:25.000000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
+INSERT INTO "PROJECT"."OFFER" VALUES ('5', 'kmefksn', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1692158980/my-uploads/c7ezwfh6jrb66hfaikml.jpg', 'user6@example.com', '9798889050452', TO_TIMESTAMP('2023-08-16 10:10:24.000000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
+INSERT INTO "PROJECT"."OFFER" VALUES ('6', 'kmf', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1692159179/my-uploads/yspfornimndg2ttymma3.jpg', 'user6@example.com', '9798889050452', TO_TIMESTAMP('2023-08-16 10:12:50.000000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
+INSERT INTO "PROJECT"."OFFER" VALUES ('7', 'kmfjih', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1692159179/my-uploads/yspfornimndg2ttymma3.jpg', 'user6@example.com', '9798889050452', TO_TIMESTAMP('2023-08-16 10:13:04.000000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
+INSERT INTO "PROJECT"."OFFER" VALUES ('8', 'kmfjihkjgnryjwr4', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1692159179/my-uploads/yspfornimndg2ttymma3.jpg', 'user6@example.com', '9798889050452', TO_TIMESTAMP('2023-08-16 10:13:28.000000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
+INSERT INTO "PROJECT"."OFFER" VALUES ('14', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '978-984-94751-1-8', TO_TIMESTAMP('2023-08-21 01:42:44.335000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
+INSERT INTO "PROJECT"."OFFER" VALUES ('15', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '9781434219886', TO_TIMESTAMP('2023-08-21 01:43:29.996000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
+INSERT INTO "PROJECT"."OFFER" VALUES ('16', 'efwf', 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '9781434219886', TO_TIMESTAMP('2023-08-21 01:45:06.293000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
+INSERT INTO "PROJECT"."OFFER" VALUES ('26', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '9781434220097', TO_TIMESTAMP('2023-08-21 01:58:37.451000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
+INSERT INTO "PROJECT"."OFFER" VALUES ('27', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '9781434220097', TO_TIMESTAMP('2023-08-21 02:01:52.193000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
+INSERT INTO "PROJECT"."OFFER" VALUES ('28', 'ggg', 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '9781434219886', TO_TIMESTAMP('2023-08-21 02:02:24.948000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
+INSERT INTO "PROJECT"."OFFER" VALUES ('36', 'nooooo', 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '9780136127802', TO_TIMESTAMP('2023-08-21 02:16:24.549000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
+INSERT INTO "PROJECT"."OFFER" VALUES ('37', 'regre', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1692562743/my-uploads/srozgwxm4yxdiklunul1.jpg', 'user5@example.com', '9781434221292', TO_TIMESTAMP('2023-08-21 02:19:07.849000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
+INSERT INTO "PROJECT"."OFFER" VALUES ('38', 'rgtrb', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1692562771/my-uploads/tghp0vq6wpdgszkqtu1b.png', 'user5@example.com', '9781434220097', TO_TIMESTAMP('2023-08-21 02:19:37.447000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
+INSERT INTO "PROJECT"."OFFER" VALUES ('39', 'trjjj', 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '9780193161283', TO_TIMESTAMP('2023-08-21 02:20:16.124000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
+INSERT INTO "PROJECT"."OFFER" VALUES ('40', 'reh', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1692562843/my-uploads/wcqojordbiamax1hozgu.png', 'user5@example.com', '9798986874234', TO_TIMESTAMP('2023-08-21 02:20:50.000000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
+INSERT INTO "PROJECT"."OFFER" VALUES ('41', 'loca loca loca', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1692563112/my-uploads/f2utoltunimyg9hmnunp.png', 'user5@example.com', '9781434221438', TO_TIMESTAMP('2023-08-21 02:25:20.631000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
+INSERT INTO "PROJECT"."OFFER" VALUES ('42', 'vfreb', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1692563189/my-uploads/oxexmnsvh97sywd9jrdk.png', 'user5@example.com', '9781728490779', TO_TIMESTAMP('2023-08-21 02:26:38.385000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
+INSERT INTO "PROJECT"."OFFER" VALUES ('43', 'erg', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1692563385/my-uploads/easzogijxjkuri284bsh.png', 'user5@example.com', '9781728490779', TO_TIMESTAMP('2023-08-21 02:29:50.524000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
+INSERT INTO "PROJECT"."OFFER" VALUES ('44', 'vaaaa', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1692563491/my-uploads/tksggnzic8omwjwlmdd8.png', 'user5@example.com', '9781728490779', TO_TIMESTAMP('2023-08-21 02:31:39.434000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
+INSERT INTO "PROJECT"."OFFER" VALUES ('45', 'eg', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1692563572/my-uploads/jo50dzvgl7lypyaqsnzo.png', 'user5@example.com', '9781434220110', TO_TIMESTAMP('2023-08-21 02:32:57.596000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
+INSERT INTO "PROJECT"."OFFER" VALUES ('46', 'regt', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1692563610/my-uploads/kq66myfo7tnln6kyyqcm.png', 'user5@example.com', '9781434220097', TO_TIMESTAMP('2023-08-21 02:33:36.111000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
+INSERT INTO "PROJECT"."OFFER" VALUES ('47', 'regtttt', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1692563793/my-uploads/mqx10e7mjndmvmxqlnij.png', 'user5@example.com', '9781434220097', TO_TIMESTAMP('2023-08-21 02:36:40.265000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
+INSERT INTO "PROJECT"."OFFER" VALUES ('48', 'fvfrt', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1692563828/my-uploads/kijcoipyfkolhhxumzoe.png', 'user5@example.com', '9780136127802', TO_TIMESTAMP('2023-08-21 02:37:37.440000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
+INSERT INTO "PROJECT"."OFFER" VALUES ('4', 'regtrb', 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user6@example.com', '9780773516052', TO_TIMESTAMP('2023-08-15 03:25:55.000000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
+INSERT INTO "PROJECT"."OFFER" VALUES ('32', 'klmlnk', 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '9781434220097', TO_TIMESTAMP('2023-08-21 02:07:08.969000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
+INSERT INTO "PROJECT"."OFFER" VALUES ('10', 'this is', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1692167668/my-uploads/netuez7ejdwpswf6f8db.jpg', 'user5@example.com', '133-234-1837', TO_TIMESTAMP('2023-08-16 12:33:56.000000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
+INSERT INTO "PROJECT"."OFFER" VALUES ('11', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '978-984-94751-1-8', TO_TIMESTAMP('2023-08-21 00:40:23.000000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
+INSERT INTO "PROJECT"."OFFER" VALUES ('12', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '978-984-94751-1-8', TO_TIMESTAMP('2023-08-21 00:41:12.000000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
+INSERT INTO "PROJECT"."OFFER" VALUES ('13', 'CFV', 'REV', 'user6@example.com', '978-984-94751-1-8', TO_TIMESTAMP('2023-08-21 01:27:58.417000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'OFFERED');
+INSERT INTO "PROJECT"."OFFER" VALUES ('49', 'rvgrt', 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '9781434221292', TO_TIMESTAMP('2023-08-21 02:38:22.110000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
+INSERT INTO "PROJECT"."OFFER" VALUES ('9', 'Ei book e boiche Zamuna', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1692163064/my-uploads/q1k0dmyk0ulxlnf9tkr5.jpg', 'user5@example.com', '133-234-1837', TO_TIMESTAMP('2023-08-16 11:17:10.000000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
+INSERT INTO "PROJECT"."OFFER" VALUES ('17', 'efwf', 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '9781434219886', TO_TIMESTAMP('2023-08-21 01:47:07.189000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
+INSERT INTO "PROJECT"."OFFER" VALUES ('18', 'efwf', 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '9781434219886', TO_TIMESTAMP('2023-08-21 01:47:26.058000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
+INSERT INTO "PROJECT"."OFFER" VALUES ('19', 'efwf', 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '9781434219886', TO_TIMESTAMP('2023-08-21 01:49:26.809000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
+INSERT INTO "PROJECT"."OFFER" VALUES ('20', 'efwf', 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '9781434219886', TO_TIMESTAMP('2023-08-21 01:50:33.618000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
+INSERT INTO "PROJECT"."OFFER" VALUES ('21', 'efwf', 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '9781434219886', TO_TIMESTAMP('2023-08-21 01:52:54.301000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
+INSERT INTO "PROJECT"."OFFER" VALUES ('22', 'efwf', 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '9781434219886', TO_TIMESTAMP('2023-08-21 01:55:07.161000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
+INSERT INTO "PROJECT"."OFFER" VALUES ('23', 'aaaaa', 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '9781434220639', TO_TIMESTAMP('2023-08-21 01:55:42.274000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
+INSERT INTO "PROJECT"."OFFER" VALUES ('24', 'bbbbbbb', 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '9781434220639', TO_TIMESTAMP('2023-08-21 01:56:19.659000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
+INSERT INTO "PROJECT"."OFFER" VALUES ('25', 'sssss', 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '9781434220097', TO_TIMESTAMP('2023-08-21 01:56:41.578000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
+INSERT INTO "PROJECT"."OFFER" VALUES ('29', 'dddd', 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '9798889050605', TO_TIMESTAMP('2023-08-21 02:04:29.282000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
+INSERT INTO "PROJECT"."OFFER" VALUES ('30', 'kln', 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '9798889050605', TO_TIMESTAMP('2023-08-21 02:05:00.365000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
+INSERT INTO "PROJECT"."OFFER" VALUES ('31', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '9781434220554', TO_TIMESTAMP('2023-08-21 02:05:35.774000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
+INSERT INTO "PROJECT"."OFFER" VALUES ('33', 'asssa', 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '9781434220097', TO_TIMESTAMP('2023-08-21 02:09:37.095000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
+INSERT INTO "PROJECT"."OFFER" VALUES ('34', 'rtg', 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '9781434220097', TO_TIMESTAMP('2023-08-21 02:13:54.655000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
+INSERT INTO "PROJECT"."OFFER" VALUES ('35', 'reg', 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '9781434220608', TO_TIMESTAMP('2023-08-21 02:14:35.066000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
 
 -- ----------------------------
 -- Table structure for PUBLISHER
@@ -708,14 +765,14 @@ DROP TABLE "PROJECT"."USERMAN";
 CREATE TABLE "PROJECT"."USERMAN" (
   "EMAILID" VARCHAR2(50 BYTE) VISIBLE NOT NULL,
   "PASSWORD" VARCHAR2(50 BYTE) VISIBLE NOT NULL,
-  "CONTACTNO1" NUMBER(15,0) VISIBLE NOT NULL,
-  "CONTACTNO2" NUMBER(15,0) VISIBLE,
   "FIRSTNAME" VARCHAR2(50 BYTE) VISIBLE NOT NULL,
   "DATEOFBIRTH" DATE VISIBLE NOT NULL,
   "GENDER" VARCHAR2(10 BYTE) VISIBLE NOT NULL,
   "LASTNAME" VARCHAR2(50 BYTE) VISIBLE NOT NULL,
   "LATITUDE" NUMBER(10,7) VISIBLE NOT NULL,
-  "LONGITUDE" NUMBER(10,7) VISIBLE NOT NULL
+  "LONGITUDE" NUMBER(10,7) VISIBLE NOT NULL,
+  "CONTACTNO1" VARCHAR2(20 BYTE) VISIBLE,
+  "CONTACTNO2" VARCHAR2(20 BYTE) VISIBLE
 )
 LOGGING
 NOCOMPRESS
@@ -736,16 +793,20 @@ DISABLE ROW MOVEMENT
 -- ----------------------------
 -- Records of USERMAN
 -- ----------------------------
-INSERT INTO "PROJECT"."USERMAN" VALUES ('user1@example.com', 'AmiAmiAmi1', '1234567890', NULL, 'John', TO_DATE('1990-01-15 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'Male', 'Doe', '37.7749295', '-122.4194155');
-INSERT INTO "PROJECT"."USERMAN" VALUES ('user2@example.com', 'TumiTumiTumi2', '1876543210', NULL, 'Jane', TO_DATE('2002-04-23 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'Female', 'Smith', '34.052235', '-118.243683');
-INSERT INTO "PROJECT"."USERMAN" VALUES ('user3@example.com', 'EijeEijeEije3', '1551234567', '1559876543', 'Saika', TO_DATE('1998-03-12 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'Male', 'Johnson', '40.712776', '-74.005974');
-INSERT INTO "PROJECT"."USERMAN" VALUES ('user4@example.com', 'HiThereHello2u', '1234567890', NULL, 'Emily', TO_DATE('2010-12-29 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'Female', 'Brown', '51.5074', '-0.1278');
-INSERT INTO "PROJECT"."USERMAN" VALUES ('user5@example.com', 'NoWayHome12345', '1112223333', NULL, 'Alex', TO_DATE('2002-04-13 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'Non-binary', 'Taylor', '41.8781', '-87.6298');
-INSERT INTO "PROJECT"."USERMAN" VALUES ('user6@example.com', 'AndThenThereWereNone', '1778889999', NULL, 'Samantha', TO_DATE('1989-09-02 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'Female', 'Williams', '34.0522', '-118.2437');
-INSERT INTO "PROJECT"."USERMAN" VALUES ('user7@example.com', 'HaveABeautifulDay@', '1715367856', NULL, 'Daniel', TO_DATE('1996-08-10 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'Male', 'Anderson', '37.7749', '-122.4194');
-INSERT INTO "PROJECT"."USERMAN" VALUES ('user8@example.com', 'Crying_1_2_3', '1235557890', NULL, 'Amanda', TO_DATE('1990-04-15 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'Female', 'Martinez', '40.7128', '-74.0059');
-INSERT INTO "PROJECT"."USERMAN" VALUES ('user9@example.com', 'NobodyLovesM3', '1935672398', NULL, 'Robert', TO_DATE('2000-08-19 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'Male', 'Walker', '34.0522', '-118.2437');
-INSERT INTO "PROJECT"."USERMAN" VALUES ('user10@example.com', 'IAMUSER10', '1334445555', NULL, 'Laura', TO_DATE('2002-06-20 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'Female', 'Lee', '34.0522', '-118.2437');
+INSERT INTO "PROJECT"."USERMAN" VALUES ('ananyapromi@gmail.com', 'nonono', 'Ananya', TO_DATE('2023-08-23 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'Female', 'Promi', '37.7749295', '-122.4194155', '+8801745362617', '+8801748927463');
+INSERT INTO "PROJECT"."USERMAN" VALUES ('EWG@JKB', 'HIHJIJ', 'HIUBJ', TO_DATE('2023-08-24 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'JNJK', 'JBJB', '23.7661639', '90.3588734', '98YY9', NULL);
+INSERT INTO "PROJECT"."USERMAN" VALUES ('d2@gmail.com', 'duiefhiuf', 'uhih', TO_DATE('2023-08-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'male', 'uihhiu', '37.7749295', '-122.4194155', 'undefined', 'undefined');
+INSERT INTO "PROJECT"."USERMAN" VALUES ('user1@example.com', 'AmiAmiAmi1', 'John', TO_DATE('1990-01-15 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'Male', 'Doe', '37.7749295', '-122.4194155', '+8801745362613', '+8801748927463');
+INSERT INTO "PROJECT"."USERMAN" VALUES ('user2@example.com', 'TumiTumiTumi2', 'Jane', TO_DATE('2002-04-23 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'Female', 'Smith', '34.052235', '-118.243683', '+8801547823747', NULL);
+INSERT INTO "PROJECT"."USERMAN" VALUES ('user3@example.com', 'EijeEijeEije3', 'Saika', TO_DATE('1998-03-12 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'Male', 'Johnson', '40.712776', '-74.005974', '+8801748927463', NULL);
+INSERT INTO "PROJECT"."USERMAN" VALUES ('user4@example.com', 'HiThereHello2u', 'Emily', TO_DATE('2010-12-29 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'Female', 'Brown', '51.5074', '-0.1278', '+8801748927463', NULL);
+INSERT INTO "PROJECT"."USERMAN" VALUES ('user5@example.com', 'NoWayHome12345', 'Alex', TO_DATE('2002-04-13 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'Non-binary', 'Taylor', '41.8781', '-87.6298', '+8801748927463', NULL);
+INSERT INTO "PROJECT"."USERMAN" VALUES ('user6@example.com', 'AndThenThereWereNone', 'Samantha', TO_DATE('1989-09-02 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'Female', 'Williams', '34.0522', '-118.2437', '+8801748927463', NULL);
+INSERT INTO "PROJECT"."USERMAN" VALUES ('user7@example.com', 'HaveABeautifulDay@', 'Daniel', TO_DATE('1996-08-10 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'Male', 'Anderson', '37.7749', '-122.4194', '+8801748927463', NULL);
+INSERT INTO "PROJECT"."USERMAN" VALUES ('user8@example.com', 'Crying_1_2_3', 'Amanda', TO_DATE('1990-04-15 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'Female', 'Martinez', '40.7128', '-74.0059', '+8801748927463', NULL);
+INSERT INTO "PROJECT"."USERMAN" VALUES ('user9@example.com', 'NobodyLovesM3', 'Robert', TO_DATE('2000-08-19 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'Male', 'Walker', '34.0522', '-118.2437', '+8801748927463', NULL);
+INSERT INTO "PROJECT"."USERMAN" VALUES ('user10@example.com', 'IAMUSER10', 'Laura', TO_DATE('2002-06-20 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'Female', 'Lee', '34.0522', '-118.2437', '+8801748927463', NULL);
+INSERT INTO "PROJECT"."USERMAN" VALUES ('d22@gmail.com', 'duiefhiuf', 'uhih', TO_DATE('2023-08-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'male', 'uihhiu', '37.7749295', '-122.4194155', 'undefined', 'undefined');
 
 -- ----------------------------
 -- Table structure for WRITTENBY
@@ -774,6 +835,9 @@ DISABLE ROW MOVEMENT
 -- ----------------------------
 -- Records of WRITTENBY
 -- ----------------------------
+INSERT INTO "PROJECT"."WRITTENBY" VALUES ('133-234-1837', 'Abrar Rahman Abir');
+INSERT INTO "PROJECT"."WRITTENBY" VALUES ('133-234-1837', 'Ananya Shahrin Promi');
+INSERT INTO "PROJECT"."WRITTENBY" VALUES ('978-984-94751-1-8', 'Ananya Shahrin Promi');
 INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9780193161283', 'John Harper');
 INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9780195083514', 'Odie B. Faulk');
 INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9780198229902', 'W. E. Mosse');
@@ -836,31 +900,31 @@ INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9781737503378', 'Amy Ingalls, Pryor R
 INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9781737503385', 'Amy Ingalls, Pryor Rayburn, and Jennie Roberts');
 INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9781737503392', 'Amy Ingalls, Pryor Rayburn, and Jennie Roberts');
 INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9789768125408', 'George L. Beckford');
-INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050315', 'Daffodil Hill Press');
-INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050322', 'Daffodil Hill Press');
-INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050346', 'Daffodil Hill Press');
-INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050353', 'Daffodil Hill Press');
-INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050377', 'Daffodil Hill Press');
-INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050407', 'Daffodil Hill Press');
-INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050414', 'Daffodil Hill Press');
-INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050452', 'Daffodil Hill Press');
-INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050483', 'Daffodil Hill Press');
-INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050513', 'Daffodil Hill Press');
-INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050520', 'Daffodil Hill Press');
-INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050544', 'Daffodil Hill Press');
-INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050568', 'Daffodil Hill Press');
-INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050575', 'Daffodil Hill Press');
-INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050605', 'Daffodil Hill Press');
-INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050674', 'Daffodil Hill Press');
-INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050711', 'Daffodil Hill Press');
-INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050742', 'Daffodil Hill Press');
-INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050759', 'Daffodil Hill Press');
-INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050797', 'Daffodil Hill Press');
-INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050803', 'Daffodil Hill Press');
-INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050827', 'Daffodil Hill Press');
-INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050858', 'Daffodil Hill Press');
-INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050889', 'Daffodil Hill Press');
-INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050896', 'Daffodil Hill Press');
+INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050315', 'Daffodil Jackson');
+INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050322', 'Daffodil Jackson');
+INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050346', 'Daffodil Jackson');
+INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050353', 'Daffodil Jackson');
+INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050377', 'Daffodil Jackson');
+INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050407', 'Daffodil Jackson');
+INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050414', 'Daffodil Jackson');
+INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050452', 'Daffodil Jackson');
+INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050483', 'Daffodil Jackson');
+INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050513', 'Daffodil Jackson');
+INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050520', 'Daffodil Jackson');
+INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050544', 'Daffodil Jackson');
+INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050568', 'Daffodil Jackson');
+INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050575', 'Daffodil Jackson');
+INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050605', 'Daffodil Jackson');
+INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050674', 'Daffodil Jackson');
+INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050711', 'Daffodil Jackson');
+INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050742', 'Daffodil Jackson');
+INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050759', 'Daffodil Jackson');
+INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050797', 'Daffodil Jackson');
+INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050803', 'Daffodil Jackson');
+INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050827', 'Daffodil Jackson');
+INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050858', 'Daffodil Jackson');
+INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050889', 'Daffodil Jackson');
+INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050896', 'Daffodil Jackson');
 INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798986874203', 'Amy Ingalls, Pryor Rayburn, and Jennie Roberts');
 INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798986874210', 'Amy Ingalls, Pryor Rayburn, and Jennie Roberts');
 INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798986874227', 'Amy Ingalls, Pryor Rayburn, and Jennie Roberts');
@@ -871,6 +935,108 @@ INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798986874265', 'Amy Ingalls, Pryor R
 INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798986874272', 'Amy Ingalls, Pryor Rayburn, and Jennie Roberts');
 INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798986874289', 'Amy Ingalls, Pryor Rayburn, and Jennie Roberts');
 INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798986874296', 'Amy Ingalls, Pryor Rayburn, and Jennie Roberts');
+INSERT INTO "PROJECT"."WRITTENBY" VALUES ('984-70096-0357-0', 'Muhammed Zafar Iqbal');
+
+-- ----------------------------
+-- Function structure for CREATE_OFFER
+-- ----------------------------
+CREATE OR REPLACE
+PROCEDURE "PROJECT"."CREATE_OFFER" AS
+BEGIN 
+	INSERT INTO OFFER VALUES (GET_NEXT_OFFERID, MSG, PHOTO, GET_EMAIL_FROM_BOOKFRIENDID(ID), ISBN, SYSTIMESTAMP, 'offered');
+	MSG2 := 'OFFER CREATED';
+EXCEPTION
+	WHEN DUP_VAL_ON_INDEX THEN 
+		MSG2 := 'ERROR';
+	WHEN OTHERS THEN 
+		MSG2 := 'UNKNOWN ERROR';
+END;
+
+-- DECLARE
+-- 	MSG VARCHAR2(100);
+-- BEGIN
+-- 	CREATE_OFFER('CFV', 'REV', 1002, '978-984-94751-1-8', MSG);
+-- 	DBMS_OUTPUT.PUT_LINE(MSG);
+-- END;
+/
+
+-- ----------------------------
+-- Function structure for GET_EMAIL_FROM_BOOKFRIENDID
+-- ----------------------------
+CREATE OR REPLACE
+FUNCTION "PROJECT"."GET_EMAIL_FROM_BOOKFRIENDID" AS
+BEGIN 
+	SELECT EMAILID INTO EMAIL FROM BOOKFRIEND WHERE BOOKFRIENDID=ID;
+	RETURN EMAIL;
+END;
+
+-- CREATE OR REPLACE PROCEDURE CREATE_OFFER(MSG IN VARCHAR2, PHOTO IN VARCHAR2, EMAIL, )
+/
+
+-- ----------------------------
+-- Function structure for GET_NEXT_OFFERID
+-- ----------------------------
+CREATE OR REPLACE
+FUNCTION "PROJECT"."GET_NEXT_OFFERID" AS
+BEGIN 
+	SELECT COUNT(OFFERID) INTO ID FROM OFFER;
+	ID := ID + 1;
+	RETURN ID;
+END;
+/
+
+-- ----------------------------
+-- Function structure for NEW_ADDRESS
+-- ----------------------------
+CREATE OR REPLACE
+PROCEDURE "PROJECT"."NEW_ADDRESS" AS
+BEGIN
+	INSERT INTO ADDRESS VALUES (LATITUDE, LONGITUDE);
+	MSG := 'DONE';
+EXCEPTION
+	WHEN DUP_VAL_ON_INDEX THEN 
+		MSG := 'DUPLICATE';
+	WHEN NO_DATA_FOUND THEN 
+		MSG := 'NO DATA';
+	WHEN TOO_MANY_ROWS THEN 
+		MSG := 'MANY ROWS';
+	WHEN INVALID_NUMBER THEN 
+		MSG := 'CONVERSION FAILED';
+	WHEN VALUE_ERROR THEN 
+		MSG := 'VALUE ERROR';
+	WHEN ZERO_DIVIDE THEN 
+		MSG := '0 DEVIDE';
+	WHEN OTHERS THEN 
+		MSG := 'UNKNOWN ERROR';
+END;
+/
+
+-- ----------------------------
+-- Function structure for SIGNUP
+-- ----------------------------
+CREATE OR REPLACE
+PROCEDURE "PROJECT"."SIGNUP" AS
+BEGIN
+	NEW_ADDRESS(LATITUDE, LONGITUDE, M2);
+	INSERT INTO USERMAN VALUES(EMAIL, PASSWORD, FIRSTNAME, DATEOFBIRTH, GENDER, LASTNAME, LATITUDE, LONGITUDE, CONTACTNO1, CONTACTNO2);
+	MSG := 'SUCCESSFUL';
+EXCEPTION
+	WHEN DUP_VAL_ON_INDEX THEN 
+		MSG := 'DUPLICATE';
+	WHEN NO_DATA_FOUND THEN 
+		MSG := 'NO DATA';
+	WHEN TOO_MANY_ROWS THEN 
+		MSG := 'MANY ROWS';
+	WHEN INVALID_NUMBER THEN 
+		MSG := 'CONVERSION FAILED';
+	WHEN VALUE_ERROR THEN 
+		MSG := 'VALUE ERROR';
+	WHEN ZERO_DIVIDE THEN 
+		MSG := '0 DEVIDE';
+	WHEN OTHERS THEN 
+		MSG := 'UNKNOWN ERROR';
+END;
+/
 
 -- ----------------------------
 -- Primary Key structure for table ADDRESS
@@ -948,15 +1114,16 @@ ALTER TABLE "PROJECT"."EXCHANGEOFFER" ADD CONSTRAINT "SYS_C008167" PRIMARY KEY (
 ALTER TABLE "PROJECT"."EXCHANGEOFFER" ADD CONSTRAINT "SYS_C008166" CHECK ("EXCHANGEID" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
 
 -- ----------------------------
--- Primary Key structure for table NOTIFICATION
+-- Primary Key structure for table NOTIFICATION1
 -- ----------------------------
-ALTER TABLE "PROJECT"."NOTIFICATION" ADD CONSTRAINT "SYS_C008164" PRIMARY KEY ("TIME");
+ALTER TABLE "PROJECT"."NOTIFICATION1" ADD CONSTRAINT "SYS_C008203" PRIMARY KEY ("NOTIFICATIONID");
 
 -- ----------------------------
--- Checks structure for table NOTIFICATION
+-- Checks structure for table NOTIFICATION1
 -- ----------------------------
-ALTER TABLE "PROJECT"."NOTIFICATION" ADD CONSTRAINT "SYS_C008162" CHECK ("TIME" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
-ALTER TABLE "PROJECT"."NOTIFICATION" ADD CONSTRAINT "SYS_C008163" CHECK ("USEREMAILID" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+ALTER TABLE "PROJECT"."NOTIFICATION1" ADD CONSTRAINT "SYS_C008200" CHECK ("NOTIFICATIONID" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+ALTER TABLE "PROJECT"."NOTIFICATION1" ADD CONSTRAINT "SYS_C008201" CHECK ("EMAILWHOREQUESTED" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+ALTER TABLE "PROJECT"."NOTIFICATION1" ADD CONSTRAINT "SYS_C008202" CHECK ("OFFERID" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
 
 -- ----------------------------
 -- Primary Key structure for table OFFER
@@ -966,7 +1133,6 @@ ALTER TABLE "PROJECT"."OFFER" ADD CONSTRAINT "SYS_C008174" PRIMARY KEY ("OFFERID
 -- ----------------------------
 -- Checks structure for table OFFER
 -- ----------------------------
-ALTER TABLE "PROJECT"."OFFER" ADD CONSTRAINT "SYS_C008169" CHECK ("DECLAREDATE" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
 ALTER TABLE "PROJECT"."OFFER" ADD CONSTRAINT "SYS_C008170" CHECK ("OFFERID" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
 ALTER TABLE "PROJECT"."OFFER" ADD CONSTRAINT "SYS_C008171" CHECK ("BOOKCONDITIONPHOTO" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
 ALTER TABLE "PROJECT"."OFFER" ADD CONSTRAINT "SYS_C008172" CHECK ("USEREMAILID" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
@@ -1005,7 +1171,6 @@ ALTER TABLE "PROJECT"."USERMAN" ADD CONSTRAINT "SYS_C008150" PRIMARY KEY ("EMAIL
 -- ----------------------------
 ALTER TABLE "PROJECT"."USERMAN" ADD CONSTRAINT "SYS_C008141" CHECK ("EMAILID" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
 ALTER TABLE "PROJECT"."USERMAN" ADD CONSTRAINT "SYS_C008142" CHECK ("PASSWORD" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
-ALTER TABLE "PROJECT"."USERMAN" ADD CONSTRAINT "SYS_C008143" CHECK ("CONTACTNO1" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
 ALTER TABLE "PROJECT"."USERMAN" ADD CONSTRAINT "SYS_C008144" CHECK ("FIRSTNAME" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
 ALTER TABLE "PROJECT"."USERMAN" ADD CONSTRAINT "SYS_C008145" CHECK ("DATEOFBIRTH" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
 ALTER TABLE "PROJECT"."USERMAN" ADD CONSTRAINT "SYS_C008146" CHECK ("GENDER" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
@@ -1045,16 +1210,15 @@ ALTER TABLE "PROJECT"."DELIVARYMAN" ADD CONSTRAINT "SYS_C008156" FOREIGN KEY ("E
 ALTER TABLE "PROJECT"."EXCHANGEOFFER" ADD CONSTRAINT "SYS_C008168" FOREIGN KEY ("DELIVARYMANEMAILID") REFERENCES "PROJECT"."DELIVARYMAN" ("EMAILID") NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
 
 -- ----------------------------
--- Foreign Keys structure for table NOTIFICATION
+-- Foreign Keys structure for table NOTIFICATION1
 -- ----------------------------
-ALTER TABLE "PROJECT"."NOTIFICATION" ADD CONSTRAINT "SYS_C008165" FOREIGN KEY ("USEREMAILID") REFERENCES "PROJECT"."USERMAN" ("EMAILID") NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+ALTER TABLE "PROJECT"."NOTIFICATION1" ADD CONSTRAINT "SYS_C008204" FOREIGN KEY ("OFFERID") REFERENCES "PROJECT"."OFFER" ("OFFERID") NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
 
 -- ----------------------------
 -- Foreign Keys structure for table OFFER
 -- ----------------------------
 ALTER TABLE "PROJECT"."OFFER" ADD CONSTRAINT "SYS_C008175" FOREIGN KEY ("USEREMAILID") REFERENCES "PROJECT"."BOOKFRIEND" ("EMAILID") NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
 ALTER TABLE "PROJECT"."OFFER" ADD CONSTRAINT "SYS_C008176" FOREIGN KEY ("ISBN") REFERENCES "PROJECT"."BOOK" ("ISBN") NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
-ALTER TABLE "PROJECT"."OFFER" ADD CONSTRAINT "SYS_C008177" FOREIGN KEY ("EXCHANGEID") REFERENCES "PROJECT"."EXCHANGEOFFER" ("EXCHANGEID") NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
 
 -- ----------------------------
 -- Foreign Keys structure for table REVIEW

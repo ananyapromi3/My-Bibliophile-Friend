@@ -1,4 +1,7 @@
+import runProcedureWithOutBinds from "../../../../oracle/procedureOutBinds";
 import runQuery from "../../../../oracle/query";
+import oracledb from "oracledb";
+oracledb.outFormat = oracledb.OUT_FORMAT_OBJECT;
 
 export default async function handler(req, res) {
   let offerInfo = req.body;
@@ -7,17 +10,18 @@ export default async function handler(req, res) {
   const photo = offerInfo.photoURL;
   const userId = offerInfo.userId;
   const isbn = offerInfo.bookISBN;
-  let time = offerInfo.time;
-  time = Date.parse(time) + 6 * 3600 * 1000;
-  const status = "offered";
-  let count = await runQuery(`SELECT COUNT(*) C FROM OFFER`);
-  count = count.rows[0].C + 1;
-  let email = await runQuery(
-    `SELECT EMAILID E FROM BOOKFRIEND WHERE BOOKFRIENDID=${userId}`
-  );
-  email = email.rows[0].E;
-  const response = await runQuery(
-    `INSERT INTO OFFER VALUES (${count}, '${message}', '${photo}', '${email}', '${isbn}', TO_DATE('1970-01-01','YYYY-MM-DD HH24:MI:SS')+(${time}/(1000*60*60*24)), '${status}')`
+  const binds = {
+    message: message,
+    photo: photo,
+    id: userId,
+    isbn: isbn,
+    msg: { dir: oracledb.BIND_OUT, type: oracledb.VARCHAR2 },
+  };
+  const response = await runProcedureWithOutBinds(
+    `BEGIN
+      CREATE_OFFER(:message, :photo, :id, :isbn, :msg);
+    END;`,
+    binds
   );
   res.status(200).json(response);
 }

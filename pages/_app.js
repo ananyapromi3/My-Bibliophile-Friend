@@ -1,5 +1,6 @@
 import "../styles/global.css";
 import { useState } from "react";
+import 'regenerator-runtime/runtime'
 
 export default function App({ Component, pageProps }) {
   const [user, setUser] = useState(null);
