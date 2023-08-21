@@ -137,7 +137,7 @@ export default function Book({ book }) {
             <button>Upload Files</button>
           </p>
         )}
-        {uploadData && uploadFlag && <p>Uploaded</p>}
+        {uploadData && uploadFlag ? <p>Uploaded</p> : <></>}
       </form>
       <form onSubmit={handleSubmit}>
         <label>
