@@ -1,4 +1,4 @@
-html,
+/* html,
 body {
     padding: 0;
     margin: 0;
@@ -16,4 +16,57 @@ a {
 
 h1 {
     color: orange;
+} */
+
+/* Reset default padding, margin, and font-family for HTML and body elements */
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: #222; /* Dark background color */
+  color: #fff; /* Text color for dark theme */
 }
+
+/* Define default link styles */
+a {
+  color: #007bff; /* Blue link color */
+  text-decoration: none;
+}
+
+/* Apply box-sizing border-box to all elements */
+* {
+  box-sizing: border-box;
+}
+
+/* Define styles for h1 elements */
+h1 {
+  color: #ffa500; /* Orange color for headings */
+}
+
+/* Adjust button styles for dark theme */
+.btn {
+  background-color: #007bff; /* Blue button background */
+  color: #fff; /* White button text color */
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.btn:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Apply consistent styling for input fields */
+input {
+  padding: 10px;
+  border: 1px solid #444; /* Dark border color */
+  background-color: #333; /* Dark input background */
+  color: #fff; /* White text color */
+}
+
+/* Add more global styles as needed */

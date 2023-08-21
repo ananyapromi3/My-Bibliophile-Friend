@@ -4,6 +4,8 @@ import axios from "axios";
 function App() {
   const [currLocation, setCurrLocation] = useState({});
   const [currLocationJs, setCurrLocationJs] = useState({});
+  const [latitude, setLatitude] = useState(0);
+  const [longitude, setLongitude] = useState(0);
   useEffect(() => {
     getLocation();
     getLocationJs();
@@ -11,9 +13,9 @@ function App() {
 
   const getLocation = async () => {
     try {
-      const location = await axios.get("https://ipapi.co/json");
+      const location = await fetch("https://ipapi.co");
       setCurrLocation(location.data);
-      console.log(currLocationJs);
+      // console.log(currLocationJs);
     } catch (err) {
       console.log(err);
     }
@@ -25,6 +27,8 @@ function App() {
       const { latitude, longitude } = position.coords;
       console.log(latitude);
       console.log(longitude);
+      setLatitude(latitude);
+      setLongitude(longitude);
       setCurrLocationJs({ latitude, longitude });
     });
   };

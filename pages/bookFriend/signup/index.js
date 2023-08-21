@@ -12,10 +12,11 @@ export default function Login() {
     getLocation();
     getLocationJs();
   }, []);
+  // console.log(currLocationJs);
 
   const getLocation = async () => {
     try {
-      const location = await axios.get("https://ipapi.co/json");
+      const location = await axios.get("https://ipapi.co");
       setCurrLocation(location.data);
     } catch (err) {
       console.log(err);
@@ -27,6 +28,7 @@ export default function Login() {
       console.log(position);
       const { latitude, longitude } = position.coords;
       setCurrLocationJs({ latitude, longitude });
+      console.log(currLocationJs);
     });
   };
 
@@ -42,12 +44,24 @@ export default function Login() {
     dob: "",
     phn1: "",
     phn2: "",
-    latitute: currLocationJs.latitude,
-    longitude: currLocationJs.longitude,
+    latitude: 0,
+    longitude: 0,
   });
   const handleClick = async (event) => {
     try {
       event.preventDefault();
+      setLoginInfo((prevState) => ({
+        email: prevState.email,
+        password: prevState.password,
+        firstname: prevState.firstname,
+        lastname: prevState.lastname,
+        sex: prevState.sex,
+        dob: prevState.dob,
+        phn1: prevState.phn1,
+        phn2: prevState.phn2,
+        latitude: currLocationJs.latitude,
+        longitude: currLocationJs.longitude,
+      }));
       const response = await fetch(`/api/bookFriend/signup`, {
         method: "POST",
         body: JSON.stringify(loginInfo),
@@ -78,8 +92,8 @@ export default function Login() {
                 dob: prevState.dob,
                 phn1: prevState.phn1,
                 phn2: prevState.phn2,
-                latitute: prevState.latitute,
-                longitude: prevState.longitude,
+                latitude: currLocationJs.latitude,
+                longitude: currLocationJs.longitude,
               }))
             }
             name="email"
@@ -100,8 +114,8 @@ export default function Login() {
                 dob: prevState.dob,
                 phn1: prevState.phn1,
                 phn2: prevState.phn2,
-                latitute: prevState.latitute,
-                longitude: prevState.longitude,
+                latitude: currLocationJs.latitude,
+                longitude: currLocationJs.longitude,
               }))
             }
             name="password"
@@ -122,8 +136,8 @@ export default function Login() {
                 dob: prevState.dob,
                 phn1: prevState.phn1,
                 phn2: prevState.phn2,
-                latitute: prevState.latitute,
-                longitude: prevState.longitude,
+                latitude: currLocationJs.latitude,
+                longitude: currLocationJs.longitude,
               }))
             }
             name="firstname"
@@ -144,8 +158,8 @@ export default function Login() {
                 dob: prevState.dob,
                 phn1: prevState.phn1,
                 phn2: prevState.phn2,
-                latitute: prevState.latitute,
-                longitude: prevState.longitude,
+                latitude: currLocationJs.latitude,
+                longitude: currLocationJs.longitude,
               }))
             }
             name="lastname"
@@ -166,7 +180,7 @@ export default function Login() {
                 dob: prevState.dob,
                 phn1: prevState.phn1,
                 phn2: prevState.phn2,
-                latitute: prevState.latitute,
+                latitude: prevState.latitude,
                 longitude: prevState.longitude,
               }))
             }
@@ -184,8 +198,8 @@ export default function Login() {
                 dob: prevState.dob,
                 phn1: prevState.phn1,
                 phn2: prevState.phn2,
-                latitute: prevState.latitute,
-                longitude: prevState.longitude,
+                latitude: currLocationJs.latitude,
+                longitude: currLocationJs.longitude,
               }))
             }
           >
@@ -210,8 +224,8 @@ export default function Login() {
                 dob: e.target.value,
                 phn1: prevState.phn1,
                 phn2: prevState.phn2,
-                latitute: prevState.latitute,
-                longitude: prevState.longitude,
+                latitude: currLocationJs.latitude,
+                longitude: currLocationJs.longitude,
               }))
             }
             name="dob"
@@ -232,8 +246,8 @@ export default function Login() {
                 dob: prevState.dob,
                 phn1: e.target.value,
                 phn2: prevState.phn2,
-                latitute: prevState.latitute,
-                longitude: prevState.longitude,
+                latitude: currLocationJs.latitude,
+                longitude: currLocationJs.longitude,
               }))
             }
             name="phn1"
@@ -254,8 +268,8 @@ export default function Login() {
                 dob: prevState.dob,
                 phn1: prevState.phn1,
                 phn2: e.target.value,
-                latitute: prevState.latitute,
-                longitude: prevState.longitude,
+                latitude: currLocationJs.latitude,
+                longitude: currLocationJs.longitude,
               }))
             }
             name="phn2"
