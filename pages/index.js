@@ -13,23 +13,34 @@ export default function App() {
         User login
       </button> */}
       <Link href="/bookFriend/login">
-        <button>User login</button>
+        <button className="btn btn-primary">User login</button>
       </Link>
       <Link href="/bookFriend/signup">
-        <button>User signup</button>
+        <button className="btn btn-primary">User signup</button>
       </Link>
-      <button onClick={() => router.push("/delivaryMan/login")}>
+      <button
+        className="btn btn-primary"
+        onClick={() => router.push("/delivaryMan/login")}
+      >
         Delivery Man login
       </button>
-      <button onClick={() => router.push("/delivaryMan/signup")}>
+      <button
+        className="btn btn-primary"
+        onClick={() => router.push("/delivaryMan/signup")}
+      >
         Delivery Man signup
       </button>
       <br />
-      <button onClick={() => router.push("/books/booklist")}>
+      <button
+        className="btn btn-primary"
+        onClick={() => router.push("/books/booklist")}
+      >
         See Book List
       </button>
       <br />
-      <button onClick={() => router.push("/books")}>Search in Book List</button>
+      <button className="btn btn-primary" onClick={() => router.push("/books")}>
+        Search in Book List
+      </button>
     </div>
   );
 }

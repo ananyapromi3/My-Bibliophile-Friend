@@ -153,8 +153,8 @@ export default function Login() {
         </label>
         <br />
         <label>
-          Sex :
-          <input
+          Gender :
+          {/* <input
             type="text"
             onChange={(e) =>
               setLoginInfo((prevState) => ({
@@ -171,7 +171,29 @@ export default function Login() {
               }))
             }
             name="sex"
-          />
+          /> */}
+          <select
+            name="sex"
+            onChange={(e) =>
+              setLoginInfo((prevState) => ({
+                email: prevState.email,
+                password: prevState.password,
+                firstname: prevState.firstname,
+                lastname: prevState.lastname,
+                sex: e.target.value,
+                dob: prevState.dob,
+                phn1: prevState.phn1,
+                phn2: prevState.phn2,
+                latitute: prevState.latitute,
+                longitude: prevState.longitude,
+              }))
+            }
+          >
+            <option value=""></option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Others">Others</option>
+          </select>
         </label>
         <br />
         <label>
@@ -240,7 +262,7 @@ export default function Login() {
           />
         </label>
         <br />
-        <button type="submit" name="loginButton">
+        <button type="submit" name="loginButton" className="btn btn-primary">
           SignUp
         </button>
       </div>

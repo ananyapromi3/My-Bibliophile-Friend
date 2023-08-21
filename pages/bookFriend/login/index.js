@@ -139,7 +139,7 @@ export default function Login() {
           />
         </label>
         <br />
-        <button type="submit" name="loginButton">
+        <button type="submit" name="loginButton" className="btn btn-primary">
           Login
         </button>
       </div>

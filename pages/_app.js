@@ -1,6 +1,7 @@
-import "../styles/global.css";
+import "../styles/globals.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
-import 'regenerator-runtime/runtime'
+import "regenerator-runtime/runtime";
 
 export default function App({ Component, pageProps }) {
   const [user, setUser] = useState(null);
