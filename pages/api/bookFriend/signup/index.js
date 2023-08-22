@@ -20,15 +20,18 @@ export default async function handler(req, res) {
     // longitude: 90.3588734,
     phn1: loginInfo.phn1,
     phn2: loginInfo.phn2,
-    msg: { dir: oracledb.BIND_OUT, type: oracledb.STRING },
+    msg1: { dir: oracledb.BIND_OUT, type: oracledb.STRING },
+    msg2: { dir: oracledb.BIND_OUT, type: oracledb.STRING },
   };
-  console.log(binds);
+  // console.log(binds);
   const response = await runProcedureWithOutBinds(
     `BEGIN
-      SIGNUP(:email, :password, :firstname, TO_DATE(:dob, 'YYYY-MM-DD'), :gender, :lastname, :latitude, :longitude, :phn1, :phn2, :msg);
+      SIGNUP(:email, :password, :firstname, TO_DATE(:dob, 'YYYY-MM-DD'), :gender, :lastname, :latitude, :longitude, :phn1, :phn2, :msg1);
+      ADD_TO_BOOKFRIEND(:email, :msg2);
     END;`,
     binds
   );
-  console.log(response);
-  res.json();
+  // console.log(response);
+  res.json(response);
+  // res.status(200).json(response.rows);
 }

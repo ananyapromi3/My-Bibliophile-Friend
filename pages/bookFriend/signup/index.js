@@ -69,10 +69,19 @@ export default function Login() {
           "Contain-Type": "application/json",
         },
       });
+      const data = await response.json();
+      console.log(data);
+      if ((data.msg1 == "SUCCESSFUL")) {
+        router.push(`/bookFriend/login`);
+      } else if ((data.msg1 == "DUPLICATE")) {
+        alert("You already have an account");
+      } else {
+        alert("Cannot create account");
+      }
     } catch (error) {
       console.error("Error searching:", error);
     }
-    console.log("SUCCESSSS");
+    // console.log("SUCCESSSS");
   };
   return (
     <form onSubmit={handleClick}>
