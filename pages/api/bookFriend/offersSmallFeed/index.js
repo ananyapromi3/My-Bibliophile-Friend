@@ -23,12 +23,14 @@ export default async function handler(req, res) {
         MS1 VARCHAR2(50);
         MS2 VARCHAR2(50);
         MS3 VARCHAR2(50);
+        MS4 VARCHAR2(50);
     BEGIN
         ACCEPT_OFFER_FINALLY (:offerId1, MS1);
         ACCEPT_OFFER_FINALLY (:offerId2, MS2);
         IF MS1 = 'CREATED' AND MS2 = 'CREATED' THEN
             CREATE_NOTIFICATION2 (:userId, :offerId1, :msg);
             DISABLE_NOTIFICATION (:notiId, MS3);
+            CREATE_EXCHANGE_OFFER(:offerId1, :offerId2, MS4);
         END IF;
     END;`,
     binds
