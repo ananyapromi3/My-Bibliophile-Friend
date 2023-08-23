@@ -14,13 +14,18 @@ async function runApp() {
     console.log("Succesfully connected to Oracle Database");
 
     const result = await connection.execute(
-      `SELECT * FROM BOOK`
+      `SELECT DISTINCT GENRE FROM BOOK WHERE GENRE IS NOT NULL`
       //  WHERE delivaryManID = :id`,
       // [1001] // bind value for :id
     );
 
     // console.log(result);
-    console.log(result.rows);
+    // console.log(result.rows);
+    let arr=[];
+    for (let i = 0; i < result.rows.length; i++) {
+      arr.push(result.rows[i].GENRE);
+    }
+    console.log(arr);
   } catch (err) {
     console.log(err);
   } finally {
