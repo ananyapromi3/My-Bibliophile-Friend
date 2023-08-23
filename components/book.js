@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import Author from "./author";
 import Search from "../pages/bookFriend/books/[userId]";
 import styles from "../styles/book.module.css";
+// import styles from "../styles/bookGrid.module.css";
 // import { Modal } from "bootstrap";
 import Modal from "./modal";
 export default function Book({ book }) {
@@ -113,7 +114,6 @@ export default function Book({ book }) {
 
   return (
     <div key={book.ISBN} className={styles.bookCard}>
-      <br />
       <img
         className={styles.bookImage}
         src={
@@ -122,36 +122,85 @@ export default function Book({ book }) {
         }
         alt="No photo available"
       />
-      <h2 className={styles.bookTitle}>{book.TITLE}</h2>
-      <h3>ISBN: {book.ISBN}</h3>
-      <h4>Language: {book.LANGUAGE || "No information"}</h4>
-      <h4>Genre: {book.GENRE || "No information"}</h4>
-      <h4>Published by: {book.PUBLISHERNAME || "No information"}</h4>
-      <h4>Published in: {book.PUBLISHYEAR || "No information"}</h4>
-      <h4 className={styles.bookSummary}>
-        Summary: {book.SUMMARY || "No information"}
-      </h4>
-      <h5>Price: {book.PRICE || "No information"}</h5>
-      <h4>Written by:</h4>
-      {book.AUTHOR.map((author, index) => {
-        return (
-          <div key={author.NAME}>
-            <Author author={author} />
-          </div>
-        );
-      })}
-      <hr />
 
-      <button onClick={() => openModal(book)}>Details</button>
+      <h2 className={styles.bookTitle}>{book.TITLE}</h2>
+      <p className={styles.bookInfo}>
+        <b>ISBN: </b>
+        {book.ISBN}
+      </p>
+      {book.LANGUAGE ? (
+        <p className={styles.bookInfo}>
+          <b>Language: </b>
+          {book.LANGUAGE || "No information"}
+        </p>
+      ) : (
+        <></>
+      )}
+      {book.GENRE ? (
+        <p className={styles.bookInfo}>
+          <b>Genre: </b>
+          {book.GENRE || "No information"}
+        </p>
+      ) : (
+        <></>
+      )}
+      {book.PUBLISHERNAME ? (
+        <p className={styles.bookInfo}>
+          <b>Published by: </b>
+          {book.PUBLISHERNAME || "No information"}
+        </p>
+      ) : (
+        <></>
+      )}
+      {book.PUBLISHYEAR ? (
+        <p className={styles.bookInfo}>
+          <b>Published in: </b>
+          {book.PUBLISHYEAR || "No information"}
+        </p>
+      ) : (
+        <></>
+      )}
+      {book.SUMMARY == "null" || book.SUMMARY == null ? (
+        <></>
+      ) : (
+        <p className={styles.bookSummary}><b>Summary: </b>{book.SUMMARY}</p>
+      )}
+      {book.PRICE ? (
+        <p className={styles.bookInfo}>
+          <b>Price: </b>
+          {book.PRICE || "No information"}
+        </p>
+      ) : (
+        <></>
+      )}
+      {book.AUTHOR[0] ? (
+        <div>
+          <p className={styles.bookInfo}>
+            <b>Written by:</b>
+          </p>
+          <div className={styles.authorInfo}>
+            {book.AUTHOR.map((author, index) => {
+              return (
+                <div key={author.NAME}>
+                  <Author author={author} />
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      ) : (
+        <></>
+      )}
+      <br/>
+      <button className={styles.detailsButton} onClick={() => openModal(book)}>
+        Make an Offer
+      </button>
       {isModalOpen && (
         <Modal onClose={closeModal} book={book}>
-          {/* Modal content */}
-          {selectedBook && (
+          {/* {selectedBook && (
             <div>
-              {/* Book details and form */}
-              {/* <button onClick={closeModal}>Back</button> */}
             </div>
-          )}
+          )} */}
         </Modal>
       )}
     </div>

@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import Book from "../../../components/book";
 import { useEffect } from "react";
 import BookFilters from "../../../components/bookFilter";
+import styles from "../../../styles/search.module.css";
 
 export default function Search() {
   const router = useRouter();
@@ -69,19 +70,12 @@ export default function Search() {
   useEffect(() => {
     handleSearch();
   }, [searchTerm]);
-  // useEffect(() => {
-  //   const filteredResults = searchResults.filter((book) =>
-  //     book.TITLE.toLowerCase().includes(searchTerm.toLowerCase())
-  //   );
-  //   setSearchResults(filteredResults);
-  // }, [searchTerm, searchResults]);
   useEffect(() => {
     const filteredResults = initialSearchResults.filter((book) =>
       book.TITLE.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setSearchResults(filteredResults);
   }, [searchTerm, initialSearchResults]);
-  // useEffect(()=>{handleSearchChange();})
   useEffect(() => {
     const fetchGenresAndAuthors = async () => {
       try {
@@ -99,28 +93,25 @@ export default function Search() {
   return (
     <div>
       <h1>Book List Search for {userId}</h1>
-      <BookFilters
-        genres={genres}
-        authors={authors}
-        handleFilterChange={handleFilterChange}
-        handleSortChange={handleFilterChange}
-        handleSearchChange={handleSearchChange}
-        searchTerm={searchTerm}
-      />
-      <br />
-      {/* <input
-        type="text"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-      /> */}
-      {/* <button onClick={handleSearch}>Search</button> */}
-      {filteredResults.map((book, index) => {
-        return (
-          <div key={book.ISBN}>
-            <Book book={book} />
-          </div>
-        );
-      })}
+      <div>
+        <BookFilters
+          genres={genres}
+          authors={authors}
+          handleFilterChange={handleFilterChange}
+          handleSortChange={handleFilterChange}
+          handleSearchChange={handleSearchChange}
+          searchTerm={searchTerm}
+        />
+      </div>
+      <div className={styles.bookGrid}>
+        {filteredResults.map((book, index) => {
+          return (
+            <div key={book.ISBN} className={styles.bookCard}>
+              <Book book={book} />
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }

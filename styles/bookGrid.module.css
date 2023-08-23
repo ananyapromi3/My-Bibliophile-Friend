@@ -1,0 +1,9 @@
+/* bookGrid.module.css */
+
+.bookGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Adjust the number of columns as needed */
+    gap: 20px; /* Adjust the gap between grid items */
+    padding: 20px;
+  }
+  

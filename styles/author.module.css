@@ -1,0 +1,20 @@
+.authorInfo {
+  font-size: 0.8rem;
+  max-height: 2em; /* Adjust as needed */
+  overflow: hidden;
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+
+.authorName {
+  font-size: 1rem;
+  max-height: 2em; /* Adjust as needed */
+  overflow: hidden;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.author {
+  text-align: center;
+  margin-top: auto;
+}
