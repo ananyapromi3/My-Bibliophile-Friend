@@ -1,0 +1,25 @@
+.bookCard {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Display four cards in a row */
+  grid-gap: 20px; /* Gap between cards */
+}
+
+.bookTitle {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.bookImage {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.bookSummary {
+  font-size: 14px;
+}

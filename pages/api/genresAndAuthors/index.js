@@ -3,7 +3,7 @@ import runQuery from "../../../oracle/query";
 import runQueryWithBinds from "../../../oracle/queryBinds";
 export default async function handler(req, res) {
   const result = await runQuery(
-    `SELECT DISTINCT GENRE FROM BOOK WHERE GENRE IS NOT NULL`
+    `SELECT DISTINCT GENRE FROM BOOK WHERE GENRE IS NOT NULL ORDER BY GENRE ASC`
   );
 //   console.log(result.rows);
   let arr = [];
@@ -12,7 +12,7 @@ export default async function handler(req, res) {
   }
 //   console.log(arr);
   const result1 = await runQuery(
-    `SELECT DISTINCT NAME FROM WRITTENBY WHERE NAME IS NOT NULL`
+    `SELECT DISTINCT NAME FROM WRITTENBY WHERE NAME IS NOT NULL ORDER BY NAME ASC`
   );
   let arr1 = [];
   for (let i = 0; i < result1.rows.length; i++) {

@@ -11,14 +11,14 @@
  Target Server Version : 190000 (Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production)
  File Encoding         : 65001
 
- Date: 23/08/2023 23:12:53
+ Date: 24/08/2023 00:56:47
 */
 
 
 -- ----------------------------
 -- Table structure for ADDRESS
 -- ----------------------------
-DROP TABLE "PROJECT"."ADDRESS";
+-- DROP TABLE "PROJECT"."ADDRESS";
 CREATE TABLE "PROJECT"."ADDRESS" (
   "LATITUDE" NUMBER(10,7) VISIBLE NOT NULL,
   "LONGITUDE" NUMBER(10,7) VISIBLE NOT NULL
@@ -61,7 +61,7 @@ INSERT INTO "PROJECT"."ADDRESS" VALUES ('51.5074', '-0.1278');
 -- ----------------------------
 -- Table structure for AUTHOR
 -- ----------------------------
-DROP TABLE "PROJECT"."AUTHOR";
+-- DROP TABLE "PROJECT"."AUTHOR";
 CREATE TABLE "PROJECT"."AUTHOR" (
   "NAME" VARCHAR2(100 BYTE) VISIBLE NOT NULL,
   "BORNON" NUMBER(4,0) VISIBLE,
@@ -151,7 +151,7 @@ INSERT INTO "PROJECT"."AUTHOR" VALUES ('Paulo Coelho', '1947', NULL, 'Lyricist',
 -- ----------------------------
 -- Table structure for BOOK
 -- ----------------------------
-DROP TABLE "PROJECT"."BOOK";
+-- DROP TABLE "PROJECT"."BOOK";
 CREATE TABLE "PROJECT"."BOOK" (
   "ISBN" VARCHAR2(50 BYTE) VISIBLE NOT NULL,
   "TITLE" VARCHAR2(500 BYTE) VISIBLE NOT NULL,
@@ -484,7 +484,7 @@ INSERT INTO "PROJECT"."BOOK" VALUES ('9781434220608', 'Buzz Beaker and the Cave 
 -- ----------------------------
 -- Table structure for BOOKFRIEND
 -- ----------------------------
-DROP TABLE "PROJECT"."BOOKFRIEND";
+-- DROP TABLE "PROJECT"."BOOKFRIEND";
 CREATE TABLE "PROJECT"."BOOKFRIEND" (
   "BOOKFRIENDID" NUMBER(10,0) VISIBLE NOT NULL,
   "EMAILID" VARCHAR2(50 BYTE) VISIBLE NOT NULL
@@ -524,7 +524,7 @@ INSERT INTO "PROJECT"."BOOKFRIEND" VALUES ('1012', 'kjk@hjs.cj');
 -- ----------------------------
 -- Table structure for DELIVARYMAN
 -- ----------------------------
-DROP TABLE "PROJECT"."DELIVARYMAN";
+-- DROP TABLE "PROJECT"."DELIVARYMAN";
 CREATE TABLE "PROJECT"."DELIVARYMAN" (
   "DELIVARYMANID" NUMBER(10,0) VISIBLE NOT NULL,
   "EMAILID" VARCHAR2(50 BYTE) VISIBLE NOT NULL
@@ -556,7 +556,7 @@ INSERT INTO "PROJECT"."DELIVARYMAN" VALUES ('5004', 'user4@example.com');
 -- ----------------------------
 -- Table structure for EXCHANGEOFFER
 -- ----------------------------
-DROP TABLE "PROJECT"."EXCHANGEOFFER";
+-- DROP TABLE "PROJECT"."EXCHANGEOFFER";
 CREATE TABLE "PROJECT"."EXCHANGEOFFER" (
   "EXCHANGEID" NUMBER(10,0) VISIBLE NOT NULL,
   "OFFERID1" NUMBER(10,0) VISIBLE,
@@ -586,7 +586,7 @@ INSERT INTO "PROJECT"."EXCHANGEOFFER" VALUES ('1', '54', '53');
 -- ----------------------------
 -- Table structure for NOTIFICATION1
 -- ----------------------------
-DROP TABLE "PROJECT"."NOTIFICATION1";
+-- DROP TABLE "PROJECT"."NOTIFICATION1";
 CREATE TABLE "PROJECT"."NOTIFICATION1" (
   "NOTIFICATIONID" NUMBER(10,0) VISIBLE NOT NULL,
   "EMAILWHOREQUESTED" VARCHAR2(50 BYTE) VISIBLE NOT NULL,
@@ -649,7 +649,7 @@ INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('32', 'user6@example.com', '51', '
 -- ----------------------------
 -- Table structure for NOTIFICATION2
 -- ----------------------------
-DROP TABLE "PROJECT"."NOTIFICATION2";
+-- DROP TABLE "PROJECT"."NOTIFICATION2";
 CREATE TABLE "PROJECT"."NOTIFICATION2" (
   "NOTIFICATIONID" NUMBER(10,0) VISIBLE NOT NULL,
   "EMAILWHOREQUESTED" VARCHAR2(50 BYTE) VISIBLE NOT NULL,
@@ -683,7 +683,7 @@ INSERT INTO "PROJECT"."NOTIFICATION2" VALUES ('3', 'jknds@jh.djn', '52', 'unread
 -- ----------------------------
 -- Table structure for OFFER
 -- ----------------------------
-DROP TABLE "PROJECT"."OFFER";
+-- DROP TABLE "PROJECT"."OFFER";
 CREATE TABLE "PROJECT"."OFFER" (
   "OFFERID" NUMBER(10,0) VISIBLE NOT NULL,
   "MESSAGE" VARCHAR2(500 BYTE) VISIBLE,
@@ -743,6 +743,8 @@ INSERT INTO "PROJECT"."OFFER" VALUES ('4', 'regtrb', 'https://s3.amazonaws.com/m
 INSERT INTO "PROJECT"."OFFER" VALUES ('32', 'klmlnk', 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '9781434220097', TO_TIMESTAMP('2023-08-21 02:07:08.969000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
 INSERT INTO "PROJECT"."OFFER" VALUES ('53', 'bindia re bindia', 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user6@example.com', '9781728490830', TO_TIMESTAMP('2023-08-23 03:14:44.027000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
 INSERT INTO "PROJECT"."OFFER" VALUES ('54', NULL, 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1692738945/my-uploads/soguhyam9kci9xqqqt3r.png', 'jknd@jh.djn', '9780823419524', TO_TIMESTAMP('2023-08-23 03:15:47.968000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
+INSERT INTO "PROJECT"."OFFER" VALUES ('56', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '9781434220554', TO_TIMESTAMP('2023-08-24 00:25:04.299000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
+INSERT INTO "PROJECT"."OFFER" VALUES ('57', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '9781404813212', TO_TIMESTAMP('2023-08-24 00:25:29.222000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
 INSERT INTO "PROJECT"."OFFER" VALUES ('10', 'this is', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1692167668/my-uploads/netuez7ejdwpswf6f8db.jpg', 'user5@example.com', '133-234-1837', TO_TIMESTAMP('2023-08-16 12:33:56.000000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
 INSERT INTO "PROJECT"."OFFER" VALUES ('11', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '978-984-94751-1-8', TO_TIMESTAMP('2023-08-21 00:40:23.000000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
 INSERT INTO "PROJECT"."OFFER" VALUES ('12', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '978-984-94751-1-8', TO_TIMESTAMP('2023-08-21 00:41:12.000000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
@@ -766,11 +768,12 @@ INSERT INTO "PROJECT"."OFFER" VALUES ('34', 'rtg', 'https://s3.amazonaws.com/mm-
 INSERT INTO "PROJECT"."OFFER" VALUES ('35', 'reg', 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '9781434220608', TO_TIMESTAMP('2023-08-21 02:14:35.066000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'pending');
 INSERT INTO "PROJECT"."OFFER" VALUES ('51', 'first offer', 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'jknds@jh.djn', '9781405852313 (student bk)', TO_TIMESTAMP('2023-08-23 02:39:22.275000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
 INSERT INTO "PROJECT"."OFFER" VALUES ('52', 'ielts', 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user6@example.com', '9780462098975', TO_TIMESTAMP('2023-08-23 02:41:39.626000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
+INSERT INTO "PROJECT"."OFFER" VALUES ('55', 'gooooooooooo12345', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1692814725/my-uploads/qtbi9pr1p2o3aio3coat.png', 'user5@example.com', '9798889050452', TO_TIMESTAMP('2023-08-24 00:18:52.466000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
 
 -- ----------------------------
 -- Table structure for PUBLISHER
 -- ----------------------------
-DROP TABLE "PROJECT"."PUBLISHER";
+-- DROP TABLE "PROJECT"."PUBLISHER";
 CREATE TABLE "PROJECT"."PUBLISHER" (
   "NAME" VARCHAR2(100 BYTE) VISIBLE NOT NULL,
   "ADDRESS" VARCHAR2(200 BYTE) VISIBLE,
@@ -827,7 +830,7 @@ INSERT INTO "PROJECT"."PUBLISHER" VALUES ('Tamralipi', '38/2A, Banglabazar, Dhak
 -- ----------------------------
 -- Table structure for REVIEW
 -- ----------------------------
-DROP TABLE "PROJECT"."REVIEW";
+-- DROP TABLE "PROJECT"."REVIEW";
 CREATE TABLE "PROJECT"."REVIEW" (
   "MESSAGEFORUS" VARCHAR2(500 BYTE) VISIBLE,
   "DATEOFREVIEW" DATE VISIBLE NOT NULL,
@@ -854,7 +857,7 @@ DISABLE ROW MOVEMENT
 -- ----------------------------
 -- Table structure for USERMAN
 -- ----------------------------
-DROP TABLE "PROJECT"."USERMAN";
+-- DROP TABLE "PROJECT"."USERMAN";
 CREATE TABLE "PROJECT"."USERMAN" (
   "EMAILID" VARCHAR2(50 BYTE) VISIBLE NOT NULL,
   "PASSWORD" VARCHAR2(50 BYTE) VISIBLE NOT NULL,
@@ -911,7 +914,7 @@ INSERT INTO "PROJECT"."USERMAN" VALUES ('kjk@hjs.cj', 'jbjh', 'hjjh', TO_DATE('2
 -- ----------------------------
 -- Table structure for WRITTENBY
 -- ----------------------------
-DROP TABLE "PROJECT"."WRITTENBY";
+-- DROP TABLE "PROJECT"."WRITTENBY";
 CREATE TABLE "PROJECT"."WRITTENBY" (
   "ISBN" VARCHAR2(50 BYTE) VISIBLE NOT NULL,
   "NAME" VARCHAR2(100 BYTE) VISIBLE NOT NULL
@@ -1684,4 +1687,4 @@ ALTER TABLE "PROJECT"."USERMAN" ADD CONSTRAINT "SYS_C008151" FOREIGN KEY ("LATIT
 -- Foreign Keys structure for table WRITTENBY
 -- ----------------------------
 ALTER TABLE "PROJECT"."WRITTENBY" ADD CONSTRAINT "SYS_C008139" FOREIGN KEY ("ISBN") REFERENCES "PROJECT"."BOOK" ("ISBN") NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
-ALTER TABLE "PROJECT"."WRITTENBY" ADD CONSTRAINT "SYS_C008140" FOREIGN KEY ("NAME") REFERENCES "PROJECT"."AUTHOR" ("NAME") NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+ALTER TABLE "PROJECT"."WRITTENBY" ADD CONSTRAINT "SYS_C008140" FOREIGN KEY ("NAME") REFERENCES "PROJECT"."AUTHOR" ("NAME") ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
