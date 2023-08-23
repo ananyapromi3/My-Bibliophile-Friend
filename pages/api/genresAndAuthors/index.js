@@ -22,6 +22,6 @@ export default async function handler(req, res) {
     genres: arr,
     authors: arr1,
   };
-  console.log(response);
+//   console.log(response);
   res.json(response);
 }
