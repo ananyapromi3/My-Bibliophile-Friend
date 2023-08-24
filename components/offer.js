@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
+import styles from "../styles/offer.module.css";
+import { off } from "process";
 
-export default function Offer({ offer }) {
+export default function Offer({ offer, onStatusChange, onOfferAccepted }) {
   const router = useRouter();
   const offerId = offer.OFFERID;
   const userId = router.query.userId;
@@ -23,6 +25,8 @@ export default function Offer({ offer }) {
     if (data.msg == "NOTIFICATION1 SENT") {
       alert("Offer accepted");
       setOfferStatus(0);
+      onStatusChange(offer.OFFERID, "accepted");
+      onOfferAccepted(offer.OFFERID);
     } else {
       alert("Could not accept offer");
     }
@@ -30,30 +34,44 @@ export default function Offer({ offer }) {
   };
 
   return (
-    <div key={offer.OFFERID}>
-      {offerStatus ? (
-        <div>
-          <img
-            src={
-              offer.BOOKCONDITIONPHOTO ||
-              "https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png"
-            }
-            alt="No photo available"
-            width="150"
-          />
-          <br />
-          <br />
-          <h4>{offer.MESSAGE}</h4>
-          <p>Distance: {offer.DISTANCE}</p>
-          <p>Time: {offer.TIME}</p>
-          <p>Offered by: {offer.NAME}</p>
-          {
-            (offer.STATUS = "offered" && (
-              <button onClick={makeNotification}>Accept offer</button>
-            ))
-          }
-          <hr />
-          <hr />
+    <div>
+      {offer && offer.STATUS == "offered" ? (
+        <div key={offer.OFFERID} className={styles.offerCard}>
+          {offerStatus ? (
+            <div>
+              <img
+                className={styles.offerImage}
+                src={
+                  offer.BOOKCONDITIONPHOTO ||
+                  "https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png"
+                }
+                alt="No photo available"
+                width="150"
+              />
+              <br />
+              <p className={styles.offerInfo}>{offer.MESSAGE}</p>
+              <p className={styles.offerInfo}>
+                <b>Distance:</b> {offer.DISTANCE}
+              </p>
+              <p className={styles.offerInfo}>
+                <b>Time:</b> {offer.TIME}
+              </p>
+              <p className={styles.offerInfo}>
+                <b>Offered by:</b> {offer.NAME}
+              </p>
+              <br />
+              {offer.STATUS == "offered" && (
+                <button
+                  className={styles.acceptButton}
+                  onClick={makeNotification}
+                >
+                  Accept offer
+                </button>
+              )}
+            </div>
+          ) : (
+            <></>
+          )}
         </div>
       ) : (
         <></>

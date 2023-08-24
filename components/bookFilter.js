@@ -21,15 +21,16 @@ export default function BookFilters({
   // }) => {
   return (
     <div className={styles.filterContainer}>
-      <h2 className={styles.filterHeading}>Filter Books</h2>
+      {/* <h2 className={styles.filterHeading}>Filter Books</h2> */}
       <div className={styles.filterOption}>
         <input
           type="text"
           placeholder="Search by title..."
           value={searchTerm}
           onChange={handleSearchChange}
+          className={styles.filterSearchBox}
         />
-        <label className={styles.filterLabel}>Select Genre:</label>
+        {/* <label className={styles.filterLabel}>Select Genre:</label> */}
         <select
           className={styles.filterSelect}
           onChange={handleFilterChange}
@@ -42,7 +43,11 @@ export default function BookFilters({
             </option>
           ))}
         </select>
-        <select onChange={handleFilterChange} name="author">
+        <select
+          onChange={handleFilterChange}
+          className={styles.filterSelect}
+          name="author"
+        >
           <option value="">All Authors</option>
           {authors.map((author) => (
             <option key={author} value={author}>

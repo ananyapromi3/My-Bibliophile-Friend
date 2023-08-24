@@ -92,7 +92,7 @@ export default function Search() {
 
   return (
     <div>
-      <h1>Book List Search for {userId}</h1>
+      {/* <h1>Book List Search for {userId}</h1> */}
       <div>
         <BookFilters
           genres={genres}

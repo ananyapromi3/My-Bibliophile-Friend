@@ -118,13 +118,13 @@ export default function Book({ book }) {
         className={styles.bookImage}
         src={
           book.COVERPHOTO ||
-          "https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png"
+          "https://songofamerica.net/wp-content/uploads/2017/09/Missing-book-cover.jpg"
         }
         alt="No photo available"
       />
-
+      <br/>
       <h2 className={styles.bookTitle}>{book.TITLE}</h2>
-      <p className={styles.bookInfo}>
+      <p className={styles.bookISBN}>
         <b>ISBN: </b>
         {book.ISBN}
       </p>
@@ -168,7 +168,7 @@ export default function Book({ book }) {
       {book.PRICE ? (
         <p className={styles.bookInfo}>
           <b>Price: </b>
-          {book.PRICE || "No information"}
+          {book.PRICE || "No information"}BDT
         </p>
       ) : (
         <></>
@@ -192,8 +192,9 @@ export default function Book({ book }) {
         <></>
       )}
       <br/>
+      {/* <p className={styles.bookInfo}>Have it? share your book</p> */}
       <button className={styles.detailsButton} onClick={() => openModal(book)}>
-        Make an Offer
+        Click Here to share this book
       </button>
       {isModalOpen && (
         <Modal onClose={closeModal} book={book}>

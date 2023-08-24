@@ -24,7 +24,7 @@ export default function Login() {
       const data = await response.json();
       setSearchResults(data);
       if (data[0]) {
-        router.push(`/bookFriend/books/${data[0].ID}`);
+        router.push(`/bookFriend/offersFeed/${data[0].ID}`);
       } else {
         alert(`Wrong information`);
       }

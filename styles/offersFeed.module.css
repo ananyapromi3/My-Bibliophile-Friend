@@ -1,6 +1,6 @@
 /* Existing styles... */
 
-.bookCard {
+.offerCard {
   /* border: 0px solid #ddd; */
   padding: 0px;
   display: flex;
@@ -19,17 +19,29 @@
   align-items: center;
   vertical-align: top;
 }
-
-.bookImage {
+.offerTitle {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #27342e;
+  margin: 0;
+  max-width: 100%; /* Limit title width to fit within the card */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  align-self: center;
+  align-items: center;
+  text-align: center;
+}
+.offerImage {
   max-width: 100%;
   max-height: 60%; /* Set a max height for the image */
   object-fit: contain; /* Maintain aspect ratio */
   margin-bottom: 10px;
 }
 
-.bookGrid {
+.offerGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Three columns in each row */
+  grid-template-columns: repeat(4, 1fr); /* Three columns in each row */
   gap: 10px; /* Add spacing between columns and rows */
   /* justify-items: center;  */
   margin: 0 auto; /* Center the grid horizontally */

@@ -115,7 +115,8 @@ export default function Modal({ children, onClose, book }) {
           onChange={handleOnChange}
           onSubmit={handleOnSubmit}
         >
-          <p>
+          <p className={styles.modalText}>
+          Upload your book's photo
             <input type="file" name="file" />
           </p>
           <img className={styles.modalImage} src={imageSrc} />
@@ -127,9 +128,10 @@ export default function Modal({ children, onClose, book }) {
           {uploadData && uploadFlag ? <p>Uploaded</p> : <></>}
         </form>
         <form className={styles.modalForm} onSubmit={handleSubmit}>
-          <label>
-            Tell about the book:{" "}
+          <label className={styles.modalText}>
+            Tell something about the book you want to share:{" "}
             <input
+              placeholder="Write here..."
               onChange={(e) =>
                 setOfferInfo((prevState) => ({
                   bookISBN: prevState.bookISBN,

@@ -4,7 +4,14 @@ export default function Author({ author }) {
     <div key={author.name} className={styles.author}>
       <p className={styles.authorName}>{author.NAME} </p>
       <p className={styles.authorInfo}>
-        <b>Born: </b>{author.BORNON}, <b>Died: </b>{author.DIEDON}, <b>Type: </b>{author.TYPE}, <b>Nationality: </b>{author.NATIONALITY}
+        {author.BORNON ? <b>Born: </b> : <></>}
+        {author.BORNON || " "}
+        {author.DIEDON ? <b>  Died: </b> : <></>}
+        {author.DIEDON || " "}
+        {author.TYPE ? <b>  Type: </b> : <></>}
+        {author.TYPE || " "}
+        {author.NATIONALITY ? <b>  Nationality: </b> : <></>}
+        {author.NATIONALITY || " "}
       </p>
     </div>
   );

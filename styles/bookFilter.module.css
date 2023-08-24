@@ -1,7 +1,7 @@
 .filterContainer {
-  background-color: #f5f5f5;
+  background-color: #8ba7b2;
   padding: 20px;
-  border-radius: 8px;
+  border-radius: 0px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
 }
@@ -19,6 +19,8 @@
 
 .filterLabel {
   flex: 1;
+  margin-left: 100px;
+  margin-right: 0px;
 }
 
 .filterSelect {
@@ -26,17 +28,30 @@
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.filterSearchBox {
+  flex: 2;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .filterButton {
-  background-color: #007bff;
+  background-color: #cbd4d4;
   color: #fff;
   border: none;
   padding: 8px 12px;
   border-radius: 4px;
   cursor: pointer;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .filterButton:hover {
-  background-color: #0056b3;
+  background-color: #cbd4d4;
 }
