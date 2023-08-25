@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
-import { off } from "process";
+import styles from "../styles/offerSmall.module.css";
 
-export default function OfferSmall({ offer, notification1 }) {
+export default function OfferSmall({ offer, notification1, closeModal }) {
   const router = useRouter();
   //   console.log(offer);
   // console.log(notification1);
@@ -34,6 +34,7 @@ export default function OfferSmall({ offer, notification1 }) {
     if (data.msg == "NOTIFICATION2 SENT") {
       alert("Offer accepted");
       setOfferStatus(0);
+      closeModal();
       //   router.push(`/bookFriend/notifications/${userId}`);
     } else {
       alert("Could not accept offer");
@@ -43,10 +44,11 @@ export default function OfferSmall({ offer, notification1 }) {
   };
 
   return (
-    <div key={offer.OFFERID}>
+    <div key={offer.OFFERID} className={styles.offerCard}>
       {offerStatus && setSeeOffers && ofStat == "offered" ? (
         <div>
           <img
+            className={styles.offerImage}
             src={
               offer.BOOKCONDITIONPHOTO ||
               "https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png"
@@ -54,15 +56,20 @@ export default function OfferSmall({ offer, notification1 }) {
             alt="No photo available"
             width="50"
           />
+          <p className={styles.offerInfo}>{offer.MESSAGE}</p>
+          <p className={styles.offerInfo}>
+            <b>Distance:</b> {offer.DISTANCE}
+          </p>
+          <p className={styles.offerInfo}>
+            <b>Time:</b> {offer.TIME}
+          </p>
+          <p className={styles.offerInfo}>
+            <b>Offered by:</b> {offer.NAME}
+          </p>
           <br />
-          <br />
-          <h5>{offer.MESSAGE}</h5>
-          <p>Distance: {offer.DISTANCE}</p>
-          <p>Time: {offer.TIME}</p>
-          <p>Offered by: {offer.NAME}</p>
-          <button onClick={makeNotification}>Accept offer</button>
-          <hr />
-          <hr />
+          <button className={styles.acceptButton} onClick={makeNotification}>
+            Accept offer
+          </button>
         </div>
       ) : (
         <></>

@@ -21,7 +21,7 @@ export default function Offer({ offer, onStatusChange, onOfferAccepted }) {
       },
     });
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     if (data.msg == "NOTIFICATION1 SENT") {
       alert("Offer accepted");
       setOfferStatus(0);

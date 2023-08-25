@@ -62,7 +62,7 @@ export default function Login() {
         latitude: currLocationJs.latitude,
         longitude: currLocationJs.longitude,
       }));
-      const response = await fetch(`/api/bookFriend/signup`, {
+      const response = await fetch(`/api/delivaryMan/signup`, {
         method: "POST",
         body: JSON.stringify(loginInfo),
         headers: {
@@ -73,7 +73,7 @@ export default function Login() {
       console.log(data);
       if (data.msg1 == "SUCCESSFUL") {
         alert("Account Created");
-        router.push(`/bookFriend/login`);
+        router.push(`/delivaryMan/login`);
       } else if (data.msg1 == "DUPLICATE") {
         alert("You already have an account");
       } else {
@@ -82,7 +82,6 @@ export default function Login() {
     } catch (error) {
       console.error("Error searching:", error);
     }
-    // console.log("SUCCESSSS");
   };
   return (
     <div>

@@ -50,7 +50,7 @@ export default function Offers() {
 
   return (
     <div>
-      <h1 className={styles.offerTitle}>Offer List for you</h1>
+      <h1 className={styles.offerTitle}>Offer List for you...</h1>
       <br />
       {/* {buttonStatus && (
         <button onClick={handleSearch}>Loading your offers...</button>

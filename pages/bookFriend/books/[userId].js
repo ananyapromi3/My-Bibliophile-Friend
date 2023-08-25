@@ -4,6 +4,9 @@ import Book from "../../../components/book";
 import { useEffect } from "react";
 import BookFilters from "../../../components/bookFilter";
 import styles from "../../../styles/search.module.css";
+import Modal from "../../../components/modalAddBook";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 
 export default function Search() {
   const router = useRouter();
@@ -19,6 +22,15 @@ export default function Search() {
     author: "",
     sort: "title",
   });
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
   function inArray(name, arr) {
     var count = arr.length;
     for (var i = 0; i < count; i++) {
@@ -90,9 +102,24 @@ export default function Search() {
     fetchGenresAndAuthors();
   }, []);
 
+  const handleLogOut = () => {
+    localStorage.removeItem("token");
+    router.push("http://localhost:3000");
+  };
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      router.push("http://localhost:3000");
+    }
+  });
+
   return (
     <div>
       {/* <h1>Book List Search for {userId}</h1> */}
+      <button onClick={handleLogOut}>Log Out {"  "}
+        <FontAwesomeIcon icon={faSignOutAlt} className={styles.icon} />
+      </button>
       <div>
         <BookFilters
           genres={genres}
@@ -112,6 +139,14 @@ export default function Search() {
           );
         })}
       </div>
+      <button onClick={openModal}>Add Book</button>
+      {isModalOpen && (
+        <Modal onClose={closeModal}>
+          {/* Your form to add a book */}
+          {/* Include form fields for book information */}
+          {/* Include a submit button */}
+        </Modal>
+      )}
     </div>
   );
 }

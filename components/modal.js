@@ -78,12 +78,13 @@ export default function Modal({ children, onClose, book }) {
       },
     });
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     if (data.msg == "OFFER CREATED") {
       alert("Offer Created");
     } else {
       alert("Could not create offer");
     }
+    onClose();
     router.push(`/bookFriend/books/${offerInfo.userId}`);
     setOfferInfo((prevState) => ({
       bookISBN: "",
@@ -116,7 +117,7 @@ export default function Modal({ children, onClose, book }) {
           onSubmit={handleOnSubmit}
         >
           <p className={styles.modalText}>
-          Upload your book's photo
+            Upload your book's photo
             <input type="file" name="file" />
           </p>
           <img className={styles.modalImage} src={imageSrc} />

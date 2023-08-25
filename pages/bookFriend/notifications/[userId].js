@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import Offer from "../../../components/offer";
 import { useEffect } from "react";
 import Notification1 from "../../../components/notification1";
+import styles from "../../../styles/notiFeed.module.css";
 
 export default function Notifications1() {
   const router = useRouter();
@@ -13,7 +14,10 @@ export default function Notifications1() {
   // useEffect(() => {
   //   handleSearch();
   // }, []);
-
+  useEffect(() => {
+    // userId = router.query.userId;
+    handleSearch();
+  }, []);
   const handleSearch = async () => {
     try {
       // console.log(userId);
@@ -29,20 +33,28 @@ export default function Notifications1() {
 
   return (
     <div>
-      <h1>Notification List for {userId}</h1>
+      <h1 className={styles.offerTitle}>Notification List for you...</h1>
       <br />
-      {buttonStatus ? (
+      {/* {buttonStatus ? (
         <button onClick={handleSearch}>Load notifications</button>
       ) : (
         <></>
-      )}
-      {searchResults.map((notification1, index) => {
-        return (
-          <div key={notification1.NOTIFICATIONID}>
-            <Notification1 notification1={notification1} />
-          </div>
-        );
-      })}
+      )} */}
+      <div className={styles.offerGrid}>
+        {searchResults.map((notification1, index) => {
+          return (
+            <div key={notification1.NOTIFICATIONID}>
+              <div className={styles.offerCard}>
+                <Notification1 notification1={notification1} search={handleSearch} />
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
+}
+export async function getServerSideProps({ params }) {
+  const { userId } = params;
+  return { props: { userId } };
 }

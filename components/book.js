@@ -167,7 +167,7 @@ export default function Book({ book }) {
       )}
       {book.PRICE ? (
         <p className={styles.bookInfo}>
-          <b>Price: </b>
+          <b>Market Price: </b>
           {book.PRICE || "No information"}BDT
         </p>
       ) : (

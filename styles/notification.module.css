@@ -1,0 +1,213 @@
+/* Add this CSS to your styles file */
+.notificationCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items horizontally and vertically */
+  padding: 20px;
+  /* border: 1px solid #ccc; */
+  border-radius: 10px;
+  width: 300px; /* Set a fixed width for each card */
+  height: 100%;
+  border: 1px solid #ccc;
+  /* border-radius: 8px; */
+  /* padding: 10px; */
+  margin: 10px;
+  background-color: #dce4e2;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+  /* width: calc(50% - 20px); Half width with margin */
+  box-sizing: border-box;
+  /* display: inline-block; */
+  vertical-align: top;
+  /* max-width: calc(50% - 10px); Set maximum width for two books in a row */
+  box-sizing: border-box;
+  /* align-self: center; */
+}
+
+.notificationCard:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.acceptButton {
+  margin-top: 20px;
+  background-color: #2c676f;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: auto;
+  display: block;
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.acceptButton:hover {
+  /* margin-top: 20px; */
+  background-color: #252e25;
+  transform: scale(1.05);
+}
+.modalContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  overflow: hidden;
+  /* overflow-y: hidden; */
+  /* padding: 20px; */
+  max-height: 80vh; /* Set a maximum height for the container */
+  overflow-y: auto; /* Enable vertical scrolling if content exceeds the container's height */
+}
+
+.modalBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0.5, 0.5, 0.5, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.modalContent {
+  background-color: #d7d9da;
+  /* width: 50%;
+  height: 70%; */
+  max-width: 80%;
+  max-height: 80%;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+/* Add any additional styles as needed */
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 30px;
+  color: #555;
+  cursor: pointer;
+  /* background-color: transparent; */
+}
+
+.modalContent button {
+  margin-top: 5px;
+  padding: 5px 15px;
+  /* background-color: #007bff; */
+  /* color: black; */
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.modalContent button:hover {
+  background-color: #8ba7b2;
+}
+
+/* Adjusted input box styles */
+.modalContent input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #2c676f;
+  border-radius: 5px;
+  font-size: 24px;
+}
+
+/* modal.module.css */
+
+/* ... Your existing styles ... */
+
+.modalForm {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Adjusted input box styles */
+.modalForm input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1.5px solid #2c676f;
+  border-radius: 5px;
+  font-size: 14px;
+  background-color: #b7c2c8;
+}
+.modalText {
+  text-align: center;
+  color: #213a3f;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+}
+/* Adjusted button styles */
+.modalForm button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #588083;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.modalImage {
+  height: 100px;
+  max-width: 100%;
+  max-height: 100%; /* Adjust this value as needed */
+  object-fit: contain; /* Preserve aspect ratio */
+  align-content: center;
+}
+.modalForm button:hover {
+  background-color: #2c676f;
+}
+
+.offerImage {
+  border-radius: 10px;
+  max-width: 80%; /* Make sure the image doesn't exceed the card width */
+  max-height: 80%; /* Ensure the image doesn't exceed the card height */
+  object-fit: contain;
+}
+
+.offerImage:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+/* .container {
+  width: 100%;
+  padding: auto;
+}
+
+.left {
+  float: left;
+  width: 70%;
+  align-content: left;
+  
+}
+
+.right {
+  float: right;
+  width: 30%;
+  text-align: left;
+  
+} */

@@ -6,6 +6,7 @@ oracledb.outFormat = oracledb.OUT_FORMAT_OBJECT;
 export default async function handler(req, res) {
   let notiInfo = req.body;
   notiInfo = JSON.parse(notiInfo);
+  console.log(notiInfo);
   const userId = notiInfo.userId;
   const offerId = notiInfo.offerId;
   const binds = {

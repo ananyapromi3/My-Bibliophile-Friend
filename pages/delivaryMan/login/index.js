@@ -14,7 +14,7 @@ export default function Login() {
   const handleClick = async (event) => {
     try {
       event.preventDefault();
-      const response = await fetch(`/api/bookFriend/login`, {
+      const response = await fetch(`/api/delivaryMan/login`, {
         method: "POST",
         body: JSON.stringify(loginInfo),
         headers: {
@@ -32,7 +32,7 @@ export default function Login() {
       if (data.success) {
         // console.log("Successfully logged in...");
         localStorage.setItem("token", data.token);
-        router.push(`/bookFriend/books/${data.id}`);
+        router.push(`/delivaryMan/offers/${data.id}`);
       } else {
         alert("Wrong information");
         // setLoginInfo("", "");

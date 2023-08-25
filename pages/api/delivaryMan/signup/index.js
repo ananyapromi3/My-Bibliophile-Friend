@@ -29,7 +29,7 @@ export default async function handler(req, res) {
       SIGNUP(:email, 
       DBMS_CRYPTO.encrypt(UTL_RAW.CAST_TO_RAW(:password), 4353, UTL_RAW.CAST_TO_RAW ('MyBibliophileFriend')), 
       :firstname, TO_DATE(:dob, 'YYYY-MM-DD'), :gender, :lastname, :latitude, :longitude, :phn1, :phn2, :msg1);
-      ADD_TO_BOOKFRIEND(:email, :msg2);
+      ADD_TO_DELIVARYMAN(:email, :msg2);
     END;`,
     binds
   );
