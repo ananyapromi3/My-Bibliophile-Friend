@@ -109,6 +109,9 @@ export default function Search() {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
+    // const response = await fetch(`/api/books?term=${userId}`);
+    // const data = await response.json();
+    // console.log(data);
     if (!token) {
       router.push("http://localhost:3000");
     }
@@ -117,8 +120,21 @@ export default function Search() {
   return (
     <div>
       {/* <h1>Book List Search for {userId}</h1> */}
-      <button onClick={handleLogOut}>Log Out {"  "}
+      <button onClick={handleLogOut}>
+        Log Out {"  "}
         <FontAwesomeIcon icon={faSignOutAlt} className={styles.icon} />
+      </button>
+      <button
+        className={`${styles.btn} ${styles.primary}`}
+        onClick={() => router.push(`/bookFriend/offersFeed/${userId}`)}
+      >
+        Offers
+      </button>
+      <button
+        className={`${styles.btn} ${styles.primary}`}
+        onClick={() => router.push(`/bookFriend/notifications/${userId}`)}
+      >
+        Notifications
       </button>
       <div>
         <BookFilters

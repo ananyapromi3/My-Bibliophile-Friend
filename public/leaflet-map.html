@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Leaflet sample</title>
+    <link
+      rel="stylesheet"
+      href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"
+    />
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+  </head>
+
+  <body>
+    <div id="map" style="width: 900px; height: 580px"></div>
+    <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      const lat = parseFloat(urlParams.get("lat"));
+      const lng = parseFloat(urlParams.get("lng"));
+
+      const lat2 = parseFloat(urlParams.get("lat2"));
+      const lng2 = parseFloat(urlParams.get("lng2"));
+
+      var mapOptions = {
+        center: [lat, lng],
+        zoom: 10,
+      };
+
+      var map = new L.map("map", mapOptions);
+
+      var layer = new L.TileLayer(
+        "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+      );
+
+      map.addLayer(layer);
+
+      var marker = L.marker([lat, lng]).addTo(map);
+      var anotherMarker = L.marker([lat2, lng2]).addTo(map);
+    </script>
+  </body>
+</html>

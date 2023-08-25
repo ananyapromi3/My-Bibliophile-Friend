@@ -41,7 +41,7 @@
 
 .offerGrid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Three columns in each row */
+  grid-template-columns: repeat(5, 1fr); /* Three columns in each row */
   gap: 10px; /* Add spacing between columns and rows */
   /* justify-items: center;  */
   margin: 0 auto; /* Center the grid horizontally */

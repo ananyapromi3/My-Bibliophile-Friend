@@ -79,7 +79,7 @@ export default function App() {
       >
         Delivery Man signup
       </button>
-      <br />
+      {/* <br />
       <button
         className={`${styles.btn} ${styles.secondary}`}
         onClick={() => router.push("/books/booklist")}
@@ -92,7 +92,7 @@ export default function App() {
         onClick={() => router.push("/books")}
       >
         Search in Book List
-      </button>
+      </button> */}
     </div>
   );
 }

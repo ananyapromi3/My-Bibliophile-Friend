@@ -19,6 +19,10 @@ export default function DelivaryOffer({
     exchangeId: exchangeId,
     fee: fee,
   };
+  const longi1 = offer.LONGI1;
+  const lati1 = offer.LATI1;
+  const longi2 = offer.LONGI2;
+  const lati2 = offer.LATI2;
   // console.log(delivaryInfo);
   const acceptDelivary = async () => {
     const response = await fetch(`/api/delivaryMan/offers`, {
@@ -41,6 +45,13 @@ export default function DelivaryOffer({
     router.push(`/delivaryMan/offers/${delId}`);
   };
 
+  const mapHandler = async () => {
+    router.push({
+      pathname: "http://localhost:3000/mapPage",
+      query: { longi1, lati1, longi2, lati2 },
+    });
+  };
+
   return (
     <div>
       {offer && offer.STATUS == "PENDING" ? (
@@ -57,9 +68,13 @@ export default function DelivaryOffer({
               <p className={styles.offerInfo}>
                 <b>Distance:</b> {distance.toFixed(5)} km
               </p>
-              <br />
+              {/* <br /> */}
               <button className={styles.acceptButton} onClick={acceptDelivary}>
                 Accept Delivary Offer
+              </button>
+              {/* <br /> */}
+              <button className={styles.acceptButton} onClick={mapHandler}>
+                Find Delivary Location
               </button>
             </div>
           ) : (

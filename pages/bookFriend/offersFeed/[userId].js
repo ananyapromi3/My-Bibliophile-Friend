@@ -5,6 +5,8 @@ import { useRouter } from "next/router";
 import Offer from "../../../components/offer";
 import { useEffect } from "react";
 import styles from "../../../styles/offersFeed.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 
 export default function Offers() {
   const router = useRouter();
@@ -47,9 +49,37 @@ export default function Offers() {
   // useEffect(() => {
   //   handleSearch();
   // }, [userId]);
+  const handleLogOut = () => {
+    localStorage.removeItem("token");
+    router.push("http://localhost:3000");
+  };
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    // const thisToken = Jwt.sign({ email: loginInfo.email }, "bibliophile");
+    if (!token) {
+      router.push("http://localhost:3000");
+    }
+  });
 
   return (
     <div>
+      <button onClick={handleLogOut}>
+        Log Out {"  "}
+        <FontAwesomeIcon icon={faSignOutAlt} className={styles.icon} />
+      </button>
+      <button
+        className={`${styles.btn} ${styles.primary}`}
+        onClick={() => router.push(`/bookFriend/books/${userId}`)}
+      >
+        Books
+      </button>
+      <button
+        className={`${styles.btn} ${styles.primary}`}
+        onClick={() => router.push(`/bookFriend/notifications/${userId}`)}
+      >
+        Notifications
+      </button>
       <h1 className={styles.offerTitle}>Offer List for you...</h1>
       <br />
       {/* {buttonStatus && (

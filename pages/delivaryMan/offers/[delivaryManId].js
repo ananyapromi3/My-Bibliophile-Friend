@@ -1,6 +1,8 @@
 // import DelivaryOffer from "../../components/delivaryOffer";
 import DelivaryOffer from "../../../components/delivaryOffer";
 import styles from "../../../styles/delivaryOffersFeed.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 
 //import { router } from "json-server";
 import { useState } from "react";
@@ -41,9 +43,24 @@ export default function DeliveryNews() {
       prevResults.filter((offer) => offer.EXCHANGEID !== acceptedExchangeId)
     );
   };
+  const handleLogOut = () => {
+    localStorage.removeItem("token");
+    router.push("http://localhost:3000");
+  };
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      router.push("http://localhost:3000");
+    }
+  });
 
   return (
     <div>
+      <button onClick={handleLogOut}>
+        Log Out {"  "}
+        <FontAwesomeIcon icon={faSignOutAlt} className={styles.icon} />
+      </button>
       <h1 className={styles.offerTitle}>Delivery Offer List for you</h1>
       <br />
       {/* <button onClick={handleSearch}>Load Delivary Offers</button> */}

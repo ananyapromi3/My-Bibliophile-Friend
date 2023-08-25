@@ -5,6 +5,8 @@ import Offer from "../../../components/offer";
 import { useEffect } from "react";
 import Notification1 from "../../../components/notification1";
 import styles from "../../../styles/notiFeed.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 
 export default function Notifications1() {
   const router = useRouter();
@@ -31,8 +33,36 @@ export default function Notifications1() {
     }
   };
 
+  const handleLogOut = () => {
+    localStorage.removeItem("token");
+    router.push("http://localhost:3000");
+  };
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      router.push("http://localhost:3000");
+    }
+  });
+
   return (
     <div>
+      <button onClick={handleLogOut}>
+        Log Out {"  "}
+        <FontAwesomeIcon icon={faSignOutAlt} className={styles.icon} />
+      </button>
+      <button
+        className={`${styles.btn} ${styles.primary}`}
+        onClick={() => router.push(`/bookFriend/offersFeed/${userId}`)}
+      >
+        Offers
+      </button>
+      <button
+        className={`${styles.btn} ${styles.primary}`}
+        onClick={() => router.push(`/bookFriend/books/${userId}`)}
+      >
+        Books
+      </button>
       <h1 className={styles.offerTitle}>Notification List for you...</h1>
       <br />
       {/* {buttonStatus ? (
@@ -45,7 +75,10 @@ export default function Notifications1() {
           return (
             <div key={notification1.NOTIFICATIONID}>
               <div className={styles.offerCard}>
-                <Notification1 notification1={notification1} search={handleSearch} />
+                <Notification1
+                  notification1={notification1}
+                  search={handleSearch}
+                />
               </div>
             </div>
           );
