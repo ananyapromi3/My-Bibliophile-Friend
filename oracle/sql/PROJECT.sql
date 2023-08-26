@@ -11,14 +11,14 @@
  Target Server Version : 190000 (Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production)
  File Encoding         : 65001
 
- Date: 24/08/2023 03:40:58
+ Date: 26/08/2023 11:38:42
 */
 
 
 -- ----------------------------
 -- Table structure for ADDRESS
 -- ----------------------------
-DROP TABLE "PROJECT"."ADDRESS";
+-- DROP TABLE "PROJECT"."ADDRESS";
 CREATE TABLE "PROJECT"."ADDRESS" (
   "LATITUDE" NUMBER(10,7) VISIBLE NOT NULL,
   "LONGITUDE" NUMBER(10,7) VISIBLE NOT NULL
@@ -42,26 +42,22 @@ DISABLE ROW MOVEMENT
 -- ----------------------------
 -- Records of ADDRESS
 -- ----------------------------
-INSERT INTO "PROJECT"."ADDRESS" VALUES ('0', '0');
+INSERT INTO "PROJECT"."ADDRESS" VALUES ('23.7270954', '90.3842619');
 INSERT INTO "PROJECT"."ADDRESS" VALUES ('23.7661639', '90.3588734');
 INSERT INTO "PROJECT"."ADDRESS" VALUES ('23.7698307', '90.366772');
+INSERT INTO "PROJECT"."ADDRESS" VALUES ('23.7698321', '90.3667407');
+INSERT INTO "PROJECT"."ADDRESS" VALUES ('23.769846', '90.3667659');
+INSERT INTO "PROJECT"."ADDRESS" VALUES ('23.7698521', '90.3667771');
 INSERT INTO "PROJECT"."ADDRESS" VALUES ('23.7698659', '90.3668041');
+INSERT INTO "PROJECT"."ADDRESS" VALUES ('23.769867', '90.3667556');
 INSERT INTO "PROJECT"."ADDRESS" VALUES ('23.7698707', '90.3667976');
 INSERT INTO "PROJECT"."ADDRESS" VALUES ('23.7698852', '90.3668011');
-INSERT INTO "PROJECT"."ADDRESS" VALUES ('34.0522', '-118.2437');
-INSERT INTO "PROJECT"."ADDRESS" VALUES ('34.052235', '-118.243683');
-INSERT INTO "PROJECT"."ADDRESS" VALUES ('37.7749', '-122.4194');
-INSERT INTO "PROJECT"."ADDRESS" VALUES ('37.7749295', '-122.4194155');
-INSERT INTO "PROJECT"."ADDRESS" VALUES ('40.712776', '-74.005974');
-INSERT INTO "PROJECT"."ADDRESS" VALUES ('40.7128', '-74.0059');
-INSERT INTO "PROJECT"."ADDRESS" VALUES ('41.7781', '-87.6298');
-INSERT INTO "PROJECT"."ADDRESS" VALUES ('41.8781', '-87.6298');
-INSERT INTO "PROJECT"."ADDRESS" VALUES ('51.5074', '-0.1278');
+INSERT INTO "PROJECT"."ADDRESS" VALUES ('23.7698974', '90.366777');
 
 -- ----------------------------
 -- Table structure for AUTHOR
 -- ----------------------------
-DROP TABLE "PROJECT"."AUTHOR";
+-- DROP TABLE "PROJECT"."AUTHOR";
 CREATE TABLE "PROJECT"."AUTHOR" (
   "NAME" VARCHAR2(100 BYTE) VISIBLE NOT NULL,
   "BORNON" NUMBER(4,0) VISIBLE,
@@ -90,19 +86,20 @@ DISABLE ROW MOVEMENT
 -- ----------------------------
 INSERT INTO "PROJECT"."AUTHOR" VALUES ('Daffodil Jackson', '1991', '2012', 'Poet', 'British');
 INSERT INTO "PROJECT"."AUTHOR" VALUES ('Abrar Rahman Abir', '2000', NULL, 'Novelist', 'Bangladeshi');
+INSERT INTO "PROJECT"."AUTHOR" VALUES ('Aesop', NULL, NULL, NULL, NULL);
 INSERT INTO "PROJECT"."AUTHOR" VALUES ('Daffodil Hill Press', NULL, NULL, NULL, NULL);
 INSERT INTO "PROJECT"."AUTHOR" VALUES ('Amy Ingalls, Pryor Rayburn, and Jennie Roberts', NULL, NULL, NULL, NULL);
-INSERT INTO "PROJECT"."AUTHOR" VALUES ('Elizabeth Dale', NULL, NULL, NULL, NULL);
-INSERT INTO "PROJECT"."AUTHOR" VALUES ('Clare Helen Welsh', NULL, NULL, NULL, NULL);
-INSERT INTO "PROJECT"."AUTHOR" VALUES ('Katie Dale', NULL, NULL, NULL, NULL);
-INSERT INTO "PROJECT"."AUTHOR" VALUES ('Lou Treleaven', NULL, NULL, NULL, NULL);
-INSERT INTO "PROJECT"."AUTHOR" VALUES ('Amanda Brandon', NULL, NULL, NULL, NULL);
-INSERT INTO "PROJECT"."AUTHOR" VALUES ('Jenny Jinks', NULL, NULL, NULL, NULL);
-INSERT INTO "PROJECT"."AUTHOR" VALUES ('Jenny Moore', NULL, NULL, NULL, NULL);
-INSERT INTO "PROJECT"."AUTHOR" VALUES ('Frank P. Harvey', NULL, NULL, NULL, NULL);
-INSERT INTO "PROJECT"."AUTHOR" VALUES ('Arthur R. Jensen', NULL, NULL, NULL, NULL);
-INSERT INTO "PROJECT"."AUTHOR" VALUES ('Murray C. Kemp', NULL, NULL, NULL, NULL);
-INSERT INTO "PROJECT"."AUTHOR" VALUES ('George W. Liebmann', NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."AUTHOR" VALUES ('Elizabeth Dale', NULL, '2022', 'Fiction', NULL);
+INSERT INTO "PROJECT"."AUTHOR" VALUES ('Clare Helen Welsh', NULL, NULL, 'Children', NULL);
+INSERT INTO "PROJECT"."AUTHOR" VALUES ('Katie Dale', NULL, NULL, 'Fiction', NULL);
+INSERT INTO "PROJECT"."AUTHOR" VALUES ('Lou Treleaven', NULL, NULL, 'Children', NULL);
+INSERT INTO "PROJECT"."AUTHOR" VALUES ('Amanda Brandon', NULL, NULL, 'Non-Fiction', NULL);
+INSERT INTO "PROJECT"."AUTHOR" VALUES ('Jenny Jinks', NULL, NULL, 'Fiction', NULL);
+INSERT INTO "PROJECT"."AUTHOR" VALUES ('Jenny Moore', NULL, NULL, 'Fiction', NULL);
+INSERT INTO "PROJECT"."AUTHOR" VALUES ('Frank P. Harvey', NULL, '1995', 'Non-Fiction', NULL);
+INSERT INTO "PROJECT"."AUTHOR" VALUES ('Arthur R. Jensen', NULL, '1990', 'Non-Fiction', NULL);
+INSERT INTO "PROJECT"."AUTHOR" VALUES ('Murray C. Kemp', NULL, NULL, 'Economics', NULL);
+INSERT INTO "PROJECT"."AUTHOR" VALUES ('George W. Liebmann', NULL, NULL, 'Politics', NULL);
 INSERT INTO "PROJECT"."AUTHOR" VALUES ('Immanuel Etkes', NULL, NULL, NULL, NULL);
 INSERT INTO "PROJECT"."AUTHOR" VALUES ('Jeremy Iggers', NULL, NULL, NULL, NULL);
 INSERT INTO "PROJECT"."AUTHOR" VALUES ('Mark A. S. McMenamin', NULL, NULL, NULL, NULL);
@@ -147,11 +144,12 @@ INSERT INTO "PROJECT"."AUTHOR" VALUES ('Ananya Shahrin Promi', '2003', NULL, NUL
 INSERT INTO "PROJECT"."AUTHOR" VALUES ('Muhammed Zafar Iqbal', '1952', NULL, 'Writer', 'Bangladeshi');
 INSERT INTO "PROJECT"."AUTHOR" VALUES ('Humayun Ahmed', '1948', '2012', 'Novelist', 'Bangladeshi');
 INSERT INTO "PROJECT"."AUTHOR" VALUES ('Paulo Coelho', '1947', NULL, 'Lyricist', 'Brazilian');
+INSERT INTO "PROJECT"."AUTHOR" VALUES ('Tamim Shahriar Subeen', '1982', NULL, 'Software Engineer', 'Bangladeshi');
 
 -- ----------------------------
 -- Table structure for BOOK
 -- ----------------------------
-DROP TABLE "PROJECT"."BOOK";
+-- DROP TABLE "PROJECT"."BOOK";
 CREATE TABLE "PROJECT"."BOOK" (
   "ISBN" VARCHAR2(50 BYTE) VISIBLE NOT NULL,
   "TITLE" VARCHAR2(500 BYTE) VISIBLE NOT NULL,
@@ -159,7 +157,7 @@ CREATE TABLE "PROJECT"."BOOK" (
   "LANGUAGE" VARCHAR2(20 BYTE) VISIBLE NOT NULL,
   "PUBLISHYEAR" NUMBER(4,0) VISIBLE,
   "PRICE" NUMBER(5,2) VISIBLE,
-  "COVERPHOTO" VARCHAR2(100 BYTE) VISIBLE,
+  "COVERPHOTO" VARCHAR2(500 BYTE) VISIBLE,
   "PUBLISHERNAME" VARCHAR2(100 BYTE) VISIBLE,
   "SUMMARY" VARCHAR2(3500 BYTE) VISIBLE,
   "GENRE" VARCHAR2(100 BYTE) VISIBLE
@@ -207,7 +205,7 @@ INSERT INTO "PROJECT"."BOOK" VALUES ('9780275945145', 'The Gatekeepers of Psycho
 INSERT INTO "PROJECT"."BOOK" VALUES ('9780275960827', 'The Gatekeepers: Federal District Courts in the Political Process', '328', 'English', NULL, NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/9780275960827.jpeg', NULL, 'There are more than 600 Federal district judges serving today, and they decide some 230,000 civil cases each year. About 90% of the decisions they reach are final. Lyles argues that these lower court judges not only influence the flow of information to the judicial hierarchy, but they formulate questions that influence how higher courts, including the Supreme Court, respond. As such they are key elements in the formulation and implementation of public policy. To cite a few examples, they desegregate school districts, run mental institutions and prisons, break up monopolies, and reapportion legislatures. Lyles begins by examining the structure and function of federal courts and detailing the history, operation, and purpose of the district courts. He then turns to the selection, nomination, and appointment of district judges. Lyles then analyzes the extent to which presidents might advance policy objectives through their judicial appointments to the district courts. After examining how African-American, Latino, and white judges, male and female, view their roles as policy actors, Lyles concludes with a discussion of the implications of the study. Important for students and scholars of contemporary public policy and the court system.', NULL);
 INSERT INTO "PROJECT"."BOOK" VALUES ('9783527406234 ', 'Handbook of time series analysis', '496', 'English', '2006', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "PROJECT"."BOOK" VALUES ('9780471976707 ', 'Encyclopedia of analytical chemistry', '940', 'English', '2000', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "PROJECT"."BOOK" VALUES ('9780415250948', 'Game theory', '369', 'English', '2004', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."BOOK" VALUES ('9780415250948', 'Game theory', '369', 'English', '2004', NULL, 'https://m.media-amazon.com/images/I/71lnIP7bIVL._AC_UF894,1000_QL80_.jpg', NULL, NULL, NULL);
 INSERT INTO "PROJECT"."BOOK" VALUES ('9781856047715 ', 'Metadata for digital collections', '343', 'English', '2011', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "PROJECT"."BOOK" VALUES ('9781405136662 ', 'Games and information', '528', 'English', '2007', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "PROJECT"."BOOK" VALUES ('9781856047340 ', 'The intranet management handbook', '233', 'English', '2011', NULL, NULL, NULL, NULL, NULL);
@@ -219,21 +217,20 @@ INSERT INTO "PROJECT"."BOOK" VALUES ('9781405881180', 'Longman pronunciation dic
 INSERT INTO "PROJECT"."BOOK" VALUES ('9781859649350', 'English for banking in higher education studies', '133', 'English', '2008', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "PROJECT"."BOOK" VALUES ('9780521555500', 'Language in use', '128', 'English', '2008', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "PROJECT"."BOOK" VALUES ('9781405851374', 'Longman exams dictionary', '1834', 'English', '2007', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "PROJECT"."BOOK" VALUES ('9780132338431', 'Academic connections 1', '166', 'English', '2010', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."BOOK" VALUES ('9780132338431', 'Academic connections 1', '166', 'English', '2010', NULL, 'https://pictures.abebooks.com/isbn/9780132338431-us.jpg', NULL, NULL, NULL);
 INSERT INTO "PROJECT"."BOOK" VALUES ('9781859649114', 'English for the energy industries', '245', 'English', '2006', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "PROJECT"."BOOK" VALUES ('9780521684347', 'Academic listening encounters', '138', 'English', '2008', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."BOOK" VALUES ('9780521684347', 'Academic listening encounters', '138', 'English', '2008', NULL, 'https://m.media-amazon.com/images/I/51JTIWyodZL._AC_UF894,1000_QL80_.jpg', NULL, NULL, NULL);
 INSERT INTO "PROJECT"."BOOK" VALUES ('9780521547260', 'English for the financial sector', '108', 'English', '2008', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "PROJECT"."BOOK" VALUES ('9780521677462', 'English vocabulary in use', '315', 'English', '2010', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "PROJECT"."BOOK" VALUES ('9780521547253', 'English for the financial sector', '159', 'English', '2008', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "PROJECT"."BOOK" VALUES ('9781412965569', 'Research design', '260', 'English', '2009', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "PROJECT"."BOOK" VALUES ('9781859649428', 'English for tourism and hospitality in higher education studies', '132', 'English', '2008', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "PROJECT"."BOOK" VALUES ('9780521684323', 'Academic listening encounters', '164', 'English', '2009', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "PROJECT"."BOOK" VALUES ('9780132338417', 'Academic connections 4', '197', 'English', '2010', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."BOOK" VALUES ('9780521684323', 'Academic listening encounters', '164', 'English', '2009', NULL, 'https://m.media-amazon.com/images/I/41qeOkalLhL._AC_UF1000,1000_QL80_.jpg', NULL, NULL, NULL);
+INSERT INTO "PROJECT"."BOOK" VALUES ('9780132338417', 'Academic connections 4', '197', 'English', '2010', NULL, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_DztaB8lU3Z5_c-lJjplhCH7D026wqFzwz1blAuZMiqVH9vyD0cnNZvuK_jm6iptvpxQ&usqp=CAU', NULL, NULL, NULL);
 INSERT INTO "PROJECT"."BOOK" VALUES ('9780521775298', 'Business vocabulary in use', '172', 'English', '2009', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "PROJECT"."BOOK" VALUES ('9781846793660', 'University writing course', '120', 'English', '2007', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "PROJECT"."BOOK" VALUES ('9780759396272', 'Key words for fluency', '175', 'English', '2004', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "PROJECT"."BOOK" VALUES ('9781405852313 (student bk)', 'Cutting edge', '175', 'English', '2010', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "PROJECT"."BOOK" VALUES ('9780415453219', 'Academic writing and publishing', '196', 'English', '2008', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "PROJECT"."BOOK" VALUES ('9781859647806', 'Skills in English. Level 2', '70', 'English', '2005', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "PROJECT"."BOOK" VALUES ('9780521524001', 'Language links', '205', 'English', '2005', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "PROJECT"."BOOK" VALUES ('9781859647905', 'Skills in English. Level 3', '76', 'English', '2005', NULL, NULL, NULL, NULL, NULL);
@@ -249,7 +246,7 @@ INSERT INTO "PROJECT"."BOOK" VALUES ('9781408241363', 'Focus on IELTS', '5785', 
 INSERT INTO "PROJECT"."BOOK" VALUES ('9781859649442', 'English for business studies in higher education studies', '132', 'English', '2008', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "PROJECT"."BOOK" VALUES ('9781118399651', 'Morson and Dawson''s gastrointestinal pathology', '1', 'English', '2013', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "PROJECT"."BOOK" VALUES ('9780521675437', 'Essential grammar in use', '319', 'English', '2010', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "PROJECT"."BOOK" VALUES ('9780521754835', 'Academic listening encounters', '160', 'English', '2009', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."BOOK" VALUES ('9780521754835', 'Academic listening encounters', '160', 'English', '2009', NULL, 'https://m.media-amazon.com/images/I/51Jk-xkoMlL._AC_UF1000,1000_QL80_.jpg', NULL, NULL, NULL);
 INSERT INTO "PROJECT"."BOOK" VALUES ('0471177806 ', 'Encyclopedia of smart materials', '590', 'English', '2002', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "PROJECT"."BOOK" VALUES ('9780521555470', 'Language in use', '130', 'English', '2007', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "PROJECT"."BOOK" VALUES ('9780521669948', 'Exploring grammar in writing', '168', 'English', '2006', NULL, NULL, NULL, NULL, NULL);
@@ -257,19 +254,17 @@ INSERT INTO "PROJECT"."BOOK" VALUES ('9781859649367', 'English for business stud
 INSERT INTO "PROJECT"."BOOK" VALUES ('9780470697054', 'Dynamics of smart structures', '396', 'English', '2010', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "PROJECT"."BOOK" VALUES ('9781405826891', 'Language leader', '192', 'English', '2010', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "PROJECT"."BOOK" VALUES ('9780521568449', 'Exploring grammar in context', '286', 'English', '2007', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "PROJECT"."BOOK" VALUES ('9780462098975', 'Achieve IELTS', '192', 'English', '2009', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "PROJECT"."BOOK" VALUES ('9780415924986', 'A world history of tax rebellions', '502', 'English', '2003', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."BOOK" VALUES ('9780415924986', 'A world history of tax rebellions', '502', 'English', '2003', NULL, 'https://m.media-amazon.com/images/I/71zgvWGUSbS._AC_UF894,1000_QL80_.jpg', NULL, NULL, NULL);
 INSERT INTO "PROJECT"."BOOK" VALUES ('9781847208361', 'Gene cartels', '394', 'English', '2009', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "PROJECT"."BOOK" VALUES ('9781900783958', 'Presenting', '64', 'English', '2006', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "PROJECT"."BOOK" VALUES ('9781405827980', 'Longman photo dictionary', '144', 'English', '2010', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "PROJECT"."BOOK" VALUES ('9780521675178', 'International legal English', '320', 'English', '2009', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "PROJECT"."BOOK" VALUES ('9781905085514', 'Absolute legal English', '112', 'English', '2010', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."BOOK" VALUES ('9781905085514', 'Absolute legal English', '112', 'English', '2010', NULL, 'https://0.academia-photos.com/attachment_thumbnails/63074372/mini_magick20220708-13026-kixd75.png?1657276706', NULL, NULL, NULL);
 INSERT INTO "PROJECT"."BOOK" VALUES ('9781859641316', 'English practice grammar', '224', 'English', '2001', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "PROJECT"."BOOK" VALUES ('9780759396289', 'Key words for fluency', '196', 'English', '2005', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "PROJECT"."BOOK" VALUES ('9780007190232', 'Collins COBUILD business vocabulary in practice', '248', 'English', '2004', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "PROJECT"."BOOK" VALUES ('9781424071128', 'Great writing 2', '293', 'English', '2010', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "PROJECT"."BOOK" VALUES ('9781424071135', 'Great writing 3', '268', 'English', '2010', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "PROJECT"."BOOK" VALUES ('9780462007526', 'Achieve IELTS 2', '112', 'English', '2006', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "PROJECT"."BOOK" VALUES ('9780521608794', 'Objective IELTS', '64', 'English', '2008', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "PROJECT"."BOOK" VALUES ('9781413022483', 'Destinations 2', '124', 'English', '2007', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "PROJECT"."BOOK" VALUES ('9781413022964', 'Destinations 1', '215', 'English', '2007', NULL, NULL, NULL, NULL, NULL);
@@ -278,13 +273,13 @@ INSERT INTO "PROJECT"."BOOK" VALUES ('9780906717592', 'Conversation gambits', '9
 INSERT INTO "PROJECT"."BOOK" VALUES ('9781413000009', 'Writing essentials', '328', 'English', '2003', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "PROJECT"."BOOK" VALUES ('9781905085187', 'Meetings', '64', 'English', '2008', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "PROJECT"."BOOK" VALUES ('9780415478489 ', 'Classical econophysics', '364', 'English', '2009', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "PROJECT"."BOOK" VALUES ('9780132338448', 'Academic connections 2', '157', 'English', '2010', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."BOOK" VALUES ('9780132338448', 'Academic connections 2', '157', 'English', '2010', NULL, 'https://m.media-amazon.com/images/I/41DVAy9lPJL._AC_UF1000,1000_QL80_.jpg', NULL, NULL, NULL);
 INSERT INTO "PROJECT"."BOOK" VALUES ('9780618474615', 'Key concepts 1', '208', 'English', '2009', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "PROJECT"."BOOK" VALUES ('9780618382408', 'Key concepts 1', '143', 'English', '2006', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "PROJECT"."BOOK" VALUES ('9781899396658', 'Conversation lessons', '128', 'English', '2002', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "PROJECT"."BOOK" VALUES ('9781413009293', 'Hot topics 2', '182', 'English', '2006', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "PROJECT"."BOOK" VALUES ('9781405881364', 'Market leader', '176', 'English', '2005', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "PROJECT"."BOOK" VALUES ('9781905085286', 'Absolute financial English', '136', 'English', '2010', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."BOOK" VALUES ('9781905085286', 'Absolute financial English', '136', 'English', '2010', NULL, 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1360572608i/11600178.jpg', NULL, NULL, NULL);
 INSERT INTO "PROJECT"."BOOK" VALUES ('9780132345231', 'Contemporary topics 3', '133', 'English', '2009', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "PROJECT"."BOOK" VALUES ('9781424003815', 'Reading the news', '112', 'English', '2007', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "PROJECT"."BOOK" VALUES ('9780887276798', 'Integrated Chinese', '424', 'English', '2010', NULL, NULL, NULL, NULL, NULL);
@@ -464,9 +459,15 @@ INSERT INTO "PROJECT"."BOOK" VALUES ('9781434230089', 'Making Waves', '144', 'En
 INSERT INTO "PROJECT"."BOOK" VALUES ('9781434230096', 'Taking a Break', '144', 'English', '2011', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/9781434230096.jpeg', NULL, 'Annie has been waiting for a chance to show off her riding skills. A trail ride in the mountains is the perfect time. And her friend Jade is coming along. It''ll be just like before Annie moved to Ridgeview and left Jade behind in the city. She can''t wait. But things never work out as planned . . . .', 'Trade Fiction');
 INSERT INTO "PROJECT"."BOOK" VALUES ('9781442401754', 'Comic Crazy ... Take 2!', '64', 'English', NULL, NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/9781442401754.jpeg', NULL, 'Fans went so crazy for it the first time, Spotlight''s doing a second installment of SpongeBob''sComic Crazy!', 'Trade Fiction');
 INSERT INTO "PROJECT"."BOOK" VALUES ('9780525421412', 'Whiteout', '272', 'English', '2009', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/9780525421412.jpeg', NULL, 'A teacher is found dead in a whiteout blizzard. If Chass doesn''t act fast, she could be next . . . Whiteout continues the story of Chastity, who has been on the run with her mother for as long as she can remember. Stumbling through a whiteout blizzard in Greenville, Minnesota, Chass trips over a dead body, and then sees a mysterious man disappear into the storm. With her haunted past, Chass knows all about running from killers, and she is sure that Kyle Van Epps is back. But Chass is sick of running, and if she hopes to ever have a normal life again, she has only one choice: find the killer before the killer finds her. ', 'Trade Fiction');
+INSERT INTO "PROJECT"."BOOK" VALUES ('9780415453219', 'Academic writing and publishing', '196', 'English', '2008', NULL, 'https://images.routledge.com/common/jackets/crclarge/978041545/9780415453226.jpg', NULL, NULL, NULL);
+INSERT INTO "PROJECT"."BOOK" VALUES ('9780462098975', 'Achieve IELTS', '192', 'English', '2009', NULL, 'https://img.dokumen.tips/doc/image/544020b4b1af9ff57a8b4634/achieve-ielts-practice-book.jpg', NULL, NULL, NULL);
+INSERT INTO "PROJECT"."BOOK" VALUES ('9780462007526', 'Achieve IELTS 2', '112', 'English', '2006', NULL, 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1348698419i/2952656.jpg', NULL, NULL, NULL);
 INSERT INTO "PROJECT"."BOOK" VALUES ('9780553495034', 'The Widow and the King', '624', 'English', NULL, NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/9780553495034.jpeg', NULL, 'This stunning book opens 12 years after the end of The Cup of the World and tells the story of Ambrose, son of Phaedra and last in the king''s line, who is living exiled with his mother in the dilapidated manor of Tarceny. Ambrose''s life is threatened by the hooded priest of the Undercraft, an ancestral spirit of pure evil who must end Ambrose''s life in order to survive himself. And even when Ambrose is hidden within the house of the Widow of Develin, a hallowed place of learning and haven of education, the priest and his minions slowly and subtly infiltrate within, subverting the minds of those most educated and powerful and leaving Ambrose in mortal danger.', 'Trade Fiction');
 INSERT INTO "PROJECT"."BOOK" VALUES ('133-234-1837', 'Premer Tajmohol', '100', 'Bangla', '2023', '220', 'https://i.ytimg.com/vi/eNA5yIE84eU/maxresdefault.jpg', NULL, NULL, 'Romantic');
-INSERT INTO "PROJECT"."BOOK" VALUES ('978-984-94751-1-8', 'Chander Gari', '63', 'Bangla', '2020', '200', 'https://ds.rokomari.store/rokomari110/ProductNew20190903/260X372/663552a53_197285.jpg', 'Mermaid Media & Publications', 'They are six young people full of youthfulness. After completing the course of college life, he entered the university only. The story of their adventurous journey is described in the novel ''Chander Gari''. A small group of youngsters, who named themselves BLAST. On the one hand, various events. Traditions, murders with friends, misunderstandings, while Chander gari''s driver Aziz - who is close to these youngsters; How can they reach their desired destination by driving Chander gari with indomitable courage and skill. The story of the novel is developed in the narrative. How dreams are shaped by the extreme will of youth. Vali''s journey comes to fruition - the description of it is revealed in writer Ananya Shahreen Promi''s novel ''Chander Gari''.', 'Novel');
+INSERT INTO "PROJECT"."BOOK" VALUES ('9844951399', 'Ami Topu', '123', 'Bangla', '2005', '224', 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1438351473i/3918747.jpg', 'Pearl Publications', 'Tapu''s life suddenly changed forever before he knew anything. As his relatives drifted away, at one point Tapu discovered he was alone. all alone  In this sad life of a lonely teenager, all his strange companions extended a hand of friendship. What can he pass with them, his friendless cruel life?  ''Aami Tapu'' is the survival story of a lonely teenager. A history of cruelty and a history of love.', 'Novel');
+INSERT INTO "PROJECT"."BOOK" VALUES ('978-984-94751-1-8', 'Chander Gari', '63', 'Bangla', '2020', '200', 'https://ds.rokomari.store/rokomari110/ProductNew20190903/260X372/663552a53_197285.jpg', 'Mermaid Media & Publications', 'They are six young people full of youthfulness. After completing the course of college life, he entered the university only. The story of their adventurous journey is described in the novel ''Chander Gari''. A small group of youngsters, who named themselves BLAST. On the one hand, various events. Traditions, murders with friends, misunderstandings, while Chander gari''s driver Aziz - who is close to these youngsters; How can they reach their desired destination by driving Chander gari with indomitable courage and skill. The story of the novel is developed in the narrative. How dreams are shaped by the extreme will of youth. Vali''s journey comes to fruition - the description of it is revealed in writer Ananya Shahrin Promi''s novel ''Chander Gari''.', 'Novel');
+INSERT INTO "PROJECT"."BOOK" VALUES ('9789848042014', 'Computer Programming 1st Part', '200', 'Bangla', '2011', '240', 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1475563181i/32306486.jpg', 'Dimik Prokashoni', 'Computers were born to compute. Now on the computer people listen to music, watch movies, write letters, do Facebook, browse the Internet, even steal but do not calculate! But there is nothing more fun than computing on a computer, all you need to know to do it is a little bit of programming. Programming is taught in universities or big educational institutions, but not many people know that even school-college children can do programming very easily. I have been thinking for a long time to write such a book for school children; But I could not make time for anything.', 'Computer Science');
+INSERT INTO "PROJECT"."BOOK" VALUES ('086611678-8', 'Aesop''s Fables', '238', 'English', '2005', '900', 'https://m.media-amazon.com/images/I/51GZ981AMXL._AC_UF1000,1000_QL80_.jpg', 'Playmore Waldman (Baronet)', 'Here are not only the Tortoise and the Hare, and the Grasshopper and the Ant, but dozens more of the delightful creatures that have been entertaining and instructing people for thousands of years. The storyteller Aesop lived in Ancient Greece, far away from us in time and distance. But his clever little stories have as much meaning for us today as they did when he first told them so long ago...', 'Children book');
 INSERT INTO "PROJECT"."BOOK" VALUES ('9781434221308', 'Cheerleading Really Is a Sport', '56', 'English', '2011', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/9781434221308.jpeg', NULL, 'Alicia''s brother Danny and his friends are always putting down cheerleading. One of them even said the cheerleaders don''t belong at the Victory School. But Alicia knows that everyone on the team has something special, like her super jumping ability. She just has to prove to Danny and the others that cheerleading really is a sport.', 'Trade Fiction');
 INSERT INTO "PROJECT"."BOOK" VALUES ('9781434220578', 'Don''t Break the Balance Beam!', '56', 'English', '2011', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/9781434220578.jpeg', NULL, 'Kenzie''s super strength makes her a super tumbler. But it causes all sorts of problems on the balance beam. When she doesn''t control her strength, she falls off or even worse. If she doesn''t learn to control her strength soon, all of her teammates will be laughing and saying one thing: don''t break the balance beam!', 'Trade Fiction');
 INSERT INTO "PROJECT"."BOOK" VALUES ('9781434220165', 'It''s Hard to Dribble with Your Feet', '56', 'English', '2011', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/9781434220165.jpeg', NULL, 'Carmen is a star dribbler for the Victory basketball team. She never loses control of the ball. But when she decides to try out for soccer, she learns that handling a soccer ball doesn''t come nearly as easy. After Carmen hears some other girls talking about her, she feels awful. She just didn''t realize that it''s hard to dribble with your feet.', 'Trade Fiction');
@@ -484,7 +485,7 @@ INSERT INTO "PROJECT"."BOOK" VALUES ('9781434220608', 'Buzz Beaker and the Cave 
 -- ----------------------------
 -- Table structure for BOOKFRIEND
 -- ----------------------------
-DROP TABLE "PROJECT"."BOOKFRIEND";
+-- DROP TABLE "PROJECT"."BOOKFRIEND";
 CREATE TABLE "PROJECT"."BOOKFRIEND" (
   "BOOKFRIENDID" NUMBER(10,0) VISIBLE NOT NULL,
   "EMAILID" VARCHAR2(50 BYTE) VISIBLE NOT NULL
@@ -508,23 +509,15 @@ DISABLE ROW MOVEMENT
 -- ----------------------------
 -- Records of BOOKFRIEND
 -- ----------------------------
-INSERT INTO "PROJECT"."BOOKFRIEND" VALUES ('1001', 'user5@example.com');
-INSERT INTO "PROJECT"."BOOKFRIEND" VALUES ('1002', 'user6@example.com');
-INSERT INTO "PROJECT"."BOOKFRIEND" VALUES ('1003', 'user7@example.com');
-INSERT INTO "PROJECT"."BOOKFRIEND" VALUES ('1004', 'user8@example.com');
-INSERT INTO "PROJECT"."BOOKFRIEND" VALUES ('1005', 'user9@example.com');
-INSERT INTO "PROJECT"."BOOKFRIEND" VALUES ('1006', 'user10@example.com');
-INSERT INTO "PROJECT"."BOOKFRIEND" VALUES ('1007', 'hello@gmail.com');
-INSERT INTO "PROJECT"."BOOKFRIEND" VALUES ('1008', 'ghh@hkdm.com');
-INSERT INTO "PROJECT"."BOOKFRIEND" VALUES ('1009', 'jknd@jh.djn');
-INSERT INTO "PROJECT"."BOOKFRIEND" VALUES ('1010', 'jknds@jh.djn');
-INSERT INTO "PROJECT"."BOOKFRIEND" VALUES ('1011', 'ananya3@gmail.com');
-INSERT INTO "PROJECT"."BOOKFRIEND" VALUES ('1012', 'kjk@hjs.cj');
+INSERT INTO "PROJECT"."BOOKFRIEND" VALUES ('1001', 'promi@gmail.com');
+INSERT INTO "PROJECT"."BOOKFRIEND" VALUES ('1002', 'abir@gmail.com');
+INSERT INTO "PROJECT"."BOOKFRIEND" VALUES ('1003', 'raiyan@gmail.com');
+INSERT INTO "PROJECT"."BOOKFRIEND" VALUES ('1004', 'arisha@gmail.com');
 
 -- ----------------------------
 -- Table structure for DELIVARYMAN
 -- ----------------------------
-DROP TABLE "PROJECT"."DELIVARYMAN";
+-- DROP TABLE "PROJECT"."DELIVARYMAN";
 CREATE TABLE "PROJECT"."DELIVARYMAN" (
   "DELIVARYMANID" NUMBER(10,0) VISIBLE NOT NULL,
   "EMAILID" VARCHAR2(50 BYTE) VISIBLE NOT NULL
@@ -548,19 +541,47 @@ DISABLE ROW MOVEMENT
 -- ----------------------------
 -- Records of DELIVARYMAN
 -- ----------------------------
-INSERT INTO "PROJECT"."DELIVARYMAN" VALUES ('5001', 'user1@example.com');
-INSERT INTO "PROJECT"."DELIVARYMAN" VALUES ('5002', 'user2@example.com');
-INSERT INTO "PROJECT"."DELIVARYMAN" VALUES ('5003', 'user3@example.com');
-INSERT INTO "PROJECT"."DELIVARYMAN" VALUES ('5004', 'user4@example.com');
+INSERT INTO "PROJECT"."DELIVARYMAN" VALUES ('1001', 'max@gmail.com');
+
+-- ----------------------------
+-- Table structure for DELIVARYOFFER
+-- ----------------------------
+-- DROP TABLE "PROJECT"."DELIVARYOFFER";
+CREATE TABLE "PROJECT"."DELIVARYOFFER" (
+  "EXCHANGEID" NUMBER(10,0) VISIBLE NOT NULL,
+  "DELIVARYMANID" NUMBER(10,0) VISIBLE,
+  "FEE" NUMBER VISIBLE
+)
+LOGGING
+NOCOMPRESS
+PCTFREE 10
+INITRANS 1
+STORAGE (
+  INITIAL 65536 
+  NEXT 1048576 
+  MINEXTENTS 1
+  MAXEXTENTS 2147483645
+  BUFFER_POOL DEFAULT
+)
+PARALLEL 1
+NOCACHE
+DISABLE ROW MOVEMENT
+;
+
+-- ----------------------------
+-- Records of DELIVARYOFFER
+-- ----------------------------
+INSERT INTO "PROJECT"."DELIVARYOFFER" VALUES ('2', '1001', '2.01');
 
 -- ----------------------------
 -- Table structure for EXCHANGEOFFER
 -- ----------------------------
-DROP TABLE "PROJECT"."EXCHANGEOFFER";
+-- DROP TABLE "PROJECT"."EXCHANGEOFFER";
 CREATE TABLE "PROJECT"."EXCHANGEOFFER" (
   "EXCHANGEID" NUMBER(10,0) VISIBLE NOT NULL,
   "OFFERID1" NUMBER(10,0) VISIBLE,
-  "OFFERID2" NUMBER(10,0) VISIBLE
+  "OFFERID2" NUMBER(10,0) VISIBLE,
+  "STATUS" VARCHAR2(100 BYTE) VISIBLE
 )
 LOGGING
 NOCOMPRESS
@@ -581,12 +602,20 @@ DISABLE ROW MOVEMENT
 -- ----------------------------
 -- Records of EXCHANGEOFFER
 -- ----------------------------
-INSERT INTO "PROJECT"."EXCHANGEOFFER" VALUES ('1', '54', '53');
+INSERT INTO "PROJECT"."EXCHANGEOFFER" VALUES ('9', '23', '18', 'PENDING');
+INSERT INTO "PROJECT"."EXCHANGEOFFER" VALUES ('3', '3', '7', 'PENDING');
+INSERT INTO "PROJECT"."EXCHANGEOFFER" VALUES ('4', '1', '2', 'PENDING');
+INSERT INTO "PROJECT"."EXCHANGEOFFER" VALUES ('5', '15', '6', 'PENDING');
+INSERT INTO "PROJECT"."EXCHANGEOFFER" VALUES ('6', '17', '9', 'PENDING');
+INSERT INTO "PROJECT"."EXCHANGEOFFER" VALUES ('7', '19', '5', 'PENDING');
+INSERT INTO "PROJECT"."EXCHANGEOFFER" VALUES ('8', '16', '8', 'PENDING');
+INSERT INTO "PROJECT"."EXCHANGEOFFER" VALUES ('1', '2', '1', 'PENDING');
+INSERT INTO "PROJECT"."EXCHANGEOFFER" VALUES ('2', '5', '3', 'PENDING');
 
 -- ----------------------------
 -- Table structure for NOTIFICATION1
 -- ----------------------------
-DROP TABLE "PROJECT"."NOTIFICATION1";
+-- DROP TABLE "PROJECT"."NOTIFICATION1";
 CREATE TABLE "PROJECT"."NOTIFICATION1" (
   "NOTIFICATIONID" NUMBER(10,0) VISIBLE NOT NULL,
   "EMAILWHOREQUESTED" VARCHAR2(50 BYTE) VISIBLE NOT NULL,
@@ -612,44 +641,23 @@ DISABLE ROW MOVEMENT
 -- ----------------------------
 -- Records of NOTIFICATION1
 -- ----------------------------
-INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('7', 'user5@example.com', '7', 'done');
-INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('8', 'user5@example.com', '7', 'show');
-INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('9', 'user5@example.com', '8', 'show');
-INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('10', 'user5@example.com', '8', 'show');
-INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('11', 'user5@example.com', '2', 'done');
-INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('12', 'user5@example.com', '2', 'show');
-INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('13', 'user5@example.com', '1', 'show');
-INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('14', 'user6@example.com', '14', 'show');
-INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('15', 'user6@example.com', '15', 'show');
-INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('16', 'user6@example.com', '35', 'show');
-INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('17', 'user6@example.com', '26', 'show');
-INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('18', 'user6@example.com', '16', 'show');
-INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('19', 'user6@example.com', '16', 'show');
-INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('20', 'user6@example.com', '16', 'show');
-INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('21', 'user6@example.com', '27', 'show');
-INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('22', 'user6@example.com', '34', 'show');
-INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('23', 'user6@example.com', '28', 'show');
-INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('24', 'user6@example.com', '33', 'show');
-INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('25', 'user6@example.com', '36', 'show');
-INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('26', 'user6@example.com', '31', 'show');
-INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('27', 'user6@example.com', '38', 'show');
-INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('4', 'user5@example.com', '4', 'show');
-INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('5', 'user5@example.com', '6', 'show');
-INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('6', 'user5@example.com', '6', 'show');
-INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('33', 'jknd@jh.djn', '53', 'done');
-INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('0', 'user5@example.com', '1', 'show');
-INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('1', 'user5@example.com', '5', 'show');
-INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('2', 'user5@example.com', '15', 'done');
-INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('3', 'user5@example.com', '1', 'show');
-INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('28', 'user7@example.com', '37', 'show');
-INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('29', 'user7@example.com', '39', 'show');
-INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('30', 'user6@example.com', '40', 'show');
-INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('32', 'user6@example.com', '51', 'done');
+INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('12', 'arisha@gmail.com', '18', 'done');
+INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('4', 'promi@gmail.com', '7', 'done');
+INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('5', 'promi@gmail.com', '9', 'done');
+INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('6', 'promi@gmail.com', '6', 'done');
+INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('7', 'promi@gmail.com', '10', 'show');
+INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('8', 'promi@gmail.com', '12', 'show');
+INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('9', 'promi@gmail.com', '5', 'done');
+INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('10', 'promi@gmail.com', '8', 'done');
+INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('3', 'promi@gmail.com', '2', 'done');
+INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('11', 'promi@gmail.com', '13', 'show');
+INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('2', 'abir@gmail.com', '3', 'show');
+INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('1', 'abir@gmail.com', '1', 'show');
 
 -- ----------------------------
 -- Table structure for NOTIFICATION2
 -- ----------------------------
-DROP TABLE "PROJECT"."NOTIFICATION2";
+-- DROP TABLE "PROJECT"."NOTIFICATION2";
 CREATE TABLE "PROJECT"."NOTIFICATION2" (
   "NOTIFICATIONID" NUMBER(10,0) VISIBLE NOT NULL,
   "EMAILWHOREQUESTED" VARCHAR2(50 BYTE) VISIBLE NOT NULL,
@@ -675,15 +683,20 @@ DISABLE ROW MOVEMENT
 -- ----------------------------
 -- Records of NOTIFICATION2
 -- ----------------------------
-INSERT INTO "PROJECT"."NOTIFICATION2" VALUES ('4', 'user6@example.com', '54', 'unread');
-INSERT INTO "PROJECT"."NOTIFICATION2" VALUES ('1', 'user5@example.com', '22', 'unread');
-INSERT INTO "PROJECT"."NOTIFICATION2" VALUES ('2', 'user6@example.com', '23', 'unread');
-INSERT INTO "PROJECT"."NOTIFICATION2" VALUES ('3', 'jknds@jh.djn', '52', 'unread');
+INSERT INTO "PROJECT"."NOTIFICATION2" VALUES ('9', 'promi@gmail.com', '23', 'unread');
+INSERT INTO "PROJECT"."NOTIFICATION2" VALUES ('5', 'abir@gmail.com', '15', 'unread');
+INSERT INTO "PROJECT"."NOTIFICATION2" VALUES ('3', 'abir@gmail.com', '3', 'unread');
+INSERT INTO "PROJECT"."NOTIFICATION2" VALUES ('4', 'abir@gmail.com', '1', 'unread');
+INSERT INTO "PROJECT"."NOTIFICATION2" VALUES ('6', 'abir@gmail.com', '17', 'unread');
+INSERT INTO "PROJECT"."NOTIFICATION2" VALUES ('7', 'abir@gmail.com', '19', 'unread');
+INSERT INTO "PROJECT"."NOTIFICATION2" VALUES ('8', 'abir@gmail.com', '16', 'unread');
+INSERT INTO "PROJECT"."NOTIFICATION2" VALUES ('1', 'promi@gmail.com', '2', 'unread');
+INSERT INTO "PROJECT"."NOTIFICATION2" VALUES ('2', 'promi@gmail.com', '5', 'unread');
 
 -- ----------------------------
 -- Table structure for OFFER
 -- ----------------------------
-DROP TABLE "PROJECT"."OFFER";
+-- DROP TABLE "PROJECT"."OFFER";
 CREATE TABLE "PROJECT"."OFFER" (
   "OFFERID" NUMBER(10,0) VISIBLE NOT NULL,
   "MESSAGE" VARCHAR2(500 BYTE) VISIBLE,
@@ -712,74 +725,37 @@ DISABLE ROW MOVEMENT
 -- ----------------------------
 -- Records of OFFER
 -- ----------------------------
-INSERT INTO "PROJECT"."OFFER" VALUES ('1', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user7@example.com', '9780813372617', TO_TIMESTAMP('2023-08-14 21:07:58.000000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
-INSERT INTO "PROJECT"."OFFER" VALUES ('2', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user7@example.com', '9780813372617', TO_TIMESTAMP('2023-08-14 21:11:16.000000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
-INSERT INTO "PROJECT"."OFFER" VALUES ('3', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user7@example.com', '9780813372617', TO_TIMESTAMP('2023-08-15 03:13:25.000000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
-INSERT INTO "PROJECT"."OFFER" VALUES ('5', 'kmefksn', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1692158980/my-uploads/c7ezwfh6jrb66hfaikml.jpg', 'user6@example.com', '9798889050452', TO_TIMESTAMP('2023-08-16 10:10:24.000000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
-INSERT INTO "PROJECT"."OFFER" VALUES ('6', 'kmf', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1692159179/my-uploads/yspfornimndg2ttymma3.jpg', 'user6@example.com', '9798889050452', TO_TIMESTAMP('2023-08-16 10:12:50.000000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
-INSERT INTO "PROJECT"."OFFER" VALUES ('7', 'kmfjih', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1692159179/my-uploads/yspfornimndg2ttymma3.jpg', 'user6@example.com', '9798889050452', TO_TIMESTAMP('2023-08-16 10:13:04.000000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
-INSERT INTO "PROJECT"."OFFER" VALUES ('8', 'kmfjihkjgnryjwr4', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1692159179/my-uploads/yspfornimndg2ttymma3.jpg', 'user6@example.com', '9798889050452', TO_TIMESTAMP('2023-08-16 10:13:28.000000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'pending');
-INSERT INTO "PROJECT"."OFFER" VALUES ('14', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '978-984-94751-1-8', TO_TIMESTAMP('2023-08-21 01:42:44.335000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'pending');
-INSERT INTO "PROJECT"."OFFER" VALUES ('15', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '9781434219886', TO_TIMESTAMP('2023-08-21 01:43:29.996000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
-INSERT INTO "PROJECT"."OFFER" VALUES ('16', 'efwf', 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '9781434219886', TO_TIMESTAMP('2023-08-21 01:45:06.293000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'pending');
-INSERT INTO "PROJECT"."OFFER" VALUES ('26', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '9781434220097', TO_TIMESTAMP('2023-08-21 01:58:37.451000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'pending');
-INSERT INTO "PROJECT"."OFFER" VALUES ('27', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '9781434220097', TO_TIMESTAMP('2023-08-21 02:01:52.193000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'pending');
-INSERT INTO "PROJECT"."OFFER" VALUES ('28', 'ggg', 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '9781434219886', TO_TIMESTAMP('2023-08-21 02:02:24.948000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'pending');
-INSERT INTO "PROJECT"."OFFER" VALUES ('36', 'nooooo', 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '9780136127802', TO_TIMESTAMP('2023-08-21 02:16:24.549000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'pending');
-INSERT INTO "PROJECT"."OFFER" VALUES ('37', 'regre', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1692562743/my-uploads/srozgwxm4yxdiklunul1.jpg', 'user5@example.com', '9781434221292', TO_TIMESTAMP('2023-08-21 02:19:07.849000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'pending');
-INSERT INTO "PROJECT"."OFFER" VALUES ('38', 'rgtrb', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1692562771/my-uploads/tghp0vq6wpdgszkqtu1b.png', 'user5@example.com', '9781434220097', TO_TIMESTAMP('2023-08-21 02:19:37.447000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'pending');
-INSERT INTO "PROJECT"."OFFER" VALUES ('39', 'trjjj', 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '9780193161283', TO_TIMESTAMP('2023-08-21 02:20:16.124000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'pending');
-INSERT INTO "PROJECT"."OFFER" VALUES ('40', 'reh', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1692562843/my-uploads/wcqojordbiamax1hozgu.png', 'user5@example.com', '9798986874234', TO_TIMESTAMP('2023-08-21 02:20:50.000000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'pending');
-INSERT INTO "PROJECT"."OFFER" VALUES ('41', 'loca loca loca', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1692563112/my-uploads/f2utoltunimyg9hmnunp.png', 'user5@example.com', '9781434221438', TO_TIMESTAMP('2023-08-21 02:25:20.631000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
-INSERT INTO "PROJECT"."OFFER" VALUES ('42', 'vfreb', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1692563189/my-uploads/oxexmnsvh97sywd9jrdk.png', 'user5@example.com', '9781728490779', TO_TIMESTAMP('2023-08-21 02:26:38.385000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'pending');
-INSERT INTO "PROJECT"."OFFER" VALUES ('43', 'erg', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1692563385/my-uploads/easzogijxjkuri284bsh.png', 'user5@example.com', '9781728490779', TO_TIMESTAMP('2023-08-21 02:29:50.524000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'pending');
-INSERT INTO "PROJECT"."OFFER" VALUES ('44', 'vaaaa', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1692563491/my-uploads/tksggnzic8omwjwlmdd8.png', 'user5@example.com', '9781728490779', TO_TIMESTAMP('2023-08-21 02:31:39.434000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'pending');
-INSERT INTO "PROJECT"."OFFER" VALUES ('45', 'eg', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1692563572/my-uploads/jo50dzvgl7lypyaqsnzo.png', 'user5@example.com', '9781434220110', TO_TIMESTAMP('2023-08-21 02:32:57.596000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'pending');
-INSERT INTO "PROJECT"."OFFER" VALUES ('46', 'regt', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1692563610/my-uploads/kq66myfo7tnln6kyyqcm.png', 'user5@example.com', '9781434220097', TO_TIMESTAMP('2023-08-21 02:33:36.111000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'pending');
-INSERT INTO "PROJECT"."OFFER" VALUES ('47', 'regtttt', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1692563793/my-uploads/mqx10e7mjndmvmxqlnij.png', 'user5@example.com', '9781434220097', TO_TIMESTAMP('2023-08-21 02:36:40.265000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'pending');
-INSERT INTO "PROJECT"."OFFER" VALUES ('48', 'fvfrt', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1692563828/my-uploads/kijcoipyfkolhhxumzoe.png', 'user5@example.com', '9780136127802', TO_TIMESTAMP('2023-08-21 02:37:37.440000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'pending');
-INSERT INTO "PROJECT"."OFFER" VALUES ('50', 'jkwnd', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1692657076/my-uploads/fonuuth9y1moemnlo9d8.png', 'user5@example.com', '978-984-94751-1-8', TO_TIMESTAMP('2023-08-22 04:31:20.600000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'pending');
-INSERT INTO "PROJECT"."OFFER" VALUES ('4', 'regtrb', 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user6@example.com', '9780773516052', TO_TIMESTAMP('2023-08-15 03:25:55.000000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'pending');
-INSERT INTO "PROJECT"."OFFER" VALUES ('32', 'klmlnk', 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '9781434220097', TO_TIMESTAMP('2023-08-21 02:07:08.969000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
-INSERT INTO "PROJECT"."OFFER" VALUES ('53', 'bindia re bindia', 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user6@example.com', '9781728490830', TO_TIMESTAMP('2023-08-23 03:14:44.027000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
-INSERT INTO "PROJECT"."OFFER" VALUES ('54', NULL, 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1692738945/my-uploads/soguhyam9kci9xqqqt3r.png', 'jknd@jh.djn', '9780823419524', TO_TIMESTAMP('2023-08-23 03:15:47.968000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
-INSERT INTO "PROJECT"."OFFER" VALUES ('56', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '9781434220554', TO_TIMESTAMP('2023-08-24 00:25:04.299000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
-INSERT INTO "PROJECT"."OFFER" VALUES ('57', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '9781404813212', TO_TIMESTAMP('2023-08-24 00:25:29.222000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
-INSERT INTO "PROJECT"."OFFER" VALUES ('10', 'this is', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1692167668/my-uploads/netuez7ejdwpswf6f8db.jpg', 'user5@example.com', '133-234-1837', TO_TIMESTAMP('2023-08-16 12:33:56.000000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
-INSERT INTO "PROJECT"."OFFER" VALUES ('11', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '978-984-94751-1-8', TO_TIMESTAMP('2023-08-21 00:40:23.000000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
-INSERT INTO "PROJECT"."OFFER" VALUES ('12', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '978-984-94751-1-8', TO_TIMESTAMP('2023-08-21 00:41:12.000000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
-INSERT INTO "PROJECT"."OFFER" VALUES ('13', 'CFV', 'REV', 'user6@example.com', '978-984-94751-1-8', TO_TIMESTAMP('2023-08-21 01:27:58.417000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'pending');
-INSERT INTO "PROJECT"."OFFER" VALUES ('49', 'rvgrt', 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '9781434221292', TO_TIMESTAMP('2023-08-21 02:38:22.110000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
-INSERT INTO "PROJECT"."OFFER" VALUES ('9', 'Ei book e boiche Zamuna', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1692163064/my-uploads/q1k0dmyk0ulxlnf9tkr5.jpg', 'user5@example.com', '133-234-1837', TO_TIMESTAMP('2023-08-16 11:17:10.000000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
-INSERT INTO "PROJECT"."OFFER" VALUES ('17', 'efwf', 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '9781434219886', TO_TIMESTAMP('2023-08-21 01:47:07.189000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
-INSERT INTO "PROJECT"."OFFER" VALUES ('18', 'efwf', 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '9781434219886', TO_TIMESTAMP('2023-08-21 01:47:26.058000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
-INSERT INTO "PROJECT"."OFFER" VALUES ('19', 'efwf', 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '9781434219886', TO_TIMESTAMP('2023-08-21 01:49:26.809000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
-INSERT INTO "PROJECT"."OFFER" VALUES ('20', 'efwf', 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '9781434219886', TO_TIMESTAMP('2023-08-21 01:50:33.618000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
-INSERT INTO "PROJECT"."OFFER" VALUES ('21', 'efwf', 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '9781434219886', TO_TIMESTAMP('2023-08-21 01:52:54.301000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
-INSERT INTO "PROJECT"."OFFER" VALUES ('22', 'efwf', 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '9781434219886', TO_TIMESTAMP('2023-08-21 01:55:07.161000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
-INSERT INTO "PROJECT"."OFFER" VALUES ('23', 'aaaaa', 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '9781434220639', TO_TIMESTAMP('2023-08-21 01:55:42.274000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
-INSERT INTO "PROJECT"."OFFER" VALUES ('24', 'bbbbbbb', 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '9781434220639', TO_TIMESTAMP('2023-08-21 01:56:19.659000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
-INSERT INTO "PROJECT"."OFFER" VALUES ('25', 'sssss', 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '9781434220097', TO_TIMESTAMP('2023-08-21 01:56:41.578000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
-INSERT INTO "PROJECT"."OFFER" VALUES ('29', 'dddd', 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '9798889050605', TO_TIMESTAMP('2023-08-21 02:04:29.282000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
-INSERT INTO "PROJECT"."OFFER" VALUES ('30', 'kln', 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '9798889050605', TO_TIMESTAMP('2023-08-21 02:05:00.365000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
-INSERT INTO "PROJECT"."OFFER" VALUES ('31', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '9781434220554', TO_TIMESTAMP('2023-08-21 02:05:35.774000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'pending');
-INSERT INTO "PROJECT"."OFFER" VALUES ('33', 'asssa', 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '9781434220097', TO_TIMESTAMP('2023-08-21 02:09:37.095000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'pending');
-INSERT INTO "PROJECT"."OFFER" VALUES ('34', 'rtg', 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '9781434220097', TO_TIMESTAMP('2023-08-21 02:13:54.655000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'pending');
-INSERT INTO "PROJECT"."OFFER" VALUES ('35', 'reg', 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user5@example.com', '9781434220608', TO_TIMESTAMP('2023-08-21 02:14:35.066000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'pending');
-INSERT INTO "PROJECT"."OFFER" VALUES ('51', 'first offer', 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'jknds@jh.djn', '9781405852313 (student bk)', TO_TIMESTAMP('2023-08-23 02:39:22.275000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
-INSERT INTO "PROJECT"."OFFER" VALUES ('52', 'ielts', 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'user6@example.com', '9780462098975', TO_TIMESTAMP('2023-08-23 02:41:39.626000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
-INSERT INTO "PROJECT"."OFFER" VALUES ('55', 'gooooooooooo12345', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1692814725/my-uploads/qtbi9pr1p2o3aio3coat.png', 'user5@example.com', '9798889050452', TO_TIMESTAMP('2023-08-24 00:18:52.466000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
+INSERT INTO "PROJECT"."OFFER" VALUES ('23', 'I want to share this book.', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1693018949/my-uploads/bh3ir7rulejpmrxl4zca.png', 'arisha@gmail.com', '086611678-8', TO_TIMESTAMP('2023-08-26 09:02:43.525000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
+INSERT INTO "PROJECT"."OFFER" VALUES ('10', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'abir@gmail.com', '9780415924986', TO_TIMESTAMP('2023-08-25 07:18:01.081000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'pending');
+INSERT INTO "PROJECT"."OFFER" VALUES ('11', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'abir@gmail.com', '9798889050605', TO_TIMESTAMP('2023-08-25 07:19:05.185000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
+INSERT INTO "PROJECT"."OFFER" VALUES ('12', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'abir@gmail.com', '9781434221520', TO_TIMESTAMP('2023-08-25 07:19:19.799000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'pending');
+INSERT INTO "PROJECT"."OFFER" VALUES ('13', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'abir@gmail.com', '9781434219831', TO_TIMESTAMP('2023-08-25 07:19:26.659000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'pending');
+INSERT INTO "PROJECT"."OFFER" VALUES ('14', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'promi@gmail.com', '9798889050513', TO_TIMESTAMP('2023-08-25 07:20:15.793000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
+INSERT INTO "PROJECT"."OFFER" VALUES ('15', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'promi@gmail.com', '9781935279686', TO_TIMESTAMP('2023-08-25 07:20:22.017000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
+INSERT INTO "PROJECT"."OFFER" VALUES ('16', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'promi@gmail.com', '9789848042014', TO_TIMESTAMP('2023-08-25 07:20:32.865000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
+INSERT INTO "PROJECT"."OFFER" VALUES ('17', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'promi@gmail.com', '984-70096-0357-0', TO_TIMESTAMP('2023-08-25 07:20:40.824000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
+INSERT INTO "PROJECT"."OFFER" VALUES ('18', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'promi@gmail.com', '9781434220554', TO_TIMESTAMP('2023-08-25 07:29:16.080000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
+INSERT INTO "PROJECT"."OFFER" VALUES ('9', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'abir@gmail.com', '9780415924986', TO_TIMESTAMP('2023-08-25 07:00:38.048000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
+INSERT INTO "PROJECT"."OFFER" VALUES ('1', 'I will share this book', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1692915247/my-uploads/swuw4duhmovkmddjmh2i.png', 'promi@gmail.com', '9798889050452', TO_TIMESTAMP('2023-08-25 04:14:19.605000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
+INSERT INTO "PROJECT"."OFFER" VALUES ('2', 'Take it', 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'abir@gmail.com', '9780415924986', TO_TIMESTAMP('2023-08-25 04:15:32.432000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
+INSERT INTO "PROJECT"."OFFER" VALUES ('3', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'promi@gmail.com', '9780415924986', TO_TIMESTAMP('2023-08-25 04:16:14.740000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
+INSERT INTO "PROJECT"."OFFER" VALUES ('4', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'promi@gmail.com', '9781935279686', TO_TIMESTAMP('2023-08-25 04:16:24.649000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
+INSERT INTO "PROJECT"."OFFER" VALUES ('5', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'abir@gmail.com', '133-234-1837', TO_TIMESTAMP('2023-08-25 04:16:41.353000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
+INSERT INTO "PROJECT"."OFFER" VALUES ('6', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'abir@gmail.com', '9780275961039', TO_TIMESTAMP('2023-08-25 04:16:51.636000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
+INSERT INTO "PROJECT"."OFFER" VALUES ('7', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'abir@gmail.com', '9781935279686', TO_TIMESTAMP('2023-08-25 06:35:17.075000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
+INSERT INTO "PROJECT"."OFFER" VALUES ('8', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'abir@gmail.com', '9780813116273', TO_TIMESTAMP('2023-08-25 06:35:25.715000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
+INSERT INTO "PROJECT"."OFFER" VALUES ('19', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'promi@gmail.com', '9798889050452', TO_TIMESTAMP('2023-08-25 07:30:03.458000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
+INSERT INTO "PROJECT"."OFFER" VALUES ('20', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'promi@gmail.com', '9798889050605', TO_TIMESTAMP('2023-08-25 07:30:08.809000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
+INSERT INTO "PROJECT"."OFFER" VALUES ('21', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'promi@gmail.com', '9781404813212', TO_TIMESTAMP('2023-08-25 07:30:13.405000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
+INSERT INTO "PROJECT"."OFFER" VALUES ('22', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'promi@gmail.com', '9780415924986', TO_TIMESTAMP('2023-08-25 07:30:19.371000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
 
 -- ----------------------------
 -- Table structure for PUBLISHER
 -- ----------------------------
-DROP TABLE "PROJECT"."PUBLISHER";
+-- DROP TABLE "PROJECT"."PUBLISHER";
 CREATE TABLE "PROJECT"."PUBLISHER" (
   "NAME" VARCHAR2(100 BYTE) VISIBLE NOT NULL,
-  "ADDRESS" VARCHAR2(200 BYTE) VISIBLE,
-  "WEBSITE" VARCHAR2(50 BYTE) VISIBLE,
-  "EMAIL" VARCHAR2(50 BYTE) VISIBLE,
-  "CONTACTNO" NUMBER(15,0) VISIBLE
+  "ADDRESS" VARCHAR2(200 BYTE) VISIBLE
 )
 LOGGING
 NOCOMPRESS
@@ -800,37 +776,39 @@ DISABLE ROW MOVEMENT
 -- ----------------------------
 -- Records of PUBLISHER
 -- ----------------------------
-INSERT INTO "PROJECT"."PUBLISHER" VALUES ('Routledge', 'New York', NULL, NULL, NULL);
-INSERT INTO "PROJECT"."PUBLISHER" VALUES ('Edward Elgar', 'Cheltenham', NULL, NULL, NULL);
-INSERT INTO "PROJECT"."PUBLISHER" VALUES ('Wiley-VCH', 'Weinhein', NULL, NULL, NULL);
-INSERT INTO "PROJECT"."PUBLISHER" VALUES ('John Wiley & Sons', 'Chichester', NULL, NULL, NULL);
-INSERT INTO "PROJECT"."PUBLISHER" VALUES ('Facet Publishing', 'London', NULL, NULL, NULL);
-INSERT INTO "PROJECT"."PUBLISHER" VALUES ('Blackwell Publishing', 'Malden, MA', NULL, NULL, NULL);
-INSERT INTO "PROJECT"."PUBLISHER" VALUES ('Longman', 'White Plains, NY', NULL, NULL, NULL);
-INSERT INTO "PROJECT"."PUBLISHER" VALUES ('Pearson Education', 'New York', NULL, NULL, NULL);
-INSERT INTO "PROJECT"."PUBLISHER" VALUES ('Express Publishing', 'Newbury', NULL, NULL, NULL);
-INSERT INTO "PROJECT"."PUBLISHER" VALUES ('Garnet Publishing', 'United Kingdom', NULL, NULL, NULL);
-INSERT INTO "PROJECT"."PUBLISHER" VALUES ('Cambridge University Press', 'United Kingdom', NULL, NULL, NULL);
-INSERT INTO "PROJECT"."PUBLISHER" VALUES ('SAGE', 'California', NULL, NULL, NULL);
-INSERT INTO "PROJECT"."PUBLISHER" VALUES ('THOMSON', 'United Kingdom', NULL, NULL, NULL);
-INSERT INTO "PROJECT"."PUBLISHER" VALUES ('Open University Press', 'New York', NULL, NULL, NULL);
-INSERT INTO "PROJECT"."PUBLISHER" VALUES ('DELTA Publishing', 'London', NULL, NULL, NULL);
-INSERT INTO "PROJECT"."PUBLISHER" VALUES ('Marshall Cavendish', 'London', NULL, NULL, NULL);
-INSERT INTO "PROJECT"."PUBLISHER" VALUES ('Harper Collins Publishers', 'Glasgow', NULL, NULL, NULL);
-INSERT INTO "PROJECT"."PUBLISHER" VALUES ('Heinle, Cengage Learning', 'Boston', NULL, NULL, NULL);
-INSERT INTO "PROJECT"."PUBLISHER" VALUES ('Marshall Cavendish Education', 'London', NULL, NULL, NULL);
-INSERT INTO "PROJECT"."PUBLISHER" VALUES ('Thomson Heinle', 'Boston', NULL, NULL, NULL);
-INSERT INTO "PROJECT"."PUBLISHER" VALUES ('Cheng and Tsui Company', 'Boston', NULL, NULL, NULL);
-INSERT INTO "PROJECT"."PUBLISHER" VALUES ('Left Coast Press, Inc.', 'Walnut Creek', NULL, NULL, NULL);
-INSERT INTO "PROJECT"."PUBLISHER" VALUES ('Heinle, Gengage Learning', 'Boston', NULL, NULL, NULL);
-INSERT INTO "PROJECT"."PUBLISHER" VALUES ('National Academies Press,', 'Washington, D.C. :', NULL, NULL, NULL);
-INSERT INTO "PROJECT"."PUBLISHER" VALUES ('Mermaid Media & Publications', '218 Elephant Road, Bata Signal, Dhaka', NULL, 'mermaidmediabd@gmail.com', '1731495857');
-INSERT INTO "PROJECT"."PUBLISHER" VALUES ('Tamralipi', '38/2A, Banglabazar, Dhaka-1100', NULL, NULL, NULL);
+INSERT INTO "PROJECT"."PUBLISHER" VALUES ('Routledge', 'New York');
+INSERT INTO "PROJECT"."PUBLISHER" VALUES ('Edward Elgar', 'Cheltenham');
+INSERT INTO "PROJECT"."PUBLISHER" VALUES ('Wiley-VCH', 'Weinhein');
+INSERT INTO "PROJECT"."PUBLISHER" VALUES ('John Wiley & Sons', 'Chichester');
+INSERT INTO "PROJECT"."PUBLISHER" VALUES ('Facet Publishing', 'London');
+INSERT INTO "PROJECT"."PUBLISHER" VALUES ('Blackwell Publishing', 'Malden, MA');
+INSERT INTO "PROJECT"."PUBLISHER" VALUES ('Longman', 'White Plains, NY');
+INSERT INTO "PROJECT"."PUBLISHER" VALUES ('Pearson Education', 'New York');
+INSERT INTO "PROJECT"."PUBLISHER" VALUES ('Express Publishing', 'Newbury');
+INSERT INTO "PROJECT"."PUBLISHER" VALUES ('Garnet Publishing', 'United Kingdom');
+INSERT INTO "PROJECT"."PUBLISHER" VALUES ('Cambridge University Press', 'United Kingdom');
+INSERT INTO "PROJECT"."PUBLISHER" VALUES ('SAGE', 'California');
+INSERT INTO "PROJECT"."PUBLISHER" VALUES ('Open University Press', 'New York');
+INSERT INTO "PROJECT"."PUBLISHER" VALUES ('DELTA Publishing', 'London');
+INSERT INTO "PROJECT"."PUBLISHER" VALUES ('Marshall Cavendish', 'London');
+INSERT INTO "PROJECT"."PUBLISHER" VALUES ('Harper Collins Publishers', 'Glasgow');
+INSERT INTO "PROJECT"."PUBLISHER" VALUES ('Heinle, Cengage Learning', 'Boston');
+INSERT INTO "PROJECT"."PUBLISHER" VALUES ('Marshall Cavendish Education', 'London');
+INSERT INTO "PROJECT"."PUBLISHER" VALUES ('Thomson Heinle', 'Boston');
+INSERT INTO "PROJECT"."PUBLISHER" VALUES ('Cheng and Tsui Company', 'Boston');
+INSERT INTO "PROJECT"."PUBLISHER" VALUES ('Left Coast Press, Inc.', 'Walnut Creek');
+INSERT INTO "PROJECT"."PUBLISHER" VALUES ('Heinle, Gengage Learning', 'Boston');
+INSERT INTO "PROJECT"."PUBLISHER" VALUES ('National Academies Press,', 'Washington, D.C. :');
+INSERT INTO "PROJECT"."PUBLISHER" VALUES ('Playmore Waldman (Baronet)', NULL);
+INSERT INTO "PROJECT"."PUBLISHER" VALUES ('Mermaid Media & Publications', '218 Elephant Road, Bata Signal, Dhaka');
+INSERT INTO "PROJECT"."PUBLISHER" VALUES ('Tamralipi', '38/2A, Banglabazar, Dhaka-1100');
+INSERT INTO "PROJECT"."PUBLISHER" VALUES ('Pearl Publications', NULL);
+INSERT INTO "PROJECT"."PUBLISHER" VALUES ('Dimik Prokashoni', 'Banglabazar, 37 N Brook Hall Rd, Dhaka 1100');
 
 -- ----------------------------
 -- Table structure for REVIEW
 -- ----------------------------
-DROP TABLE "PROJECT"."REVIEW";
+-- DROP TABLE "PROJECT"."REVIEW";
 CREATE TABLE "PROJECT"."REVIEW" (
   "MESSAGEFORUS" VARCHAR2(500 BYTE) VISIBLE,
   "DATEOFREVIEW" DATE VISIBLE NOT NULL,
@@ -857,7 +835,7 @@ DISABLE ROW MOVEMENT
 -- ----------------------------
 -- Table structure for USERMAN
 -- ----------------------------
-DROP TABLE "PROJECT"."USERMAN";
+-- DROP TABLE "PROJECT"."USERMAN";
 CREATE TABLE "PROJECT"."USERMAN" (
   "EMAILID" VARCHAR2(50 BYTE) VISIBLE NOT NULL,
   "PASSWORD" VARCHAR2(50 BYTE) VISIBLE NOT NULL,
@@ -889,32 +867,16 @@ DISABLE ROW MOVEMENT
 -- ----------------------------
 -- Records of USERMAN
 -- ----------------------------
-INSERT INTO "PROJECT"."USERMAN" VALUES ('ananyapromi@gmail.com', 'nonono', 'Ananya', TO_DATE('2023-08-23 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'Female', 'Promi', '37.7749295', '-122.4194155', '+8801745362617', '+8801748927463');
-INSERT INTO "PROJECT"."USERMAN" VALUES ('EWG@JKB', 'HIHJIJ', 'HIUBJ', TO_DATE('2023-08-24 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'JNJK', 'JBJB', '23.7661639', '90.3588734', '98YY9', NULL);
-INSERT INTO "PROJECT"."USERMAN" VALUES ('d2@gmail.com', 'duiefhiuf', 'uhih', TO_DATE('2023-08-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'male', 'uihhiu', '37.7749295', '-122.4194155', 'undefined', 'undefined');
-INSERT INTO "PROJECT"."USERMAN" VALUES ('jkkbkb@hbjb.con', 'regbftgv', 'ytfygf', TO_DATE('2023-08-08 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'Female', 'hbhjb', '23.7661639', '90.3588734', '86987', NULL);
-INSERT INTO "PROJECT"."USERMAN" VALUES ('user1@example.com', 'AmiAmiAmi1', 'John', TO_DATE('1990-01-15 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'Male', 'Doe', '37.7749295', '-122.4194155', '+8801745362613', '+8801748927463');
-INSERT INTO "PROJECT"."USERMAN" VALUES ('user2@example.com', 'TumiTumiTumi2', 'Jane', TO_DATE('2002-04-23 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'Female', 'Smith', '34.052235', '-118.243683', '+8801547823747', NULL);
-INSERT INTO "PROJECT"."USERMAN" VALUES ('user3@example.com', 'EijeEijeEije3', 'Saika', TO_DATE('1998-03-12 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'Male', 'Johnson', '40.712776', '-74.005974', '+8801748927463', NULL);
-INSERT INTO "PROJECT"."USERMAN" VALUES ('user4@example.com', 'HiThereHello2u', 'Emily', TO_DATE('2010-12-29 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'Female', 'Brown', '51.5074', '-0.1278', '+8801748927463', NULL);
-INSERT INTO "PROJECT"."USERMAN" VALUES ('user5@example.com', 'NoWayHome12345', 'Alex', TO_DATE('2002-04-13 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'Non-binary', 'Taylor', '41.8781', '-87.6298', '+8801748927463', NULL);
-INSERT INTO "PROJECT"."USERMAN" VALUES ('user6@example.com', 'AndThenThereWereNone', 'Samantha', TO_DATE('1989-09-02 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'Female', 'Williams', '34.0522', '-118.2437', '+8801748927463', NULL);
-INSERT INTO "PROJECT"."USERMAN" VALUES ('user7@example.com', 'HaveABeautifulDay@', 'Daniel', TO_DATE('1996-08-10 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'Male', 'Anderson', '37.7749', '-122.4194', '+8801748927463', NULL);
-INSERT INTO "PROJECT"."USERMAN" VALUES ('user8@example.com', 'Crying_1_2_3', 'Amanda', TO_DATE('1990-04-15 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'Female', 'Martinez', '40.7128', '-74.0059', '+8801748927463', NULL);
-INSERT INTO "PROJECT"."USERMAN" VALUES ('user9@example.com', 'NobodyLovesM3', 'Robert', TO_DATE('2000-08-19 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'Male', 'Walker', '34.0522', '-118.2437', '+8801748927463', NULL);
-INSERT INTO "PROJECT"."USERMAN" VALUES ('user10@example.com', 'IAMUSER10', 'Laura', TO_DATE('2002-06-20 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'Female', 'Lee', '34.0522', '-118.2437', '+8801748927463', NULL);
-INSERT INTO "PROJECT"."USERMAN" VALUES ('d22@gmail.com', 'duiefhiuf', 'uhih', TO_DATE('2023-08-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'male', 'uihhiu', '37.7749295', '-122.4194155', 'undefined', 'undefined');
-INSERT INTO "PROJECT"."USERMAN" VALUES ('hello@gmail.com', '12345', 'My', TO_DATE('2016-02-09 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'Male', 'Name', '23.7698707', '90.3667976', '+8801572739', NULL);
-INSERT INTO "PROJECT"."USERMAN" VALUES ('ghh@hkdm.com', 'jhjb', 'jbjbj', TO_DATE('2023-08-07 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'Female', 'jbj', '23.7698852', '90.3668011', NULL, NULL);
-INSERT INTO "PROJECT"."USERMAN" VALUES ('jknd@jh.djn', 'jjnjkn', 'jbj', TO_DATE('3882-08-09 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'Male', 'jknjkn', '23.7698307', '90.366772', '8', NULL);
-INSERT INTO "PROJECT"."USERMAN" VALUES ('jknds@jh.djn', 'jgn', 'jnji', TO_DATE('2023-08-24 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'Female', 'jnj', '23.7698659', '90.3668041', '89374', '9807');
-INSERT INTO "PROJECT"."USERMAN" VALUES ('ananya3@gmail.com', 'ugbjbhj', 'Ananya', TO_DATE('2023-08-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'Female', 'Promi', '23.7698659', '90.3668041', '9866587', NULL);
-INSERT INTO "PROJECT"."USERMAN" VALUES ('kjk@hjs.cj', 'jbjh', 'hjjh', TO_DATE('2023-08-04 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'Male', 'hjbjhb', '23.7661639', '90.3588734', '7987', NULL);
+INSERT INTO "PROJECT"."USERMAN" VALUES ('abir@gmail.com', 'A875B6F07E0EB841', 'Abir', TO_DATE('1996-11-21 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'Male', 'Rahman', '23.7661639', '90.3588734', NULL, NULL);
+INSERT INTO "PROJECT"."USERMAN" VALUES ('max@gmail.com', 'A875B6F07E0EB841', 'Max', TO_DATE('2022-07-07 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'Others', 'Max', '23.769846', '90.3667659', '01896', NULL);
+INSERT INTO "PROJECT"."USERMAN" VALUES ('promi@gmail.com', 'A875B6F07E0EB841', 'Promi', TO_DATE('2007-02-07 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'Female', 'Shahrin', '23.769867', '90.3667556', '01783564', NULL);
+INSERT INTO "PROJECT"."USERMAN" VALUES ('raiyan@gmail.com', '26C280E780E01A80', 'Raiyan', TO_DATE('2023-08-08 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'Male', 'Jamil', '23.7661639', '90.3588734', '01836597', NULL);
+INSERT INTO "PROJECT"."USERMAN" VALUES ('arisha@gmail.com', 'A875B6F07E0EB841', 'Arisha', TO_DATE('2011-10-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'Female', 'Rahman', '23.7270954', '90.3842619', '0174925486', NULL);
 
 -- ----------------------------
 -- Table structure for WRITTENBY
 -- ----------------------------
-DROP TABLE "PROJECT"."WRITTENBY";
+-- DROP TABLE "PROJECT"."WRITTENBY";
 CREATE TABLE "PROJECT"."WRITTENBY" (
   "ISBN" VARCHAR2(50 BYTE) VISIBLE NOT NULL,
   "NAME" VARCHAR2(100 BYTE) VISIBLE NOT NULL
@@ -938,6 +900,7 @@ DISABLE ROW MOVEMENT
 -- ----------------------------
 -- Records of WRITTENBY
 -- ----------------------------
+INSERT INTO "PROJECT"."WRITTENBY" VALUES ('086611678-8', 'Aesop');
 INSERT INTO "PROJECT"."WRITTENBY" VALUES ('133-234-1837', 'Abrar Rahman Abir');
 INSERT INTO "PROJECT"."WRITTENBY" VALUES ('133-234-1837', 'Ananya Shahrin Promi');
 INSERT INTO "PROJECT"."WRITTENBY" VALUES ('978-984-94751-1-8', 'Ananya Shahrin Promi');
@@ -1003,6 +966,7 @@ INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9781737503378', 'Amy Ingalls, Pryor R
 INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9781737503385', 'Amy Ingalls, Pryor Rayburn, and Jennie Roberts');
 INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9781737503392', 'Amy Ingalls, Pryor Rayburn, and Jennie Roberts');
 INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9789768125408', 'George L. Beckford');
+INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9789848042014', 'Tamim Shahriar Subeen');
 INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050315', 'Daffodil Jackson');
 INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050322', 'Daffodil Jackson');
 INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050346', 'Daffodil Jackson');
@@ -1039,6 +1003,7 @@ INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798986874272', 'Amy Ingalls, Pryor R
 INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798986874289', 'Amy Ingalls, Pryor Rayburn, and Jennie Roberts');
 INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798986874296', 'Amy Ingalls, Pryor Rayburn, and Jennie Roberts');
 INSERT INTO "PROJECT"."WRITTENBY" VALUES ('984-70096-0357-0', 'Muhammed Zafar Iqbal');
+INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9844951399', 'Muhammed Zafar Iqbal');
 
 -- ----------------------------
 -- Function structure for ACCEPT_OFFER
@@ -1109,12 +1074,142 @@ END;
 /
 
 -- ----------------------------
+-- Function structure for ADD_AUTHOR
+-- ----------------------------
+CREATE OR REPLACE
+PROCEDURE "PROJECT"."ADD_AUTHOR" AS
+BEGIN 
+	INSERT INTO AUTHOR VALUES(NAME, BORNON, DIEDON, TYP, NAT);
+	MSG := 'ADDED';
+EXCEPTION
+	WHEN DUP_VAL_ON_INDEX THEN 
+		MSG := 'DUPLICATE';
+	WHEN NO_DATA_FOUND THEN 
+		MSG := 'NO DATA';
+	WHEN TOO_MANY_ROWS THEN 
+		MSG := 'MANY ROWS';
+	WHEN INVALID_NUMBER THEN 
+		MSG := 'CONVERSION FAILED';
+	WHEN VALUE_ERROR THEN 
+		MSG := 'VALUE ERROR';
+	WHEN ZERO_DIVIDE THEN 
+		MSG := '0 DEVIDE';
+	WHEN OTHERS THEN 
+		MSG := 'UNKNOWN ERROR';
+END;
+/
+
+-- ----------------------------
+-- Function structure for ADD_BOOK
+-- ----------------------------
+CREATE OR REPLACE
+PROCEDURE "PROJECT"."ADD_BOOK" AS
+BEGIN 
+	INSERT INTO BOOK VALUES (ISBN, TITLE, PC, LAN, PUBYEAR, PRICE, NULL, PUBLISHER, SUMM, GENRE);
+	MSG := 'ADDED';
+EXCEPTION
+	WHEN DUP_VAL_ON_INDEX THEN 
+		MSG := 'DUPLICATE';
+	WHEN NO_DATA_FOUND THEN 
+		MSG := 'NO DATA';
+	WHEN TOO_MANY_ROWS THEN 
+		MSG := 'MANY ROWS';
+	WHEN INVALID_NUMBER THEN 
+		MSG := 'CONVERSION FAILED';
+	WHEN VALUE_ERROR THEN 
+		MSG := 'VALUE ERROR';
+	WHEN ZERO_DIVIDE THEN 
+		MSG := '0 DEVIDE';
+	WHEN OTHERS THEN 
+		MSG := 'UNKNOWN ERROR';
+END;
+/
+
+-- ----------------------------
+-- Function structure for ADD_BOOK_WRITER
+-- ----------------------------
+CREATE OR REPLACE
+PROCEDURE "PROJECT"."ADD_BOOK_WRITER" AS
+BEGIN 
+	INSERT INTO WRITTENBY VALUES (ISBN, NAME);
+	MSG := 'ADDED';
+EXCEPTION
+	WHEN DUP_VAL_ON_INDEX THEN 
+		MSG := 'DUPLICATE';
+	WHEN NO_DATA_FOUND THEN 
+		MSG := 'NO DATA';
+	WHEN TOO_MANY_ROWS THEN 
+		MSG := 'MANY ROWS';
+	WHEN INVALID_NUMBER THEN 
+		MSG := 'CONVERSION FAILED';
+	WHEN VALUE_ERROR THEN 
+		MSG := 'VALUE ERROR';
+	WHEN ZERO_DIVIDE THEN 
+		MSG := '0 DEVIDE';
+	WHEN OTHERS THEN 
+		MSG := 'UNKNOWN ERROR';
+END;
+/
+
+-- ----------------------------
+-- Function structure for ADD_PUBLISHER
+-- ----------------------------
+CREATE OR REPLACE
+PROCEDURE "PROJECT"."ADD_PUBLISHER" AS
+BEGIN 
+	INSERT INTO PUBLISHER VALUES (NAME, ADDR);
+	MSG := 'ADDED';
+EXCEPTION
+	WHEN DUP_VAL_ON_INDEX THEN 
+		MSG := 'DUPLICATE';
+	WHEN NO_DATA_FOUND THEN 
+		MSG := 'NO DATA';
+	WHEN TOO_MANY_ROWS THEN 
+		MSG := 'MANY ROWS';
+	WHEN INVALID_NUMBER THEN 
+		MSG := 'CONVERSION FAILED';
+	WHEN VALUE_ERROR THEN 
+		MSG := 'VALUE ERROR';
+	WHEN ZERO_DIVIDE THEN 
+		MSG := '0 DEVIDE';
+	WHEN OTHERS THEN 
+		MSG := 'UNKNOWN ERROR';
+END;
+/
+
+-- ----------------------------
 -- Function structure for ADD_TO_BOOKFRIEND
 -- ----------------------------
 CREATE OR REPLACE
 PROCEDURE "PROJECT"."ADD_TO_BOOKFRIEND" AS
 BEGIN
 	INSERT INTO BOOKFRIEND VALUES(GET_NEXT_ID_BOOKFRIEND, EMAIL);
+	MSG := 'SUCCESSFUL';
+EXCEPTION
+	WHEN DUP_VAL_ON_INDEX THEN 
+		MSG := 'DUPLICATE';
+	WHEN NO_DATA_FOUND THEN 
+		MSG := 'NO DATA';
+	WHEN TOO_MANY_ROWS THEN 
+		MSG := 'MANY ROWS';
+	WHEN INVALID_NUMBER THEN 
+		MSG := 'CONVERSION FAILED';
+	WHEN VALUE_ERROR THEN 
+		MSG := 'VALUE ERROR';
+	WHEN ZERO_DIVIDE THEN 
+		MSG := '0 DEVIDE';
+	WHEN OTHERS THEN 
+		MSG := 'UNKNOWN ERROR';
+END;
+/
+
+-- ----------------------------
+-- Function structure for ADD_TO_DELIVARYMAN
+-- ----------------------------
+CREATE OR REPLACE
+PROCEDURE "PROJECT"."ADD_TO_DELIVARYMAN" AS
+BEGIN
+	INSERT INTO DELIVARYMAN VALUES(GET_NEXT_ID_DELIVARYMAN, EMAIL);
 	MSG := 'SUCCESSFUL';
 EXCEPTION
 	WHEN DUP_VAL_ON_INDEX THEN 
@@ -1154,12 +1249,38 @@ END;
 /
 
 -- ----------------------------
+-- Function structure for CONFIRM_DELIVARY
+-- ----------------------------
+CREATE OR REPLACE
+PROCEDURE "PROJECT"."CONFIRM_DELIVARY" AS
+BEGIN
+	INSERT INTO DELIVARYOFFER VALUES(EID, DELID, FEE);
+	MSG := 'SUCCESSFUL';
+EXCEPTION
+	WHEN DUP_VAL_ON_INDEX THEN 
+		MSG := 'DUPLICATE';
+	WHEN NO_DATA_FOUND THEN 
+		MSG := 'NO DATA';
+	WHEN TOO_MANY_ROWS THEN 
+		MSG := 'MANY ROWS';
+	WHEN INVALID_NUMBER THEN 
+		MSG := 'CONVERSION FAILED';
+	WHEN VALUE_ERROR THEN 
+		MSG := 'VALUE ERROR';
+	WHEN ZERO_DIVIDE THEN 
+		MSG := '0 DEVIDE';
+	WHEN OTHERS THEN 
+		MSG := 'UNKNOWN ERROR';
+END;
+/
+
+-- ----------------------------
 -- Function structure for CREATE_EXCHANGE_OFFER
 -- ----------------------------
 CREATE OR REPLACE
 PROCEDURE "PROJECT"."CREATE_EXCHANGE_OFFER" AS
 BEGIN
-	INSERT INTO EXCHANGEOFFER VALUES(GET_NEXT_EXCHANGEID, OFFERID1, OFFERID2);
+	INSERT INTO EXCHANGEOFFER VALUES(GET_NEXT_EXCHANGEID, OFFERID1, OFFERID2, 'PENDING');
 	MSG := 'SUCCESS';
 EXCEPTION
 	WHEN DUP_VAL_ON_INDEX THEN 
@@ -1250,6 +1371,33 @@ END;
 /
 
 -- ----------------------------
+-- Function structure for DISABLE_EXCHANGEOFFER
+-- ----------------------------
+CREATE OR REPLACE
+PROCEDURE "PROJECT"."DISABLE_EXCHANGEOFFER" AS
+BEGIN
+	UPDATE EXCHANGEOFFER 
+	SET STATUS = 'DONE'
+	WHERE EXCHANGEID = ID;
+EXCEPTION
+	WHEN DUP_VAL_ON_INDEX THEN 
+		MSG := 'DUPLICATE';
+	WHEN NO_DATA_FOUND THEN 
+		MSG := 'NO DATA';
+	WHEN TOO_MANY_ROWS THEN 
+		MSG := 'MANY ROWS';
+	WHEN INVALID_NUMBER THEN 
+		MSG := 'CONVERSION FAILED';
+	WHEN VALUE_ERROR THEN 
+		MSG := 'VALUE ERROR';
+	WHEN ZERO_DIVIDE THEN 
+		MSG := '0 DEVIDE';
+	WHEN OTHERS THEN 
+		MSG := 'UNKNOWN ERROR';
+END;
+/
+
+-- ----------------------------
 -- Function structure for DISABLE_NOTIFICATION
 -- ----------------------------
 CREATE OR REPLACE
@@ -1285,8 +1433,17 @@ BEGIN
 	SELECT EMAILID INTO EMAIL FROM BOOKFRIEND WHERE BOOKFRIENDID=ID;
 	RETURN EMAIL;
 END;
+/
 
--- CREATE OR REPLACE PROCEDURE CREATE_OFFER(MSG IN VARCHAR2, PHOTO IN VARCHAR2, EMAIL, )
+-- ----------------------------
+-- Function structure for GET_EMAIL_FROM_OFFERID
+-- ----------------------------
+CREATE OR REPLACE
+FUNCTION "PROJECT"."GET_EMAIL_FROM_OFFERID" AS
+BEGIN 
+	SELECT USEREMAILID INTO EMAIL FROM OFFER WHERE OFFERID=ID;
+	RETURN EMAIL;
+END;
 /
 
 -- ----------------------------
@@ -1342,6 +1499,33 @@ CREATE OR REPLACE
 FUNCTION "PROJECT"."GET_NEXT_ID_BOOKFRIEND" AS
 BEGIN
 	SELECT COUNT(BOOKFRIENDID) INTO C FROM BOOKFRIEND;
+	C := C + 1001;
+	RETURN C;
+EXCEPTION
+	WHEN DUP_VAL_ON_INDEX THEN 
+		MSG := 'DUPLICATE';
+	WHEN NO_DATA_FOUND THEN 
+		MSG := 'NO DATA';
+	WHEN TOO_MANY_ROWS THEN 
+		MSG := 'MANY ROWS';
+	WHEN INVALID_NUMBER THEN 
+		MSG := 'CONVERSION FAILED';
+	WHEN VALUE_ERROR THEN 
+		MSG := 'VALUE ERROR';
+	WHEN ZERO_DIVIDE THEN 
+		MSG := '0 DEVIDE';
+	WHEN OTHERS THEN 
+		MSG := 'UNKNOWN ERROR';
+END;
+/
+
+-- ----------------------------
+-- Function structure for GET_NEXT_ID_DELIVARYMAN
+-- ----------------------------
+CREATE OR REPLACE
+FUNCTION "PROJECT"."GET_NEXT_ID_DELIVARYMAN" AS
+BEGIN
+	SELECT COUNT(DELIVARYMANID) INTO C FROM DELIVARYMAN;
 	C := C + 1001;
 	RETURN C;
 EXCEPTION
@@ -1547,6 +1731,11 @@ ALTER TABLE "PROJECT"."DELIVARYMAN" ADD CONSTRAINT "SYS_C008152" CHECK ("DELIVAR
 ALTER TABLE "PROJECT"."DELIVARYMAN" ADD CONSTRAINT "SYS_C008153" CHECK ("EMAILID" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
 
 -- ----------------------------
+-- Primary Key structure for table DELIVARYOFFER
+-- ----------------------------
+ALTER TABLE "PROJECT"."DELIVARYOFFER" ADD CONSTRAINT "SYS_C008254" PRIMARY KEY ("EXCHANGEID");
+
+-- ----------------------------
 -- Primary Key structure for table EXCHANGEOFFER
 -- ----------------------------
 ALTER TABLE "PROJECT"."EXCHANGEOFFER" ADD CONSTRAINT "SYS_C008228" PRIMARY KEY ("EXCHANGEID");
@@ -1658,6 +1847,12 @@ ALTER TABLE "PROJECT"."BOOKFRIEND" ADD CONSTRAINT "SYS_C008161" FOREIGN KEY ("EM
 -- Foreign Keys structure for table DELIVARYMAN
 -- ----------------------------
 ALTER TABLE "PROJECT"."DELIVARYMAN" ADD CONSTRAINT "SYS_C008156" FOREIGN KEY ("EMAILID") REFERENCES "PROJECT"."USERMAN" ("EMAILID") ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+
+-- ----------------------------
+-- Foreign Keys structure for table DELIVARYOFFER
+-- ----------------------------
+ALTER TABLE "PROJECT"."DELIVARYOFFER" ADD CONSTRAINT "SYS_C008255" FOREIGN KEY ("EXCHANGEID") REFERENCES "PROJECT"."EXCHANGEOFFER" ("EXCHANGEID") ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+ALTER TABLE "PROJECT"."DELIVARYOFFER" ADD CONSTRAINT "SYS_C008256" FOREIGN KEY ("DELIVARYMANID") REFERENCES "PROJECT"."DELIVARYMAN" ("DELIVARYMANID") ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
 
 -- ----------------------------
 -- Foreign Keys structure for table EXCHANGEOFFER

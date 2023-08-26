@@ -50,28 +50,18 @@ export default function Home() {
 
   return (
     <div>
-      {/* <Head>
-        <title>Image Uploader</title>
-        <meta name="description" content="Upload your image to Cloudinary!" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head> */}
-
       <main>
         <h1>UPLOAD YOUR BOOK IMAGE</h1>
-
         <form method="post" onChange={handleOnChange} onSubmit={handleOnSubmit}>
           <p>
             <input type="file" name="file" />
           </p>
-
           <img src={imageSrc} />
-
           {imageSrc && !uploadData && (
             <p>
               <button>Upload Files</button>
             </p>
           )}
-
           {uploadData && (
             <code>
               <pre>{JSON.stringify(uploadData, null, 2)}</pre>

@@ -32,19 +32,6 @@ export default async function handler(req, res) {
     msg: { dir: oracledb.BIND_OUT, type: oracledb.STRING },
   };
   console.log(binds);
-//   console.log(
-//     `DECLARE
-//   MS1 VARCHAR2(50);
-//   MS2 VARCHAR2(50);
-//   MS3 VARCHAR2(50);
-// BEGIN
-//   ADD_PUBLISHER(:publisher, NULL, MS1);
-//   ADD_AUTHOR(:author, NULL, NULL, :authorType, NULL, MS2);
-//   ADD_BOOK(:isbn, :title, :page, :lan, :published, :price, :publisher, :summary, :genre, :msg);
-//   ADD_BOOK_WRITER(:isbn, :author, MS3);
-// END;`,
-//     binds
-//   );
   const response = await runProcedureWithOutBinds(
     `DECLARE
         MS1 VARCHAR2(50);
