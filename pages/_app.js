@@ -54,7 +54,7 @@ export default function App({ Component, pageProps }) {
   const [user, setUser] = useState(null);
   return (
     <div className="darkContainer">
-      <h1 className="dark-text">MY BIBLIOPHILE FRIEND</h1>
+      {/* <h1 className="dark-text">MY BIBLIOPHILE FRIEND</h1> */}
       <Component {...pageProps} />
     </div>
   );

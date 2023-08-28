@@ -1,18 +1,29 @@
 import React from "react";
 import Link from "next/link";
-// import { useState } from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
+import DynamicBackground from "../../../components/dynamicBackground";
+import styles from "../../../styles/signup.module.css";
+import {
+  faEye,
+  faEyeSlash,
+  faCircleArrowLeft,
+  faBackward,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Login() {
   const [currLocation, setCurrLocation] = useState({});
+  const [showPassword, setShowPassword] = useState(false);
   const [currLocationJs, setCurrLocationJs] = useState({});
   useEffect(() => {
     getLocation();
     getLocationJs();
   }, []);
-  // console.log(currLocationJs);
+  const toggleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
 
   const getLocation = async () => {
     try {
@@ -33,8 +44,6 @@ export default function Login() {
   };
 
   const router = useRouter();
-
-  //const [searchResults, setSearchResults] = useState([]);
   const [loginInfo, setLoginInfo] = useState({
     email: "",
     password: "",
@@ -82,39 +91,54 @@ export default function Login() {
     } catch (error) {
       console.error("Error searching:", error);
     }
-    // console.log("SUCCESSSS");
   };
   return (
-    <div>
-      <form onSubmit={handleClick}>
-        <div>
-          <h1>Welcome to Sign Up</h1>
-          <label>
-            Email:
+    <div className={styles.container}>
+      <Link href="/">
+        <button
+          className={styles.backButton}
+          style={{ fontFamily: "Georgia, sans-serif" }}
+        >
+          <FontAwesomeIcon icon={faCircleArrowLeft} />
+        </button>
+      </Link>
+      <DynamicBackground />
+      <div className={styles.loginBox}>
+        {/* <h1
+          className={styles.heading}
+          style={{ fontFamily: "Georgia, sans-serif" }}
+        >
+          Create Account
+        </h1> */}
+        <form onSubmit={handleClick}>
+          <input
+            className={styles.input}
+            required
+            style={{ fontFamily: "Georgia, sans-serif" }}
+            type="email"
+            placeholder="Email"
+            onChange={(e) =>
+              setLoginInfo((prevState) => ({
+                email: e.target.value,
+                password: prevState.password,
+                firstname: prevState.firstname,
+                lastname: prevState.lastname,
+                sex: prevState.sex,
+                dob: prevState.dob,
+                phn1: prevState.phn1,
+                phn2: prevState.phn2,
+                latitude: currLocationJs.latitude,
+                longitude: currLocationJs.longitude,
+              }))
+            }
+            name="email"
+          />
+          <div className={styles.passwordInputContainer}>
             <input
-              type="email"
-              onChange={(e) =>
-                setLoginInfo((prevState) => ({
-                  email: e.target.value,
-                  password: prevState.password,
-                  firstname: prevState.firstname,
-                  lastname: prevState.lastname,
-                  sex: prevState.sex,
-                  dob: prevState.dob,
-                  phn1: prevState.phn1,
-                  phn2: prevState.phn2,
-                  latitude: currLocationJs.latitude,
-                  longitude: currLocationJs.longitude,
-                }))
-              }
-              name="email"
-            />
-          </label>
-          <br />
-          <label>
-            Password:
-            <input
-              type="password"
+              style={{ fontFamily: "Georgia, sans-serif" }}
+              placeholder="Password"
+              type={showPassword ? "text" : "password"}
+              className={styles.passwordInput}
               onChange={(e) =>
                 setLoginInfo((prevState) => ({
                   email: prevState.email,
@@ -131,73 +155,69 @@ export default function Login() {
               }
               name="password"
             />
-          </label>
-          <br />
-          <label>
-            Firstname:
-            <input
-              type="text"
-              onChange={(e) =>
-                setLoginInfo((prevState) => ({
-                  email: prevState.email,
-                  password: prevState.password,
-                  firstname: e.target.value,
-                  lastname: prevState.lastname,
-                  sex: prevState.sex,
-                  dob: prevState.dob,
-                  phn1: prevState.phn1,
-                  phn2: prevState.phn2,
-                  latitude: currLocationJs.latitude,
-                  longitude: currLocationJs.longitude,
-                }))
-              }
-              name="firstname"
-            />
-          </label>
-          <br />
-          <label>
-            Lastname:
-            <input
-              type="text"
-              onChange={(e) =>
-                setLoginInfo((prevState) => ({
-                  email: prevState.email,
-                  password: prevState.password,
-                  firstname: prevState.firstname,
-                  lastname: e.target.value,
-                  sex: prevState.sex,
-                  dob: prevState.dob,
-                  phn1: prevState.phn1,
-                  phn2: prevState.phn2,
-                  latitude: currLocationJs.latitude,
-                  longitude: currLocationJs.longitude,
-                }))
-              }
-              name="lastname"
-            />
-          </label>
-          <br />
-          <label>
-            Gender :
-            {/* <input
+            <div
+              className={styles.passwordToggleButton}
+              onClick={toggleShowPassword}
+            >
+              <FontAwesomeIcon
+                icon={showPassword ? faEye : faEyeSlash}
+                className={styles.eyeIcon}
+              />
+            </div>
+          </div>
+          <input
+            type="text"
+            className={styles.input}
+            style={{ fontFamily: "Georgia, sans-serif" }}
+            placeholder="First Name"
+            required
+            onChange={(e) =>
+              setLoginInfo((prevState) => ({
+                email: prevState.email,
+                password: prevState.password,
+                firstname: e.target.value,
+                lastname: prevState.lastname,
+                sex: prevState.sex,
+                dob: prevState.dob,
+                phn1: prevState.phn1,
+                phn2: prevState.phn2,
+                latitude: currLocationJs.latitude,
+                longitude: currLocationJs.longitude,
+              }))
+            }
+            name="firstname"
+          />
+          <input
+            className={styles.input}
+            style={{ fontFamily: "Georgia, sans-serif" }}
+            placeholder="Last Name"
+            required
             type="text"
             onChange={(e) =>
               setLoginInfo((prevState) => ({
                 email: prevState.email,
                 password: prevState.password,
                 firstname: prevState.firstname,
-                lastname: prevState.lastname,
-                sex: e.target.value,
+                lastname: e.target.value,
+                sex: prevState.sex,
                 dob: prevState.dob,
                 phn1: prevState.phn1,
                 phn2: prevState.phn2,
-                latitude: prevState.latitude,
-                longitude: prevState.longitude,
+                latitude: currLocationJs.latitude,
+                longitude: currLocationJs.longitude,
               }))
             }
-            name="sex"
-          /> */}
+            name="lastname"
+          />
+          <div
+            className={styles.label}
+            style={{ fontFamily: "Georgia, sans-serif" }}
+          >
+            Gender :{" "}
             <select
+              className={styles.selectBox}
+              style={{ fontFamily: "Georgia, sans-serif" }}
+              required
               name="sex"
               onChange={(e) =>
                 setLoginInfo((prevState) => ({
@@ -219,11 +239,15 @@ export default function Login() {
               <option value="Female">Female</option>
               <option value="Others">Others</option>
             </select>
-          </label>
-          <br />
-          <label>
-            Date of Birth:
+          </div>
+          <div
+            className={styles.label}
+            style={{ fontFamily: "Georgia, sans-serif" }}
+          >
+            Date of Birth :{" "}
             <input
+              className={styles.dob}
+              style={{ fontFamily: "Georgia, sans-serif" }}
               type="date"
               onChange={(e) =>
                 setLoginInfo((prevState) => ({
@@ -241,65 +265,73 @@ export default function Login() {
               }
               name="dob"
             />
-          </label>
-          <br />
-          <label>
-            Contact No.(1):
-            <input
-              type="text"
-              onChange={(e) =>
-                setLoginInfo((prevState) => ({
-                  email: prevState.email,
-                  password: prevState.password,
-                  firstname: prevState.firstname,
-                  lastname: prevState.lastname,
-                  sex: prevState.sex,
-                  dob: prevState.dob,
-                  phn1: e.target.value,
-                  phn2: prevState.phn2,
-                  latitude: currLocationJs.latitude,
-                  longitude: currLocationJs.longitude,
-                }))
-              }
-              name="phn1"
-            />
-          </label>
-          <br />
-          <label>
-            Contact No.(2):
-            <input
-              type="text"
-              onChange={(e) =>
-                setLoginInfo((prevState) => ({
-                  email: prevState.email,
-                  password: prevState.password,
-                  firstname: prevState.firstname,
-                  lastname: prevState.lastname,
-                  sex: prevState.sex,
-                  dob: prevState.dob,
-                  phn1: prevState.phn1,
-                  phn2: e.target.value,
-                  latitude: currLocationJs.latitude,
-                  longitude: currLocationJs.longitude,
-                }))
-              }
-              name="phn2"
-            />
-          </label>
-          <br />
-          <button type="submit" name="loginButton" className="btn btn-primary">
+          </div>
+          <input
+            className={styles.input}
+            style={{ fontFamily: "Georgia, sans-serif" }}
+            placeholder="Contact No. 1"
+            required
+            type="text"
+            onChange={(e) =>
+              setLoginInfo((prevState) => ({
+                email: prevState.email,
+                password: prevState.password,
+                firstname: prevState.firstname,
+                lastname: prevState.lastname,
+                sex: prevState.sex,
+                dob: prevState.dob,
+                phn1: e.target.value,
+                phn2: prevState.phn2,
+                latitude: currLocationJs.latitude,
+                longitude: currLocationJs.longitude,
+              }))
+            }
+            name="phn1"
+          />
+          <input
+            className={styles.input}
+            style={{ fontFamily: "Georgia, sans-serif" }}
+            placeholder="Contact No. 2"
+            type="text"
+            onChange={(e) =>
+              setLoginInfo((prevState) => ({
+                email: prevState.email,
+                password: prevState.password,
+                firstname: prevState.firstname,
+                lastname: prevState.lastname,
+                sex: prevState.sex,
+                dob: prevState.dob,
+                phn1: prevState.phn1,
+                phn2: e.target.value,
+                latitude: currLocationJs.latitude,
+                longitude: currLocationJs.longitude,
+              }))
+            }
+            name="phn2"
+          />
+          <button
+            type="submit"
+            name="loginButton"
+            className={styles.button}
+            style={{ fontFamily: "Georgia, sans-serif" }}
+          >
             SignUp
           </button>
-        </div>
-        <div>
-          <h3>Your Current Location </h3>
-          <p>Latitude: {currLocationJs.latitude}</p>
-          <p>Longitude: {currLocationJs.longitude}</p>
-        </div>
-      </form>
-      <p>
-        Have an account? <Link href="/bookFriend/login">Sign Up</Link>
-      </p>
+        </form>
+        <p
+          style={{ fontFamily: "Georgia, sans-serif" }}
+          className={styles.label1}
+        >
+          Already have an account?{" "}
+          <Link
+            href="/bookFriend/login"
+            className={styles.link}
+            style={{ fontFamily: "Georgia, sans-serif" }}
+          >
+            <u>Log in</u>
+          </Link>
+        </p>
+      </div>
     </div>
   );
 }

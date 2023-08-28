@@ -2,6 +2,14 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import styles from "../../../styles/login.module.css";
+import {
+  faEye,
+  faEyeSlash,
+  faCircleArrowLeft,
+  faBackward,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import DynamicBackground from "../../../components/dynamicBackground";
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
@@ -22,25 +30,11 @@ export default function Login() {
         },
       });
       const data = await response.json();
-      // console.log(data);
-      // setSearchResults(data);
-      // if (data[0]) {
-      //   router.push(`/bookFriend/offersFeed/${data[0].ID}`);
-      // } else {
-      //   alert(`Wrong information`);
-      // }
       if (data.success) {
-        // console.log("Successfully logged in...");
         localStorage.setItem("token", data.token);
         router.push(`/delivaryMan/offers/${data.id}`);
       } else {
         alert("Wrong information");
-        // setLoginInfo("", "");
-        // setLoginInfo({
-        //   email: "", // Clear the email input
-        //   password: "", // Clear the password input
-        // });
-        // router.push(`/bookFriend/login`);
       }
     } catch (error) {
       console.error("Error searching:", error);
@@ -53,12 +47,27 @@ export default function Login() {
 
   return (
     <div className={styles.container}>
+      <Link href="/">
+        <button
+          className={styles.backButton}
+          style={{ fontFamily: "Georgia, sans-serif" }}
+        >
+          <FontAwesomeIcon icon={faCircleArrowLeft} />
+        </button>
+      </Link>
+      <DynamicBackground />
       <div className={styles.loginBox}>
-        <h1 className={styles.heading}>Welcome back</h1>
+        <h1
+          className={styles.heading}
+          style={{ fontFamily: "Georgia, sans-serif" }}
+        >
+          Welcome back
+        </h1>
         <form onSubmit={handleClick}>
-          <label className={styles.label}>Email</label>
           <input
+            style={{ fontFamily: "Georgia, sans-serif" }}
             type="email"
+            placeholder="Email"
             onChange={(e) =>
               setLoginInfo((prevState) => ({
                 email: e.target.value,
@@ -70,36 +79,50 @@ export default function Login() {
             required
           />
           <div className={styles.passwordInputContainer}>
-            <label className={styles.label}>Password</label>
-            <div className={styles.passwordInputContainer}>
-              <input
-                type={showPassword ? "text" : "password"}
-                onChange={(e) =>
-                  setLoginInfo((prevState) => ({
-                    email: prevState.email,
-                    password: e.target.value,
-                  }))
-                }
-                className={styles.passwordInput}
-                name="password"
-                required
+            <input
+              style={{ fontFamily: "Georgia, sans-serif" }}
+              placeholder="Password"
+              type={showPassword ? "text" : "password"}
+              onChange={(e) =>
+                setLoginInfo((prevState) => ({
+                  email: prevState.email,
+                  password: e.target.value,
+                }))
+              }
+              className={styles.passwordInput}
+              name="password"
+              required
+            />
+            <div
+              className={styles.passwordToggleButton}
+              onClick={toggleShowPassword}
+            >
+              <FontAwesomeIcon
+                icon={showPassword ? faEye : faEyeSlash}
+                className={styles.eyeIcon}
               />
-              <div
-                className={styles.passwordToggleButton}
-                onClick={toggleShowPassword}
-              >
-                {showPassword ? "Hide" : "Show"}
-              </div>
             </div>
           </div>
-          <button type="submit" name="loginButton" className={styles.button}>
+          <button
+            type="submit"
+            name="loginButton"
+            className={styles.button}
+            style={{ fontFamily: "Georgia, sans-serif" }}
+          >
             Login
           </button>
         </form>
-        <p>
+        <p
+          style={{ fontFamily: "Georgia, sans-serif" }}
+          className={styles.label}
+        >
           Don't have an account?{" "}
-          <Link href="/bookFriend/signup" className={styles.link}>
-            Sign Up
+          <Link
+            href="/delivaryMan/signup"
+            className={styles.link}
+            style={{ fontFamily: "Georgia, sans-serif" }}
+          >
+            <u>Sign Up</u>
           </Link>
         </p>
       </div>

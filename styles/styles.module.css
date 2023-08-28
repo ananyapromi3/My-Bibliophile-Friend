@@ -1,39 +1,178 @@
 .container {
-  text-align: center;
-  padding: 20px;
-  background-color: #111; /* Dark background color */
-  color: white; /* Text color for dark theme */
+  position: relative;
+  background-color: rgb(255, 225, 176, 0.3);
+  background-image: url("../store/pictures/bg2.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left;
+  background-blend-mode: screen;
+  backdrop-filter: blur;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 1;
 }
 
-.btn {
-  padding: 10px 20px;
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f5ebe6;
+  background-image: url("/path/to/your/background-image.jpg");
+  /* background-position: right; */
+  /* background-position-x: right; */
+  background-size: cover;
+  background-blend-mode: multiply; /* Multiply the background color with the image */
+  backdrop-filter: blur(10px); /* Apply blur effect */
+  z-index: -1;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1;
+  padding: 50px;
+  padding-left: 800px;
+}
+
+.left {
+  flex: 1;
+}
+.right {
+  flex: 1;
+  padding-right: 0px;
+  position: relative;
+}
+
+.textContainer {
+  flex: 1;
+  padding-top: 20px;
+  padding-right: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  text-align: left;
+}
+
+.dynamicBackground {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.pageHeading {
+  font-size: 3.5rem;
+  color: #2f4858;
+  text-align: center;
+  margin-bottom: 0.2rem;
+  margin-top: 0px;
+}
+
+.slogan {
+  font-size: 1.3rem;
+  color: #2f4858;
+  text-align: center;
+  margin-bottom: 0.2rem;
+}
+
+.quote {
+  font-size: 1.2rem;
+  color: #c68488;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.logo {
+  display: flex;
+  flex-direction: inherit;
+  border-radius: 0px;
+  max-width: 200px;
+  max-height: 100%;
+  object-fit: cover;
+  position: relative;
+  margin-bottom: 10px;
+  margin-right: 190px;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-direction: row;
+  align-items: flex-end;
+}
+.buttonContainer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50px;
+  width: calc(100% + 50px);
+  height: 100%;
+  z-index: -1;
+  transform: skew(-5deg);
+}
+
+.button {
+  position: relative;
+  background-color: rgb(194, 123, 127, 0.8);
+  color: white;
+  padding: 1rem 1rem;
   border: none;
   cursor: pointer;
-  margin: 5px;
-  border-radius: 5px;
-  font-weight: bold;
-  transition: background-color 0.3s ease-in-out;
+  font-size: 1.8rem;
+  transition: background-color 0.3s ease;
+  padding: auto;
+  width: 280px;
+  height: 150px;
+  border-radius: 0px;
+  z-index: 1;
+  overflow: hidden;
+  margin: 20px 0px;
+  box-shadow: 5px 5px 0px 0px rgb(135, 101, 133, 0.8);
 }
 
-.primary {
-  background-color: #007bff;
-  color: white;
+.button:hover {
+  background-color: #876585;
+  box-shadow: 0px 0px 0px 5px rgb(135, 101, 133, 0.8);
 }
 
-.secondary {
-  background-color: #28a745;
-  color: white;
+.button::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right bottom, #c27b7f, transparent);
+  transform: translateX(-100%);
+  transition: transform 1s ease;
+  z-index: -1;
 }
 
-.btn:hover {
-  background-color: #0056b3;
+.button:hover::before {
+  transform: translateX(0);
 }
 
-.secondary:hover {
-  background-color: #218838;
+.circle {
+  position: absolute;
+  background-color: rgba(47, 72, 88, 0.2);
+  border-radius: 50%;
+  animation: moveCircle linear infinite;
 }
 
-.custom-h1 {
-  font-size: 24px;
-  margin-bottom: 20px;
+@keyframes moveCircle {
+  0% {
+    transform: translateY(-50%);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
 }
