@@ -1,20 +1,18 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
-// import { getServerSideProps } from "next";
-// import Book from "../../../components/book";
 import Offer from "../../../components/offer";
 import { useEffect } from "react";
 import styles from "../../../styles/offersFeed.module.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
+import Menu from "../../../components/menu";
 
 export default function Offers() {
+  const activeMenu = "offers";
   const router = useRouter();
   const userId = router.query.userId;
   const [searchResults, setSearchResults] = useState([]);
   const [buttonStatus, setButtonStatus] = useState(true);
+  const [count, setCount] = useState(0);
   useEffect(() => {
-    // userId = router.query.userId;
     handleSearch();
   }, []);
 
@@ -27,7 +25,6 @@ export default function Offers() {
   };
 
   const handleOfferAccepted = (acceptedOfferId) => {
-    // Update the searchResults to remove the accepted offer
     setSearchResults((prevResults) =>
       prevResults.filter((offer) => offer.OFFERID !== acceptedOfferId)
     );
@@ -35,78 +32,48 @@ export default function Offers() {
 
   const handleSearch = async () => {
     try {
-      // console.log(userId);
       const response = await fetch(`/api/offers?term=${userId}`);
       const data = await response.json();
       setSearchResults(data);
-      // setButtonStatus(false);
-      //   console.log(data);
+      setCount(data.length);
     } catch (error) {
       console.error("Error searching:", error);
     }
   };
 
-  // useEffect(() => {
-  //   handleSearch();
-  // }, [userId]);
-  const handleLogOut = () => {
-    localStorage.removeItem("token");
-    router.push("http://localhost:3000");
-  };
-
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    // const thisToken = Jwt.sign({ email: loginInfo.email }, "bibliophile");
-    if (!token) {
-      router.push("http://localhost:3000");
-    }
-  });
-
   return (
-    <div>
-      <button onClick={handleLogOut}>
-        Log Out {"  "}
-        <FontAwesomeIcon icon={faSignOutAlt} className={styles.icon} />
-      </button>
-      <button
-        className={`${styles.btn} ${styles.primary}`}
-        onClick={() => router.push(`/bookFriend/books/${userId}`)}
-      >
-        Books
-      </button>
-      <button
-        className={`${styles.btn} ${styles.primary}`}
-        onClick={() => router.push(`/bookFriend/notifications/${userId}`)}
-      >
-        Notifications
-      </button>
-      <h1 className={styles.offerTitle}>Offer List for you...</h1>
-      <br />
-      {/* {buttonStatus && (
-        <button onClick={handleSearch}>Loading your offers...</button>
-      )} */}
-      <div className={styles.offerGrid}>
-        {searchResults.map((offer, index) => {
-          return (
-            <div key={offer.OFFERID}>
-              {offer && offer.STATUS == "offered" ? (
-                <div className={styles.offerCard}>
-                  {offer.STATUS == "offered" && (
-                    <Offer
-                      offer={offer}
-                      onStatusChange={handleStatusChange}
-                      onOfferAccepted={handleOfferAccepted}
-                    />
-                  )}
-                </div>
-              ) : (
-                <></>
-              )}
-            </div>
-          );
-        })}
+    <>
+      <Menu active={activeMenu} />
+      <div className={styles.container}>
+        {count ? (
+          <h1
+            className={styles.offerTitle}
+            style={{ fontFamily: "Georgia, sans-serif" }}
+          ></h1>
+        ) : (
+          <h1
+            className={styles.offerTitle}
+            style={{ fontFamily: "Georgia, sans-serif" }}
+          >
+            No offer available right now...
+          </h1>
+        )}
+        <br />
+        <div className={styles.offerGrid}>
+          {searchResults.map((offer, index) => {
+            return (
+              <div key={offer.OFFERID} className={styles.offerCard}>
+                <Offer
+                  offer={offer}
+                  onStatusChange={handleStatusChange}
+                  onOfferAccepted={handleOfferAccepted}
+                />
+              </div>
+            );
+          })}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

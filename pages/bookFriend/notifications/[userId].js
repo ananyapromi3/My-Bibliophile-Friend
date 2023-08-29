@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
-// import Book from "../../../components/book";
+import Menu from "../../../components/menu";
+import BookFilters from "../../../components/bookFilter";
 import Offer from "../../../components/offer";
 import { useEffect } from "react";
 import Notification1 from "../../../components/notification1";
@@ -13,21 +14,17 @@ export default function Notifications1() {
   const userId = router.query.userId;
   const [searchResults, setSearchResults] = useState([]);
   const [buttonStatus, setButtonStatus] = useState(true);
-  // useEffect(() => {
-  //   handleSearch();
-  // }, []);
+  const [count, setCount] = useState(0);
   useEffect(() => {
-    // userId = router.query.userId;
     handleSearch();
   }, []);
   const handleSearch = async () => {
     try {
-      // console.log(userId);
       const response = await fetch(`/api/notifications?term=${userId}`);
       const data = await response.json();
       setSearchResults(data);
+      setCount(data.length);
       setButtonStatus(false);
-      //   console.log(data);
     } catch (error) {
       console.error("Error searching:", error);
     }
@@ -45,48 +42,46 @@ export default function Notifications1() {
     }
   });
 
+  const activeMenu = "reqs";
+
   return (
-    <div>
-      <button onClick={handleLogOut}>
-        Log Out {"  "}
-        <FontAwesomeIcon icon={faSignOutAlt} className={styles.icon} />
-      </button>
-      <button
-        className={`${styles.btn} ${styles.primary}`}
-        onClick={() => router.push(`/bookFriend/offersFeed/${userId}`)}
-      >
-        Offers
-      </button>
-      <button
-        className={`${styles.btn} ${styles.primary}`}
-        onClick={() => router.push(`/bookFriend/books/${userId}`)}
-      >
-        Books
-      </button>
-      <h1 className={styles.offerTitle}>Notification List for you...</h1>
-      <br />
-      {/* {buttonStatus ? (
-        <button onClick={handleSearch}>Load notifications</button>
-      ) : (
-        <></>
-      )} */}
-      <div className={styles.offerGrid}>
-        {searchResults.map((notification1, index) => {
-          return (
-            <div key={notification1.NOTIFICATIONID}>
-              <div className={styles.offerCard}>
+    <>
+      <Menu active={activeMenu} />
+      <div className={styles.container}>
+        {count ? (
+          <h1
+            className={styles.offerTitle}
+            style={{ fontFamily: "Georgia, sans-serif" }}
+          ></h1>
+        ) : (
+          <h1
+            className={styles.offerTitle}
+            style={{ fontFamily: "Georgia, sans-serif" }}
+          >
+            No offer available right now...
+          </h1>
+        )}
+        <br />
+        <div className={styles.offerGrid}>
+          {searchResults.map((notification1, index) => {
+            return (
+              <div
+                key={notification1.NOTIFICATIONID}
+                className={styles.offerCard}
+              >
                 <Notification1
                   notification1={notification1}
                   search={handleSearch}
                 />
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
+
 export async function getServerSideProps({ params }) {
   const { userId } = params;
   return { props: { userId } };

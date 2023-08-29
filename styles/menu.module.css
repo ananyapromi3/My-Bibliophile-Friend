@@ -1,0 +1,136 @@
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 10px 20px;
+  position: fixed;
+  width: auto;
+  flex-direction: row;
+  align-items: center;
+  width: 95vw;
+  height: 10vh;
+  margin-top: 10px;
+  margin-left: 2.5vw;
+  margin-right: 2.5vw;
+  margin-bottom: 50px;
+  box-shadow: 0px 0px 5px 0px rgb(194, 123, 127, 0.5);
+  z-index: 9999;
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  color: #2f4858;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.menuItem:hover {
+  color: #c27b7f;
+}
+
+.menuIcon {
+  margin-right: 10px;
+}
+
+.button {
+  position: relative;
+  background-color: transparent;
+  color: #2f4858;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  border-radius: 0px;
+  z-index: 1;
+  overflow: hidden;
+  /* box-shadow: 5px 5px 0px 0px rgb(135, 101, 133, 0.8); */
+}
+
+.button:hover {
+  background-color: transparent;
+  color: rgb(194, 123, 127);
+  box-shadow: 0px 1px 1px 0px rgb(194, 123, 127, 0.8);
+  animation: buildBox 0.1s forwards;
+}
+
+@keyframes buildBox {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.01);
+  }
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  /* background: linear-gradient(to right bottom, #c27b7f, transparent); */
+  transform: translateX(-100%);
+  transition: transform 3s ease;
+  z-index: -1;
+}
+
+.button:hover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid #c27b7f;
+  transform: scaleX(0); /* Start with no width */
+  transform-origin: left;
+  transition: transform 0.3s ease-out;
+}
+
+.button:hover::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid #c27b7f;
+  transform: scaleX(0); /* Start with no width */
+  transform-origin: right;
+  transition: transform 0.3s ease-out;
+}
+
+.button:hover::before,
+.button:hover::after {
+  z-index: -1;
+}
+
+.active {
+  position: relative;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  border-radius: 0px;
+  z-index: 1;
+  overflow: hidden;
+  background-color: transparent;
+  color: rgb(194, 123, 127);
+  box-shadow: 0px 2px 0px 0px rgb(194, 123, 127, 0.8);
+  /* Add other special effects as needed */
+}
+
+.active:hover {
+  background-color: transparent;
+  /* color: rgb(194, 123, 127); */
+  /* box-shadow: 0px 5px 0px 0px rgb(194, 123, 127, 0.8); */
+  /* animation: buildBox 0.5s forwards; */
+}
+
+.logo {
+  height: 10vh;
+}

@@ -1,9 +1,9 @@
 .filterContainer {
-  background-color: #8ba7b2;
+  background-color: rgb(194, 123, 127, 0.5);
   padding: 20px;
   border-radius: 0px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .filterHeading {
@@ -21,14 +21,14 @@
   flex: 1;
   margin-left: 10px;
   margin-right: 10px;
-  color: #213a3f;
+  color: #2f4858;
 }
 
 .filterSelect {
   flex: 2;
   padding: 8px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 5px;
   margin-left: 10px;
   margin-right: 10px;
 }
@@ -37,22 +37,68 @@
   flex: 2;
   padding: 8px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 5px;
   margin-left: 10px;
   margin-right: 10px;
 }
 
 .filterButton {
-  background-color: #2c676f;
+  background-color: #886585;
   color: #fff;
-  /* border: 1px solid #213a3f; */
+  width: 30px;
+  height: 30px;
   padding: 8px 8px;
-  border-radius: 4px;
+  border-radius: 50px;
   cursor: pointer;
-  margin-left: 5px;
-  margin-right: 0px;
+  margin-left: 0px;
+  margin-right: 5px;
+  border-color: #2f4858;
+  box-shadow: 0px 0px 0px 1px rgb(47, 72, 88, 0.5);
 }
 
 .filterButton:hover {
-  background-color: #213a3f;
+  background-color: #2f4858;
+  box-shadow: 0px 0px 0px 0px rgb(47, 72, 88, 0.5);
+}
+
+.detailsButton {
+  position: relative;
+  background-color: rgb(194, 123, 127);
+  color: white;
+  padding: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0px 0px 5px 0px rgb(135, 101, 133, 0.8);
+  border-radius: 5px;
+  z-index: 1;
+  overflow: hidden;
+  margin-top: auto;
+  display: block;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.detailsButton:hover {
+  background-color: #876585;
+  transform: scale(1.01);
+}
+
+.detailsButton::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right bottom, #c27b7f, transparent);
+  transform: translateX(-100%);
+  transition: transform 1s ease;
+  z-index: -1;
+}
+
+.detailsButton:hover::before {
+  transform: translateX(0);
 }

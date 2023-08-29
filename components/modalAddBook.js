@@ -6,8 +6,6 @@ export default function Modal({ children, onClose }) {
   const router = useRouter();
   const userId = router.query.userId;
   const [bookInfo, setBookInfo] = useState({
-    // Initialize your book info state with empty values
-    // ISBN, title, page count, language, etc.
     isbn: "",
     title: "",
     page: "",
@@ -31,9 +29,6 @@ export default function Modal({ children, onClose }) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // console.log(bookInfo);
-    // Handle form submission, e.g., send data to API
-    // You can close the modal after submission
     const response = await fetch(`/api/bookFriend/createBook`, {
       method: "POST",
       body: JSON.stringify(bookInfo),
@@ -60,8 +55,6 @@ export default function Modal({ children, onClose }) {
         </button>
         {children}
         <form onSubmit={handleSubmit} className={styles.modalForm}>
-          {/* Form fields for book information */}
-          {/* Example: */}
           <input
             type="text"
             name="isbn"

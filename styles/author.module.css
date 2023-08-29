@@ -4,6 +4,7 @@
   overflow: hidden;
   margin-top: 1px;
   margin-bottom: 1px;
+  color: #2f4858
 }
 
 .authorName {
@@ -12,9 +13,11 @@
   overflow: hidden;
   margin-top: 2px;
   margin-bottom: 2px;
+  color: #2f4858
 }
 
 .author {
   text-align: center;
   margin-top: auto;
+  color: #2f4858
 }

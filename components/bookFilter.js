@@ -6,17 +6,12 @@ import React from "react";
 import styles from "../styles/bookFilter.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faStop, faUndo } from "@fortawesome/free-solid-svg-icons";
-
-// import { library } from '@fortawesome/fontawesome-svg-core';
-// import { FontAwesomeIcon } from '@fontawesome/react-fontawesome';
-// import { faPlay, faStop, faUndo } from '@fontawesome/free-solid-svg-icons';
-
-// Add the imported icons to the library
-// library.add(faPlay, faStop, faUndo);
+import Modal from "../components/modalAddBook";
 
 import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
+
 export default function BookFilters({
   genres,
   authors,
@@ -24,21 +19,23 @@ export default function BookFilters({
   handleSortChange,
   handleSearchChange,
   searchTerm,
+  openModal,
+  closeModal,
+  isModalOpen,
 }) {
   const { transcript, listening, resetTranscript } = useSpeechRecognition();
-  // console.log(transcript);
   useEffect(() => {
     handleSearchChange({ target: { value: transcript } });
   }, [transcript]);
 
+  // const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <div className={styles.filterContainer}>
-      {/* <h2 className={styles.filterHeading}>Filter Books</h2> */}
       <div className={styles.filterOption}>
-        <p className={styles.filterLabel}>
-          <b>Microphone:</b> {listening ? "on" : "off"}{" "}
-        </p>
-        {/* <button onClick={voice}></button> */}
+        {/* <p className={styles.filterLabel}>
+          <b>Mic:</b> {listening ? "on" : "off"}
+        </p> */}
         <button
           className={styles.filterButton}
           onClick={SpeechRecognition.startListening}
@@ -61,6 +58,7 @@ export default function BookFilters({
           onChange={handleSearchChange}
           className={styles.filterSearchBox}
           disabled
+          style={{ fontFamily: "Georgia, sans-serif" }}
         />
         <input
           type="text"
@@ -68,14 +66,18 @@ export default function BookFilters({
           value={searchTerm}
           onChange={handleSearchChange}
           className={styles.filterSearchBox}
+          style={{ fontFamily: "Georgia, sans-serif" }}
         />
         {/* <label className={styles.filterLabel}>Select Genre:</label> */}
         <select
           className={styles.filterSelect}
           onChange={handleFilterChange}
           name="genre"
+          style={{ fontFamily: "Georgia, sans-serif" }}
         >
-          <option value="">All Genres</option>
+          <option style={{ fontFamily: "Georgia, sans-serif" }} value="">
+            All Genres
+          </option>
           {genres.map((genre) => (
             <option key={genre} value={genre}>
               {genre}
@@ -86,8 +88,11 @@ export default function BookFilters({
           onChange={handleFilterChange}
           className={styles.filterSelect}
           name="author"
+          style={{ fontFamily: "Georgia, sans-serif" }}
         >
-          <option value="">All Authors</option>
+          <option value="" style={{ fontFamily: "Georgia, sans-serif" }}>
+            All Authors
+          </option>
           {authors.map((author) => (
             <option key={author} value={author}>
               {author}
@@ -98,16 +103,24 @@ export default function BookFilters({
           className={styles.filterSelect}
           onChange={handleSortChange}
           name="sort"
+          style={{ fontFamily: "Georgia, sans-serif" }}
         >
-          <option value="title">Sort by Title</option>
-          <option value="year">Sort by Year</option>
+          <option style={{ fontFamily: "Georgia, sans-serif" }} value="title">
+            Sort by Title
+          </option>
+          <option style={{ fontFamily: "Georgia, sans-serif" }} value="year">
+            Sort by Year
+          </option>
         </select>
+        <button
+          style={{ fontFamily: "Georgia, sans-serif" }}
+          className={styles.detailsButton}
+          onClick={openModal}
+        >
+          Add Book
+        </button>
+        {isModalOpen && <Modal onClose={closeModal}></Modal>}
       </div>
-      {/* <button className={styles.filterButton} onClick={handleFilterSubmit}>
-        Apply Filters
-      </button> */}
     </div>
   );
 }
-
-// export default BookFilters;

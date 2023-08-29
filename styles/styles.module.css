@@ -1,3 +1,7 @@
+/* html,
+body {
+  overflow: hidden;
+} */
 .container {
   position: relative;
   background-color: rgb(255, 225, 176, 0.3);
@@ -161,18 +165,3 @@
   transform: translateX(0);
 }
 
-.circle {
-  position: absolute;
-  background-color: rgba(47, 72, 88, 0.2);
-  border-radius: 50%;
-  animation: moveCircle linear infinite;
-}
-
-@keyframes moveCircle {
-  0% {
-    transform: translateY(-50%);
-  }
-  100% {
-    transform: translateY(100vh);
-  }
-}

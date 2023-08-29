@@ -42,15 +42,27 @@ export default function Book({ book }) {
           "https://songofamerica.net/wp-content/uploads/2017/09/Missing-book-cover.jpg"
         }
         alt="No photo available"
+        style={{ fontFamily: "Georgia, sans-serif" }}
       />
-      <br/>
-      <h2 className={styles.bookTitle}>{book.TITLE}</h2>
-      <p className={styles.bookISBN}>
+      <br />
+      <h2
+        className={styles.bookTitle}
+        style={{ fontFamily: "Georgia, sans-serif" }}
+      >
+        {book.TITLE}
+      </h2>
+      <p
+        className={styles.bookISBN}
+        style={{ fontFamily: "Georgia, sans-serif" }}
+      >
         <b>ISBN: </b>
         {book.ISBN}
       </p>
       {book.LANGUAGE ? (
-        <p className={styles.bookInfo}>
+        <p
+          className={styles.bookInfo}
+          style={{ fontFamily: "Georgia, sans-serif" }}
+        >
           <b>Language: </b>
           {book.LANGUAGE || "No information"}
         </p>
@@ -58,7 +70,10 @@ export default function Book({ book }) {
         <></>
       )}
       {book.GENRE ? (
-        <p className={styles.bookInfo}>
+        <p
+          className={styles.bookInfo}
+          style={{ fontFamily: "Georgia, sans-serif" }}
+        >
           <b>Genre: </b>
           {book.GENRE || "No information"}
         </p>
@@ -66,7 +81,10 @@ export default function Book({ book }) {
         <></>
       )}
       {book.PUBLISHERNAME ? (
-        <p className={styles.bookInfo}>
+        <p
+          className={styles.bookInfo}
+          style={{ fontFamily: "Georgia, sans-serif" }}
+        >
           <b>Published by: </b>
           {book.PUBLISHERNAME || "No information"}
         </p>
@@ -74,7 +92,10 @@ export default function Book({ book }) {
         <></>
       )}
       {book.PUBLISHYEAR ? (
-        <p className={styles.bookInfo}>
+        <p
+          className={styles.bookInfo}
+          style={{ fontFamily: "Georgia, sans-serif" }}
+        >
           <b>Published in: </b>
           {book.PUBLISHYEAR || "No information"}
         </p>
@@ -84,10 +105,19 @@ export default function Book({ book }) {
       {book.SUMMARY == "null" || book.SUMMARY == null ? (
         <></>
       ) : (
-        <p className={styles.bookSummary}><b>Summary: </b>{book.SUMMARY}</p>
+        <p
+          className={styles.bookSummary}
+          style={{ fontFamily: "Georgia, sans-serif" }}
+        >
+          <b>Summary: </b>
+          {book.SUMMARY}
+        </p>
       )}
       {book.PRICE ? (
-        <p className={styles.bookInfo}>
+        <p
+          className={styles.bookInfo}
+          style={{ fontFamily: "Georgia, sans-serif" }}
+        >
           <b>Market Price: </b>
           {book.PRICE || "No information"}BDT
         </p>
@@ -96,10 +126,16 @@ export default function Book({ book }) {
       )}
       {book.AUTHOR[0] ? (
         <div>
-          <p className={styles.bookInfo}>
+          <p
+            className={styles.bookInfo}
+            style={{ fontFamily: "Georgia, sans-serif" }}
+          >
             <b>Written by:</b>
           </p>
-          <div className={styles.authorInfo}>
+          <div
+            className={styles.authorInfo}
+            style={{ fontFamily: "Georgia, sans-serif" }}
+          >
             {book.AUTHOR.map((author, index) => {
               return (
                 <div key={author.NAME}>
@@ -112,9 +148,12 @@ export default function Book({ book }) {
       ) : (
         <></>
       )}
-      <br/>
-      {/* <p className={styles.bookInfo}>Have it? share your book</p> */}
-      <button className={styles.detailsButton} onClick={() => openModal(book)}>
+      <br />
+      <button
+        style={{ fontFamily: "Georgia, sans-serif" }}
+        className={styles.detailsButton}
+        onClick={() => openModal(book)}
+      >
         Click Here to share this book
       </button>
       {isModalOpen && (

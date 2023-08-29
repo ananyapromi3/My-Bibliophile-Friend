@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 
 export default function Modal({ children, onClose, book }) {
-  const [isModalOpen, setIsModalOpen] = useState(false); // State to control modal
+  const [isModalOpen, setIsModalOpen] = useState(false); 
   const [selectedBook, setSelectedBook] = useState(null);
   const isbn = book.ISBN;
   const router = useRouter();
@@ -17,8 +17,7 @@ export default function Modal({ children, onClose, book }) {
     time: new Date(),
     message: "",
     userId: userId,
-    photoURL:
-      "https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png",
+    photoURL: "https://wallpapercave.com/wp/wp11160729.jpg",
   });
 
   function handleOnChange(changeEvent) {

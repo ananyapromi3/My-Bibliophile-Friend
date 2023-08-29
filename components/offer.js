@@ -21,7 +21,6 @@ export default function Offer({ offer, onStatusChange, onOfferAccepted }) {
       },
     });
     const data = await response.json();
-    // console.log(data);
     if (data.msg == "NOTIFICATION1 SENT") {
       alert("Offer accepted");
       setOfferStatus(0);
@@ -34,48 +33,62 @@ export default function Offer({ offer, onStatusChange, onOfferAccepted }) {
   };
 
   return (
-    <div>
+    <>
       {offer && offer.STATUS == "offered" ? (
-        <div key={offer.OFFERID} className={styles.offerCard}>
+        <div
+          key={offer.OFFERID}
+          className={styles.offerCard}
+          style={{ fontFamily: "Georgia, sans-serif" }}
+        >
           {offerStatus ? (
             <div>
               <img
                 className={styles.offerImage}
-                src={
-                  offer.BOOKCONDITIONPHOTO ||
-                  "https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png"
-                }
+                src={offer.BOOKCONDITIONPHOTO}
+                style={{ fontFamily: "Georgia, sans-serif" }}
                 alt="No photo available"
-                width="150"
               />
               <br />
-              <p className={styles.offerInfo}>{offer.MESSAGE}</p>
-              <p className={styles.offerInfo}>
-                <b>Distance:</b> {offer.DISTANCE}
+              <p
+                className={styles.offerInfo}
+                style={{ fontFamily: "Georgia, sans-serif" }}
+              >
+                {offer.MESSAGE}
               </p>
-              <p className={styles.offerInfo}>
+              <p
+                className={styles.offerInfo}
+                style={{ fontFamily: "Georgia, sans-serif" }}
+              >
+                <b>Distance:</b> {offer.DISTANCE.toFixed(5)} km
+              </p>
+              <p
+                className={styles.offerInfo}
+                style={{ fontFamily: "Georgia, sans-serif" }}
+              >
                 <b>Time:</b> {offer.TIME}
               </p>
-              <p className={styles.offerInfo}>
+              <p
+                className={styles.offerInfo}
+                style={{ fontFamily: "Georgia, sans-serif" }}
+              >
                 <b>Offered by:</b> {offer.NAME}
               </p>
               <br />
-              {offer.STATUS == "offered" && (
-                <button
-                  className={styles.acceptButton}
-                  onClick={makeNotification}
-                >
-                  Accept offer
-                </button>
-              )}
             </div>
           ) : (
             <></>
           )}
+          <button
+            className={styles.acceptButton}
+            onClick={makeNotification}
+            style={{ fontFamily: "Georgia, sans-serif" }}
+          >
+            Accept offer
+          </button>
         </div>
       ) : (
         <></>
       )}
-    </div>
+    </>
   );
 }

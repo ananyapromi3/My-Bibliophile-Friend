@@ -16,7 +16,7 @@ export default function DynamicBackground() {
       circle.style.width = `${size}px`;
       circle.style.height = `${size}px`;
       circle.style.left = `${x}px`;
-      circle.style.top = `${y}px`;
+      circle.style.top = `${y-100}px`;
       return circle;
     };
 
@@ -31,7 +31,6 @@ export default function DynamicBackground() {
         }
         return circle;
       });
-
       requestAnimationFrame(animateCircles);
     };
 
@@ -42,7 +41,6 @@ export default function DynamicBackground() {
       document.body.appendChild(circle);
     }
     circlesRef.current = initialCircles;
-
     animateCircles();
   }, []);
 
