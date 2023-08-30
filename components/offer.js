@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import styles from "../styles/offer.module.css";
 import { off } from "process";
+import ImageGallery from "./imageGallery";
 
 export default function Offer({ offer, onStatusChange, onOfferAccepted }) {
   const router = useRouter();
@@ -32,6 +33,41 @@ export default function Offer({ offer, onStatusChange, onOfferAccepted }) {
     router.push(`/bookFriend/offersFeed/${userId}`);
   };
 
+  const [showCarousel, setShowCarousel] = useState(false);
+  const [zoomedIndex, setZoomedIndex] = useState(0);
+
+  const openCarousel = (index) => {
+    setShowCarousel(true);
+    setZoomedIndex(index);
+    console.log(images);
+  };
+
+  const closeCarousel = () => {
+    setShowCarousel(false);
+    setZoomedIndex(0);
+  };
+
+  const photos = [];
+  photos.push(offer.BOOKCONDITIONPHOTO);
+  if (offer.BOOKCONDITIONPHOTO1) {
+    photos.push(offer.BOOKCONDITIONPHOTO1);
+  }
+  if (offer.BOOKCONDITIONPHOTO2) {
+    photos.push(offer.BOOKCONDITIONPHOTO2);
+  }
+  if (offer.BOOKCONDITIONPHOTO3) {
+    photos.push(offer.BOOKCONDITIONPHOTO3);
+  }
+  if (offer.BOOKCONDITIONPHOTO4) {
+    photos.push(offer.BOOKCONDITIONPHOTO4);
+  }
+
+  const images = photos.map((photo, index) => ({
+    original: photo,
+    thumbnail: photo,
+    originalClass: styles.zoomableImage,
+  }));
+
   return (
     <>
       {offer && offer.STATUS == "offered" ? (
@@ -40,44 +76,37 @@ export default function Offer({ offer, onStatusChange, onOfferAccepted }) {
           className={styles.offerCard}
           style={{ fontFamily: "Georgia, sans-serif" }}
         >
-          {offerStatus ? (
-            <div>
-              <img
-                className={styles.offerImage}
-                src={offer.BOOKCONDITIONPHOTO}
-                style={{ fontFamily: "Georgia, sans-serif" }}
-                alt="No photo available"
-              />
-              <br />
-              <p
-                className={styles.offerInfo}
-                style={{ fontFamily: "Georgia, sans-serif" }}
-              >
-                {offer.MESSAGE}
-              </p>
-              <p
-                className={styles.offerInfo}
-                style={{ fontFamily: "Georgia, sans-serif" }}
-              >
-                <b>Distance:</b> {offer.DISTANCE.toFixed(5)} km
-              </p>
-              <p
-                className={styles.offerInfo}
-                style={{ fontFamily: "Georgia, sans-serif" }}
-              >
-                <b>Time:</b> {offer.TIME}
-              </p>
-              <p
-                className={styles.offerInfo}
-                style={{ fontFamily: "Georgia, sans-serif" }}
-              >
-                <b>Offered by:</b> {offer.NAME}
-              </p>
-              <br />
+          <div className={styles.imageGallery}>
+            <div className={styles.thumbnail} onClick={() => openCarousel(0)}>
+              <img src={photos[0]} alt={`Image 1`} />
             </div>
-          ) : (
-            <></>
-          )}
+          </div>
+          <br />
+          <p
+            className={styles.offerInfo}
+            style={{ fontFamily: "Georgia, sans-serif" }}
+          >
+            {offer.MESSAGE}
+          </p>
+          <p
+            className={styles.offerInfo}
+            style={{ fontFamily: "Georgia, sans-serif" }}
+          >
+            <b>Distance:</b> {offer.DISTANCE.toFixed(5)} km
+          </p>
+          <p
+            className={styles.offerInfo}
+            style={{ fontFamily: "Georgia, sans-serif" }}
+          >
+            <b>Time:</b> {offer.TIME}
+          </p>
+          <p
+            className={styles.offerInfo}
+            style={{ fontFamily: "Georgia, sans-serif" }}
+          >
+            <b>Offered by:</b> {offer.NAME}
+          </p>
+          <br />
           <button
             className={styles.acceptButton}
             onClick={makeNotification}
@@ -88,6 +117,19 @@ export default function Offer({ offer, onStatusChange, onOfferAccepted }) {
         </div>
       ) : (
         <></>
+      )}
+      {showCarousel && (
+        <div className={styles.carouselOverlay}>
+          <div className={styles.carouselContainer}>
+            <ImageGallery
+              items={images}
+              showIndex={true}
+              startIndex={zoomedIndex}
+              onClose={closeCarousel}
+              lazyLoad={true}
+            />
+          </div>
+        </div>
       )}
     </>
   );

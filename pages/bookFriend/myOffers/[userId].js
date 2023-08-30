@@ -4,15 +4,16 @@ import Offer from "../../../components/offer";
 import { useEffect } from "react";
 import styles from "../../../styles/offersFeed.module.css";
 import Menu from "../../../components/menu";
+import MyOffer from "../../../components/myOffer";
 
 export default function Offers() {
-  const activeMenu = "offers";
+  const activeMenu = "myOffers";
   const router = useRouter();
   const userId = router.query.userId;
   const [searchResults, setSearchResults] = useState([]);
   const [buttonStatus, setButtonStatus] = useState(true);
   const [count, setCount] = useState(0);
-  
+
   useEffect(() => {
     handleSearch();
   }, []);
@@ -33,7 +34,7 @@ export default function Offers() {
 
   const handleSearch = async () => {
     try {
-      const response = await fetch(`/api/offers?term=${userId}`);
+      const response = await fetch(`/api/myOffers?term=${userId}`);
       const data = await response.json();
       setSearchResults(data);
       setCount(data.length);
@@ -64,7 +65,7 @@ export default function Offers() {
           {searchResults.map((offer, index) => {
             return (
               <div key={offer.OFFERID} className={styles.offerCard}>
-                <Offer
+                <MyOffer
                   offer={offer}
                   onStatusChange={handleStatusChange}
                   onOfferAccepted={handleOfferAccepted}

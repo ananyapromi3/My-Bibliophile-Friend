@@ -3,6 +3,12 @@ import { useRouter } from "next/router";
 import Offer from "./offer";
 import OfferSmall from "./offerSmall";
 import styles from "../styles/notification.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faChevronRight,
+  faChevronLeft,
+  faXmark,
+} from "@fortawesome/free-solid-svg-icons";
 export default function Notification1({ notification1, search }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const openModal = () => {
@@ -73,24 +79,28 @@ export default function Notification1({ notification1, search }) {
         <div className={styles.modalBackdrop}>
           <div className={styles.modalContent}>
             <div className={styles.cardContainer}>
-              <div>
-                <button className={styles.closeButton} onClick={closeModal}>
-                  &times;
-                </button>
-              </div>
-              <br />
+              <button className={styles.closeButton} onClick={closeModal}>
+                <FontAwesomeIcon icon={faXmark} />
+              </button>
               <div className={styles.modalContainer}>
                 {searchResults[0] ? (
                   searchResults.map((offer, index) => (
-                    <OfferSmall
-                      offer={offer}
-                      notification1={notification1}
-                      closeModal={closeModal}
-                      key={offer.OFFERID}
-                    />
+                    <div className={styles.offerCard}>
+                      <OfferSmall
+                        offer={offer}
+                        notification1={notification1}
+                        closeModal={closeModal}
+                        key={offer.OFFERID}
+                      />
+                    </div>
                   ))
                 ) : (
-                  <p>No offers available.</p>
+                  <p
+                    className={styles.offerTitle}
+                    style={{ fontFamily: "Georgia, sans-serif" }}
+                  >
+                    No offers available right now...
+                  </p>
                 )}
               </div>
             </div>

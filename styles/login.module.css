@@ -51,13 +51,8 @@
 .passwordInputContainer {
   font-size: 1rem;
   width: 100%;
-  /* padding: 20px; */
   margin-bottom: 15px;
-  /* border: 1px solid #ddd; */
-  /* border-radius: 5px; */
   display: flex;
-  /* align-items: center; */
-  /* align-content: center; */
   position: relative;
   border-radius: 50px;
 }
@@ -66,9 +61,6 @@
   font-size: 1rem;
   width: 100%;
   padding: 20px;
-  /* margin-bottom: 15px; */
-  /* border-radius: 50px; */
-  /* border: 1px solid #ddd; */
   border-radius: 50px;
 }
 
@@ -77,6 +69,7 @@
   right: 5px;
   cursor: pointer;
 }
+
 .eyeIcon {
   margin: auto;
   margin-top: 22px;

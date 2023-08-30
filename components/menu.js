@@ -15,10 +15,12 @@ import styles from "../styles/menu.module.css"; // Import your CSS module
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import logo1 from "../public/pictures/logo_white.png";
+import { useState } from "react";
 
 export default function Menu({ active }) {
   const router = useRouter();
   const userId = router.query.userId;
+  const [reqCount, setReqCount] = useState(0);
 
   const handleLogOut = () => {
     localStorage.removeItem("token");
@@ -31,6 +33,20 @@ export default function Menu({ active }) {
       router.push("http://localhost:3000");
     }
   });
+
+  // const handleSearch = async () => {
+  //   try {
+  //     const response = await fetch(`/api/bookFriend/offers?term=${userId}`);
+  //     const data = await response.json();
+  //     setReqCount(data.length);
+  //   } catch (error) {
+  //     console.error("Error searching:", error);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   handleSearch();
+  // }, []);
 
   return (
     <div className={styles.menu}>
@@ -71,24 +87,12 @@ export default function Menu({ active }) {
         style={{ fontFamily: "Georgia, sans-serif" }}
       >
         <button
-          className={active === "reqs" ? styles.active : styles.button}
-          onClick={() => router.push(`/bookFriend/notifications/${userId}`)}
+          className={active === "profile" ? styles.active : styles.button}
+          onClick={() => router.push(`/bookFriend/profile/${userId}`)}
           style={{ fontFamily: "Georgia, sans-serif" }}
         >
-          <FontAwesomeIcon icon={faEnvelope} className={styles.menuIcon} />
-          Offer Requests{" "}
-        </button>
-      </div>
-      <div
-        className={styles.menuItem}
-        style={{ fontFamily: "Georgia, sans-serif" }}
-      >
-        <button
-          className={active === "about" ? styles.active : styles.button}
-          style={{ fontFamily: "Georgia, sans-serif" }}
-        >
-          <FontAwesomeIcon icon={faInfoCircle} className={styles.menuIcon} />
-          About Us{" "}
+          <FontAwesomeIcon icon={faUser} className={styles.menuIcon} />
+          My Profile
         </button>
       </div>
       <div
@@ -97,12 +101,12 @@ export default function Menu({ active }) {
       >
         {" "}
         <button
-          className={active === "ownOffers" ? styles.active : styles.button}
-          onClick={() => router.push(`/bookFriend/offers/${userId}`)}
+          className={active === "myOffers" ? styles.active : styles.button}
+          onClick={() => router.push(`/bookFriend/myOffers/${userId}`)}
           style={{ fontFamily: "Georgia, sans-serif" }}
         >
           <FontAwesomeIcon icon={faClipboardList} className={styles.menuIcon} />
-          Your Offers{" "}
+          My Offers
         </button>
       </div>
       <div
@@ -110,12 +114,17 @@ export default function Menu({ active }) {
         style={{ fontFamily: "Georgia, sans-serif" }}
       >
         <button
-          className={active === "profile" ? styles.active : styles.button}
-          onClick={() => router.push(`/bookFriend/profile/${userId}`)}
+          className={active === "reqs" ? styles.active : styles.button}
+          onClick={() => router.push(`/bookFriend/notifications/${userId}`)}
           style={{ fontFamily: "Georgia, sans-serif" }}
         >
-          <FontAwesomeIcon icon={faUser} className={styles.menuIcon} />
-          My Profile
+          <FontAwesomeIcon icon={faEnvelope} className={styles.menuIcon} />
+          Offer Requests
+          {/* {reqCount > 0 && (
+            <span className={styles.notificationCount}>
+              <b>{reqCount}</b>
+            </span>
+          )} */}
         </button>
       </div>
       <div
@@ -137,6 +146,18 @@ export default function Menu({ active }) {
         style={{ fontFamily: "Georgia, sans-serif" }}
       >
         <button
+          className={active === "about" ? styles.active : styles.button}
+          style={{ fontFamily: "Georgia, sans-serif" }}
+        >
+          <FontAwesomeIcon icon={faInfoCircle} className={styles.menuIcon} />
+          About Us{" "}
+        </button>
+      </div>
+      <div
+        className={styles.menuItem}
+        style={{ fontFamily: "Georgia, sans-serif" }}
+      >
+        <button
           className={styles.button}
           onClick={handleLogOut}
           style={{ fontFamily: "Georgia, sans-serif" }}
@@ -148,3 +169,8 @@ export default function Menu({ active }) {
     </div>
   );
 }
+
+// export async function getServerSideProps({ params }) {
+//   const { userId } = params;
+//   return { props: { userId } };
+// }

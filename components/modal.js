@@ -2,9 +2,15 @@ import React from "react";
 import styles from "../styles/modal.module.css";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faChevronRight,
+  faChevronLeft,
+  faXmark,
+} from "@fortawesome/free-solid-svg-icons";
 
 export default function Modal({ children, onClose, book }) {
-  const [isModalOpen, setIsModalOpen] = useState(false); 
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedBook, setSelectedBook] = useState(null);
   const isbn = book.ISBN;
   const router = useRouter();
@@ -12,12 +18,17 @@ export default function Modal({ children, onClose, book }) {
   const [imageSrc, setImageSrc] = useState();
   const [uploadData, setUploadData] = useState();
   const [uploadFlag, setUploadFlag] = useState(0);
+  const [uploadDataArray, setUploadDataArray] = useState([]);
   const [offerInfo, setOfferInfo] = useState({
     bookISBN: isbn,
     time: new Date(),
     message: "",
     userId: userId,
     photoURL: "https://wallpapercave.com/wp/wp11160729.jpg",
+    photoURL1: "",
+    photoURL2: "",
+    photoURL3: "",
+    photoURL4: "",
   });
 
   function handleOnChange(changeEvent) {
@@ -29,35 +40,51 @@ export default function Modal({ children, onClose, book }) {
     reader.readAsDataURL(changeEvent.target.files[0]);
   }
 
+  const [photoCount, setPhotoCount] = useState(0);
+
   async function handleOnSubmit(event) {
     event.preventDefault();
-    setUploadFlag(1);
     const form = event.currentTarget;
-    const fileInput = Array.from(form.elements).find(
-      ({ name }) => name === "file"
-    );
+    const fileInput = form.elements.file;
+    setPhotoCount(fileInput.files.length);
+    if (fileInput.files.length > 5) {
+      alert("You can upload a maximum of 5 photos.");
+      return;
+    }
     const formData = new FormData();
     for (const file of fileInput.files) {
       formData.append("file", file);
     }
     formData.append("upload_preset", "my-uploads");
-    const data = await fetch(
-      "https://api.cloudinary.com/v1_1/dxcudg1mx/image/upload",
-      {
-        method: "POST",
-        body: formData,
-      }
-    ).then((r) => r.json());
+    const promises = Array.from(fileInput.files).map(async (file, index) => {
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("upload_preset", "my-uploads");
+      const response = await fetch(
+        "https://api.cloudinary.com/v1_1/dxcudg1mx/image/upload",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+      const data = await response.json();
+      return data;
+    });
+    const uploadResponses = await Promise.all(promises);
     setOfferInfo((prevState) => ({
       bookISBN: prevState.bookISBN,
       time: prevState.time,
       message: prevState.message,
       userId: prevState.userId,
-      photoURL: data.secure_url,
+      photoURL: uploadResponses[0] ? uploadResponses[0].secure_url : "",
+      photoURL1: uploadResponses[1] ? uploadResponses[1].secure_url : "",
+      photoURL2: uploadResponses[2] ? uploadResponses[2].secure_url : "",
+      photoURL3: uploadResponses[3] ? uploadResponses[3].secure_url : "",
+      photoURL4: uploadResponses[4] ? uploadResponses[4].secure_url : "",
     }));
-    setUploadData(data);
-    setImageSrc("");
-    event.target.reset();
+    setUploadDataArray(uploadResponses);
+    setUploadFlag(1);
+    setUploadData(uploadResponses[0]);
   }
 
   const makeOffer = async () => {
@@ -68,20 +95,28 @@ export default function Modal({ children, onClose, book }) {
       message: prevState.message,
       userId: prevState.userId,
       photoURL: prevState.photoURL,
+      photoURL1: prevState.photoURL1,
+      photoURL2: prevState.photoURL2,
+      photoURL3: prevState.photoURL3,
+      photoURL4: prevState.photoURL4,
     }));
-    const response = await fetch(`/api/bookFriend/books`, {
-      method: "POST",
-      body: JSON.stringify(offerInfo),
-      headers: {
-        "Contain-Type": "application/json",
-      },
-    });
-    const data = await response.json();
-    // console.log(data);
-    if (data.msg == "OFFER CREATED") {
-      alert("Offer Created");
+    if (photoCount > 0) {
+      const response = await fetch(`/api/bookFriend/books`, {
+        method: "POST",
+        body: JSON.stringify(offerInfo),
+        headers: {
+          "Contain-Type": "application/json",
+        },
+      });
+      const data = await response.json();
+      console.log(data);
+      if (data.msg == "OFFER CREATED") {
+        alert("Offer Created");
+      } else {
+        alert("Could not create offer");
+      }
     } else {
-      alert("Could not create offer");
+      alert("You must upload atleast one photo");
     }
     onClose();
     router.push(`/bookFriend/books/${offerInfo.userId}`);
@@ -91,6 +126,10 @@ export default function Modal({ children, onClose, book }) {
       message: "",
       userId: prevState.userId,
       photoURL: "",
+      photoURL1: "",
+      photoURL2: "",
+      photoURL3: "",
+      photoURL4: "",
     }));
   };
 
@@ -101,53 +140,91 @@ export default function Modal({ children, onClose, book }) {
   }
 
   return (
-    <div className={styles.modalBackdrop}>
-      <div className={styles.modalContent}>
-        <div>
-          <button className={styles.closeButton} onClick={onClose}>
-            &times;
-          </button>
-          {children}
-        </div>
+    <div
+      className={styles.modalBackdrop}
+      style={{ fontFamily: "Georgia, sans-serif" }}
+    >
+      <div
+        className={styles.modalContent}
+        style={{ fontFamily: "Georgia, sans-serif" }}
+      >
+        <button
+          className={styles.closeButton}
+          onClick={onClose}
+          style={{ fontFamily: "Georgia, sans-serif" }}
+        >
+          <FontAwesomeIcon icon={faXmark} />
+        </button>
         <form
+          style={{ fontFamily: "Georgia, sans-serif" }}
           method="post"
           className={styles.modalForm}
           onChange={handleOnChange}
           onSubmit={handleOnSubmit}
         >
-          <p className={styles.modalText}>
+          <p
+            style={{ fontFamily: "Georgia, sans-serif" }}
+            className={styles.modalText}
+          >
             Upload your book's photo
-            <input type="file" name="file" />
+            <br />
+            You can upload atmost five photos. You must upload atleast one.
           </p>
-          <img className={styles.modalImage} src={imageSrc} />
+          <input
+            style={{ fontFamily: "Georgia, sans-serif" }}
+            type="file"
+            name="file"
+            multiple
+            className={styles.input}
+          />
           {imageSrc && !uploadData && (
-            <p>
-              <button>Upload Files</button>
-            </p>
+            <button
+              style={{ fontFamily: "Georgia, sans-serif" }}
+              className={styles.buttonSmall}
+            >
+              Upload Files
+            </button>
           )}
           {uploadData && uploadFlag ? <p>Uploaded</p> : <></>}
         </form>
-        <form className={styles.modalForm} onSubmit={handleSubmit}>
-          <label className={styles.modalText}>
+        <form
+          style={{ fontFamily: "Georgia, sans-serif" }}
+          className={styles.modalForm}
+          onSubmit={handleSubmit}
+        >
+          <p
+            style={{ fontFamily: "Georgia, sans-serif" }}
+            className={styles.modalText}
+          >
             Tell something about the book you want to share:{" "}
-            <input
-              placeholder="Write here..."
-              onChange={(e) =>
-                setOfferInfo((prevState) => ({
-                  bookISBN: prevState.bookISBN,
-                  time: prevState.time,
-                  message: e.target.value,
-                  userId: prevState.userId,
-                  photoURL: prevState.photoURL,
-                }))
-              }
-            />
-          </label>
-          <button onClick={makeOffer}>Make offer</button>
+          </p>
+          <input
+            className={styles.input}
+            style={{ fontFamily: "Georgia, sans-serif" }}
+            placeholder="Write here..."
+            onChange={(e) =>
+              setOfferInfo((prevState) => ({
+                bookISBN: prevState.bookISBN,
+                time: prevState.time,
+                message: e.target.value,
+                userId: prevState.userId,
+                photoURL: prevState.photoURL,
+                photoURL1: prevState.photoURL1,
+                photoURL2: prevState.photoURL2,
+                photoURL3: prevState.photoURL3,
+                photoURL4: prevState.photoURL4,
+              }))
+            }
+          />
+          <button
+            style={{ fontFamily: "Georgia, sans-serif" }}
+            className={styles.button}
+            onClick={makeOffer}
+          >
+            Create offer
+          </button>
         </form>
       </div>
     </div>
   );
 }
-
-// export default Modal;

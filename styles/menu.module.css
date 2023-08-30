@@ -134,3 +134,14 @@
 .logo {
   height: 10vh;
 }
+
+.notificationCount {
+  background-color: #2f4858;
+  color: white;
+  font-size: 10px;
+  border-radius: 50%;
+  padding: 2px 5px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}

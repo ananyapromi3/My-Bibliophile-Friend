@@ -107,6 +107,21 @@ export default function Search() {
     fetchGenresAndAuthors();
   }, []);
 
+  // const [offerReqCount, setOfferReqCount] = useState(0);
+  // const offerReq = async () => {
+  //   try {
+  //     const response = await fetch(`/api/bookFriend/offers?term=${userId}`);
+  //     const data = await response.json();
+  //     setOfferReqCount(data.length);
+  //   } catch (error) {
+  //     console.error("Error searching:", error);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   offerReq();
+  // }, []);
+
   return (
     <>
       <Menu active={activeMenu} />
