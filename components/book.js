@@ -156,14 +156,7 @@ export default function Book({ book }) {
       >
         Click Here to share this book
       </button>
-      {isModalOpen && (
-        <Modal onClose={closeModal} book={book}>
-          {/* {selectedBook && (
-            <div>
-            </div>
-          )} */}
-        </Modal>
-      )}
+      {isModalOpen && <Modal onClose={closeModal} book={book}></Modal>}
     </div>
   );
 }

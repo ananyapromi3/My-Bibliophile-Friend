@@ -1,30 +1,39 @@
-import DelivaryOffer from "../../../components/delivaryOffer";
-import styles from "../../../styles/delivaryOffersFeed.module.css";
+import styles from "../../../styles/myOffersFeed.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 import Menu from "../../../components/menuDelMan";
-
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { async } from "regenerator-runtime";
 import { useEffect } from "react";
+import MyDelivary from "../../../components/myDelivary";
 
-export default function DeliveryNews() {
+export default function DelivaryAcceptedOffer() {
   const router = useRouter();
   const [searchResults, setSearchResults] = useState([]);
   const [count, setCount] = useState(0);
 
+  const delivaryManId = router.query.delivaryManId;
+
   const handleSearch = async () => {
-    const response = await fetch(`/api/delivaryOffers`);
+    const response = await fetch(
+      `/api/myAcceptedDelivaryOffers?id=${delivaryManId}`
+    );
     const data = await response.json();
     setSearchResults(data);
     setCount(data.length);
   };
+
+  const handleOfferAccepted = (acceptedExchangeId) => {
+    setSearchResults((prevResults) =>
+      prevResults.filter((offer) => offer.EXCHANGEID !== acceptedExchangeId)
+    );
+  };
+
   useEffect(() => {
     handleSearch();
   }, []);
 
-  const delId = router.query.delivaryManId;
   const handleStatusChange = (exchangeId, newStatus) => {
     setSearchResults((prevSearchResults) =>
       prevSearchResults.map((offer) =>
@@ -35,25 +44,7 @@ export default function DeliveryNews() {
     );
   };
 
-  const handleOfferAccepted = (acceptedExchangeId) => {
-    setSearchResults((prevResults) =>
-      prevResults.filter((offer) => offer.EXCHANGEID !== acceptedExchangeId)
-    );
-  };
-
-  const handleLogOut = () => {
-    localStorage.removeItem("token");
-    router.push("http://localhost:3000");
-  };
-
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (!token) {
-      router.push("http://localhost:3000");
-    }
-  });
-
-  const activeMenu = "offers";
+  const activeMenu = "myOffers";
 
   return (
     <>
@@ -63,13 +54,15 @@ export default function DeliveryNews() {
           <h1
             className={styles.offerTitle}
             style={{ fontFamily: "Georgia, sans-serif" }}
-          ></h1>
+          >
+            You have successfully completed these offers{" "}
+          </h1>
         ) : (
           <h1
             className={styles.offerTitle}
             style={{ fontFamily: "Georgia, sans-serif" }}
           >
-            No offer available right now...
+            You have not completed any offer yet...
           </h1>
         )}
         <br />
@@ -77,13 +70,11 @@ export default function DeliveryNews() {
           {searchResults.map((offer, index) => {
             return (
               <div key={offer.EXCHANGEID} className={styles.offerCard}>
-                {
-                  <DelivaryOffer
-                    offer={offer}
-                    onStatusChange={handleStatusChange}
-                    onOfferAccepted={handleOfferAccepted}
-                  />
-                }
+                <MyDelivary
+                  offer={offer}
+                  onStatusChange={handleStatusChange}
+                  onOfferAccepted={handleOfferAccepted}
+                />
               </div>
             );
           })}
@@ -92,7 +83,8 @@ export default function DeliveryNews() {
     </>
   );
 }
-// export async function getServerSideProps({ params }) {
-//   const { delId } = params;
-//   return { props: { delId } };
-// }
+
+export async function getServerSideProps({ params }) {
+  const { delivaryManId } = params;
+  return { props: { delivaryManId } };
+}

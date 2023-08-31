@@ -28,14 +28,9 @@ export default function BookFilters({
     handleSearchChange({ target: { value: transcript } });
   }, [transcript]);
 
-  // const [isModalOpen, setIsModalOpen] = useState(false);
-
   return (
     <div className={styles.filterContainer}>
       <div className={styles.filterOption}>
-        {/* <p className={styles.filterLabel}>
-          <b>Mic:</b> {listening ? "on" : "off"}
-        </p> */}
         <button
           className={styles.filterButton}
           onClick={SpeechRecognition.startListening}
@@ -68,7 +63,6 @@ export default function BookFilters({
           className={styles.filterSearchBox}
           style={{ fontFamily: "Georgia, sans-serif" }}
         />
-        {/* <label className={styles.filterLabel}>Select Genre:</label> */}
         <select
           className={styles.filterSelect}
           onChange={handleFilterChange}

@@ -104,12 +104,6 @@ export default function Login() {
       </Link>
       <DynamicBackground />
       <div className={styles.loginBox}>
-        {/* <h1
-          className={styles.heading}
-          style={{ fontFamily: "Georgia, sans-serif" }}
-        >
-          Create Account
-        </h1> */}
         <form onSubmit={handleClick}>
           <input
             className={styles.input}

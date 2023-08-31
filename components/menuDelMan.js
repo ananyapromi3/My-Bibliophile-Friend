@@ -10,6 +10,7 @@ import {
   faUserCircle,
   faSignOutAlt,
   faBell,
+  faTruck,
 } from "@fortawesome/free-solid-svg-icons";
 import styles from "../styles/menu.module.css"; // Import your CSS module
 import { useEffect } from "react";
@@ -19,7 +20,7 @@ import { useState } from "react";
 
 export default function Menu({ active }) {
   const router = useRouter();
-  const userId = router.query.userId;
+  const userId = router.query.delivaryManId;
   const [reqCount, setReqCount] = useState(0);
 
   const handleLogOut = () => {
@@ -61,21 +62,8 @@ export default function Menu({ active }) {
         style={{ fontFamily: "Georgia, sans-serif" }}
       >
         <button
-          className={active === "books" ? styles.active : styles.button}
-          onClick={() => router.push(`/bookFriend/books/${userId}`)}
-          style={{ fontFamily: "Georgia, sans-serif" }}
-        >
-          <FontAwesomeIcon icon={faBook} className={styles.menuIcon} />
-          Books
-        </button>
-      </div>
-      <div
-        className={styles.menuItem}
-        style={{ fontFamily: "Georgia, sans-serif" }}
-      >
-        <button
           className={active === "offers" ? styles.active : styles.button}
-          onClick={() => router.push(`/bookFriend/offersFeed/${userId}`)}
+          onClick={() => router.push(`/delivaryMan/offers/${userId}`)}
           style={{ fontFamily: "Georgia, sans-serif" }}
         >
           <FontAwesomeIcon icon={faList} className={styles.menuIcon} />
@@ -86,32 +74,13 @@ export default function Menu({ active }) {
         className={styles.menuItem}
         style={{ fontFamily: "Georgia, sans-serif" }}
       >
-        {" "}
         <button
-          className={active === "myOffers" ? styles.active : styles.button}
-          onClick={() => router.push(`/bookFriend/myOffers/${userId}`)}
+          className={active === "pendingOffers" ? styles.active : styles.button}
+          onClick={() => router.push(`/delivaryMan/pendingOffers/${userId}`)}
           style={{ fontFamily: "Georgia, sans-serif" }}
         >
-          <FontAwesomeIcon icon={faClipboardList} className={styles.menuIcon} />
-          My Offers
-        </button>
-      </div>
-      <div
-        className={styles.menuItem}
-        style={{ fontFamily: "Georgia, sans-serif" }}
-      >
-        <button
-          className={active === "reqs" ? styles.active : styles.button}
-          onClick={() => router.push(`/bookFriend/notifications/${userId}`)}
-          style={{ fontFamily: "Georgia, sans-serif" }}
-        >
-          <FontAwesomeIcon icon={faEnvelope} className={styles.menuIcon} />
-          Offer Requests
-          {/* {reqCount > 0 && (
-            <span className={styles.notificationCount}>
-              <b>{reqCount}</b>
-            </span>
-          )} */}
+          <FontAwesomeIcon icon={faTruck} className={styles.menuIcon} />
+          Pending Deliveries
         </button>
       </div>
       <div
@@ -144,9 +113,23 @@ export default function Menu({ active }) {
         className={styles.menuItem}
         style={{ fontFamily: "Georgia, sans-serif" }}
       >
+        {" "}
+        <button
+          className={active === "myOffers" ? styles.active : styles.button}
+          onClick={() => router.push(`/delivaryMan/myOffers/${userId}`)}
+          style={{ fontFamily: "Georgia, sans-serif" }}
+        >
+          <FontAwesomeIcon icon={faClipboardList} className={styles.menuIcon} />
+          My Offers
+        </button>
+      </div>
+      <div
+        className={styles.menuItem}
+        style={{ fontFamily: "Georgia, sans-serif" }}
+      >
         <button
           className={active === "profile" ? styles.active : styles.button}
-          onClick={() => router.push(`/bookFriend/profile/${userId}`)}
+          onClick={() => router.push(`/delivaryMan/profile/${userId}`)}
           style={{ fontFamily: "Georgia, sans-serif" }}
         >
           <FontAwesomeIcon icon={faUser} className={styles.menuIcon} />

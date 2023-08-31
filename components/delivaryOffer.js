@@ -13,7 +13,7 @@ export default function DelivaryOffer({
   const distance = offer.DISTANCE;
   const delId = router.query.delivaryManId;
   const [offerStatus, setOfferStatus] = useState(1);
-  const fee = (distance * 500).toFixed(2);
+  const fee = (distance * 100).toFixed(2);
   const delivaryInfo = {
     delivaryManId: delId,
     exchangeId: exchangeId,
@@ -23,7 +23,7 @@ export default function DelivaryOffer({
   const lati1 = offer.LATI1;
   const longi2 = offer.LONGI2;
   const lati2 = offer.LATI2;
-  // console.log(delivaryInfo);
+  
   const acceptDelivary = async () => {
     const response = await fetch(`/api/delivaryMan/offers`, {
       method: "POST",
@@ -53,37 +53,51 @@ export default function DelivaryOffer({
   };
 
   return (
-    <div>
+    <>
       {offer && offer.STATUS == "PENDING" ? (
-        <div key={offer.EXCHANGEID} className={styles.offerCard}>
-          {offerStatus ? (
-            <div>
-              <p className={styles.offerInfo}>
-                <b>{offer.NAME1}</b> wants to exchange book with{" "}
-                <b>{offer.NAME2}</b>
-              </p>
-              <p className={styles.offerInfo}>
-                <b>Delivary Fee:</b> {fee}tk
-              </p>
-              <p className={styles.offerInfo}>
-                <b>Distance:</b> {distance.toFixed(5)} km
-              </p>
-              {/* <br /> */}
-              <button className={styles.acceptButton} onClick={acceptDelivary}>
-                Accept Delivary Offer
-              </button>
-              {/* <br /> */}
-              <button className={styles.acceptButton} onClick={mapHandler}>
-                Find Delivary Location
-              </button>
-            </div>
-          ) : (
-            <></>
-          )}
+        <div
+          key={offer.EXCHANGEID}
+          className={styles.offerCard}
+          style={{ fontFamily: "Georgia, sans-serif" }}
+        >
+          <p
+            className={styles.offerInfo}
+            style={{ fontFamily: "Georgia, sans-serif" }}
+          >
+            <b>{offer.NAME1}</b> wants to exchange a book with{" "}
+            <b>{offer.NAME2}</b>
+          </p>
+          <p
+            className={styles.offerInfo}
+            style={{ fontFamily: "Georgia, sans-serif" }}
+          >
+            <b>Delivary Fee:</b> {fee}tk
+          </p>
+          <p
+            className={styles.offerInfo}
+            style={{ fontFamily: "Georgia, sans-serif" }}
+          >
+            <b>Distance:</b> {distance.toFixed(5)} km
+          </p>
+          <br />
+          <button
+            className={styles.acceptButton}
+            style={{ fontFamily: "Georgia, sans-serif" }}
+            onClick={acceptDelivary}
+          >
+            Accept Delivary Offer
+          </button>
+          <button
+            className={styles.acceptButton}
+            style={{ fontFamily: "Georgia, sans-serif" }}
+            onClick={mapHandler}
+          >
+            Find Delivary Location
+          </button>
         </div>
       ) : (
         <></>
       )}
-    </div>
+    </>
   );
 }

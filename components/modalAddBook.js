@@ -1,6 +1,8 @@
 import { useRouter } from "next/router";
 import React, { useState } from "react";
-import styles from "../styles/modal.module.css";
+import styles from "../styles/modalAddBook.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCross, faXmark } from "@fortawesome/free-solid-svg-icons";
 
 export default function Modal({ children, onClose }) {
   const router = useRouter();
@@ -48,14 +50,29 @@ export default function Modal({ children, onClose }) {
   };
 
   return (
-    <div className={styles.modalBackdrop}>
-      <div className={styles.modalContent}>
-        <button className={styles.closeButton} onClick={onClose}>
-          &times;
+    <div
+      className={styles.modalBackdrop}
+      style={{ fontFamily: "Georgia, sans-serif" }}
+    >
+      <div
+        className={styles.modalContent}
+        style={{ fontFamily: "Georgia, sans-serif" }}
+      >
+        <button
+          style={{ fontFamily: "Georgia, sans-serif" }}
+          className={styles.closeButton}
+          onClick={onClose}
+        >
+          <FontAwesomeIcon icon={faXmark} />
         </button>
-        {children}
-        <form onSubmit={handleSubmit} className={styles.modalForm}>
+        <form
+          onSubmit={handleSubmit}
+          style={{ fontFamily: "Georgia, sans-serif" }}
+          className={styles.modalForm}
+        >
           <input
+            className={styles.input}
+            style={{ fontFamily: "Georgia, sans-serif" }}
             type="text"
             name="isbn"
             placeholder="ISBN"
@@ -63,6 +80,8 @@ export default function Modal({ children, onClose }) {
             onChange={handleInputChange}
           />
           <input
+            className={styles.input}
+            style={{ fontFamily: "Georgia, sans-serif" }}
             type="text"
             name="title"
             placeholder="Title"
@@ -70,6 +89,8 @@ export default function Modal({ children, onClose }) {
             onChange={handleInputChange}
           />
           <input
+            className={styles.input}
+            style={{ fontFamily: "Georgia, sans-serif" }}
             type="number"
             name="page"
             placeholder="Page Count"
@@ -77,6 +98,8 @@ export default function Modal({ children, onClose }) {
             onChange={handleInputChange}
           />
           <input
+            className={styles.input}
+            style={{ fontFamily: "Georgia, sans-serif" }}
             type="text"
             name="lan"
             placeholder="Language"
@@ -84,6 +107,8 @@ export default function Modal({ children, onClose }) {
             onChange={handleInputChange}
           />
           <input
+            className={styles.input}
+            style={{ fontFamily: "Georgia, sans-serif" }}
             type="number"
             name="published"
             placeholder="Published in (year)"
@@ -91,6 +116,8 @@ export default function Modal({ children, onClose }) {
             onChange={handleInputChange}
           />
           <input
+            className={styles.input}
+            style={{ fontFamily: "Georgia, sans-serif" }}
             type="number"
             name="price"
             placeholder="Market price (BDT)"
@@ -98,6 +125,8 @@ export default function Modal({ children, onClose }) {
             onChange={handleInputChange}
           />
           <input
+            className={styles.input}
+            style={{ fontFamily: "Georgia, sans-serif" }}
             type="text"
             name="publisher"
             placeholder="Publisher"
@@ -105,6 +134,8 @@ export default function Modal({ children, onClose }) {
             onChange={handleInputChange}
           />
           <input
+            className={styles.input}
+            style={{ fontFamily: "Georgia, sans-serif" }}
             type="text"
             name="summary"
             placeholder="What is the book about?"
@@ -112,6 +143,8 @@ export default function Modal({ children, onClose }) {
             onChange={handleInputChange}
           />
           <input
+            className={styles.input}
+            style={{ fontFamily: "Georgia, sans-serif" }}
             type="text"
             name="genre"
             placeholder="Genre"
@@ -119,6 +152,8 @@ export default function Modal({ children, onClose }) {
             onChange={handleInputChange}
           />
           <input
+            style={{ fontFamily: "Georgia, sans-serif" }}
+            className={styles.input}
             type="text"
             name="author"
             placeholder="Author name"
@@ -126,13 +161,22 @@ export default function Modal({ children, onClose }) {
             onChange={handleInputChange}
           />
           <input
+            className={styles.input}
+            style={{ fontFamily: "Georgia, sans-serif" }}
             type="text"
             name="authorType"
             placeholder="Author Type"
             value={bookInfo.authorType || ""}
             onChange={handleInputChange}
           />
-          <button type="submit">Add Book</button>
+          <br />
+          <button
+            style={{ fontFamily: "Georgia, sans-serif" }}
+            className={styles.button}
+            type="submit"
+          >
+            Add Book
+          </button>
         </form>
       </div>
     </div>
