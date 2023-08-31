@@ -177,6 +177,21 @@
   text-align: center;
 }
 
+.offerTitleSmall {
+  padding-top: 0px;
+  padding-left: 280px;
+  padding-bottom: 50px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #2f4858;
+  margin: 0;
+  max-width: 100%;
+  /* overflow: hidden; */
+  /* text-overflow: ellipsis; */
+  white-space: nowrap;
+}
+
+
 .offerInfo {
   font-size: 0.8rem;
   max-height: 100em; /* Adjust as needed */

@@ -27,14 +27,27 @@ export default function MyProfile() {
     handleSearch();
   }, []);
 
+  useEffect(() => {
+    const func = async () => {
+      const id = parseInt(userId);
+      if (!isNaN(id)) {
+        const response1 = await fetch(`/api/notifications?term=${id}`);
+        const data1 = await response1.json();
+        localStorage.setItem("notificationCount", data1.length);
+      }
+    };
+    func();
+  });
+
+
   const handleSearch = async () => {
     try {
       const response = await fetch(`/api/bookFriend/profile?term=${userId}`);
       const data = await response.json();
-      // console.log(data[0]);
+      console.log(data);
       setProfile({
         email: data[0].EMAILID,
-        pass: data[0].PASSWORD,
+        pass: data[0].PASS,
         firstname: data[0].FIRSTNAME,
         lastname: data[0].LASTNAME,
         dob: data[0].DATEOFBIRTH,
@@ -46,6 +59,7 @@ export default function MyProfile() {
     } catch (error) {
       console.error("Error searching:", error);
     }
+    // console.log(profile);
   };
 
   return (

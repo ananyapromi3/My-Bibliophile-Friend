@@ -29,10 +29,27 @@ export default function Menu({ active }) {
   };
 
   useEffect(() => {
+    // const token = localStorage.getItem("token");
+    // if (!token) {
+    //   router.push("http://localhost:3000");
+    // }
     const token = localStorage.getItem("token");
+    const email = router.query.mail;
     if (!token) {
       router.push("http://localhost:3000");
+      return;
     }
+    const fetchData = async () => {
+      const response = await fetch(`/api/authentication?token=${token}`);
+      const data = await response.json();
+      if (
+        data.id != router.query.delivaryManId &&
+        router.query.delivaryManId != undefined
+      ) {
+        router.push("http://localhost:3000");
+      }
+    };
+    fetchData();
   });
 
   // const handleSearch = async () => {
@@ -153,7 +170,7 @@ export default function Menu({ active }) {
   );
 }
 
-// export async function getServerSideProps({ params }) {
-//   const { userId } = params;
-//   return { props: { userId } };
-// }
+export async function getServerSideProps({ params }) {
+  const { delivaryManId } = params;
+  return { props: { delivaryManId } };
+}

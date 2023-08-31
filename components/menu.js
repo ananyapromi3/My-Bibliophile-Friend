@@ -24,14 +24,52 @@ export default function Menu({ active }) {
 
   const handleLogOut = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("notificationCount");
     router.push("http://localhost:3000");
   };
 
+  const [storedNotificationCount, SetStoredNotificationCount] = useState(0);
   useEffect(() => {
+    const cnt = localStorage.getItem("notificationCount");
+    if (cnt != 0) {
+      SetStoredNotificationCount(cnt);
+      console.log("cnt is " + storedNotificationCount);
+    }
     const token = localStorage.getItem("token");
+    const email = router.query.mail;
     if (!token) {
       router.push("http://localhost:3000");
+      return;
     }
+    const fetchData = async () => {
+      const response = await fetch(`/api/authentication?token=${token}`);
+      const data = await response.json();
+      if (data.id != router.query.userId && router.query.userId != undefined) {
+        router.push("http://localhost:3000");
+      }
+    };
+    fetchData();
+  });
+
+  useEffect(() => {
+    // const token = localStorage.getItem("token");
+    // if (!token) {
+    //   router.push("http://localhost:3000");
+    // }
+    const token = localStorage.getItem("token");
+    const email = router.query.mail;
+    if (!token) {
+      router.push("http://localhost:3000");
+      return;
+    }
+    const fetchData = async () => {
+      const response = await fetch(`/api/authentication?token=${token}`);
+      const data = await response.json();
+      if (data.id != router.query.userId && router.query.userId != undefined) {
+        router.push("http://localhost:3000");
+      }
+    };
+    fetchData();
   });
 
   // const handleSearch = async () => {
@@ -107,11 +145,11 @@ export default function Menu({ active }) {
         >
           <FontAwesomeIcon icon={faEnvelope} className={styles.menuIcon} />
           Offer Requests
-          {/* {reqCount > 0 && (
+          {storedNotificationCount > 0 && (
             <span className={styles.notificationCount}>
-              <b>{reqCount}</b>
+              <b>{storedNotificationCount}</b>
             </span>
-          )} */}
+          )}
         </button>
       </div>
       <div
@@ -170,7 +208,7 @@ export default function Menu({ active }) {
   );
 }
 
-// export async function getServerSideProps({ params }) {
-//   const { userId } = params;
-//   return { props: { userId } };
-// }
+export async function getServerSideProps({ params }) {
+  const { userId } = params;
+  return { props: { userId } };
+}

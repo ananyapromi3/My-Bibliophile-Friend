@@ -52,7 +52,8 @@ export default function PendingDelivary({
               className={styles.offerInfo}
               style={{ fontFamily: "Georgia, sans-serif" }}
             >
-              {offer.NAME1.split(" ")[0]}
+              <FontAwesomeIcon icon={faPhone} />
+              <b> {offer.NAME1.split(" ")[0]} </b>
               {offer.PHN1}
             </p>
           ) : (

@@ -31,7 +31,7 @@ export default async function handler(req, res) {
     WHERE EMAILID = :email`,
     binds
   );
-  // console.log(response);
+  console.log(response);
   res.json(response);
   // res.status(200).json(response.rows);
 }

@@ -122,6 +122,18 @@ export default function Search() {
   //   offerReq();
   // }, []);
 
+  useEffect(() => {
+    const func = async () => {
+      const id = parseInt(userId);
+      if (!isNaN(id)) {
+        const response1 = await fetch(`/api/notifications?term=${id}`);
+        const data1 = await response1.json();
+        localStorage.setItem("notificationCount", data1.length);
+      }
+    };
+    func();
+  });
+
   return (
     <>
       <Menu active={activeMenu} />

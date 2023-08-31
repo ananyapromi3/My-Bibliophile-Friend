@@ -18,6 +18,18 @@ export default function Offers() {
     handleSearch();
   }, []);
 
+  useEffect(() => {
+    const func = async () => {
+      const id = parseInt(userId);
+      if (!isNaN(id)) {
+        const response1 = await fetch(`/api/notifications?term=${id}`);
+        const data1 = await response1.json();
+        localStorage.setItem("notificationCount", data1.length);
+      }
+    };
+    func();
+  });
+
   const handleStatusChange = (offerId, newStatus) => {
     setSearchResults((prevSearchResults) =>
       prevSearchResults.map((offer) =>

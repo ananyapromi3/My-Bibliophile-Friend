@@ -14,7 +14,7 @@ export default async function handler(req, res) {
     binds
   );
   if (response.rows.length == 1 && response.rows[0].ID) {
-    const token = Jwt.sign({ email: loginInfo.email }, "bibliophile");
+    const token = Jwt.sign({ id: response.rows[0].ID }, "bibliophile");
     res
       .status(200)
       .json({ token: token, success: true, id: response.rows[0].ID });

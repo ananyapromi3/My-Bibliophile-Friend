@@ -43,14 +43,14 @@ export default function Profile({ profile }) {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setLoginInfo((prevState) => ({
-      email: prevState.email,
-      password: prevState.password,
-      firstname: prevState.firstname,
-      lastname: prevState.lastname,
-      sex: prevState.sex,
-      dob: prevState.dob,
-      phn1: prevState.phn1,
-      phn2: prevState.phn2,
+      email: profile.email,
+      password: prevState.password || profile.pass,
+      firstname: prevState.firstname || profile.firstname,
+      lastname: prevState.lastname || profile.lastname,
+      sex: prevState.sex || profile.gender,
+      dob: prevState.dob || profile.dob,
+      phn1: prevState.phn1 || profile.contactno1,
+      phn2: prevState.phn2 || profile.contactno2,
       latitude: currLocationJs.latitude,
       longitude: currLocationJs.longitude,
     }));
@@ -65,6 +65,7 @@ export default function Profile({ profile }) {
     console.log(response);
     alert("Account Updated");
     router.push(`/bookFriend/profile/${userId}`);
+    window.location.reload();
   };
 
   const getLocation = async () => {
@@ -110,14 +111,26 @@ export default function Profile({ profile }) {
             <input
               className={styles.input}
               type="text"
-              disabled
-              value={profile.firstname}
-              //   onChange={(e) =>
-              //     setLoginInfo((prevLoginInfo) => ({
-              //       ...prevLoginInfo,
-              //       firstname: e.target.value,
-              //     }))
-              //   }
+              // disabled
+              placeholder={profile.firstname}
+              onChange={(e) =>
+                // setLoginInfo((prevLoginInfo) => ({
+                //   ...prevLoginInfo,
+                //   firstname: e.target.value,
+                // }))
+                setLoginInfo((prevState) => ({
+                  email: profile.email,
+                  password: prevState.password || profile.pass,
+                  firstname: e.target.value || profile.firstname,
+                  lastname: prevState.lastname || profile.lastname,
+                  sex: prevState.sex || profile.gender,
+                  dob: prevState.dob || profile.dob,
+                  phn1: prevState.phn1 || profile.contactno1,
+                  phn2: prevState.phn2 || profile.contactno2,
+                  latitude: currLocationJs.latitude,
+                  longitude: currLocationJs.longitude,
+                }))
+              }
               name="firstname"
             />
           </label>
@@ -126,15 +139,27 @@ export default function Profile({ profile }) {
             <input
               className={styles.input}
               type="text"
-              value={profile.lastname}
-              disabled
+              placeholder={profile.lastname}
+              // disabled
               name="lastname"
-              //   onChange={(e) =>
-              //     setLoginInfo((prevLoginInfo) => ({
-              //       ...prevLoginInfo,
-              //       lastname: e.target.value,
-              //     }))
-              //   }
+              onChange={(e) =>
+                // setLoginInfo((prevLoginInfo) => ({
+                //   ...prevLoginInfo,
+                //   lastname: e.target.value,
+                // }))
+                setLoginInfo((prevState) => ({
+                  email: profile.email,
+                  password: prevState.password || profile.pass,
+                  firstname: prevState.firstname || profile.firstname,
+                  lastname: e.target.value || profile.lastname,
+                  sex: prevState.sex || profile.gender,
+                  dob: prevState.dob || profile.dob,
+                  phn1: prevState.phn1 || profile.contactno1,
+                  phn2: prevState.phn2 || profile.contactno2,
+                  latitude: currLocationJs.latitude,
+                  longitude: currLocationJs.longitude,
+                }))
+              }
             />
           </label>
           <label className={styles.label}>
@@ -151,13 +176,25 @@ export default function Profile({ profile }) {
             <input
               className={styles.passwordInput}
               type={showPassword ? "text" : "password"}
-              value={profile.pass}
-              disabled
+              // placeholder={profile.pass}
+              // disabled
               name="password"
               onChange={(e) =>
-                setLoginInfo((prevLoginInfo) => ({
-                  ...prevLoginInfo,
-                  password: e.target.value,
+                // setLoginInfo((prevLoginInfo) => ({
+                //   ...prevLoginInfo,
+                //   password: e.target.value,
+                // }))
+                setLoginInfo((prevState) => ({
+                  email: profile.email,
+                  password: e.target.value || profile.pass,
+                  firstname: prevState.firstname || profile.firstname,
+                  lastname: prevState.lastname || profile.lastname,
+                  sex: prevState.sex || profile.gender,
+                  dob: prevState.dob || profile.dob,
+                  phn1: prevState.phn1 || profile.contactno1,
+                  phn2: prevState.phn2 || profile.contactno2,
+                  latitude: currLocationJs.latitude,
+                  longitude: currLocationJs.longitude,
                 }))
               }
             />
@@ -187,33 +224,57 @@ export default function Profile({ profile }) {
           <label className={styles.label}>
             <p className={styles.label1}>Contact No (1):</p>
             <input
-              disabled
+              // disabled
               className={styles.input}
               type="text"
-              value={profile.contactNo1}
+              placeholder={profile.contactno1}
               name="phn1"
-              //   onChange={(e) =>
-              //     setLoginInfo((prevLoginInfo) => ({
-              //       ...prevLoginInfo,
-              //       phn1: e.target.value,
-              //     }))
-              //   }
+              onChange={(e) =>
+                //     setLoginInfo((prevLoginInfo) => ({
+                //       ...prevLoginInfo,
+                //       phn1: e.target.value,
+                //     }))
+                setLoginInfo((prevState) => ({
+                  email: profile.email,
+                  password: prevState.password || profile.pass,
+                  firstname: prevState.firstname || profile.firstname,
+                  lastname: prevState.lastname || profile.lastname,
+                  sex: prevState.sex || profile.gender,
+                  dob: prevState.dob || profile.dob,
+                  phn1: e.target.value || profile.contactno1,
+                  phn2: prevState.phn2 || profile.contactno2,
+                  latitude: currLocationJs.latitude,
+                  longitude: currLocationJs.longitude,
+                }))
+              }
             />
           </label>
           <label className={styles.label}>
             <p className={styles.label1}>Contact No (2):</p>
             <input
-              disabled
+              // disabled
               className={styles.input}
               type="text"
               name="phn2"
-              value={profile.contactNo2}
-              //   onChange={(e) =>
-              //     setLoginInfo((prevLoginInfo) => ({
-              //       ...prevLoginInfo,
-              //       phn2: e.target.value,
-              //     }))
-              //   }
+              placeholder={profile.contactno2}
+              onChange={(e) =>
+                //     setLoginInfo((prevLoginInfo) => ({
+                //       ...prevLoginInfo,
+                //       phn2: e.target.value,
+                //     }))
+                setLoginInfo((prevState) => ({
+                  email: profile.email,
+                  password: prevState.password || profile.pass,
+                  firstname: prevState.firstname || profile.firstname,
+                  lastname: prevState.lastname || profile.lastname,
+                  sex: prevState.sex || profile.gender,
+                  dob: prevState.dob || profile.dob,
+                  phn1: prevState.phn1 || profile.contactno1,
+                  phn2: e.target.value || profile.contactno2,
+                  latitude: currLocationJs.latitude,
+                  longitude: currLocationJs.longitude,
+                }))
+              }
             />
           </label>
           <label className={styles.label}>
@@ -236,9 +297,9 @@ export default function Profile({ profile }) {
               //   onChange={(e) => setFirstName(e.target.value)}
             />
           </label>
-          {/* <button className={styles.button} type="submit">
+          <button className={styles.button} type="submit">
             Save
-          </button> */}
+          </button>
         </form>
       </div>
     </div>

@@ -24,6 +24,7 @@ export default function Notifications1() {
       const data = await response.json();
       setSearchResults(data);
       setCount(data.length);
+      localStorage.setItem("notificationCount", data.length);
       setButtonStatus(false);
     } catch (error) {
       console.error("Error searching:", error);
@@ -40,6 +41,18 @@ export default function Notifications1() {
     if (!token) {
       router.push("http://localhost:3000");
     }
+  });
+
+  useEffect(() => {
+    const func = async () => {
+      const id = parseInt(userId);
+      if (!isNaN(id)) {
+        const response1 = await fetch(`/api/notifications?term=${id}`);
+        const data1 = await response1.json();
+        localStorage.setItem("notificationCount", data1.length);
+      }
+    };
+    func();
   });
 
   const activeMenu = "reqs";

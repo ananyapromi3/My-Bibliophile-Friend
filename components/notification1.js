@@ -96,7 +96,7 @@ export default function Notification1({ notification1, search }) {
                   ))
                 ) : (
                   <p
-                    className={styles.offerTitle}
+                    className={styles.offerTitleSmall}
                     style={{ fontFamily: "Georgia, sans-serif" }}
                   >
                     No offers available right now...
