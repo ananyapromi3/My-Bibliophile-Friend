@@ -12,7 +12,6 @@ export default async function handler(req, res) {
   const offerId2 = notiInfo.offerId2;
   const binds = {
     notiId: notiId,
-    userId: userId,
     offerId1: offerId1,
     offerId2: offerId2,
     msg: { dir: oracledb.BIND_OUT, type: oracledb.STRING },
@@ -28,9 +27,8 @@ export default async function handler(req, res) {
         ACCEPT_OFFER_FINALLY (:offerId1, MS1);
         ACCEPT_OFFER_FINALLY (:offerId2, MS2);
         IF MS1 = 'CREATED' AND MS2 = 'CREATED' THEN
-            CREATE_NOTIFICATION2 (:userId, :offerId1, :msg);
             DISABLE_NOTIFICATION (:notiId, MS3);
-            CREATE_EXCHANGE_OFFER(:offerId1, :offerId2, MS4);
+            CREATE_EXCHANGE_OFFER(:offerId1, :offerId2, :msg);
         END IF;
     END;`,
     binds

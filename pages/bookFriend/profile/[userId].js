@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import styles from "../../../styles/profileFeed.module.css";
 import Menu from "../../../components/menu";
 import Profile from "../../../components/profile";
+import FriendModal from "../../../components/friendModal";
 
 export default function MyProfile() {
   const activeMenu = "profile";
@@ -39,6 +40,24 @@ export default function MyProfile() {
     func();
   });
 
+  const [friends, setFriends] = useState([]);
+  const [showFriendModal, setShowFriendModal] = useState(false);
+  const openFriendModal = () => {
+    const func = async () => {
+      const id = parseInt(userId);
+      if (!isNaN(id)) {
+        const response1 = await fetch(`/api/friend?id=${userId}`);
+        const data1 = await response1.json();
+        setFriends(data1);
+        // localStorage.setItem("pendingDelCount", data1.length);
+      }
+    };
+    func();
+    setShowFriendModal(true);
+  };
+  const closeFriendModal = () => {
+    setShowFriendModal(false);
+  };
 
   const handleSearch = async () => {
     try {
@@ -66,15 +85,25 @@ export default function MyProfile() {
     <>
       <Menu active={activeMenu} />
       <div className={styles.container}>
+        <button
+          style={{ fontFamily: "Georgia, sans-serif" }}
+          className={styles.button}
+          onClick={openFriendModal}
+        >
+          View Friends
+        </button>
         <h1
           className={styles.offerTitle}
           style={{ fontFamily: "Georgia, sans-serif" }}
         >
-          My Information
+          Update My Information
         </h1>
         <br />
         <Profile profile={profile} />
       </div>
+      {showFriendModal && (
+        <FriendModal friends={friends} onClose={closeFriendModal} />
+      )}
     </>
   );
 }

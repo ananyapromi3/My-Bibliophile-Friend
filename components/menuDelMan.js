@@ -24,6 +24,7 @@ export default function Menu({ active }) {
   const [reqCount, setReqCount] = useState(0);
 
   const handleLogOut = () => {
+    localStorage.removeItem("pendingDelCount");
     localStorage.removeItem("token");
     router.push("http://localhost:3000");
   };
@@ -33,8 +34,14 @@ export default function Menu({ active }) {
     // if (!token) {
     //   router.push("http://localhost:3000");
     // }
+    const cnt = localStorage.getItem("pendingDelCount");
+    if (cnt != 0) {
+      setPendingDelCount(cnt);
+      console.log("cnt is " + pendingDelCount);
+    }
+
     const token = localStorage.getItem("token");
-    const email = router.query.mail;
+    // const email = router.query.mail;
     if (!token) {
       router.push("http://localhost:3000");
       return;
@@ -51,6 +58,8 @@ export default function Menu({ active }) {
     };
     fetchData();
   });
+
+  const [pendingDelCount, setPendingDelCount] = useState(0);
 
   // const handleSearch = async () => {
   //   try {
@@ -98,6 +107,11 @@ export default function Menu({ active }) {
         >
           <FontAwesomeIcon icon={faTruck} className={styles.menuIcon} />
           Pending Deliveries
+          {pendingDelCount > 0 && (
+            <span className={styles.notificationCount}>
+              <b>{pendingDelCount}</b>
+            </span>
+          )}
         </button>
       </div>
       <div
@@ -118,18 +132,6 @@ export default function Menu({ active }) {
         className={styles.menuItem}
         style={{ fontFamily: "Georgia, sans-serif" }}
       >
-        <button
-          className={active === "about" ? styles.active : styles.button}
-          style={{ fontFamily: "Georgia, sans-serif" }}
-        >
-          <FontAwesomeIcon icon={faInfoCircle} className={styles.menuIcon} />
-          About Us{" "}
-        </button>
-      </div>
-      <div
-        className={styles.menuItem}
-        style={{ fontFamily: "Georgia, sans-serif" }}
-      >
         {" "}
         <button
           className={active === "myOffers" ? styles.active : styles.button}
@@ -138,6 +140,18 @@ export default function Menu({ active }) {
         >
           <FontAwesomeIcon icon={faClipboardList} className={styles.menuIcon} />
           My Offers
+        </button>
+      </div>
+      <div
+        className={styles.menuItem}
+        style={{ fontFamily: "Georgia, sans-serif" }}
+      >
+        <button
+          className={active === "about" ? styles.active : styles.button}
+          style={{ fontFamily: "Georgia, sans-serif" }}
+        >
+          <FontAwesomeIcon icon={faInfoCircle} className={styles.menuIcon} />
+          About Us{" "}
         </button>
       </div>
       <div

@@ -139,7 +139,9 @@ body {
   border-radius: 0px;
   z-index: 1;
   overflow: hidden;
-  margin: 20px 0px;
+  /* margin: 20px 0px; */
+  /* margin-bottom: -500px; */
+  /* top:-500px; */
   box-shadow: 5px 5px 0px 0px rgb(135, 101, 133, 0.8);
 }
 
@@ -164,4 +166,3 @@ body {
 .button:hover::before {
   transform: translateX(0);
 }
-

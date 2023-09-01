@@ -52,6 +52,7 @@ export default function DelivaryOffer({
     });
   };
 
+  
   return (
     <>
       {offer && offer.STATUS == "PENDING" ? (
@@ -85,14 +86,14 @@ export default function DelivaryOffer({
             style={{ fontFamily: "Georgia, sans-serif" }}
             onClick={acceptDelivary}
           >
-            Accept Delivary Offer
+            Accept Delivery Offer
           </button>
           <button
             className={styles.acceptButton}
             style={{ fontFamily: "Georgia, sans-serif" }}
             onClick={mapHandler}
           >
-            Find Delivary Location
+            Find Delivery Location
           </button>
         </div>
       ) : (

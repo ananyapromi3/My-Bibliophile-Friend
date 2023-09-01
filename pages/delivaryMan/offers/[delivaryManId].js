@@ -53,6 +53,20 @@ export default function DeliveryNews() {
     }
   });
 
+  useEffect(() => {
+    const func = async () => {
+      const id = parseInt(delId);
+      if (!isNaN(id)) {
+        const response1 = await fetch(
+          `/api/delivaryAcceptedOffers?id=${delId}`
+        );
+        const data1 = await response1.json();
+        localStorage.setItem("pendingDelCount", data1.length);
+      }
+    };
+    func();
+  });
+
   const activeMenu = "offers";
 
   return (
@@ -92,7 +106,8 @@ export default function DeliveryNews() {
     </>
   );
 }
-// export async function getServerSideProps({ params }) {
-//   const { delId } = params;
-//   return { props: { delId } };
-// }
+
+export async function getServerSideProps({ params }) {
+  const { delivaryManId } = params;
+  return { props: { delivaryManId } };
+}

@@ -30,7 +30,7 @@ export default function OfferSmall({ offer, notification1, closeModal }) {
       },
     });
     const data = await response.json();
-    if (data.msg == "NOTIFICATION2 SENT") {
+    if (data.msg == "SUCCESS") {
       alert("Offer accepted");
       setOfferStatus(0);
       closeModal();

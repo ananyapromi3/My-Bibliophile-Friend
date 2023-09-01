@@ -22,17 +22,32 @@ export default function DelivaryAcceptedOffer() {
     const data = await response.json();
     setSearchResults(data);
     setCount(data.length);
+    localStorage.setItem("pendingDelCount", data.length);
+    console.log(localStorage.getItem("pendingDelCount"));
   };
+  useEffect(() => {
+    handleSearch();
+  }, []);
+
+  useEffect(() => {
+    const func = async () => {
+      const id = parseInt(delivaryManId);
+      if (!isNaN(id)) {
+        const response1 = await fetch(
+          `/api/delivaryAcceptedOffers?id=${delivaryManId}`
+        );
+        const data1 = await response1.json();
+        localStorage.setItem("pendingDelCount", data1.length);
+      }
+    };
+    func();
+  });
 
   const handleOfferAccepted = (acceptedExchangeId) => {
     setSearchResults((prevResults) =>
       prevResults.filter((offer) => offer.EXCHANGEID !== acceptedExchangeId)
     );
   };
-
-  useEffect(() => {
-    handleSearch();
-  }, []);
 
   const handleStatusChange = (exchangeId, newStatus) => {
     setSearchResults((prevSearchResults) =>
@@ -45,6 +60,13 @@ export default function DelivaryAcceptedOffer() {
   };
 
   const activeMenu = "pendingOffers";
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      router.push("http://localhost:3000");
+    }
+  });
 
   return (
     <>

@@ -16,6 +16,11 @@ export default function PendingDelivary({
   const delId = router.query.delivaryManId;
   const [offerStatus, setOfferStatus] = useState(1);
 
+  const longi1 = offer.LONGI1;
+  const lati1 = offer.LATI1;
+  const longi2 = offer.LONGI2;
+  const lati2 = offer.LATI2;
+
   const handleClick = async () => {
     const response = await fetch(`/api/delivaryMan/accepted?id=${exchangeId}`);
     alert("Offer accepted");
@@ -23,6 +28,13 @@ export default function PendingDelivary({
     onStatusChange(offer.EXCHANGEID, "Delivered");
     onOfferAccepted(offer.EXCHANGEID);
     router.push(`/delivaryMan/pendingOffers/${delId}`);
+  };
+
+  const mapHandler = async () => {
+    router.push({
+      pathname: "http://localhost:3000/mapPage",
+      query: { longi1, lati1, longi2, lati2 },
+    });
   };
 
   return (
@@ -82,9 +94,16 @@ export default function PendingDelivary({
           <button
             className={styles.acceptButton}
             style={{ fontFamily: "Georgia, sans-serif" }}
+            onClick={mapHandler}
+          >
+            Find Delivery Location
+          </button>
+          <button
+            className={styles.acceptButton}
+            style={{ fontFamily: "Georgia, sans-serif" }}
             onClick={handleClick}
           >
-            Successfully Delivered
+            Mark as Delivered
           </button>
         </div>
       ) : (
