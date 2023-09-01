@@ -25,15 +25,22 @@ export default function Menu({ active }) {
   const handleLogOut = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("notificationCount");
+    localStorage.removeItem("notiCount");
     router.push("http://localhost:3000");
   };
 
   const [storedNotificationCount, SetStoredNotificationCount] = useState(0);
+  const [storedNotiCount, SetStoredNotiCount] = useState(0);
   useEffect(() => {
     const cnt = localStorage.getItem("notificationCount");
     if (cnt != 0) {
       SetStoredNotificationCount(cnt);
-      console.log("cnt is " + storedNotificationCount);
+      // console.log("cnt is " + storedNotificationCount);
+    }
+    const cnt2 = localStorage.getItem("notiCount");
+    if (cnt2 != 0) {
+      SetStoredNotiCount(cnt2);
+      // console.log("cnt is " + storedNotificationCount);
     }
     const token = localStorage.getItem("token");
     const email = router.query.mail;
@@ -164,6 +171,11 @@ export default function Menu({ active }) {
         >
           <FontAwesomeIcon icon={faBell} className={styles.menuIcon} />
           Notifications
+          {storedNotiCount > 0 && (
+            <span className={styles.notificationCount}>
+              <b>{storedNotiCount}</b>
+            </span>
+          )}
         </button>
       </div>
       <div
@@ -173,6 +185,7 @@ export default function Menu({ active }) {
         <button
           className={active === "about" ? styles.active : styles.button}
           style={{ fontFamily: "Georgia, sans-serif" }}
+          onClick={() => router.push(`/bookFriend/aboutUs/${userId}`)}
         >
           <FontAwesomeIcon icon={faInfoCircle} className={styles.menuIcon} />
           About Us{" "}

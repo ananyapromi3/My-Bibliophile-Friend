@@ -148,6 +148,7 @@ export default function Menu({ active }) {
       >
         <button
           className={active === "about" ? styles.active : styles.button}
+          onClick={() => router.push(`/delivaryMan/aboutUs`)}
           style={{ fontFamily: "Georgia, sans-serif" }}
         >
           <FontAwesomeIcon icon={faInfoCircle} className={styles.menuIcon} />

@@ -134,6 +134,18 @@ export default function Search() {
     func();
   });
 
+  useEffect(() => {
+    const func = async () => {
+      const id = parseInt(userId);
+      if (!isNaN(id)) {
+        const response1 = await fetch(`/api/noti?term=${id}`);
+        const data1 = await response1.json();
+        localStorage.setItem("notiCount", data1.length);
+      }
+    };
+    func();
+  });
+  
   return (
     <>
       <Menu active={activeMenu} />

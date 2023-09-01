@@ -1,0 +1,51 @@
+.container {
+  padding: 0;
+  margin: 0;
+  margin-top: 0px;
+  font-family: Georgia, sans-serif;
+  background-color: rgb(245, 235, 230);
+  margin-bottom: 50px;
+}
+
+.offerCard {
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+  border-radius: 0px;
+  transition: transform 0.3s ease-in-out;
+  align-items: center;
+  vertical-align: top;
+}
+
+.offerTitle {
+  padding-top: 100px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2f4858;
+  margin: 0;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  align-self: center;
+  align-items: center;
+  text-align: center;
+}
+.offerImage {
+  max-width: 100%;
+  max-height: 60%;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.offerGrid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 10px;
+  margin: 0 auto;
+  justify-items: center;
+}
