@@ -23,7 +23,7 @@ export default function DelivaryOffer({
   const lati1 = offer.LATI1;
   const longi2 = offer.LONGI2;
   const lati2 = offer.LATI2;
-  
+
   const acceptDelivary = async () => {
     const response = await fetch(`/api/delivaryMan/offers`, {
       method: "POST",
@@ -52,7 +52,6 @@ export default function DelivaryOffer({
     });
   };
 
-  
   return (
     <>
       {offer && offer.STATUS == "PENDING" ? (

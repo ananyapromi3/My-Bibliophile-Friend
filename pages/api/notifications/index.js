@@ -3,10 +3,7 @@ import runQuery from "../../../oracle/query";
 import { useRouter } from "next/router";
 import runQueryWithBinds from "../../../oracle/queryBinds";
 export default async function handler(req, res) {
-  // const router = useRouter();
-  // const userId = router.query.userId;
   const x = req.query.term;
-  // console.log(x);
   const response = await runQueryWithBinds(
     `SELECT N.NOTIFICATIONID, N.OFFERID, N.STATUS, N.EMAILWHOREQUESTED, O.BOOKCONDITIONPHOTO, 
     B.ISBN, B.TITLE, U.FIRSTNAME||' '||U.LASTNAME NAMEWHOREQUESTED FROM NOTIFICATION1 N 
@@ -18,4 +15,3 @@ export default async function handler(req, res) {
   );
   res.json(response.rows);
 }
-

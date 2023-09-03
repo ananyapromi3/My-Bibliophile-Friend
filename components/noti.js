@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faMessage } from "@fortawesome/free-solid-svg-icons";
 
 export default function Noti({ noti }) {
+  console.log(noti.MSG);
   return (
     <div className={styles.offerCard}>
       <p

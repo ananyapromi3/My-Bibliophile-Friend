@@ -15,6 +15,9 @@ export default function DelivaryAcceptedOffer() {
 
   const delivaryManId = router.query.delivaryManId;
 
+  useEffect(() => {
+    handleSearch();
+  }, []);
   const handleSearch = async () => {
     const response = await fetch(
       `/api/delivaryAcceptedOffers?id=${delivaryManId}`
@@ -25,9 +28,6 @@ export default function DelivaryAcceptedOffer() {
     localStorage.setItem("pendingDelCount", data.length);
     console.log(localStorage.getItem("pendingDelCount"));
   };
-  useEffect(() => {
-    handleSearch();
-  }, []);
 
   useEffect(() => {
     const func = async () => {

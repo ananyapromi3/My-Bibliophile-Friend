@@ -17,12 +17,8 @@ export default async function handler(req, res) {
   console.log(binds);
   const response = await runProcedureWithOutBinds(
     `DECLARE
-        MS VARCHAR2(50);
     BEGIN
-        ACCEPT_OFFER(:offerid, MS);
-        IF MS = 'CREATED' THEN
-            CREATE_NOTIFICATION1 (:userId, :offerId, :msg);
-        END IF;
+        CREATE_NOTIFICATION1 (:userId, :offerId, :msg);
     END;`,
     binds
   );

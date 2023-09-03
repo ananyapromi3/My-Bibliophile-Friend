@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import Offer from "../../../components/offer";
 import { useEffect } from "react";
-import styles from "../../../styles/offersFeed.module.css";
+import styles from "../../../styles/notiii.module.css";
 import Menu from "../../../components/menu";
 import Noti from "../../../components/noti";
 
@@ -49,6 +49,7 @@ export default function Offers() {
       const response = await fetch(`/api/noti?term=${userId}`);
       const data = await response.json();
       setSearchResults(data);
+      console.log(data);
       setCount(data.length);
     } catch (error) {
       console.error("Error searching:", error);
@@ -77,6 +78,7 @@ export default function Offers() {
           {searchResults.map((noti, index) => {
             return (
               <div className={styles.offerCard}>
+                {/* {noti.MSG} */}
                 <Noti noti={noti} />
               </div>
             );
