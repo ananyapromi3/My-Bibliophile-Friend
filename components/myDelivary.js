@@ -2,16 +2,25 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import styles from "../styles/myDelivary.module.css";
 import { async } from "regenerator-runtime";
+import CustomAlert from "./alert";
 
 export default function MyDelivary({ offer, onStatusChange, onOfferAccepted }) {
   const router = useRouter();
   const exchangeId = offer.EXCHANGEID;
   const delId = router.query.delivaryManId;
   const [offerStatus, setOfferStatus] = useState(1);
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
 
   const handleClick = async () => {
+    const [showAlert, setShowAlert] = useState(false);
+    const [alertMessage, setAlertMessage] = useState("");
+    const handleCloseAlert = () => {
+      setShowAlert(false);
+    };
     const response = await fetch(`/api/delivaryMan/accepted?id=${exchangeId}`);
-    alert("Offer accepted");
+    setAlertMessage("Offer accepted");
+    setShowAlert(true);
     setOfferStatus(0);
     onStatusChange(offer.EXCHANGEID, "Delivered");
     onOfferAccepted(offer.EXCHANGEID);
@@ -49,6 +58,9 @@ export default function MyDelivary({ offer, onStatusChange, onOfferAccepted }) {
         </div>
       ) : (
         <></>
+      )}
+      {showAlert && (
+        <CustomAlert message={alertMessage} onClose={handleCloseAlert} />
       )}
     </>
   );

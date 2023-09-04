@@ -28,6 +28,7 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     max-height: 50rem;
+    color: rgb(47, 72, 88);
   }
   
   .offerImage {
@@ -96,6 +97,7 @@
     overflow: hidden;
     margin-top: 2px;
     margin-bottom: 2px;
+    color: rgb(47, 72, 88);
   }
   
   .bookISBN {

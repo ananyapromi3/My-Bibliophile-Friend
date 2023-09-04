@@ -3,8 +3,28 @@ import React, { useState } from "react";
 import styles from "../styles/modalAddBook.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCross, faXmark } from "@fortawesome/free-solid-svg-icons";
+import CustomAlert from "./alert";
+import { toast } from "react-toastify";
 
 export default function Modal({ children, onClose }) {
+  const showToast = (msg) => {
+    toast.success(msg, {
+      position: "bottom-right",
+      autoClose: 3000,
+      style: {
+        zIndex: 1000,
+      },
+    });
+  };
+  const showToastError = (msg) => {
+    toast.error(msg, {
+      position: "bottom-right",
+      autoClose: 3000,
+      style: {
+        zIndex: 1000,
+      },
+    });
+  };
   const router = useRouter();
   const userId = router.query.userId;
   const [bookInfo, setBookInfo] = useState({
@@ -41,12 +61,22 @@ export default function Modal({ children, onClose }) {
     const data = await response.json();
     console.log(data);
     if (data.msg == "ADDED") {
-      alert("Book Added");
+      showToast("Book Added");
+      setAlertMessage("Book Added");
+      setShowAlert(true);
+      onClose();
+      router.push(`/bookFriend/books/${userId}`);
     } else {
-      alert("Could not add this book");
+      setAlertMessage("Could not add this book");
+      // showToastError("Could not add this book");
+      setShowAlert(true);
     }
-    onClose();
-    router.push(`/bookFriend/books/${userId}`);
+  };
+
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
+  const handleCloseAlert = () => {
+    setShowAlert(false);
   };
 
   return (
@@ -179,6 +209,9 @@ export default function Modal({ children, onClose }) {
           </button>
         </form>
       </div>
+      {showAlert && (
+        <CustomAlert message={alertMessage} onClose={handleCloseAlert} />
+      )}
     </div>
   );
 }

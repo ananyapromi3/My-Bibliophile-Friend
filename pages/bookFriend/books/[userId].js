@@ -140,12 +140,18 @@ export default function Search() {
       if (!isNaN(id)) {
         const response1 = await fetch(`/api/noti?term=${id}`);
         const data1 = await response1.json();
-        localStorage.setItem("notiCount", data1.length);
+        let c = 0;
+        for (let i = 0; i < data1.length; i++) {
+          if (data1[i].STATUS == "UNREAD") {
+            c++;
+          }
+        }
+        localStorage.setItem("notiCount", c);
       }
     };
     func();
   });
-  
+
   return (
     <>
       <Menu active={activeMenu} />

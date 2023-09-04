@@ -10,6 +10,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import DynamicBackground from "../../../components/dynamicBackground";
+import CustomAlert from "../../../components/alert";
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
@@ -34,13 +35,18 @@ export default function Login() {
         localStorage.setItem("token", data.token);
         router.push(`/delivaryMan/offers/${data.id}`);
       } else {
-        alert("Wrong information");
+        setAlertMessage("Wrong information");
+        setShowAlert(true);
       }
     } catch (error) {
       console.error("Error searching:", error);
     }
   };
-
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
+  const handleCloseAlert = () => {
+    setShowAlert(false);
+  };
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
   };
@@ -126,6 +132,9 @@ export default function Login() {
           </Link>
         </p>
       </div>
+      {showAlert && (
+        <CustomAlert message={alertMessage} onClose={handleCloseAlert} />
+      )}
     </div>
   );
 }

@@ -5,6 +5,8 @@ import { async } from "regenerator-runtime";
 import { off } from "process";
 import { faPhone } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import CustomAlert from "./alert";
+import { toast } from "react-toastify";
 
 export default function PendingDelivary({
   offer,
@@ -20,10 +22,37 @@ export default function PendingDelivary({
   const lati1 = offer.LATI1;
   const longi2 = offer.LONGI2;
   const lati2 = offer.LATI2;
+  const showToast = (msg) => {
+    toast.success(msg, {
+      position: "bottom-right",
+      autoClose: 3000,
+      style: {
+        zIndex: 1000,
+      },
+    });
+  };
+  const showToastError = (msg) => {
+    toast.error(msg, {
+      position: "bottom-right",
+      autoClose: 3000,
+      style: {
+        zIndex: 1000,
+      },
+    });
+  };
 
   const handleClick = async () => {
     const response = await fetch(`/api/delivaryMan/accepted?id=${exchangeId}`);
-    alert("Offer accepted");
+    // setAlertMessage("Offer accepted");
+    // setShowAlert(true);
+
+    // const id = parseInt(delId);
+    // if (!isNaN(id)) {
+    //   const response1 = await fetch(`/api/delivaryAcceptedOffers?id=${delId}`);
+    //   const data1 = await response1.json();
+    //   localStorage.setItem("pendingDelCount", data1.length);
+    // }
+    showToast("Offer marked as delivered");
     setOfferStatus(0);
     onStatusChange(offer.EXCHANGEID, "Delivered");
     onOfferAccepted(offer.EXCHANGEID);
@@ -35,6 +64,12 @@ export default function PendingDelivary({
       pathname: "http://localhost:3000/mapPage",
       query: { longi1, lati1, longi2, lati2 },
     });
+  };
+
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
+  const handleCloseAlert = () => {
+    setShowAlert(false);
   };
 
   return (
@@ -108,6 +143,9 @@ export default function PendingDelivary({
         </div>
       ) : (
         <></>
+      )}
+      {showAlert && (
+        <CustomAlert message={alertMessage} onClose={handleCloseAlert} />
       )}
     </>
   );

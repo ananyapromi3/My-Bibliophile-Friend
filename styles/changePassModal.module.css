@@ -1,0 +1,192 @@
+.modalBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  box-shadow: 0px 0px 0px 10px #f5ebe6;
+}
+
+.modalContent {
+  background-color: #f5ebe6;
+  width: 50%;
+  height: 80%;
+  max-width: 600px;
+  max-height: 500px;
+  padding: 20px;
+  border-radius: 0px;
+  box-shadow: 0px 0px 0px 10px rgb(194, 123, 127);
+  position: relative;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.closeButton {
+  font-size: 2rem;
+  margin-left: 500px;
+  background-color: transparent;
+  border-radius: 100px;
+  color: rgb(194, 123, 127);
+}
+
+.closeButton:hover {
+  background-color: transparent;
+  color: #876585;
+}
+
+.modalForm {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.modalText {
+  text-align: center;
+  color: #2f4858;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+}
+
+.modalTitle {
+  text-align: center;
+  color: #2f4858;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  padding-bottom: 5px;
+}
+
+.modalImage {
+  max-width: 20%;
+  max-height: 20%; /* Adjust this value as needed */
+  object-fit: contain; /* Preserve aspect ratio */
+}
+
+.button {
+  position: relative;
+  background-color: rgb(194, 123, 127, 0.9);
+  color: white;
+  padding: auto;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  box-shadow: 0px 0px 5px 3px rgb(135, 101, 133, 0.8);
+  width: 150px;
+  height: 50px;
+  border-radius: 0px;
+  z-index: 1;
+  overflow: hidden;
+  left: 210px;
+  margin: 10px 0px;
+}
+
+.button:hover {
+  background-color: #876585;
+}
+
+.input {
+  font-size: 0.8rem;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid rgb(245, 235, 230, 0.5);
+  border-radius: 5px;
+  margin-top: 0px;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right bottom, #c27b7f, transparent);
+  transform: translateX(-100%);
+  transition: transform 1s ease;
+  z-index: -1;
+}
+
+.button:hover::before {
+  transform: translateX(0);
+}
+
+.buttonSmall {
+  position: relative;
+  background-color: rgb(194, 123, 127, 0.9);
+  color: white;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  box-shadow: 0px 0px 5px 3px rgb(135, 101, 133, 0.8);
+  width: 150px;
+  height: 30px;
+  border-radius: 0px;
+  z-index: 1;
+  overflow: hidden;
+  margin: 0px 0px;
+}
+
+.buttonSmall:hover {
+  background-color: #876585;
+}
+
+.buttonSmall::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right bottom, #c27b7f, transparent);
+  transform: translateX(-100%);
+  transition: transform 1s ease;
+  z-index: -1;
+}
+
+.buttonSmall:hover::before {
+  transform: translateX(0);
+}
+
+.passwordInputContainer {
+  font-size: 1rem;
+  width: 90%;
+  /* margin-bottom: 0px; */
+  display: flex;
+  position: relative;
+  border-radius: 5px;
+  margin: 0px auto;
+}
+
+.passwordInput {
+  font-size: 1rem;
+  width: 100%;
+  padding: 15px;
+  border-radius: 50px;
+  margin: 0px;
+}
+
+.passwordToggleButton {
+  position: absolute;
+  right: 5px;
+  cursor: pointer;
+}
+
+.eyeIcon {
+  margin: auto;
+  margin-top: 18px;
+  margin-right: 15px;
+  font-size: 1rem;
+  color: #666;
+}

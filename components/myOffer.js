@@ -4,15 +4,40 @@ import styles from "../styles/offer.module.css";
 import { off } from "process";
 import ImageGallery from "./imageGallery";
 import { async } from "regenerator-runtime";
+import CustomAlert from "./alert";
+import { toast } from "react-toastify";
 
 export default function MyOffer({ offer, onStatusChange, onOfferAccepted }) {
   const router = useRouter();
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
+  const handleCloseAlert = () => {
+    setShowAlert(false);
+  };
   const offerId = offer.OFFERID;
   const userId = router.query.userId;
   const [offerStatus, setOfferStatus] = useState(1);
   const notiInfo = {
     userId: userId,
     offerId: offerId,
+  };
+  const showToast = (msg) => {
+    toast.success(msg, {
+      position: "bottom-right",
+      autoClose: 3000,
+      style: {
+        zIndex: 1000,
+      },
+    });
+  };
+  const showToastErr = (msg) => {
+    toast.error(msg, {
+      position: "bottom-right",
+      autoClose: 3000,
+      style: {
+        zIndex: 1000,
+      },
+    });
   };
 
   const deleteOffer = async () => {
@@ -25,12 +50,16 @@ export default function MyOffer({ offer, onStatusChange, onOfferAccepted }) {
     });
     const data = await response.json();
     if (data.msg == "DELETED") {
-      alert("Offer deleted");
+      setAlertMessage("Offer deleted");
+      setShowAlert(true);
+      showToast("Offer successfully deleted");
       setOfferStatus(0);
       onStatusChange(offer.OFFERID, "accepted");
       onOfferAccepted(offer.OFFERID);
     } else {
-      alert("Could not accept offer");
+      setAlertMessage("Could not delete offer");
+      setShowAlert(true);
+      showToastErr("Offer could not be deleted");
     }
     router.push(`/bookFriend/myOffers/${userId}`);
   };
@@ -89,12 +118,12 @@ export default function MyOffer({ offer, onStatusChange, onOfferAccepted }) {
           >
             {offer.MESSAGE}
           </p>
-          <p
+          {/* <p
             className={styles.offerInfo}
             style={{ fontFamily: "Georgia, sans-serif" }}
           >
             <b>Distance:</b> {offer.DISTANCE.toFixed(5)} km
-          </p>
+          </p> */}
           <p
             className={styles.offerInfo}
             style={{ fontFamily: "Georgia, sans-serif" }}
@@ -125,6 +154,9 @@ export default function MyOffer({ offer, onStatusChange, onOfferAccepted }) {
             />
           </div>
         </div>
+      )}
+      {showAlert && (
+        <CustomAlert message={alertMessage} onClose={handleCloseAlert} />
       )}
     </>
   );

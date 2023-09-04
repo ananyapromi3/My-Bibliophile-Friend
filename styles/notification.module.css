@@ -138,6 +138,7 @@
   overflow: hidden;
   margin-top: auto;
   display: block;
+  /* margin-bottom: auto; */
 }
 
 .acceptButton:hover {

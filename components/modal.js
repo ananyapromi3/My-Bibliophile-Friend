@@ -3,13 +3,20 @@ import styles from "../styles/modal.module.css";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import CustomAlert from "./alert";
 import {
   faChevronRight,
   faChevronLeft,
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
+import { toast } from "react-toastify";
 
 export default function Modal({ children, onClose, book }) {
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
+  const handleCloseAlert = () => {
+    setShowAlert(false);
+  };
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedBook, setSelectedBook] = useState(null);
   const isbn = book.ISBN;
@@ -48,7 +55,8 @@ export default function Modal({ children, onClose, book }) {
     const fileInput = form.elements.file;
     setPhotoCount(fileInput.files.length);
     if (fileInput.files.length > 5) {
-      alert("You can upload a maximum of 5 photos.");
+      setAlertMessage("You can upload a maximum of 5 photos.");
+      setShowAlert(true);
       return;
     }
     const formData = new FormData();
@@ -111,12 +119,18 @@ export default function Modal({ children, onClose, book }) {
       const data = await response.json();
       console.log(data);
       if (data.msg == "OFFER CREATED") {
-        alert("Offer Created");
+        showToast("Offer successfully created");
+        setAlertMessage("Offer Created");
+        setAlertMessage(true);
       } else {
-        alert("Could not create offer");
+        setAlertMessage("Could not create offer");
+        setAlertMessage(true);
+        showToastErr("Could not create offer");
       }
     } else {
-      alert("You must upload atleast one photo");
+      setAlertMessage("You must upload atleast one photo");
+      setShowAlert(true);
+      return;
     }
     onClose();
     router.push(`/bookFriend/books/${offerInfo.userId}`);
@@ -138,6 +152,24 @@ export default function Modal({ children, onClose, book }) {
     setUploadFlag(0);
     e.target.reset();
   }
+  const showToast = (msg) => {
+    toast.success(msg, {
+      position: "bottom-right",
+      autoClose: 3000,
+      style: {
+        zIndex: 1000,
+      },
+    });
+  };
+  const showToastErr = (msg) => {
+    toast.error(msg, {
+      position: "bottom-right",
+      autoClose: 3000,
+      style: {
+        zIndex: 1000,
+      },
+    });
+  };
 
   return (
     <div
@@ -225,6 +257,9 @@ export default function Modal({ children, onClose, book }) {
           </button>
         </form>
       </div>
+      {showAlert && (
+        <CustomAlert message={alertMessage} onClose={handleCloseAlert} />
+      )}
     </div>
   );
 }

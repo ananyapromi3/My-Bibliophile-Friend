@@ -11,6 +11,17 @@ import {
   faCircleArrowLeft,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import CustomAlert from "../../../components/alert";
+
+function isPasswordValid(password) {
+  const specialCharRegex = /[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]/;
+  const numberRegex = /\d/;
+  return (
+    specialCharRegex.test(password) &&
+    numberRegex.test(password) &&
+    password.length >= 8
+  );
+}
 
 export default function Login() {
   const [currLocation, setCurrLocation] = useState({});
@@ -55,6 +66,12 @@ export default function Login() {
     latitude: 0,
     longitude: 0,
   });
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
+  const handleCloseAlert = () => {
+    setShowAlert(false);
+  };
+  const [confirmPass, setConfirmPass] = useState("");
   const handleClick = async (event) => {
     try {
       event.preventDefault();
@@ -70,6 +87,18 @@ export default function Login() {
         latitude: currLocationJs.latitude,
         longitude: currLocationJs.longitude,
       }));
+      if (loginInfo.password != confirmPass) {
+        setAlertMessage("Passwords do not match.");
+        setShowAlert(true);
+        return;
+      }
+      if (!isPasswordValid(loginInfo.password)) {
+        setAlertMessage(
+          "Your password must contain at least one special character and a number. It must have a length of at least 8."
+        );
+        setShowAlert(true);
+        return;
+      }
       const response = await fetch(`/api/delivaryMan/signup`, {
         method: "POST",
         body: JSON.stringify(loginInfo),
@@ -80,12 +109,15 @@ export default function Login() {
       const data = await response.json();
       console.log(data);
       if (data.msg1 == "SUCCESSFUL") {
-        alert("Account Created");
+        setAlertMessage("Account Created");
+        setShowAlert(true);
         router.push(`/delivaryMan/login`);
       } else if (data.msg1 == "DUPLICATE") {
-        alert("You already have an account");
+        setAlertMessage("You already have an account");
+        setShowAlert(true);
       } else {
-        alert("Cannot create account");
+        setAlertMessage("Cannot create account");
+        setShowAlert(true);
       }
     } catch (error) {
       console.error("Error searching:", error);
@@ -152,6 +184,25 @@ export default function Login() {
                   longitude: currLocationJs.longitude,
                 }))
               }
+              name="password"
+            />
+            <div
+              className={styles.passwordToggleButton}
+              onClick={toggleShowPassword}
+            >
+              <FontAwesomeIcon
+                icon={showPassword ? faEye : faEyeSlash}
+                className={styles.eyeIcon}
+              />
+            </div>
+          </div>
+          <div className={styles.passwordInputContainer}>
+            <input
+              style={{ fontFamily: "Georgia, sans-serif" }}
+              placeholder="Confirm password"
+              type={showPassword ? "text" : "password"}
+              className={styles.passwordInput}
+              onChange={(e) => setConfirmPass(e.target.value)}
               name="password"
             />
             <div
@@ -331,6 +382,9 @@ export default function Login() {
           </Link>
         </p>
       </div>
+      {showAlert && (
+        <CustomAlert message={alertMessage} onClose={handleCloseAlert} />
+      )}
     </div>
   );
 }

@@ -11,53 +11,14 @@
  Target Server Version : 190000 (Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production)
  File Encoding         : 65001
 
- Date: 26/08/2023 11:38:42
+ Date: 04/09/2023 06:15:00
 */
 
 
 -- ----------------------------
--- Table structure for ADDRESS
--- ----------------------------
--- DROP TABLE "PROJECT"."ADDRESS";
-CREATE TABLE "PROJECT"."ADDRESS" (
-  "LATITUDE" NUMBER(10,7) VISIBLE NOT NULL,
-  "LONGITUDE" NUMBER(10,7) VISIBLE NOT NULL
-)
-LOGGING
-NOCOMPRESS
-PCTFREE 10
-INITRANS 1
-STORAGE (
-  INITIAL 65536 
-  NEXT 1048576 
-  MINEXTENTS 1
-  MAXEXTENTS 2147483645
-  BUFFER_POOL DEFAULT
-)
-PARALLEL 1
-NOCACHE
-DISABLE ROW MOVEMENT
-;
-
--- ----------------------------
--- Records of ADDRESS
--- ----------------------------
-INSERT INTO "PROJECT"."ADDRESS" VALUES ('23.7270954', '90.3842619');
-INSERT INTO "PROJECT"."ADDRESS" VALUES ('23.7661639', '90.3588734');
-INSERT INTO "PROJECT"."ADDRESS" VALUES ('23.7698307', '90.366772');
-INSERT INTO "PROJECT"."ADDRESS" VALUES ('23.7698321', '90.3667407');
-INSERT INTO "PROJECT"."ADDRESS" VALUES ('23.769846', '90.3667659');
-INSERT INTO "PROJECT"."ADDRESS" VALUES ('23.7698521', '90.3667771');
-INSERT INTO "PROJECT"."ADDRESS" VALUES ('23.7698659', '90.3668041');
-INSERT INTO "PROJECT"."ADDRESS" VALUES ('23.769867', '90.3667556');
-INSERT INTO "PROJECT"."ADDRESS" VALUES ('23.7698707', '90.3667976');
-INSERT INTO "PROJECT"."ADDRESS" VALUES ('23.7698852', '90.3668011');
-INSERT INTO "PROJECT"."ADDRESS" VALUES ('23.7698974', '90.366777');
-
--- ----------------------------
 -- Table structure for AUTHOR
 -- ----------------------------
--- DROP TABLE "PROJECT"."AUTHOR";
+DROP TABLE "PROJECT"."AUTHOR";
 CREATE TABLE "PROJECT"."AUTHOR" (
   "NAME" VARCHAR2(100 BYTE) VISIBLE NOT NULL,
   "BORNON" NUMBER(4,0) VISIBLE,
@@ -84,11 +45,10 @@ DISABLE ROW MOVEMENT
 -- ----------------------------
 -- Records of AUTHOR
 -- ----------------------------
+INSERT INTO "PROJECT"."AUTHOR" VALUES ('M. Nurul Islam', NULL, NULL, NULL, NULL);
 INSERT INTO "PROJECT"."AUTHOR" VALUES ('Daffodil Jackson', '1991', '2012', 'Poet', 'British');
 INSERT INTO "PROJECT"."AUTHOR" VALUES ('Abrar Rahman Abir', '2000', NULL, 'Novelist', 'Bangladeshi');
 INSERT INTO "PROJECT"."AUTHOR" VALUES ('Aesop', NULL, NULL, NULL, NULL);
-INSERT INTO "PROJECT"."AUTHOR" VALUES ('Daffodil Hill Press', NULL, NULL, NULL, NULL);
-INSERT INTO "PROJECT"."AUTHOR" VALUES ('Amy Ingalls, Pryor Rayburn, and Jennie Roberts', NULL, NULL, NULL, NULL);
 INSERT INTO "PROJECT"."AUTHOR" VALUES ('Elizabeth Dale', NULL, '2022', 'Fiction', NULL);
 INSERT INTO "PROJECT"."AUTHOR" VALUES ('Clare Helen Welsh', NULL, NULL, 'Children', NULL);
 INSERT INTO "PROJECT"."AUTHOR" VALUES ('Katie Dale', NULL, NULL, 'Fiction', NULL);
@@ -145,11 +105,14 @@ INSERT INTO "PROJECT"."AUTHOR" VALUES ('Muhammed Zafar Iqbal', '1952', NULL, 'Wr
 INSERT INTO "PROJECT"."AUTHOR" VALUES ('Humayun Ahmed', '1948', '2012', 'Novelist', 'Bangladeshi');
 INSERT INTO "PROJECT"."AUTHOR" VALUES ('Paulo Coelho', '1947', NULL, 'Lyricist', 'Brazilian');
 INSERT INTO "PROJECT"."AUTHOR" VALUES ('Tamim Shahriar Subeen', '1982', NULL, 'Software Engineer', 'Bangladeshi');
+INSERT INTO "PROJECT"."AUTHOR" VALUES ('Amy Ingalls', NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."AUTHOR" VALUES ('Pryor Rayburn', NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."AUTHOR" VALUES ('Jennie Roberts', NULL, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for BOOK
 -- ----------------------------
--- DROP TABLE "PROJECT"."BOOK";
+DROP TABLE "PROJECT"."BOOK";
 CREATE TABLE "PROJECT"."BOOK" (
   "ISBN" VARCHAR2(50 BYTE) VISIBLE NOT NULL,
   "TITLE" VARCHAR2(500 BYTE) VISIBLE NOT NULL,
@@ -459,6 +422,7 @@ INSERT INTO "PROJECT"."BOOK" VALUES ('9781434230089', 'Making Waves', '144', 'En
 INSERT INTO "PROJECT"."BOOK" VALUES ('9781434230096', 'Taking a Break', '144', 'English', '2011', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/9781434230096.jpeg', NULL, 'Annie has been waiting for a chance to show off her riding skills. A trail ride in the mountains is the perfect time. And her friend Jade is coming along. It''ll be just like before Annie moved to Ridgeview and left Jade behind in the city. She can''t wait. But things never work out as planned . . . .', 'Trade Fiction');
 INSERT INTO "PROJECT"."BOOK" VALUES ('9781442401754', 'Comic Crazy ... Take 2!', '64', 'English', NULL, NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/9781442401754.jpeg', NULL, 'Fans went so crazy for it the first time, Spotlight''s doing a second installment of SpongeBob''sComic Crazy!', 'Trade Fiction');
 INSERT INTO "PROJECT"."BOOK" VALUES ('9780525421412', 'Whiteout', '272', 'English', '2009', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/9780525421412.jpeg', NULL, 'A teacher is found dead in a whiteout blizzard. If Chass doesn''t act fast, she could be next . . . Whiteout continues the story of Chastity, who has been on the run with her mother for as long as she can remember. Stumbling through a whiteout blizzard in Greenville, Minnesota, Chass trips over a dead body, and then sees a mysterious man disappear into the storm. With her haunted past, Chass knows all about running from killers, and she is sure that Kyle Van Epps is back. But Chass is sick of running, and if she hopes to ever have a normal life again, she has only one choice: find the killer before the killer finds her. ', 'Trade Fiction');
+INSERT INTO "PROJECT"."BOOK" VALUES ('984-31-1131-2', 'An Introduction to Statistics and Probability', '857', 'English', '2001', '400', 'https://ds.rokomari.store/rokomari110/ProductNew20190903/260X372/4a8eadcfb144_118176.gif', 'Mullick & Brothers', 'Topics include: basic combinatorics, random variables, probability distributions, Bayesian inference, hypothesis testing, confidence intervals, etc.', 'Math');
 INSERT INTO "PROJECT"."BOOK" VALUES ('9780415453219', 'Academic writing and publishing', '196', 'English', '2008', NULL, 'https://images.routledge.com/common/jackets/crclarge/978041545/9780415453226.jpg', NULL, NULL, NULL);
 INSERT INTO "PROJECT"."BOOK" VALUES ('9780462098975', 'Achieve IELTS', '192', 'English', '2009', NULL, 'https://img.dokumen.tips/doc/image/544020b4b1af9ff57a8b4634/achieve-ielts-practice-book.jpg', NULL, NULL, NULL);
 INSERT INTO "PROJECT"."BOOK" VALUES ('9780462007526', 'Achieve IELTS 2', '112', 'English', '2006', NULL, 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1348698419i/2952656.jpg', NULL, NULL, NULL);
@@ -485,7 +449,7 @@ INSERT INTO "PROJECT"."BOOK" VALUES ('9781434220608', 'Buzz Beaker and the Cave 
 -- ----------------------------
 -- Table structure for BOOKFRIEND
 -- ----------------------------
--- DROP TABLE "PROJECT"."BOOKFRIEND";
+DROP TABLE "PROJECT"."BOOKFRIEND";
 CREATE TABLE "PROJECT"."BOOKFRIEND" (
   "BOOKFRIENDID" NUMBER(10,0) VISIBLE NOT NULL,
   "EMAILID" VARCHAR2(50 BYTE) VISIBLE NOT NULL
@@ -513,11 +477,12 @@ INSERT INTO "PROJECT"."BOOKFRIEND" VALUES ('1001', 'promi@gmail.com');
 INSERT INTO "PROJECT"."BOOKFRIEND" VALUES ('1002', 'abir@gmail.com');
 INSERT INTO "PROJECT"."BOOKFRIEND" VALUES ('1003', 'raiyan@gmail.com');
 INSERT INTO "PROJECT"."BOOKFRIEND" VALUES ('1004', 'arisha@gmail.com');
+INSERT INTO "PROJECT"."BOOKFRIEND" VALUES ('1005', 'hb@jfn.vis');
 
 -- ----------------------------
 -- Table structure for DELIVARYMAN
 -- ----------------------------
--- DROP TABLE "PROJECT"."DELIVARYMAN";
+DROP TABLE "PROJECT"."DELIVARYMAN";
 CREATE TABLE "PROJECT"."DELIVARYMAN" (
   "DELIVARYMANID" NUMBER(10,0) VISIBLE NOT NULL,
   "EMAILID" VARCHAR2(50 BYTE) VISIBLE NOT NULL
@@ -541,16 +506,19 @@ DISABLE ROW MOVEMENT
 -- ----------------------------
 -- Records of DELIVARYMAN
 -- ----------------------------
-INSERT INTO "PROJECT"."DELIVARYMAN" VALUES ('1001', 'max@gmail.com');
+INSERT INTO "PROJECT"."DELIVARYMAN" VALUES ('5001', 'max@gmail.com');
+INSERT INTO "PROJECT"."DELIVARYMAN" VALUES ('5002', 'delivery@gmail.com');
+INSERT INTO "PROJECT"."DELIVARYMAN" VALUES ('5003', 'hello@yahoo.com');
 
 -- ----------------------------
 -- Table structure for DELIVARYOFFER
 -- ----------------------------
--- DROP TABLE "PROJECT"."DELIVARYOFFER";
+DROP TABLE "PROJECT"."DELIVARYOFFER";
 CREATE TABLE "PROJECT"."DELIVARYOFFER" (
   "EXCHANGEID" NUMBER(10,0) VISIBLE NOT NULL,
   "DELIVARYMANID" NUMBER(10,0) VISIBLE,
-  "FEE" NUMBER VISIBLE
+  "FEE" NUMBER VISIBLE,
+  "STATUS" VARCHAR2(50 BYTE) VISIBLE
 )
 LOGGING
 NOCOMPRESS
@@ -571,12 +539,15 @@ DISABLE ROW MOVEMENT
 -- ----------------------------
 -- Records of DELIVARYOFFER
 -- ----------------------------
-INSERT INTO "PROJECT"."DELIVARYOFFER" VALUES ('2', '1001', '2.01');
+INSERT INTO "PROJECT"."DELIVARYOFFER" VALUES ('2', '5003', '280.36', 'Delivered');
+INSERT INTO "PROJECT"."DELIVARYOFFER" VALUES ('5', '5003', '280.36', 'Delivered');
+INSERT INTO "PROJECT"."DELIVARYOFFER" VALUES ('1', '5003', '280.36', 'Delivered');
+INSERT INTO "PROJECT"."DELIVARYOFFER" VALUES ('12', '5003', '280.36', 'Delivered');
 
 -- ----------------------------
 -- Table structure for EXCHANGEOFFER
 -- ----------------------------
--- DROP TABLE "PROJECT"."EXCHANGEOFFER";
+DROP TABLE "PROJECT"."EXCHANGEOFFER";
 CREATE TABLE "PROJECT"."EXCHANGEOFFER" (
   "EXCHANGEID" NUMBER(10,0) VISIBLE NOT NULL,
   "OFFERID1" NUMBER(10,0) VISIBLE,
@@ -602,20 +573,115 @@ DISABLE ROW MOVEMENT
 -- ----------------------------
 -- Records of EXCHANGEOFFER
 -- ----------------------------
-INSERT INTO "PROJECT"."EXCHANGEOFFER" VALUES ('9', '23', '18', 'PENDING');
-INSERT INTO "PROJECT"."EXCHANGEOFFER" VALUES ('3', '3', '7', 'PENDING');
-INSERT INTO "PROJECT"."EXCHANGEOFFER" VALUES ('4', '1', '2', 'PENDING');
-INSERT INTO "PROJECT"."EXCHANGEOFFER" VALUES ('5', '15', '6', 'PENDING');
-INSERT INTO "PROJECT"."EXCHANGEOFFER" VALUES ('6', '17', '9', 'PENDING');
-INSERT INTO "PROJECT"."EXCHANGEOFFER" VALUES ('7', '19', '5', 'PENDING');
-INSERT INTO "PROJECT"."EXCHANGEOFFER" VALUES ('8', '16', '8', 'PENDING');
-INSERT INTO "PROJECT"."EXCHANGEOFFER" VALUES ('1', '2', '1', 'PENDING');
-INSERT INTO "PROJECT"."EXCHANGEOFFER" VALUES ('2', '5', '3', 'PENDING');
+INSERT INTO "PROJECT"."EXCHANGEOFFER" VALUES ('9', '23', '18', 'DONE');
+INSERT INTO "PROJECT"."EXCHANGEOFFER" VALUES ('17', '46', '35', 'PENDING');
+INSERT INTO "PROJECT"."EXCHANGEOFFER" VALUES ('3', '3', '7', 'DONE');
+INSERT INTO "PROJECT"."EXCHANGEOFFER" VALUES ('4', '1', '2', 'DONE');
+INSERT INTO "PROJECT"."EXCHANGEOFFER" VALUES ('5', '15', '6', 'DONE');
+INSERT INTO "PROJECT"."EXCHANGEOFFER" VALUES ('6', '17', '9', 'DONE');
+INSERT INTO "PROJECT"."EXCHANGEOFFER" VALUES ('7', '19', '5', 'DONE');
+INSERT INTO "PROJECT"."EXCHANGEOFFER" VALUES ('8', '16', '8', 'DONE');
+INSERT INTO "PROJECT"."EXCHANGEOFFER" VALUES ('14', '40', '34', 'DONE');
+INSERT INTO "PROJECT"."EXCHANGEOFFER" VALUES ('15', '41', '36', 'DONE');
+INSERT INTO "PROJECT"."EXCHANGEOFFER" VALUES ('18', '51', '48', 'DONE');
+INSERT INTO "PROJECT"."EXCHANGEOFFER" VALUES ('20', '56', '49', 'DONE');
+INSERT INTO "PROJECT"."EXCHANGEOFFER" VALUES ('12', '30', '12', 'DONE');
+INSERT INTO "PROJECT"."EXCHANGEOFFER" VALUES ('1', '2', '1', 'DONE');
+INSERT INTO "PROJECT"."EXCHANGEOFFER" VALUES ('2', '5', '3', 'DONE');
+INSERT INTO "PROJECT"."EXCHANGEOFFER" VALUES ('13', '32', '10', 'DONE');
+INSERT INTO "PROJECT"."EXCHANGEOFFER" VALUES ('19', '54', '52', 'DONE');
+INSERT INTO "PROJECT"."EXCHANGEOFFER" VALUES ('21', '61', '59', 'DONE');
+INSERT INTO "PROJECT"."EXCHANGEOFFER" VALUES ('11', '31', '13', 'DONE');
+INSERT INTO "PROJECT"."EXCHANGEOFFER" VALUES ('16', '44', '4', 'DONE');
+INSERT INTO "PROJECT"."EXCHANGEOFFER" VALUES ('10', '11', '24', 'DONE');
+
+-- ----------------------------
+-- Table structure for NOTI
+-- ----------------------------
+DROP TABLE "PROJECT"."NOTI";
+CREATE TABLE "PROJECT"."NOTI" (
+  "MSG" VARCHAR2(500 BYTE) VISIBLE,
+  "TIME" DATE VISIBLE,
+  "EMAILID" VARCHAR2(100 BYTE) VISIBLE,
+  "STATUS" VARCHAR2(50 BYTE) VISIBLE
+)
+LOGGING
+NOCOMPRESS
+PCTFREE 10
+INITRANS 1
+STORAGE (
+  INITIAL 65536 
+  NEXT 1048576 
+  MINEXTENTS 1
+  MAXEXTENTS 2147483645
+  BUFFER_POOL DEFAULT
+)
+PARALLEL 1
+NOCACHE
+DISABLE ROW MOVEMENT
+;
+
+-- ----------------------------
+-- Records of NOTI
+-- ----------------------------
+INSERT INTO "PROJECT"."NOTI" VALUES ('Delivery man Max Max has accepted your order #BIB3. Delivery charge: .17tk', TO_DATE('2023-09-03 23:57:43', 'SYYYY-MM-DD HH24:MI:SS'), 'abir@gmail.com', 'READ');
+INSERT INTO "PROJECT"."NOTI" VALUES ('Abir Rahman wants to accept your offer of exchangingChander Gari', TO_DATE('2023-09-03 21:49:06', 'SYYYY-MM-DD HH24:MI:SS'), 'promi@gmail.com', 'READ');
+INSERT INTO "PROJECT"."NOTI" VALUES ('Delivery man Max Max has accepted your order #BIB3. Delivery charge: .17tk', TO_DATE('2023-09-03 23:57:43', 'SYYYY-MM-DD HH24:MI:SS'), 'promi@gmail.com', 'READ');
+INSERT INTO "PROJECT"."NOTI" VALUES ('Delivery man Max Max has completed your order #BIB5', TO_DATE('2023-09-03 23:57:49', 'SYYYY-MM-DD HH24:MI:SS'), 'promi@gmail.com', 'READ');
+INSERT INTO "PROJECT"."NOTI" VALUES ('Delivery man Max Max has completed your order #BIB5', TO_DATE('2023-09-03 23:57:49', 'SYYYY-MM-DD HH24:MI:SS'), 'abir@gmail.com', 'READ');
+INSERT INTO "PROJECT"."NOTI" VALUES ('Ananya Shahrin will exchage A Can of Pop with your Absolute financial English', TO_DATE('2023-09-03 21:50:01', 'SYYYY-MM-DD HH24:MI:SS'), 'abir@gmail.com', 'READ');
+INSERT INTO "PROJECT"."NOTI" VALUES ('Abir Rahman will exchage Absolute financial English with your A Can of Pop', TO_DATE('2023-09-03 21:50:01', 'SYYYY-MM-DD HH24:MI:SS'), 'promi@gmail.com', 'READ');
+INSERT INTO "PROJECT"."NOTI" VALUES ('Delivery man Max Max has completed your order ##BIB', TO_DATE('2023-09-03 22:59:40', 'SYYYY-MM-DD HH24:MI:SS'), 'promi@gmail.com', 'READ');
+INSERT INTO "PROJECT"."NOTI" VALUES ('Delivery man Max Max has completed your order ##BIB', TO_DATE('2023-09-03 22:59:40', 'SYYYY-MM-DD HH24:MI:SS'), 'abir@gmail.com', 'READ');
+INSERT INTO "PROJECT"."NOTI" VALUES ('Delivery man Max Max has accepted your order ##BIB5. Delivery charge: .17TK', TO_DATE('2023-09-03 22:59:40', 'SYYYY-MM-DD HH24:MI:SS'), 'promi@gmail.com', 'READ');
+INSERT INTO "PROJECT"."NOTI" VALUES ('Delivery man Max Max has accepted your order ##BIB5. Delivery charge: .17TK', TO_DATE('2023-09-03 22:59:40', 'SYYYY-MM-DD HH24:MI:SS'), 'abir@gmail.com', 'READ');
+INSERT INTO "PROJECT"."NOTI" VALUES ('Abir Rahman wants to accept your offer of exchanging A Can of Pop', TO_DATE('2023-09-04 04:39:49', 'SYYYY-MM-DD HH24:MI:SS'), 'promi@gmail.com', 'READ');
+INSERT INTO "PROJECT"."NOTI" VALUES ('Delivery man Hi Bye has accepted your order #BIB21. Delivery charge: 140.18tk', TO_DATE('2023-09-04 05:49:45', 'SYYYY-MM-DD HH24:MI:SS'), 'abir@gmail.com', 'READ');
+INSERT INTO "PROJECT"."NOTI" VALUES ('Delivery man Hi Bye has accepted your order #BIB21. Delivery charge: 140.18tk', TO_DATE('2023-09-04 05:49:45', 'SYYYY-MM-DD HH24:MI:SS'), 'promi@gmail.com', 'UNREAD');
+INSERT INTO "PROJECT"."NOTI" VALUES ('Delivery man Hi Bye has completed your order #BIB21', TO_DATE('2023-09-04 05:49:50', 'SYYYY-MM-DD HH24:MI:SS'), 'abir@gmail.com', 'READ');
+INSERT INTO "PROJECT"."NOTI" VALUES ('Delivery man Hi Bye has completed your order #BIB21', TO_DATE('2023-09-04 05:49:50', 'SYYYY-MM-DD HH24:MI:SS'), 'promi@gmail.com', 'UNREAD');
+INSERT INTO "PROJECT"."NOTI" VALUES ('Delivery man Hi Bye has accepted your order #BIB5. Delivery charge: 140.18tk', TO_DATE('2023-09-04 05:55:21', 'SYYYY-MM-DD HH24:MI:SS'), 'promi@gmail.com', 'UNREAD');
+INSERT INTO "PROJECT"."NOTI" VALUES ('Delivery man Hi Bye has accepted your order #BIB5. Delivery charge: 140.18tk', TO_DATE('2023-09-04 05:55:21', 'SYYYY-MM-DD HH24:MI:SS'), 'abir@gmail.com', 'READ');
+INSERT INTO "PROJECT"."NOTI" VALUES ('Delivery man Hi Bye has completed your order #BIB5', TO_DATE('2023-09-04 05:55:27', 'SYYYY-MM-DD HH24:MI:SS'), 'promi@gmail.com', 'UNREAD');
+INSERT INTO "PROJECT"."NOTI" VALUES ('Delivery man Hi Bye has completed your order #BIB5', TO_DATE('2023-09-04 05:55:27', 'SYYYY-MM-DD HH24:MI:SS'), 'abir@gmail.com', 'READ');
+INSERT INTO "PROJECT"."NOTI" VALUES ('Delivery man Hi Bye has accepted your order #BIB2. Delivery charge: 140.18tk', TO_DATE('2023-09-04 05:57:20', 'SYYYY-MM-DD HH24:MI:SS'), 'abir@gmail.com', 'READ');
+INSERT INTO "PROJECT"."NOTI" VALUES ('Delivery man Hi Bye has accepted your order #BIB2. Delivery charge: 140.18tk', TO_DATE('2023-09-04 05:57:20', 'SYYYY-MM-DD HH24:MI:SS'), 'promi@gmail.com', 'UNREAD');
+INSERT INTO "PROJECT"."NOTI" VALUES ('Delivery man Hi Bye has completed your order #BIB2', TO_DATE('2023-09-04 05:57:24', 'SYYYY-MM-DD HH24:MI:SS'), 'abir@gmail.com', 'READ');
+INSERT INTO "PROJECT"."NOTI" VALUES ('Delivery man Hi Bye has completed your order #BIB2', TO_DATE('2023-09-04 05:57:24', 'SYYYY-MM-DD HH24:MI:SS'), 'promi@gmail.com', 'UNREAD');
+INSERT INTO "PROJECT"."NOTI" VALUES ('Delivery man Hi Bye has completed your order #BIB1', TO_DATE('2023-09-04 06:06:17', 'SYYYY-MM-DD HH24:MI:SS'), 'abir@gmail.com', 'READ');
+INSERT INTO "PROJECT"."NOTI" VALUES ('Delivery man Hi Bye has completed your order #BIB1', TO_DATE('2023-09-04 06:06:17', 'SYYYY-MM-DD HH24:MI:SS'), 'promi@gmail.com', 'UNREAD');
+INSERT INTO "PROJECT"."NOTI" VALUES ('Ananya Shahrin will exchage Premer Tajmohol with your A Day at the Playground', TO_DATE('2023-09-02 02:07:41', 'SYYYY-MM-DD HH24:MI:SS'), 'raiyan@gmail.com', 'UNREAD');
+INSERT INTO "PROJECT"."NOTI" VALUES ('Raiyan Jamil will exchage A Day at the Playground with your Premer Tajmohol', TO_DATE('2023-09-02 02:07:41', 'SYYYY-MM-DD HH24:MI:SS'), 'promi@gmail.com', 'READ');
+INSERT INTO "PROJECT"."NOTI" VALUES ('Abir Rahman wants to accept your offer of Chander Gari', TO_DATE('2023-09-03 21:15:28', 'SYYYY-MM-DD HH24:MI:SS'), 'promi@gmail.com', 'READ');
+INSERT INTO "PROJECT"."NOTI" VALUES ('Ananya Promi will exchage A Can of Pop with your Dip That Chip. Order ID: #BIB21', TO_DATE('2023-09-04 04:45:00', 'SYYYY-MM-DD HH24:MI:SS'), 'abir@gmail.com', 'READ');
+INSERT INTO "PROJECT"."NOTI" VALUES ('Abir Rahman will exchage Dip That Chip with your A Can of Pop. Order ID: #BIB21', TO_DATE('2023-09-04 04:45:00', 'SYYYY-MM-DD HH24:MI:SS'), 'promi@gmail.com', 'READ');
+INSERT INTO "PROJECT"."NOTI" VALUES ('Delivery man Hi Bye has accepted your order #BIB1. Delivery charge: 140.18tk', TO_DATE('2023-09-04 06:03:56', 'SYYYY-MM-DD HH24:MI:SS'), 'abir@gmail.com', 'READ');
+INSERT INTO "PROJECT"."NOTI" VALUES ('Delivery man Hi Bye has accepted your order #BIB1. Delivery charge: 140.18tk', TO_DATE('2023-09-04 06:03:56', 'SYYYY-MM-DD HH24:MI:SS'), 'promi@gmail.com', 'UNREAD');
+INSERT INTO "PROJECT"."NOTI" VALUES ('Delivery man Hi Bye has accepted your order #BIB12. Delivery charge: 140.18tk', TO_DATE('2023-09-04 06:05:15', 'SYYYY-MM-DD HH24:MI:SS'), 'promi@gmail.com', 'UNREAD');
+INSERT INTO "PROJECT"."NOTI" VALUES ('Delivery man Hi Bye has accepted your order #BIB12. Delivery charge: 140.18tk', TO_DATE('2023-09-04 06:05:15', 'SYYYY-MM-DD HH24:MI:SS'), 'abir@gmail.com', 'READ');
+INSERT INTO "PROJECT"."NOTI" VALUES ('Delivery man Hi Bye has completed your order #BIB12', TO_DATE('2023-09-04 06:06:03', 'SYYYY-MM-DD HH24:MI:SS'), 'promi@gmail.com', 'UNREAD');
+INSERT INTO "PROJECT"."NOTI" VALUES ('Delivery man Hi Bye has completed your order #BIB12', TO_DATE('2023-09-04 06:06:03', 'SYYYY-MM-DD HH24:MI:SS'), 'abir@gmail.com', 'READ');
+INSERT INTO "PROJECT"."NOTI" VALUES ('Delivery man Max Max has accepted your order #BIB20. Delivery charge: .17TK', TO_DATE('2023-09-03 23:05:44', 'SYYYY-MM-DD HH24:MI:SS'), 'promi@gmail.com', 'READ');
+INSERT INTO "PROJECT"."NOTI" VALUES ('Delivery man Max Max has completed your order ##BIB4', TO_DATE('2023-09-03 23:01:50', 'SYYYY-MM-DD HH24:MI:SS'), 'promi@gmail.com', 'READ');
+INSERT INTO "PROJECT"."NOTI" VALUES ('Delivery man Max Max has completed your order ##BIB4', TO_DATE('2023-09-03 23:01:50', 'SYYYY-MM-DD HH24:MI:SS'), 'abir@gmail.com', 'READ');
+INSERT INTO "PROJECT"."NOTI" VALUES ('Delivery man Max Max has accepted your order ##BIB4. Delivery charge: .17TK', TO_DATE('2023-09-03 23:01:50', 'SYYYY-MM-DD HH24:MI:SS'), 'promi@gmail.com', 'READ');
+INSERT INTO "PROJECT"."NOTI" VALUES ('Delivery man Max Max has accepted your order ##BIB4. Delivery charge: .17TK', TO_DATE('2023-09-03 23:01:50', 'SYYYY-MM-DD HH24:MI:SS'), 'abir@gmail.com', 'READ');
+INSERT INTO "PROJECT"."NOTI" VALUES ('Delivery man Max Max has accepted your order #BIB20. Delivery charge: .17TK', TO_DATE('2023-09-03 23:05:44', 'SYYYY-MM-DD HH24:MI:SS'), 'abir@gmail.com', 'READ');
+INSERT INTO "PROJECT"."NOTI" VALUES ('Delivery man Max Max has completed your order #BIB4', TO_DATE('2023-09-03 23:06:04', 'SYYYY-MM-DD HH24:MI:SS'), 'promi@gmail.com', 'READ');
+INSERT INTO "PROJECT"."NOTI" VALUES ('Delivery man Max Max has completed your order #BIB4', TO_DATE('2023-09-03 23:06:04', 'SYYYY-MM-DD HH24:MI:SS'), 'abir@gmail.com', 'READ');
+INSERT INTO "PROJECT"."NOTI" VALUES ('Delivery man Hi Bye has accepted your order #BIB17. Delivery charge: 102.43tk', TO_DATE('2023-09-04 05:46:14', 'SYYYY-MM-DD HH24:MI:SS'), 'promi@gmail.com', 'UNREAD');
+INSERT INTO "PROJECT"."NOTI" VALUES ('Delivery man Hi Bye has accepted your order #BIB17. Delivery charge: 102.43tk', TO_DATE('2023-09-04 05:46:14', 'SYYYY-MM-DD HH24:MI:SS'), 'raiyan@gmail.com', 'UNREAD');
+INSERT INTO "PROJECT"."NOTI" VALUES ('Delivery man Hi Bye has completed your order #BIB17', TO_DATE('2023-09-04 05:46:21', 'SYYYY-MM-DD HH24:MI:SS'), 'promi@gmail.com', 'UNREAD');
+INSERT INTO "PROJECT"."NOTI" VALUES ('Delivery man Hi Bye has completed your order #BIB17', TO_DATE('2023-09-04 05:46:21', 'SYYYY-MM-DD HH24:MI:SS'), 'raiyan@gmail.com', 'UNREAD');
+INSERT INTO "PROJECT"."NOTI" VALUES ('Delivery man Hi Bye has accepted your order #BIB9. Delivery charge: 208.24tk', TO_DATE('2023-09-04 05:47:13', 'SYYYY-MM-DD HH24:MI:SS'), 'arisha@gmail.com', 'UNREAD');
+INSERT INTO "PROJECT"."NOTI" VALUES ('Delivery man Hi Bye has accepted your order #BIB9. Delivery charge: 208.24tk', TO_DATE('2023-09-04 05:47:13', 'SYYYY-MM-DD HH24:MI:SS'), 'promi@gmail.com', 'UNREAD');
+INSERT INTO "PROJECT"."NOTI" VALUES ('Delivery man Hi Bye has completed your order #BIB9', TO_DATE('2023-09-04 05:47:17', 'SYYYY-MM-DD HH24:MI:SS'), 'arisha@gmail.com', 'UNREAD');
+INSERT INTO "PROJECT"."NOTI" VALUES ('Delivery man Hi Bye has completed your order #BIB9', TO_DATE('2023-09-04 05:47:17', 'SYYYY-MM-DD HH24:MI:SS'), 'promi@gmail.com', 'UNREAD');
 
 -- ----------------------------
 -- Table structure for NOTIFICATION1
 -- ----------------------------
--- DROP TABLE "PROJECT"."NOTIFICATION1";
+DROP TABLE "PROJECT"."NOTIFICATION1";
 CREATE TABLE "PROJECT"."NOTIFICATION1" (
   "NOTIFICATIONID" NUMBER(10,0) VISIBLE NOT NULL,
   "EMAILWHOREQUESTED" VARCHAR2(50 BYTE) VISIBLE NOT NULL,
@@ -641,70 +707,47 @@ DISABLE ROW MOVEMENT
 -- ----------------------------
 -- Records of NOTIFICATION1
 -- ----------------------------
+INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('18', 'abir@gmail.com', '28', 'show');
 INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('12', 'arisha@gmail.com', '18', 'done');
+INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('23', 'promi@gmail.com', '35', 'done');
+INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('27', 'promi@gmail.com', '55', 'show');
 INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('4', 'promi@gmail.com', '7', 'done');
 INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('5', 'promi@gmail.com', '9', 'done');
 INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('6', 'promi@gmail.com', '6', 'done');
-INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('7', 'promi@gmail.com', '10', 'show');
-INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('8', 'promi@gmail.com', '12', 'show');
+INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('7', 'promi@gmail.com', '10', 'done');
+INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('8', 'promi@gmail.com', '12', 'done');
 INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('9', 'promi@gmail.com', '5', 'done');
 INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('10', 'promi@gmail.com', '8', 'done');
 INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('3', 'promi@gmail.com', '2', 'done');
-INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('11', 'promi@gmail.com', '13', 'show');
-INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('2', 'abir@gmail.com', '3', 'show');
-INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('1', 'abir@gmail.com', '1', 'show');
-
--- ----------------------------
--- Table structure for NOTIFICATION2
--- ----------------------------
--- DROP TABLE "PROJECT"."NOTIFICATION2";
-CREATE TABLE "PROJECT"."NOTIFICATION2" (
-  "NOTIFICATIONID" NUMBER(10,0) VISIBLE NOT NULL,
-  "EMAILWHOREQUESTED" VARCHAR2(50 BYTE) VISIBLE NOT NULL,
-  "OFFERID" NUMBER(10,0) VISIBLE NOT NULL,
-  "STATUS" VARCHAR2(20 BYTE) VISIBLE
-)
-LOGGING
-NOCOMPRESS
-PCTFREE 10
-INITRANS 1
-STORAGE (
-  INITIAL 65536 
-  NEXT 1048576 
-  MINEXTENTS 1
-  MAXEXTENTS 2147483645
-  BUFFER_POOL DEFAULT
-)
-PARALLEL 1
-NOCACHE
-DISABLE ROW MOVEMENT
-;
-
--- ----------------------------
--- Records of NOTIFICATION2
--- ----------------------------
-INSERT INTO "PROJECT"."NOTIFICATION2" VALUES ('9', 'promi@gmail.com', '23', 'unread');
-INSERT INTO "PROJECT"."NOTIFICATION2" VALUES ('5', 'abir@gmail.com', '15', 'unread');
-INSERT INTO "PROJECT"."NOTIFICATION2" VALUES ('3', 'abir@gmail.com', '3', 'unread');
-INSERT INTO "PROJECT"."NOTIFICATION2" VALUES ('4', 'abir@gmail.com', '1', 'unread');
-INSERT INTO "PROJECT"."NOTIFICATION2" VALUES ('6', 'abir@gmail.com', '17', 'unread');
-INSERT INTO "PROJECT"."NOTIFICATION2" VALUES ('7', 'abir@gmail.com', '19', 'unread');
-INSERT INTO "PROJECT"."NOTIFICATION2" VALUES ('8', 'abir@gmail.com', '16', 'unread');
-INSERT INTO "PROJECT"."NOTIFICATION2" VALUES ('1', 'promi@gmail.com', '2', 'unread');
-INSERT INTO "PROJECT"."NOTIFICATION2" VALUES ('2', 'promi@gmail.com', '5', 'unread');
+INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('11', 'promi@gmail.com', '13', 'done');
+INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('24', 'abir@gmail.com', '48', 'done');
+INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('25', 'abir@gmail.com', '49', 'done');
+INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('28', 'abir@gmail.com', '59', 'done');
+INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('19', 'abir@gmail.com', '26', 'show');
+INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('21', 'abir@gmail.com', '34', 'done');
+INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('26', 'raiyan@gmail.com', '52', 'done');
+INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('20', 'abir@gmail.com', '36', 'done');
+INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('13', 'abir@gmail.com', '24', 'done');
+INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('14', 'abir@gmail.com', '4', 'done');
+INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('15', 'abir@gmail.com', '21', 'show');
+INSERT INTO "PROJECT"."NOTIFICATION1" VALUES ('16', 'abir@gmail.com', '27', 'show');
 
 -- ----------------------------
 -- Table structure for OFFER
 -- ----------------------------
--- DROP TABLE "PROJECT"."OFFER";
+DROP TABLE "PROJECT"."OFFER";
 CREATE TABLE "PROJECT"."OFFER" (
   "OFFERID" NUMBER(10,0) VISIBLE NOT NULL,
   "MESSAGE" VARCHAR2(500 BYTE) VISIBLE,
-  "BOOKCONDITIONPHOTO" VARCHAR2(100 BYTE) VISIBLE NOT NULL,
+  "BOOKCONDITIONPHOTO" VARCHAR2(500 BYTE) VISIBLE NOT NULL,
   "USEREMAILID" VARCHAR2(50 BYTE) VISIBLE NOT NULL,
   "ISBN" VARCHAR2(50 BYTE) VISIBLE NOT NULL,
   "TIME" TIMESTAMP(6) VISIBLE,
-  "STATUS" VARCHAR2(10 BYTE) VISIBLE
+  "STATUS" VARCHAR2(10 BYTE) VISIBLE,
+  "BOOKCONDITIONPHOTO1" VARCHAR2(500 BYTE) VISIBLE,
+  "BOOKCONDITIONPHOTO2" VARCHAR2(500 BYTE) VISIBLE,
+  "BOOKCONDITIONPHOTO3" VARCHAR2(500 BYTE) VISIBLE,
+  "BOOKCONDITIONPHOTO4" VARCHAR2(500 BYTE) VISIBLE
 )
 LOGGING
 NOCOMPRESS
@@ -725,34 +768,64 @@ DISABLE ROW MOVEMENT
 -- ----------------------------
 -- Records of OFFER
 -- ----------------------------
-INSERT INTO "PROJECT"."OFFER" VALUES ('23', 'I want to share this book.', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1693018949/my-uploads/bh3ir7rulejpmrxl4zca.png', 'arisha@gmail.com', '086611678-8', TO_TIMESTAMP('2023-08-26 09:02:43.525000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
-INSERT INTO "PROJECT"."OFFER" VALUES ('10', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'abir@gmail.com', '9780415924986', TO_TIMESTAMP('2023-08-25 07:18:01.081000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'pending');
-INSERT INTO "PROJECT"."OFFER" VALUES ('11', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'abir@gmail.com', '9798889050605', TO_TIMESTAMP('2023-08-25 07:19:05.185000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
-INSERT INTO "PROJECT"."OFFER" VALUES ('12', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'abir@gmail.com', '9781434221520', TO_TIMESTAMP('2023-08-25 07:19:19.799000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'pending');
-INSERT INTO "PROJECT"."OFFER" VALUES ('13', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'abir@gmail.com', '9781434219831', TO_TIMESTAMP('2023-08-25 07:19:26.659000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'pending');
-INSERT INTO "PROJECT"."OFFER" VALUES ('14', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'promi@gmail.com', '9798889050513', TO_TIMESTAMP('2023-08-25 07:20:15.793000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
-INSERT INTO "PROJECT"."OFFER" VALUES ('15', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'promi@gmail.com', '9781935279686', TO_TIMESTAMP('2023-08-25 07:20:22.017000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
-INSERT INTO "PROJECT"."OFFER" VALUES ('16', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'promi@gmail.com', '9789848042014', TO_TIMESTAMP('2023-08-25 07:20:32.865000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
-INSERT INTO "PROJECT"."OFFER" VALUES ('17', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'promi@gmail.com', '984-70096-0357-0', TO_TIMESTAMP('2023-08-25 07:20:40.824000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
-INSERT INTO "PROJECT"."OFFER" VALUES ('18', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'promi@gmail.com', '9781434220554', TO_TIMESTAMP('2023-08-25 07:29:16.080000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
-INSERT INTO "PROJECT"."OFFER" VALUES ('9', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'abir@gmail.com', '9780415924986', TO_TIMESTAMP('2023-08-25 07:00:38.048000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
-INSERT INTO "PROJECT"."OFFER" VALUES ('1', 'I will share this book', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1692915247/my-uploads/swuw4duhmovkmddjmh2i.png', 'promi@gmail.com', '9798889050452', TO_TIMESTAMP('2023-08-25 04:14:19.605000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
-INSERT INTO "PROJECT"."OFFER" VALUES ('2', 'Take it', 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'abir@gmail.com', '9780415924986', TO_TIMESTAMP('2023-08-25 04:15:32.432000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
-INSERT INTO "PROJECT"."OFFER" VALUES ('3', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'promi@gmail.com', '9780415924986', TO_TIMESTAMP('2023-08-25 04:16:14.740000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
-INSERT INTO "PROJECT"."OFFER" VALUES ('4', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'promi@gmail.com', '9781935279686', TO_TIMESTAMP('2023-08-25 04:16:24.649000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
-INSERT INTO "PROJECT"."OFFER" VALUES ('5', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'abir@gmail.com', '133-234-1837', TO_TIMESTAMP('2023-08-25 04:16:41.353000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
-INSERT INTO "PROJECT"."OFFER" VALUES ('6', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'abir@gmail.com', '9780275961039', TO_TIMESTAMP('2023-08-25 04:16:51.636000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
-INSERT INTO "PROJECT"."OFFER" VALUES ('7', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'abir@gmail.com', '9781935279686', TO_TIMESTAMP('2023-08-25 06:35:17.075000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
-INSERT INTO "PROJECT"."OFFER" VALUES ('8', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'abir@gmail.com', '9780813116273', TO_TIMESTAMP('2023-08-25 06:35:25.715000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
-INSERT INTO "PROJECT"."OFFER" VALUES ('19', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'promi@gmail.com', '9798889050452', TO_TIMESTAMP('2023-08-25 07:30:03.458000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'accepted');
-INSERT INTO "PROJECT"."OFFER" VALUES ('20', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'promi@gmail.com', '9798889050605', TO_TIMESTAMP('2023-08-25 07:30:08.809000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
-INSERT INTO "PROJECT"."OFFER" VALUES ('21', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'promi@gmail.com', '9781404813212', TO_TIMESTAMP('2023-08-25 07:30:13.405000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
-INSERT INTO "PROJECT"."OFFER" VALUES ('22', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'promi@gmail.com', '9780415924986', TO_TIMESTAMP('2023-08-25 07:30:19.371000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered');
+INSERT INTO "PROJECT"."OFFER" VALUES ('30', NULL, 'https://wallpapercave.com/wp/wp11160729.jpg', 'promi@gmail.com', '9798889050605', TO_TIMESTAMP('2023-08-30 04:24:51.424000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered', NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."OFFER" VALUES ('31', 'kjevnkb', 'https://wallpapercave.com/wp/wp11160729.jpg', 'promi@gmail.com', '9781404813212', TO_TIMESTAMP('2023-08-30 12:46:00.360000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered', 'https://wallpapercave.com/wp/wp11160729.jpg', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1693018949/my-uploads/bh3ir7rulejpmrxl4zca.png', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1693018949/my-uploads/bh3ir7rulejpmrxl4zca.png', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1693018949/my-uploads/bh3ir7rulejpmrxl4zca.png');
+INSERT INTO "PROJECT"."OFFER" VALUES ('23', 'I want to share this book.', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1693018949/my-uploads/bh3ir7rulejpmrxl4zca.png', 'arisha@gmail.com', '086611678-8', TO_TIMESTAMP('2023-08-26 09:02:43.525000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered', NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."OFFER" VALUES ('52', NULL, 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1693598721/my-uploads/bqrwyuvcxw9hgdjpd9sa.jpg', 'promi@gmail.com', '133-234-1837', TO_TIMESTAMP('2023-09-02 02:05:24.774000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered', NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."OFFER" VALUES ('59', NULL, 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1693780267/my-uploads/whddtmwzaha1hlt9qbhb.jpg', 'promi@gmail.com', '9798889050452', TO_TIMESTAMP('2023-09-04 04:31:10.419000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered', NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."OFFER" VALUES ('10', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'abir@gmail.com', '9780415924986', TO_TIMESTAMP('2023-08-25 07:18:01.081000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered', NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."OFFER" VALUES ('11', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'abir@gmail.com', '9798889050605', TO_TIMESTAMP('2023-08-25 07:19:05.185000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered', NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."OFFER" VALUES ('12', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'abir@gmail.com', '9781434221520', TO_TIMESTAMP('2023-08-25 07:19:19.799000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered', NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."OFFER" VALUES ('13', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'abir@gmail.com', '9781434219831', TO_TIMESTAMP('2023-08-25 07:19:26.659000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered', NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."OFFER" VALUES ('39', NULL, 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1693485609/my-uploads/ejfken09jqut2kojtyfv.png', 'abir@gmail.com', '9780415453219', TO_TIMESTAMP('2023-08-31 18:40:11.925000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered', NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."OFFER" VALUES ('15', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'promi@gmail.com', '9781935279686', TO_TIMESTAMP('2023-08-25 07:20:22.017000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered', NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."OFFER" VALUES ('16', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'promi@gmail.com', '9789848042014', TO_TIMESTAMP('2023-08-25 07:20:32.865000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered', NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."OFFER" VALUES ('17', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'promi@gmail.com', '984-70096-0357-0', TO_TIMESTAMP('2023-08-25 07:20:40.824000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered', NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."OFFER" VALUES ('18', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'promi@gmail.com', '9781434220554', TO_TIMESTAMP('2023-08-25 07:29:16.080000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered', NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."OFFER" VALUES ('40', NULL, 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1693485621/my-uploads/cd17874rmlnggciiisma.png', 'abir@gmail.com', '9781434220554', TO_TIMESTAMP('2023-08-31 18:40:23.270000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered', NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."OFFER" VALUES ('41', NULL, 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1693485981/my-uploads/tuhy2ctmhf3q9dnblske.webp', 'abir@gmail.com', '9780415924986', TO_TIMESTAMP('2023-08-31 18:46:23.371000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered', NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."OFFER" VALUES ('42', NULL, 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1693485992/my-uploads/urdjenkdtyrv3d3yfj1y.png', 'abir@gmail.com', '9781905085514', TO_TIMESTAMP('2023-08-31 18:46:33.978000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered', NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."OFFER" VALUES ('43', NULL, 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1693486004/my-uploads/rltwsmzab4ofergobohn.jpg', 'abir@gmail.com', '9780415453219', TO_TIMESTAMP('2023-08-31 18:46:46.186000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered', NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."OFFER" VALUES ('49', NULL, 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1693596279/my-uploads/rt6ehrt0x2kmkgn26m5x.jpg', 'promi@gmail.com', '9798889050452', TO_TIMESTAMP('2023-09-02 01:24:43.214000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered', NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."OFFER" VALUES ('54', 'm', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1693598790/my-uploads/my2ewrqvebegs7f0ciff.jpg', 'raiyan@gmail.com', '9798889050605', TO_TIMESTAMP('2023-09-02 02:06:35.422000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered', NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."OFFER" VALUES ('55', NULL, 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1693598810/my-uploads/l2q0g6sxzrcmu0kai0iy.jpg', 'raiyan@gmail.com', '9780822304142', TO_TIMESTAMP('2023-09-02 02:06:53.165000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered', NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."OFFER" VALUES ('61', NULL, 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1693780847/my-uploads/hpq3cojt3f9xvkal1sl4.jpg', 'abir@gmail.com', '9798889050513', TO_TIMESTAMP('2023-09-04 04:40:50.172000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered', NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."OFFER" VALUES ('63', NULL, 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1693780929/my-uploads/vh3ktlmrfghzraamldfo.jpg', 'abir@gmail.com', '9780811200981', TO_TIMESTAMP('2023-09-04 04:42:13.171000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1693780930/my-uploads/obpmsmqnhy9bsweqklag.jpg', NULL, NULL, NULL);
+INSERT INTO "PROJECT"."OFFER" VALUES ('9', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'abir@gmail.com', '9780415924986', TO_TIMESTAMP('2023-08-25 07:00:38.048000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered', NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."OFFER" VALUES ('1', 'I will share this book', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1692915247/my-uploads/swuw4duhmovkmddjmh2i.png', 'promi@gmail.com', '9798889050452', TO_TIMESTAMP('2023-08-25 04:14:19.605000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered', NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."OFFER" VALUES ('2', 'Take it', 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'abir@gmail.com', '9780415924986', TO_TIMESTAMP('2023-08-25 04:15:32.432000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered', NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."OFFER" VALUES ('3', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'promi@gmail.com', '9780415924986', TO_TIMESTAMP('2023-08-25 04:16:14.740000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered', NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."OFFER" VALUES ('4', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'promi@gmail.com', '9781935279686', TO_TIMESTAMP('2023-08-25 04:16:24.649000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered', NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."OFFER" VALUES ('5', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'abir@gmail.com', '133-234-1837', TO_TIMESTAMP('2023-08-25 04:16:41.353000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered', NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."OFFER" VALUES ('6', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'abir@gmail.com', '9780275961039', TO_TIMESTAMP('2023-08-25 04:16:51.636000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered', NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."OFFER" VALUES ('32', 'Hiiii two pictures', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1693392932/my-uploads/xvtywcpftejrkpakdsfy.png', 'promi@gmail.com', '9781905085286', TO_TIMESTAMP('2023-08-30 16:55:45.819000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered', NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."OFFER" VALUES ('38', 'lrmblgek ', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1693485552/my-uploads/prn4mkhatmkr7ixxfmg6.webp', 'promi@gmail.com', '9781905085286', TO_TIMESTAMP('2023-08-31 18:39:16.450000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered', NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."OFFER" VALUES ('34', 'fourkmswklnec', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1693393303/my-uploads/hhz3ujegfx7k5kcwwa2g.png', 'promi@gmail.com', '9781442401754', TO_TIMESTAMP('2023-08-30 17:01:49.163000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1693393303/my-uploads/qcmc33gha82agfmvfsal.png', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1693393304/my-uploads/b8kkci1heqkaxjsrscxb.png', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1693393304/my-uploads/v3vl9r4rguqhwne1tyma.png', NULL);
+INSERT INTO "PROJECT"."OFFER" VALUES ('35', 'rthyj  jytj mtym', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1693393397/my-uploads/m90jwdncf4dwsum223eq.png', 'raiyan@gmail.com', '9798889050452', TO_TIMESTAMP('2023-08-30 17:03:24.081000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1693393397/my-uploads/ms5f4ymek4ypex0c3jb5.png', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1693393398/my-uploads/upem9dsk5iqwtdzsxpdf.png', NULL, NULL);
+INSERT INTO "PROJECT"."OFFER" VALUES ('36', 'now it is is s', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1693394360/my-uploads/qbnq7csauqvkrumnsuz1.webp', 'promi@gmail.com', '9844951399', TO_TIMESTAMP('2023-08-30 17:19:27.625000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1693394360/my-uploads/xwcfuwwc2etcwkcjxqah.png', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1693394360/my-uploads/htugpa3qeuysj6va03bx.png', NULL, NULL);
+INSERT INTO "PROJECT"."OFFER" VALUES ('37', 'bttg', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1693410172/my-uploads/zz3kpafvnr1dugxnii6q.webp', 'abir@gmail.com', '9780132338448', TO_TIMESTAMP('2023-08-30 21:42:54.691000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1693410172/my-uploads/rnnh46jgbbffelwxreni.png', NULL, NULL, NULL);
+INSERT INTO "PROJECT"."OFFER" VALUES ('51', NULL, 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1693596339/my-uploads/dqa0uxaoex7qdaln8ime.png', 'abir@gmail.com', '9781404813212', TO_TIMESTAMP('2023-09-02 01:25:43.274000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered', NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."OFFER" VALUES ('56', NULL, 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1693756160/my-uploads/j3uuxsb0hu5pthlci9f8.jpg', 'abir@gmail.com', '9781905085286', TO_TIMESTAMP('2023-09-03 21:49:24.960000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered', NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."OFFER" VALUES ('62', NULL, 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1693780907/my-uploads/og65zrotco3hhdckbjuq.jpg', 'abir@gmail.com', '9780807005385', TO_TIMESTAMP('2023-09-04 04:41:50.324000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered', NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."OFFER" VALUES ('46', 'I will share this book', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1693499683/my-uploads/czl37lu4vrqgapva5sey.png', 'promi@gmail.com', '9781935279716', TO_TIMESTAMP('2023-08-31 22:34:47.176000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1693499684/my-uploads/evsq3n6ufpsaatgc84b8.png', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1693499684/my-uploads/arr8p8z0zwjgftjcnsmm.png', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1693499684/my-uploads/b5j5yya7ki2wwjnoofst.png', NULL);
+INSERT INTO "PROJECT"."OFFER" VALUES ('44', NULL, 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1693487557/my-uploads/hl7ajfqpihyq5ftodlch.png', 'abir@gmail.com', '9798889050605', TO_TIMESTAMP('2023-08-31 19:12:39.494000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered', NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."OFFER" VALUES ('45', NULL, 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1693487573/my-uploads/iuwqlr2abllmy5ifhj8x.jpg', 'abir@gmail.com', '9780813116273', TO_TIMESTAMP('2023-08-31 19:12:55.299000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered', NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."OFFER" VALUES ('24', 'share', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1693029474/my-uploads/fpgmrsurle6ihyspiyuk.png', 'promi@gmail.com', '9780415250948', TO_TIMESTAMP('2023-08-26 11:58:31.991000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered', NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."OFFER" VALUES ('7', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'abir@gmail.com', '9781935279686', TO_TIMESTAMP('2023-08-25 06:35:17.075000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered', NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."OFFER" VALUES ('8', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'abir@gmail.com', '9780813116273', TO_TIMESTAMP('2023-08-25 06:35:25.715000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered', NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."OFFER" VALUES ('19', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'promi@gmail.com', '9798889050452', TO_TIMESTAMP('2023-08-25 07:30:03.458000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered', NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."OFFER" VALUES ('20', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'promi@gmail.com', '9798889050605', TO_TIMESTAMP('2023-08-25 07:30:08.809000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered', NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."OFFER" VALUES ('21', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'promi@gmail.com', '9781404813212', TO_TIMESTAMP('2023-08-25 07:30:13.405000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered', NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."OFFER" VALUES ('57', NULL, 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1693780052/my-uploads/ha0so8kpbzw5ehvtqlpy.jpg', 'promi@gmail.com', '9798889050605', TO_TIMESTAMP('2023-09-04 04:27:37.080000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered', NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."OFFER" VALUES ('26', NULL, 'https://s3.amazonaws.com/mm-static-media/books/cover-art/fiction_nonfiction_poetry.png', 'raiyan@gmail.com', '9781905085286', TO_TIMESTAMP('2023-08-30 03:22:06.693000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered', NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."OFFER" VALUES ('27', NULL, 'https://wallpapercave.com/wp/wp11160729.jpg', 'raiyan@gmail.com', '9780415924986', TO_TIMESTAMP('2023-08-30 03:23:05.853000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered', NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."OFFER" VALUES ('28', NULL, 'https://wallpapercave.com/wp/wp11160729.jpg', 'promi@gmail.com', '9798889050452', TO_TIMESTAMP('2023-08-30 03:51:14.643000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered', NULL, NULL, NULL, NULL);
+INSERT INTO "PROJECT"."OFFER" VALUES ('48', 'kbrbjkn vjewinv ds', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1693595898/my-uploads/fh6dvr9a3ycpred1rc5u.jpg', 'promi@gmail.com', '9781434219800', TO_TIMESTAMP('2023-09-02 01:18:26.894000', 'SYYYY-MM-DD HH24:MI:SS:FF6'), 'offered', 'https://res.cloudinary.com/dxcudg1mx/image/upload/v1693595898/my-uploads/hwebqs0scr0nw3l1innb.jpg', NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for PUBLISHER
 -- ----------------------------
--- DROP TABLE "PROJECT"."PUBLISHER";
+DROP TABLE "PROJECT"."PUBLISHER";
 CREATE TABLE "PROJECT"."PUBLISHER" (
   "NAME" VARCHAR2(100 BYTE) VISIBLE NOT NULL,
   "ADDRESS" VARCHAR2(200 BYTE) VISIBLE
@@ -776,6 +849,7 @@ DISABLE ROW MOVEMENT
 -- ----------------------------
 -- Records of PUBLISHER
 -- ----------------------------
+INSERT INTO "PROJECT"."PUBLISHER" VALUES ('Mullick & Brothers', NULL);
 INSERT INTO "PROJECT"."PUBLISHER" VALUES ('Routledge', 'New York');
 INSERT INTO "PROJECT"."PUBLISHER" VALUES ('Edward Elgar', 'Cheltenham');
 INSERT INTO "PROJECT"."PUBLISHER" VALUES ('Wiley-VCH', 'Weinhein');
@@ -806,36 +880,9 @@ INSERT INTO "PROJECT"."PUBLISHER" VALUES ('Pearl Publications', NULL);
 INSERT INTO "PROJECT"."PUBLISHER" VALUES ('Dimik Prokashoni', 'Banglabazar, 37 N Brook Hall Rd, Dhaka 1100');
 
 -- ----------------------------
--- Table structure for REVIEW
--- ----------------------------
--- DROP TABLE "PROJECT"."REVIEW";
-CREATE TABLE "PROJECT"."REVIEW" (
-  "MESSAGEFORUS" VARCHAR2(500 BYTE) VISIBLE,
-  "DATEOFREVIEW" DATE VISIBLE NOT NULL,
-  "RATEUS" NUMBER(1,0) VISIBLE NOT NULL,
-  "REVIEWID" NUMBER(10,0) VISIBLE NOT NULL,
-  "EMAILID" VARCHAR2(50 BYTE) VISIBLE NOT NULL
-)
-LOGGING
-NOCOMPRESS
-PCTFREE 10
-INITRANS 1
-STORAGE (
-  BUFFER_POOL DEFAULT
-)
-PARALLEL 1
-NOCACHE
-DISABLE ROW MOVEMENT
-;
-
--- ----------------------------
--- Records of REVIEW
--- ----------------------------
-
--- ----------------------------
 -- Table structure for USERMAN
 -- ----------------------------
--- DROP TABLE "PROJECT"."USERMAN";
+DROP TABLE "PROJECT"."USERMAN";
 CREATE TABLE "PROJECT"."USERMAN" (
   "EMAILID" VARCHAR2(50 BYTE) VISIBLE NOT NULL,
   "PASSWORD" VARCHAR2(50 BYTE) VISIBLE NOT NULL,
@@ -867,16 +914,19 @@ DISABLE ROW MOVEMENT
 -- ----------------------------
 -- Records of USERMAN
 -- ----------------------------
-INSERT INTO "PROJECT"."USERMAN" VALUES ('abir@gmail.com', 'A875B6F07E0EB841', 'Abir', TO_DATE('1996-11-21 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'Male', 'Rahman', '23.7661639', '90.3588734', NULL, NULL);
-INSERT INTO "PROJECT"."USERMAN" VALUES ('max@gmail.com', 'A875B6F07E0EB841', 'Max', TO_DATE('2022-07-07 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'Others', 'Max', '23.769846', '90.3667659', '01896', NULL);
-INSERT INTO "PROJECT"."USERMAN" VALUES ('promi@gmail.com', 'A875B6F07E0EB841', 'Promi', TO_DATE('2007-02-07 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'Female', 'Shahrin', '23.769867', '90.3667556', '01783564', NULL);
+INSERT INTO "PROJECT"."USERMAN" VALUES ('delivery@gmail.com', 'A875B6F07E0EB841', 'Dipu', TO_DATE('2023-02-08 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'Male', 'Number two', '23.7661639', '90.3588734', '01789974321', NULL);
+INSERT INTO "PROJECT"."USERMAN" VALUES ('hb@jfn.vis', 'FF66F3E6D5B27CA7', 'hi', TO_DATE('2023-09-02 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'Female', 'dk', '23.7491382', '90.3511827', '3840573', NULL);
+INSERT INTO "PROJECT"."USERMAN" VALUES ('hello@yahoo.com', '093F4981A3256AC3F7CF5B656DE6A533', 'Hi', TO_DATE('2023-09-08 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'Male', 'Bye', '23.7491382', '90.3511827', '028436', NULL);
+INSERT INTO "PROJECT"."USERMAN" VALUES ('abir@gmail.com', 'A875B6F07E0EB841', 'Abir', TO_DATE('1996-11-21 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'Male', 'Rahman', '23.7699375', '90.3667536', '01745392888', NULL);
+INSERT INTO "PROJECT"."USERMAN" VALUES ('max@gmail.com', '26C280E780E01A80', 'Max', TO_DATE('2022-07-07 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'Others', 'Hamada', '23.7491382', '90.3511827', '01758463627', NULL);
+INSERT INTO "PROJECT"."USERMAN" VALUES ('promi@gmail.com', '181AAA6885D3961B139A0D9D1CBF4880', 'Ananya', TO_DATE('2007-02-07 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'Female', 'Promi', '23.7491382', '90.3511827', '01749564733', '01846284735');
 INSERT INTO "PROJECT"."USERMAN" VALUES ('raiyan@gmail.com', '26C280E780E01A80', 'Raiyan', TO_DATE('2023-08-08 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'Male', 'Jamil', '23.7661639', '90.3588734', '01836597', NULL);
 INSERT INTO "PROJECT"."USERMAN" VALUES ('arisha@gmail.com', 'A875B6F07E0EB841', 'Arisha', TO_DATE('2011-10-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'), 'Female', 'Rahman', '23.7270954', '90.3842619', '0174925486', NULL);
 
 -- ----------------------------
 -- Table structure for WRITTENBY
 -- ----------------------------
--- DROP TABLE "PROJECT"."WRITTENBY";
+DROP TABLE "PROJECT"."WRITTENBY";
 CREATE TABLE "PROJECT"."WRITTENBY" (
   "ISBN" VARCHAR2(50 BYTE) VISIBLE NOT NULL,
   "NAME" VARCHAR2(100 BYTE) VISIBLE NOT NULL
@@ -955,16 +1005,16 @@ INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9781728490809', 'Jenny Moore');
 INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9781728490816', 'Elizabeth Dale');
 INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9781728490823', 'Amanda Brandon');
 INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9781728490830', 'Jenny Jinks');
-INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9781737503309', 'Amy Ingalls, Pryor Rayburn, and Jennie Roberts');
-INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9781737503316', 'Amy Ingalls, Pryor Rayburn, and Jennie Roberts');
-INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9781737503323', 'Amy Ingalls, Pryor Rayburn, and Jennie Roberts');
-INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9781737503330', 'Amy Ingalls, Pryor Rayburn, and Jennie Roberts');
-INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9781737503347', 'Amy Ingalls, Pryor Rayburn, and Jennie Roberts');
-INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9781737503354', 'Amy Ingalls, Pryor Rayburn, and Jennie Roberts');
-INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9781737503361', 'Amy Ingalls, Pryor Rayburn, and Jennie Roberts');
-INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9781737503378', 'Amy Ingalls, Pryor Rayburn, and Jennie Roberts');
-INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9781737503385', 'Amy Ingalls, Pryor Rayburn, and Jennie Roberts');
-INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9781737503392', 'Amy Ingalls, Pryor Rayburn, and Jennie Roberts');
+INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9781737503309', 'Amy Ingalls');
+INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9781737503316', 'Jennie Roberts');
+INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9781737503323', 'Pryor Rayburn');
+INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9781737503330', 'Amy Ingalls');
+INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9781737503347', 'Jennie Roberts');
+INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9781737503354', 'Amy Ingalls');
+INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9781737503361', 'Amy Ingalls');
+INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9781737503378', 'Amy Ingalls');
+INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9781737503385', 'Jennie Roberts');
+INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9781737503392', 'Jennie Roberts');
 INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9789768125408', 'George L. Beckford');
 INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9789848042014', 'Tamim Shahriar Subeen');
 INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050315', 'Daffodil Jackson');
@@ -992,16 +1042,18 @@ INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050827', 'Daffodil Jackson');
 INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050858', 'Daffodil Jackson');
 INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050889', 'Daffodil Jackson');
 INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798889050896', 'Daffodil Jackson');
-INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798986874203', 'Amy Ingalls, Pryor Rayburn, and Jennie Roberts');
-INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798986874210', 'Amy Ingalls, Pryor Rayburn, and Jennie Roberts');
-INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798986874227', 'Amy Ingalls, Pryor Rayburn, and Jennie Roberts');
-INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798986874234', 'Amy Ingalls, Pryor Rayburn, and Jennie Roberts');
-INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798986874241', 'Amy Ingalls, Pryor Rayburn, and Jennie Roberts');
-INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798986874258', 'Amy Ingalls, Pryor Rayburn, and Jennie Roberts');
-INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798986874265', 'Amy Ingalls, Pryor Rayburn, and Jennie Roberts');
-INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798986874272', 'Amy Ingalls, Pryor Rayburn, and Jennie Roberts');
-INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798986874289', 'Amy Ingalls, Pryor Rayburn, and Jennie Roberts');
-INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798986874296', 'Amy Ingalls, Pryor Rayburn, and Jennie Roberts');
+INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798986874203', 'Amy Ingalls');
+INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798986874210', 'Jennie Roberts');
+INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798986874227', 'Jennie Roberts');
+INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798986874234', 'Pryor Rayburn');
+INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798986874241', 'Amy Ingalls');
+INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798986874258', 'Amy Ingalls');
+INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798986874265', 'Amy Ingalls');
+INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798986874272', 'Amy Ingalls');
+INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798986874272', 'Pryor Rayburn');
+INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798986874289', 'Amy Ingalls');
+INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9798986874296', 'Amy Ingalls');
+INSERT INTO "PROJECT"."WRITTENBY" VALUES ('984-31-1131-2', 'M. Nurul Islam');
 INSERT INTO "PROJECT"."WRITTENBY" VALUES ('984-70096-0357-0', 'Muhammed Zafar Iqbal');
 INSERT INTO "PROJECT"."WRITTENBY" VALUES ('9844951399', 'Muhammed Zafar Iqbal');
 
@@ -1254,7 +1306,7 @@ END;
 CREATE OR REPLACE
 PROCEDURE "PROJECT"."CONFIRM_DELIVARY" AS
 BEGIN
-	INSERT INTO DELIVARYOFFER VALUES(EID, DELID, FEE);
+	INSERT INTO DELIVARYOFFER VALUES(EID, DELID, FEE, 'pending');
 	MSG := 'SUCCESSFUL';
 EXCEPTION
 	WHEN DUP_VAL_ON_INDEX THEN 
@@ -1320,40 +1372,32 @@ END;
 /
 
 -- ----------------------------
--- Function structure for CREATE_NOTIFICATION2
--- ----------------------------
-CREATE OR REPLACE
-PROCEDURE "PROJECT"."CREATE_NOTIFICATION2" AS
-BEGIN
-	C := GET_NEXT_ID_NOTIFICATION2;
-	EMAIL := GET_EMAIL_FROM_BOOKFRIENDID(USERID);
-	INSERT INTO NOTIFICATION2 VALUES (C, EMAIL, OFFERID, 'unread');
-	MSG := 'NOTIFICATION2 SENT';
-EXCEPTION
-	WHEN DUP_VAL_ON_INDEX THEN 
-		MSG := 'DUPLICATE';
-	WHEN NO_DATA_FOUND THEN 
-		MSG := 'NO DATA';
-	WHEN TOO_MANY_ROWS THEN 
-		MSG := 'MANY ROWS';
-	WHEN INVALID_NUMBER THEN 
-		MSG := 'CONVERSION FAILED';
-	WHEN VALUE_ERROR THEN 
-		MSG := 'VALUE ERROR';
-	WHEN ZERO_DIVIDE THEN 
-		MSG := '0 DEVIDE';
-	WHEN OTHERS THEN 
-		MSG := 'UNKNOWN ERROR';
-END;
-/
-
--- ----------------------------
 -- Function structure for CREATE_OFFER
 -- ----------------------------
 CREATE OR REPLACE
 PROCEDURE "PROJECT"."CREATE_OFFER" AS
 BEGIN 
-	INSERT INTO OFFER VALUES (GET_NEXT_OFFERID, MSG, PHOTO, GET_EMAIL_FROM_BOOKFRIENDID(ID), ISBN, SYSTIMESTAMP, 'offered');
+	IF PHOTO1='' THEN
+		PHT1:=NULL;
+	ELSE 
+		PHT1:=PHOTO1;
+	END IF;
+	IF PHOTO2='' THEN
+		PHT2:=NULL;
+	ELSE 
+		PHT2:=PHOTO2;
+	END IF;
+	IF PHOTO3='' THEN
+		PHT3:=NULL;
+	ELSE 
+		PHT3:=PHOTO3;
+	END IF;
+	IF PHOTO4='' THEN
+		PHT4:=NULL;
+	ELSE 
+		PHT4:=PHOTO4;
+	END IF;
+	INSERT INTO OFFER VALUES (GET_NEXT_OFFERID, MSG, PHOTO, GET_EMAIL_FROM_BOOKFRIENDID(ID), ISBN, SYSTIMESTAMP, 'offered', PHT1, PHT2, PHT3, PHT4);
 	MSG2 := 'OFFER CREATED';
 EXCEPTION
 	WHEN DUP_VAL_ON_INDEX THEN 
@@ -1361,13 +1405,63 @@ EXCEPTION
 	WHEN OTHERS THEN 
 		MSG2 := 'UNKNOWN ERROR';
 END;
+/
 
--- DECLARE
--- 	MSG VARCHAR2(100);
--- BEGIN
--- 	CREATE_OFFER('CFV', 'REV', 1002, '978-984-94751-1-8', MSG);
--- 	DBMS_OUTPUT.PUT_LINE(MSG);
--- END;
+-- ----------------------------
+-- Function structure for DECLINE_OFFER
+-- ----------------------------
+CREATE OR REPLACE
+PROCEDURE "PROJECT"."DECLINE_OFFER" AS
+BEGIN
+BEGIN
+	DELETE FROM NOTIFICATION1 WHERE NOTIFICATIONID=NOTIID;
+	DELETE FROM NOTIFICATION1 WHERE NOTIFICATIONID=NOTIID;
+	MSG := 'DECLINED';
+	MSG := 'DECLINED';
+EXCEPTION
+EXCEPTION
+	WHEN NO_DATA_FOUND THEN 
+	WHEN NO_DATA_FOUND THEN 
+		MSG := 'NO DATA';
+		MSG := 'NO DATA';
+	WHEN TOO_MANY_ROWS THEN 
+	WHEN TOO_MANY_ROWS THEN 
+		MSG := 'MANY ROWS';
+		MSG := 'MANY ROWS';
+	WHEN INVALID_NUMBER THEN 
+	WHEN INVALID_NUMBER THEN 
+		MSG := 'CONVERSION FAILED';
+		MSG := 'CONVERSION FAILED';
+	WHEN VALUE_ERROR THEN 
+	WHEN VALUE_ERROR THEN 
+		MSG := 'VALUE ERROR';
+		MSG := 'VALUE ERROR';
+	WHEN ZERO_DIVIDE THEN 
+	WHEN ZERO_DIVIDE THEN 
+		MSG := '0 DEVIDE';
+		MSG := '0 DEVIDE';
+	WHEN OTHERS THEN 
+	WHEN OTHERS THEN 
+		MSG := 'UNKNOWN ERROR';
+		MSG := 'UNKNOWN ERROR';
+END;END;
+/
+
+-- ----------------------------
+-- Function structure for DELETE_OFFER
+-- ----------------------------
+CREATE OR REPLACE
+PROCEDURE "PROJECT"."DELETE_OFFER" AS
+BEGIN
+	DELETE FROM OFFER 
+	WHERE OFFERID = OFFER_ID;
+	MSG := 'DELETED';
+EXCEPTION
+	WHEN DUP_VAL_ON_INDEX THEN 
+		MSG := 'ERROR';
+	WHEN OTHERS THEN 
+		MSG := 'UNKNOWN ERROR';
+END;
 /
 
 -- ----------------------------
@@ -1425,12 +1519,47 @@ END;
 /
 
 -- ----------------------------
+-- Function structure for GET_BOOK_NAME_FROM_OFFERID
+-- ----------------------------
+CREATE OR REPLACE
+FUNCTION "PROJECT"."GET_BOOK_NAME_FROM_OFFERID" AS
+BEGIN	
+	SELECT B.TITLE INTO BOOKNAME 
+	FROM BOOK B JOIN OFFER O ON O.ISBN=B.ISBN 
+	WHERE O.OFFERID=ID;
+	RETURN BOOKNAME;
+END;
+/
+
+-- ----------------------------
+-- Function structure for GET_CONTACT_FROM_EMAIL
+-- ----------------------------
+CREATE OR REPLACE
+FUNCTION "PROJECT"."GET_CONTACT_FROM_EMAIL" AS
+BEGIN 
+	SELECT CONTACTNO1 INTO CONTACT FROM USERMAN WHERE EMAILID=EMAIL;
+	RETURN CONTACT;
+END;
+/
+
+-- ----------------------------
 -- Function structure for GET_EMAIL_FROM_BOOKFRIENDID
 -- ----------------------------
 CREATE OR REPLACE
 FUNCTION "PROJECT"."GET_EMAIL_FROM_BOOKFRIENDID" AS
 BEGIN 
 	SELECT EMAILID INTO EMAIL FROM BOOKFRIEND WHERE BOOKFRIENDID=ID;
+	RETURN EMAIL;
+END;
+/
+
+-- ----------------------------
+-- Function structure for GET_EMAIL_FROM_DELIVARYMANID
+-- ----------------------------
+CREATE OR REPLACE
+FUNCTION "PROJECT"."GET_EMAIL_FROM_DELIVARYMANID" AS
+BEGIN 
+	SELECT EMAILID INTO EMAIL FROM DELIVARYMAN WHERE DELIVARYMANID=ID;
 	RETURN EMAIL;
 END;
 /
@@ -1486,7 +1615,7 @@ END;
 CREATE OR REPLACE
 FUNCTION "PROJECT"."GET_NEXT_EXCHANGEID" AS
 BEGIN 
-	SELECT COUNT(EXCHANGEID) INTO ID FROM EXCHANGEOFFER;
+	SELECT MAX(EXCHANGEID) INTO ID FROM EXCHANGEOFFER;
 	ID := ID + 1;
 	RETURN ID;
 END;
@@ -1498,8 +1627,11 @@ END;
 CREATE OR REPLACE
 FUNCTION "PROJECT"."GET_NEXT_ID_BOOKFRIEND" AS
 BEGIN
-	SELECT COUNT(BOOKFRIENDID) INTO C FROM BOOKFRIEND;
-	C := C + 1001;
+	SELECT MAX(BOOKFRIENDID) INTO C FROM BOOKFRIEND;
+	IF C=0 THEN 
+		C := 1000;
+	END IF;
+	C := C + 1;
 	RETURN C;
 EXCEPTION
 	WHEN DUP_VAL_ON_INDEX THEN 
@@ -1525,8 +1657,11 @@ END;
 CREATE OR REPLACE
 FUNCTION "PROJECT"."GET_NEXT_ID_DELIVARYMAN" AS
 BEGIN
-	SELECT COUNT(DELIVARYMANID) INTO C FROM DELIVARYMAN;
-	C := C + 1001;
+	SELECT MAX(DELIVARYMANID) INTO C FROM DELIVARYMAN;
+		IF C = 0 THEN
+			C := 5000;
+		END IF;
+	C := C + 1;
 	RETURN C;
 EXCEPTION
 	WHEN DUP_VAL_ON_INDEX THEN 
@@ -1552,34 +1687,7 @@ END;
 CREATE OR REPLACE
 FUNCTION "PROJECT"."GET_NEXT_ID_NOTIFICATION1" AS
 BEGIN
-	SELECT COUNT(NOTIFICATIONID) INTO C FROM NOTIFICATION1;
-	C := C + 1;
-	RETURN C;
-EXCEPTION
-	WHEN DUP_VAL_ON_INDEX THEN 
-		MSG := 'DUPLICATE';
-	WHEN NO_DATA_FOUND THEN 
-		MSG := 'NO DATA';
-	WHEN TOO_MANY_ROWS THEN 
-		MSG := 'MANY ROWS';
-	WHEN INVALID_NUMBER THEN 
-		MSG := 'CONVERSION FAILED';
-	WHEN VALUE_ERROR THEN 
-		MSG := 'VALUE ERROR';
-	WHEN ZERO_DIVIDE THEN 
-		MSG := '0 DEVIDE';
-	WHEN OTHERS THEN 
-		MSG := 'UNKNOWN ERROR';
-END;
-/
-
--- ----------------------------
--- Function structure for GET_NEXT_ID_NOTIFICATION2
--- ----------------------------
-CREATE OR REPLACE
-FUNCTION "PROJECT"."GET_NEXT_ID_NOTIFICATION2" AS
-BEGIN
-	SELECT COUNT(NOTIFICATIONID) INTO C FROM NOTIFICATION2;
+	SELECT MAX(NOTIFICATIONID) INTO C FROM NOTIFICATION1;
 	C := C + 1;
 	RETURN C;
 EXCEPTION
@@ -1606,35 +1714,9 @@ END;
 CREATE OR REPLACE
 FUNCTION "PROJECT"."GET_NEXT_OFFERID" AS
 BEGIN 
-	SELECT COUNT(OFFERID) INTO ID FROM OFFER;
+	SELECT MAX(OFFERID) INTO ID FROM OFFER;
 	ID := ID + 1;
 	RETURN ID;
-END;
-/
-
--- ----------------------------
--- Function structure for NEW_ADDRESS
--- ----------------------------
-CREATE OR REPLACE
-PROCEDURE "PROJECT"."NEW_ADDRESS" AS
-BEGIN
-	INSERT INTO ADDRESS VALUES (LATITUDE, LONGITUDE);
-	MSG := 'DONE';
-EXCEPTION
-	WHEN DUP_VAL_ON_INDEX THEN 
-		MSG := 'DUPLICATE';
-	WHEN NO_DATA_FOUND THEN 
-		MSG := 'NO DATA';
-	WHEN TOO_MANY_ROWS THEN 
-		MSG := 'MANY ROWS';
-	WHEN INVALID_NUMBER THEN 
-		MSG := 'CONVERSION FAILED';
-	WHEN VALUE_ERROR THEN 
-		MSG := 'VALUE ERROR';
-	WHEN ZERO_DIVIDE THEN 
-		MSG := '0 DEVIDE';
-	WHEN OTHERS THEN 
-		MSG := 'UNKNOWN ERROR';
 END;
 /
 
@@ -1644,7 +1726,6 @@ END;
 CREATE OR REPLACE
 PROCEDURE "PROJECT"."SIGNUP" AS
 BEGIN
-	NEW_ADDRESS(LATITUDE, LONGITUDE, M2);
 	INSERT INTO USERMAN VALUES(EMAIL, PASSWORD, FIRSTNAME, DATEOFBIRTH, GENDER, LASTNAME, LATITUDE, LONGITUDE, CONTACTNO1, CONTACTNO2);
 	MSG := 'SUCCESSFUL';
 EXCEPTION
@@ -1666,15 +1747,24 @@ END;
 /
 
 -- ----------------------------
--- Primary Key structure for table ADDRESS
+-- Function structure for UPDATE_PASS
 -- ----------------------------
-ALTER TABLE "PROJECT"."ADDRESS" ADD CONSTRAINT "SYS_C008085" PRIMARY KEY ("LATITUDE", "LONGITUDE");
-
--- ----------------------------
--- Checks structure for table ADDRESS
--- ----------------------------
-ALTER TABLE "PROJECT"."ADDRESS" ADD CONSTRAINT "SYS_C008083" CHECK ("LATITUDE" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
-ALTER TABLE "PROJECT"."ADDRESS" ADD CONSTRAINT "SYS_C008084" CHECK ("LONGITUDE" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+CREATE OR REPLACE
+PROCEDURE "PROJECT"."UPDATE_PASS" AS
+BEGIN
+	SELECT UTL_RAW.CAST_TO_varchar2(DBMS_CRYPTO.decrypt(PASSWORD, 4353, UTL_RAW.CAST_TO_RAW ('MyBibliophileFriend'))) 
+	INTO PASS FROM USERMAN WHERE EMAILID=EMAIL;
+	IF PASS = OLDPASS THEN 
+		UPDATE USERMAN 
+		SET PASSWORD = DBMS_CRYPTO.encrypt(UTL_RAW.CAST_TO_RAW(NEWPASS), 4353, 
+    UTL_RAW.CAST_TO_RAW ('MyBibliophileFriend'))
+		WHERE EMAILID = EMAIL;
+		MSG := 'SUCCESSFUL';
+	ELSE 
+		MSG := 'UNSUCCESSFUL';
+	END IF;
+END;
+/
 
 -- ----------------------------
 -- Primary Key structure for table AUTHOR
@@ -1697,6 +1787,16 @@ ALTER TABLE "PROJECT"."BOOK" ADD CONSTRAINT "SYS_C008116" PRIMARY KEY ("ISBN");
 ALTER TABLE "PROJECT"."BOOK" ADD CONSTRAINT "SYS_C008112" CHECK ("ISBN" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
 ALTER TABLE "PROJECT"."BOOK" ADD CONSTRAINT "SYS_C008113" CHECK ("TITLE" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
 ALTER TABLE "PROJECT"."BOOK" ADD CONSTRAINT "SYS_C008114" CHECK ("LANGUAGE" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+
+-- ----------------------------
+-- Triggers structure for table BOOK
+-- ----------------------------
+CREATE TRIGGER "PROJECT"."INITCAP_LAN" BEFORE INSERT ON "PROJECT"."BOOK" REFERENCING OLD AS "OLD" NEW AS "NEW" FOR EACH ROW 
+DECLARE
+BEGIN
+	:NEW.LANGUAGE := INITCAP(:NEW.LANGUAGE);
+END;
+/
 
 -- ----------------------------
 -- Primary Key structure for table BOOKFRIEND
@@ -1736,6 +1836,96 @@ ALTER TABLE "PROJECT"."DELIVARYMAN" ADD CONSTRAINT "SYS_C008153" CHECK ("EMAILID
 ALTER TABLE "PROJECT"."DELIVARYOFFER" ADD CONSTRAINT "SYS_C008254" PRIMARY KEY ("EXCHANGEID");
 
 -- ----------------------------
+-- Triggers structure for table DELIVARYOFFER
+-- ----------------------------
+CREATE TRIGGER "PROJECT"."CREATE_NOTI_FOR_DELIVERY_ACC" AFTER INSERT ON "PROJECT"."DELIVARYOFFER" REFERENCING OLD AS "OLD" NEW AS "NEW" FOR EACH ROW 
+DECLARE 
+EMAIL1 VARCHAR2(100);
+EMAIL2 VARCHAR2(100);
+NAME1 VARCHAR2(500);
+FEE NUMBER;
+OFFER1 NUMBER;
+OFFER2 NUMBER;
+BEGIN
+    FEE := ROUND(:NEW.FEE/2, 2);
+		SELECT OFFERID1 INTO OFFER1 FROM EXCHANGEOFFER WHERE EXCHANGEID=:NEW.EXCHANGEID;
+		SELECT OFFERID2 INTO OFFER2 FROM EXCHANGEOFFER WHERE EXCHANGEID=:NEW.EXCHANGEID; 
+    EMAIL1 := GET_EMAIL_FROM_OFFERID(OFFER1);
+		EMAIL2 := GET_EMAIL_FROM_OFFERID(OFFER2);
+    NAME1 := GET_NAME_FROM_EMAILID(GET_EMAIL_FROM_DELIVARYMANID(:NEW.DELIVARYMANID));
+    INSERT INTO NOTI VALUES (
+        'Delivery man '
+        ||NAME1
+        ||' has accepted your order #BIB'
+        ||:NEW.EXCHANGEID
+        ||'. Delivery charge: '
+        ||FEE
+        ||'tk',
+        SYSDATE,
+        EMAIL1,
+        'UNREAD'
+    );
+		INSERT INTO NOTI VALUES (
+        'Delivery man '
+        ||NAME1
+        ||' has accepted your order #BIB'
+        ||:NEW.EXCHANGEID
+        ||'. Delivery charge: '
+        ||FEE
+        ||'tk',
+        SYSDATE,
+        EMAIL2,
+        'UNREAD'
+    );
+END;
+/
+CREATE TRIGGER "PROJECT"."CREATE_NOTI_FOR_DELIVERY_COMP" AFTER UPDATE OF "STATUS" ON "PROJECT"."DELIVARYOFFER" REFERENCING OLD AS "OLD" NEW AS "NEW" FOR EACH ROW WHEN (NEW.STATUS='Delivered') 
+DECLARE 
+EMAIL1 VARCHAR2(100);
+EMAIL2 VARCHAR2(100);
+NAME1 VARCHAR2(500);
+FEE NUMBER;
+OFFER1 NUMBER;
+OFFER2 NUMBER;
+BEGIN
+    FEE := ROUND(:NEW.FEE/2, 2);
+    SELECT
+        OFFERID1 INTO OFFER1
+    FROM
+        EXCHANGEOFFER
+    WHERE
+        EXCHANGEID=:NEW.EXCHANGEID;
+    SELECT
+        OFFERID2 INTO OFFER2
+    FROM
+        EXCHANGEOFFER
+    WHERE
+        EXCHANGEID=:NEW.EXCHANGEID;
+    EMAIL1 := GET_EMAIL_FROM_OFFERID(OFFER1);
+    EMAIL2 := GET_EMAIL_FROM_OFFERID(OFFER2);
+    NAME1 := GET_NAME_FROM_EMAILID(GET_EMAIL_FROM_DELIVARYMANID(:NEW.DELIVARYMANID));
+    INSERT INTO NOTI VALUES (
+        'Delivery man '
+        ||NAME1
+        ||' has completed your order #BIB'
+        ||:NEW.EXCHANGEID,
+        SYSDATE,
+        EMAIL1,
+        'UNREAD'
+    );
+    INSERT INTO NOTI VALUES (
+        'Delivery man '
+        ||NAME1
+        ||' has completed your order #BIB'
+        ||:NEW.EXCHANGEID,
+        SYSDATE,
+        EMAIL2,
+        'UNREAD'
+    );
+END;
+/
+
+-- ----------------------------
 -- Primary Key structure for table EXCHANGEOFFER
 -- ----------------------------
 ALTER TABLE "PROJECT"."EXCHANGEOFFER" ADD CONSTRAINT "SYS_C008228" PRIMARY KEY ("EXCHANGEID");
@@ -1744,6 +1934,29 @@ ALTER TABLE "PROJECT"."EXCHANGEOFFER" ADD CONSTRAINT "SYS_C008228" PRIMARY KEY (
 -- Checks structure for table EXCHANGEOFFER
 -- ----------------------------
 ALTER TABLE "PROJECT"."EXCHANGEOFFER" ADD CONSTRAINT "SYS_C008227" CHECK ("EXCHANGEID" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+
+-- ----------------------------
+-- Triggers structure for table EXCHANGEOFFER
+-- ----------------------------
+CREATE TRIGGER "PROJECT"."EXCHANGE_NOTIFICATION" AFTER INSERT ON "PROJECT"."EXCHANGEOFFER" REFERENCING OLD AS "OLD" NEW AS "NEW" FOR EACH ROW 
+DECLARE
+	EMAIL1 VARCHAR2(100);
+	EMAIL2 VARCHAR2(100);
+	NAME1 VARCHAR2(100);
+	NAME2 VARCHAR2(100);
+	BOOK1 VARCHAR2(500);
+	BOOK2 VARCHAR2(500);
+BEGIN
+	EMAIL1 := GET_EMAIL_FROM_OFFERID(:NEW.OFFERID1);
+	EMAIL2 := GET_EMAIL_FROM_OFFERID(:NEW.OFFERID2);
+	BOOK1 := GET_BOOK_NAME_FROM_OFFERID(:NEW.OFFERID1);
+	BOOK2 := GET_BOOK_NAME_FROM_OFFERID(:NEW.OFFERID2);
+	NAME1 := GET_NAME_FROM_EMAILID(EMAIL1);
+	NAME2 := GET_NAME_FROM_EMAILID(EMAIL2);
+	INSERT INTO NOTI VALUES (NAME2||' will exchage '||BOOK2||' with your '||BOOK1||'. Order ID: #BIB'||:NEW.EXCHANGEID, SYSDATE, EMAIL1, 'UNREAD');
+	INSERT INTO NOTI VALUES (NAME1||' will exchage '||BOOK1||' with your '||BOOK2||'. Order ID: #BIB'||:NEW.EXCHANGEID, SYSDATE, EMAIL2, 'UNREAD');
+END;
+/
 
 -- ----------------------------
 -- Primary Key structure for table NOTIFICATION1
@@ -1758,16 +1971,44 @@ ALTER TABLE "PROJECT"."NOTIFICATION1" ADD CONSTRAINT "SYS_C008201" CHECK ("EMAIL
 ALTER TABLE "PROJECT"."NOTIFICATION1" ADD CONSTRAINT "SYS_C008202" CHECK ("OFFERID" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
 
 -- ----------------------------
--- Primary Key structure for table NOTIFICATION2
+-- Triggers structure for table NOTIFICATION1
 -- ----------------------------
-ALTER TABLE "PROJECT"."NOTIFICATION2" ADD CONSTRAINT "SYS_C008224" PRIMARY KEY ("NOTIFICATIONID");
-
--- ----------------------------
--- Checks structure for table NOTIFICATION2
--- ----------------------------
-ALTER TABLE "PROJECT"."NOTIFICATION2" ADD CONSTRAINT "SYS_C008221" CHECK ("NOTIFICATIONID" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
-ALTER TABLE "PROJECT"."NOTIFICATION2" ADD CONSTRAINT "SYS_C008222" CHECK ("EMAILWHOREQUESTED" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
-ALTER TABLE "PROJECT"."NOTIFICATION2" ADD CONSTRAINT "SYS_C008223" CHECK ("OFFERID" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+CREATE TRIGGER "PROJECT"."DECLINE_OFFER" AFTER DELETE ON "PROJECT"."NOTIFICATION1" REFERENCING OLD AS "OLD" NEW AS "NEW" FOR EACH ROW 
+DECLARE STAT VARCHAR2(100);
+BEGIN
+    SELECT
+        STATUS INTO STAT
+    FROM
+        OFFER
+    WHERE
+        OFFERID=:OLD.OFFERID;
+    IF STAT = 'pending' THEN
+        UPDATE OFFER
+        SET
+            STATUS = 'offered';
+    END IF;
+END;
+/
+CREATE TRIGGER "PROJECT"."OFFER_STATUS_CHANGE" AFTER INSERT ON "PROJECT"."NOTIFICATION1" REFERENCING OLD AS "OLD" NEW AS "NEW" FOR EACH ROW 
+DECLARE EMAIL1 VARCHAR2(
+    100
+);
+NAME2 VARCHAR2(100);
+BOOK1 VARCHAR2(500);
+BEGIN
+    EMAIL1 := GET_EMAIL_FROM_OFFERID(:NEW.OFFERID);
+    NAME2 := GET_NAME_FROM_EMAILID(:NEW.EMAILWHOREQUESTED);
+    BOOK1 := GET_BOOK_NAME_FROM_OFFERID(:NEW.OFFERID);
+    INSERT INTO NOTI VALUES (
+        NAME2
+        ||' wants to accept your offer of exchanging '
+        ||BOOK1,
+        SYSDATE,
+        EMAIL1,
+        'UNREAD'
+    );
+END;
+/
 
 -- ----------------------------
 -- Primary Key structure for table OFFER
@@ -1791,19 +2032,6 @@ ALTER TABLE "PROJECT"."PUBLISHER" ADD CONSTRAINT "SYS_C008087" PRIMARY KEY ("NAM
 -- Checks structure for table PUBLISHER
 -- ----------------------------
 ALTER TABLE "PROJECT"."PUBLISHER" ADD CONSTRAINT "SYS_C008086" CHECK ("NAME" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
-
--- ----------------------------
--- Primary Key structure for table REVIEW
--- ----------------------------
-ALTER TABLE "PROJECT"."REVIEW" ADD CONSTRAINT "SYS_C008182" PRIMARY KEY ("REVIEWID");
-
--- ----------------------------
--- Checks structure for table REVIEW
--- ----------------------------
-ALTER TABLE "PROJECT"."REVIEW" ADD CONSTRAINT "SYS_C008178" CHECK ("DATEOFREVIEW" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
-ALTER TABLE "PROJECT"."REVIEW" ADD CONSTRAINT "SYS_C008179" CHECK ("RATEUS" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
-ALTER TABLE "PROJECT"."REVIEW" ADD CONSTRAINT "SYS_C008180" CHECK ("REVIEWID" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
-ALTER TABLE "PROJECT"."REVIEW" ADD CONSTRAINT "SYS_C008181" CHECK ("EMAILID" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
 
 -- ----------------------------
 -- Primary Key structure for table USERMAN
@@ -1861,31 +2089,20 @@ ALTER TABLE "PROJECT"."EXCHANGEOFFER" ADD CONSTRAINT "SYS_C008229" FOREIGN KEY (
 ALTER TABLE "PROJECT"."EXCHANGEOFFER" ADD CONSTRAINT "SYS_C008230" FOREIGN KEY ("OFFERID2") REFERENCES "PROJECT"."OFFER" ("OFFERID") ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
 
 -- ----------------------------
+-- Foreign Keys structure for table NOTI
+-- ----------------------------
+ALTER TABLE "PROJECT"."NOTI" ADD CONSTRAINT "FK_NOTI_EMAIL" FOREIGN KEY ("EMAILID") REFERENCES "PROJECT"."USERMAN" ("EMAILID") NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+
+-- ----------------------------
 -- Foreign Keys structure for table NOTIFICATION1
 -- ----------------------------
 ALTER TABLE "PROJECT"."NOTIFICATION1" ADD CONSTRAINT "SYS_C008204" FOREIGN KEY ("OFFERID") REFERENCES "PROJECT"."OFFER" ("OFFERID") ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
-
--- ----------------------------
--- Foreign Keys structure for table NOTIFICATION2
--- ----------------------------
-ALTER TABLE "PROJECT"."NOTIFICATION2" ADD CONSTRAINT "SYS_C008225" FOREIGN KEY ("EMAILWHOREQUESTED") REFERENCES "PROJECT"."USERMAN" ("EMAILID") ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
-ALTER TABLE "PROJECT"."NOTIFICATION2" ADD CONSTRAINT "SYS_C008226" FOREIGN KEY ("OFFERID") REFERENCES "PROJECT"."OFFER" ("OFFERID") ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
 
 -- ----------------------------
 -- Foreign Keys structure for table OFFER
 -- ----------------------------
 ALTER TABLE "PROJECT"."OFFER" ADD CONSTRAINT "SYS_C008175" FOREIGN KEY ("USEREMAILID") REFERENCES "PROJECT"."BOOKFRIEND" ("EMAILID") ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
 ALTER TABLE "PROJECT"."OFFER" ADD CONSTRAINT "SYS_C008176" FOREIGN KEY ("ISBN") REFERENCES "PROJECT"."BOOK" ("ISBN") NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
-
--- ----------------------------
--- Foreign Keys structure for table REVIEW
--- ----------------------------
-ALTER TABLE "PROJECT"."REVIEW" ADD CONSTRAINT "SYS_C008183" FOREIGN KEY ("EMAILID") REFERENCES "PROJECT"."USERMAN" ("EMAILID") ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
-
--- ----------------------------
--- Foreign Keys structure for table USERMAN
--- ----------------------------
-ALTER TABLE "PROJECT"."USERMAN" ADD CONSTRAINT "SYS_C008151" FOREIGN KEY ("LATITUDE", "LONGITUDE") REFERENCES "PROJECT"."ADDRESS" ("LATITUDE", "LONGITUDE") ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
 
 -- ----------------------------
 -- Foreign Keys structure for table WRITTENBY

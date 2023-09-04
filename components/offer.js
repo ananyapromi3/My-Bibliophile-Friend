@@ -3,6 +3,8 @@ import { useRouter } from "next/router";
 import styles from "../styles/offer.module.css";
 import { off } from "process";
 import ImageGallery from "./imageGallery";
+import CustomAlert from "./alert";
+import { toast } from "react-toastify";
 
 export default function Offer({ offer, onStatusChange, onOfferAccepted }) {
   const router = useRouter();
@@ -12,6 +14,11 @@ export default function Offer({ offer, onStatusChange, onOfferAccepted }) {
   const notiInfo = {
     userId: userId,
     offerId: offerId,
+  };
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
+  const handleCloseAlert = () => {
+    setShowAlert(false);
   };
   const makeNotification = async () => {
     const response = await fetch(`/api/bookFriend/offersFeed`, {
@@ -23,14 +30,36 @@ export default function Offer({ offer, onStatusChange, onOfferAccepted }) {
     });
     const data = await response.json();
     if (data.msg == "NOTIFICATION1 SENT") {
-      alert("Offer accepted");
+      showToast("Successfully accepted this offer");
+      setAlertMessage("Offer accepted");
+      setShowAlert(true);
       setOfferStatus(0);
       onStatusChange(offer.OFFERID, "accepted");
       onOfferAccepted(offer.OFFERID);
     } else {
-      alert("Could not accept offer");
+      showToastErr("Could not accept this offer");
+      setAlertMessage("Could not accept offer");
+      setShowAlert(true);
     }
     router.push(`/bookFriend/offersFeed/${userId}`);
+  };
+  const showToast = (msg) => {
+    toast.success(msg, {
+      position: "bottom-right",
+      autoClose: 3000,
+      style: {
+        zIndex: 1000,
+      },
+    });
+  };
+  const showToastErr = (msg) => {
+    toast.error(msg, {
+      position: "bottom-right",
+      autoClose: 3000,
+      style: {
+        zIndex: 1000,
+      },
+    });
   };
 
   const [showCarousel, setShowCarousel] = useState(false);
@@ -130,6 +159,9 @@ export default function Offer({ offer, onStatusChange, onOfferAccepted }) {
             />
           </div>
         </div>
+      )}
+      {showAlert && (
+        <CustomAlert message={alertMessage} onClose={handleCloseAlert} />
       )}
     </>
   );

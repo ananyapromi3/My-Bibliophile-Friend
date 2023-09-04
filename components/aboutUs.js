@@ -1,8 +1,16 @@
 import React from "react";
 import styles from "../styles/aboutUs.module.css";
+import Router from "next/router";
+import { useRouter } from "next/router";
+import { useState } from "react";
 
 export default function About() {
   const activeMenu = "about";
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
+  const handleCloseAlert = () => {
+    setShowAlert(false);
+  };
   return (
     <div className={styles.container}>
       <img src="/biblogo.png" alt="Project Logo" className={styles.logo} />
@@ -17,13 +25,13 @@ export default function About() {
           className={styles.sectionHeader}
           style={{ fontFamily: "Georgia, sans-serif" }}
         >
-          Procedure
+          
         </h2>
         <p
           className={styles.sectionContent}
           style={{ fontFamily: "Georgia, sans-serif" }}
         >
-          Describe the procedure of your project here.
+          This project is developed with oracle sql, nodejs, javascript and nextjs framework.
         </p>
       </div>
 
@@ -33,13 +41,13 @@ export default function About() {
           className={styles.sectionHeader}
           style={{ fontFamily: "Georgia, sans-serif" }}
         >
-          Purpose
+          {/* Purpose */}
         </h2>
         <p
           className={styles.sectionContent}
           style={{ fontFamily: "Georgia, sans-serif" }}
         >
-          Explain the purpose and goals of your project.
+          CSE-216 term project
         </p>
       </div>
 
@@ -74,7 +82,7 @@ export default function About() {
           <div className={styles.teamMemberImage}>
             <img
               style={{ fontFamily: "Georgia, sans-serif" }}
-              src="/path/to/image2.png"
+              src="/upic.jpg"
               alt="Team Member 2"
               className={styles.roundImage}
             />

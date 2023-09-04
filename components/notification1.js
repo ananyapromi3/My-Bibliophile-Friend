@@ -9,6 +9,7 @@ import {
   faChevronLeft,
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
+import { toast } from "react-toastify";
 export default function Notification1({ notification1, search }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const openModal = () => {
@@ -18,6 +19,24 @@ export default function Notification1({ notification1, search }) {
   const closeModal = () => {
     search();
     setIsModalOpen(false);
+  };
+  const showToast = (msg) => {
+    toast.success(msg, {
+      position: "bottom-right",
+      autoClose: 3000,
+      style: {
+        zIndex: 1000,
+      },
+    });
+  };
+  const showToastErr = (msg) => {
+    toast.error(msg, {
+      position: "bottom-right",
+      autoClose: 3000,
+      style: {
+        zIndex: 1000,
+      },
+    });
   };
   const router = useRouter();
   const notificationId = notification1.NOTIFICATIONID;
@@ -34,6 +53,27 @@ export default function Notification1({ notification1, search }) {
       const data = await response.json();
       setSearchResults(data);
       console.log(data);
+    } catch (error) {
+      console.error("Error searching:", error);
+    }
+  };
+
+  const decline = async () => {
+    try {
+      const response = await fetch(
+        `/api/bookFriend/declineOffer?term=${notificationId}`
+      );
+      const data = await response.json();
+      // setSearchResults(data);
+      console.log(data);
+      if (data.msg == "DECLINED") {
+        showToast("Offer declined successfully");
+        setNotiStatus(0);
+        router.push(`/bookFriend/notifications/${userId}`);
+        router.reload();
+      } else {
+        showToastErr("Could not decline offer");
+      }
     } catch (error) {
       console.error("Error searching:", error);
     }
@@ -69,6 +109,14 @@ export default function Notification1({ notification1, search }) {
             style={{ fontFamily: "Georgia, sans-serif" }}
           >
             See {fName[0]}'s Offers
+          </button>
+          <br />
+          <button
+            onClick={decline}
+            className={styles.acceptButton}
+            style={{ fontFamily: "Georgia, sans-serif" }}
+          >
+            Decline request
           </button>
         </div>
       ) : (

@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import styles from "../styles/delivaryOffer.module.css";
 import { async } from "regenerator-runtime";
+import CustomAlert from "./alert";
+import { toast } from "react-toastify";
 
 export default function DelivaryOffer({
   offer,
@@ -14,6 +16,11 @@ export default function DelivaryOffer({
   const delId = router.query.delivaryManId;
   const [offerStatus, setOfferStatus] = useState(1);
   const fee = (distance * 100).toFixed(2);
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
+  const handleCloseAlert = () => {
+    setShowAlert(false);
+  };
   const delivaryInfo = {
     delivaryManId: delId,
     exchangeId: exchangeId,
@@ -32,15 +39,45 @@ export default function DelivaryOffer({
         "Contain-Type": "application/json",
       },
     });
+    const showToast = (msg) => {
+      toast.success(msg, {
+        position: "bottom-right",
+        autoClose: 3000,
+        style: {
+          zIndex: 1000,
+        },
+      });
+    };
+    const showToastError = (msg) => {
+      toast.error(msg, {
+        position: "bottom-right",
+        autoClose: 3000,
+        style: {
+          zIndex: 1000,
+        },
+      });
+    };
     const data = await response.json();
     console.log(data);
     if (data.msg == "SUCCESSFUL") {
-      alert("Offer accepted");
+      setAlertMessage("Offer accepted");
+      // setShowAlert(true);
+      showToast("Offer accepted successfully");
+      const id = parseInt(delId);
+      if (!isNaN(id)) {
+        const response1 = await fetch(
+          `/api/delivaryAcceptedOffers?id=${delId}`
+        );
+        const data1 = await response1.json();
+        localStorage.setItem("pendingDelCount", data1.length);
+      }
+
       setOfferStatus(0);
       onStatusChange(offer.EXCHANGEID, "DONE");
       onOfferAccepted(offer.EXCHANGEID);
     } else {
-      alert("Could not accept offer");
+      setAlertMessage("Could not accept offer");
+      setShowAlert(true);
     }
     router.push(`/delivaryMan/offers/${delId}`);
   };
@@ -97,6 +134,9 @@ export default function DelivaryOffer({
         </div>
       ) : (
         <></>
+      )}
+      {showAlert && (
+        <CustomAlert message={alertMessage} onClose={handleCloseAlert} />
       )}
     </>
   );

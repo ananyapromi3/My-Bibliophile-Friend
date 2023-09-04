@@ -93,7 +93,7 @@ export default function Menu({ active }) {
           style={{ fontFamily: "Georgia, sans-serif" }}
         >
           <FontAwesomeIcon icon={faList} className={styles.menuIcon} />
-          Offers
+          Book Exchange Offers
         </button>
       </div>
       <div
@@ -106,7 +106,7 @@ export default function Menu({ active }) {
           style={{ fontFamily: "Georgia, sans-serif" }}
         >
           <FontAwesomeIcon icon={faTruck} className={styles.menuIcon} />
-          Pending Deliveries
+          Pending Delivery Offers
           {pendingDelCount > 0 && (
             <span className={styles.notificationCount}>
               <b>{pendingDelCount}</b>
@@ -119,14 +119,14 @@ export default function Menu({ active }) {
         style={{ fontFamily: "Georgia, sans-serif" }}
       >
         {" "}
-        <button
+        {/* <button
           className={active === "noti" ? styles.active : styles.button}
-          onClick={() => router.push(`/bookFriend/noti/${userId}`)}
+          // onClick={() => router.push(`/bookFriend/noti/${userId}`)}
           style={{ fontFamily: "Georgia, sans-serif" }}
         >
           <FontAwesomeIcon icon={faBell} className={styles.menuIcon} />
           Notifications
-        </button>
+        </button> */}
       </div>
       <div
         className={styles.menuItem}
@@ -139,7 +139,7 @@ export default function Menu({ active }) {
           style={{ fontFamily: "Georgia, sans-serif" }}
         >
           <FontAwesomeIcon icon={faClipboardList} className={styles.menuIcon} />
-          My Offers
+          Completed Delivery Offers
         </button>
       </div>
       <div
@@ -148,7 +148,7 @@ export default function Menu({ active }) {
       >
         <button
           className={active === "about" ? styles.active : styles.button}
-          onClick={() => router.push(`/delivaryMan/aboutUs`)}
+          onClick={() => router.push(`/delivaryMan/aboutUs/${userId}`)}
           style={{ fontFamily: "Georgia, sans-serif" }}
         >
           <FontAwesomeIcon icon={faInfoCircle} className={styles.menuIcon} />

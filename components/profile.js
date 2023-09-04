@@ -9,9 +9,25 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRouter } from "next/router";
+import ChangePasswordModal from "./changePass";
+import CustomAlert from "./alert";
+import { toast } from "react-toastify";
 
 export default function Profile({ profile }) {
   //   console.log(profile);
+  const showToast = (msg) => {
+    toast.success(msg, {
+      position: "bottom-right", 
+      autoClose: 3000, 
+      style: {
+        zIndex: 1000,
+      },
+    });
+  };
+  const [showChangePasswordModal, setShowChangePasswordModal] = useState(false);
+  const [currentPassword, setCurrentPassword] = useState("");
+  const [passwordChangeResult, setPasswordChangeResult] = useState(null);
+
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -63,9 +79,16 @@ export default function Profile({ profile }) {
     });
     // const data = await response;
     console.log(response);
-    alert("Account Updated");
+    // setAlertMessage("Account Updated");
+    showToast("Account updated successfully!");
+    // setShowAlert(true);
     router.push(`/bookFriend/profile/${userId}`);
-    window.location.reload();
+    // window.location.reload();
+  };
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
+  const handleCloseAlert = () => {
+    setShowAlert(false);
   };
 
   const getLocation = async () => {
@@ -99,6 +122,14 @@ export default function Profile({ profile }) {
   //   dob = (profile.dob).split("T");
   //   console.log(dob);
 
+  // const handlePasswordChange = (currentPassword, newPassword) => {
+  //   // Implement the logic to change the password on the server here
+  //   // You can use fetch or another method to send a request to your API
+  //   // Once the password is successfully changed, you can handle the UI accordingly
+  //   // For example, you can display a success message or redirect the user.
+  //   console.log("Changing password:", currentPassword, newPassword);
+  // };
+
   return (
     <div>
       <div className={styles.loginBox}>
@@ -106,9 +137,18 @@ export default function Profile({ profile }) {
           onSubmit={handleSubmit}
           style={{ fontFamily: "Georgia, sans-serif" }}
         >
-          <label className={styles.label}>
-            <p className={styles.label1}>First Name:</p>
+          <label
+            className={styles.label}
+            style={{ fontFamily: "Georgia, sans-serif" }}
+          >
+            <p
+              className={styles.label1}
+              style={{ fontFamily: "Georgia, sans-serif" }}
+            >
+              First Name:
+            </p>
             <input
+              style={{ fontFamily: "Georgia, sans-serif" }}
               className={styles.input}
               type="text"
               // disabled
@@ -134,9 +174,18 @@ export default function Profile({ profile }) {
               name="firstname"
             />
           </label>
-          <label className={styles.label}>
-            <p className={styles.label1}>Last Name:</p>
+          <label
+            className={styles.label}
+            style={{ fontFamily: "Georgia, sans-serif" }}
+          >
+            <p
+              style={{ fontFamily: "Georgia, sans-serif" }}
+              className={styles.label1}
+            >
+              Last Name:
+            </p>
             <input
+              style={{ fontFamily: "Georgia, sans-serif" }}
               className={styles.input}
               type="text"
               placeholder={profile.lastname}
@@ -162,18 +211,36 @@ export default function Profile({ profile }) {
               }
             />
           </label>
-          <label className={styles.label}>
-            <p className={styles.label1}>Email address:</p>
+          <label
+            style={{ fontFamily: "Georgia, sans-serif" }}
+            className={styles.label}
+          >
+            <p
+              style={{ fontFamily: "Georgia, sans-serif" }}
+              className={styles.label1}
+            >
+              Email address:
+            </p>
             <input
+              style={{ fontFamily: "Georgia, sans-serif" }}
               className={styles.input}
               disabled
               type="email"
               value={profile.email}
             />
           </label>
-          <label className={styles.label}>
-            <p className={styles.label1}>Password:</p>
+          {/* <label
+            style={{ fontFamily: "Georgia, sans-serif" }}
+            className={styles.label}
+          >
+            <p
+              style={{ fontFamily: "Georgia, sans-serif" }}
+              className={styles.label1}
+            >
+              Password:
+            </p>
             <input
+              style={{ fontFamily: "Georgia, sans-serif" }}
               className={styles.passwordInput}
               type={showPassword ? "text" : "password"}
               // placeholder={profile.pass}
@@ -197,8 +264,9 @@ export default function Profile({ profile }) {
                   longitude: currLocationJs.longitude,
                 }))
               }
-            />
-            <div
+            /> 
+             <div
+              style={{ fontFamily: "Georgia, sans-serif" }}
               className={styles.passwordToggleButton}
               onClick={toggleShowPassword}
             >
@@ -207,24 +275,56 @@ export default function Profile({ profile }) {
                 className={styles.eyeIcon}
               />
             </div>
-          </label>
-          <label className={styles.label}>
-            <p className={styles.label1}>Date of Birth:</p>
-            <input className={styles.input} type="text" value={dob} disabled />
-          </label>
-          <label className={styles.label}>
-            <p className={styles.label1}>Gender:</p>
+          </label> */}
+          <label
+            style={{ fontFamily: "Georgia, sans-serif" }}
+            className={styles.label}
+          >
+            <p
+              style={{ fontFamily: "Georgia, sans-serif" }}
+              className={styles.label1}
+            >
+              Date of Birth:
+            </p>
             <input
+              style={{ fontFamily: "Georgia, sans-serif" }}
+              className={styles.input}
+              type="text"
+              value={dob}
+              disabled
+            />
+          </label>
+          <label
+            style={{ fontFamily: "Georgia, sans-serif" }}
+            className={styles.label}
+          >
+            <p
+              style={{ fontFamily: "Georgia, sans-serif" }}
+              className={styles.label1}
+            >
+              Gender:
+            </p>
+            <input
+              style={{ fontFamily: "Georgia, sans-serif" }}
               className={styles.input}
               type="text"
               value={profile.gender}
               disabled
             />
           </label>
-          <label className={styles.label}>
-            <p className={styles.label1}>Contact No (1):</p>
+          <label
+            style={{ fontFamily: "Georgia, sans-serif" }}
+            className={styles.label}
+          >
+            <p
+              style={{ fontFamily: "Georgia, sans-serif" }}
+              className={styles.label1}
+            >
+              Contact No (1):
+            </p>
             <input
               // disabled
+              style={{ fontFamily: "Georgia, sans-serif" }}
               className={styles.input}
               type="text"
               placeholder={profile.contactno1}
@@ -249,9 +349,18 @@ export default function Profile({ profile }) {
               }
             />
           </label>
-          <label className={styles.label}>
-            <p className={styles.label1}>Contact No (2):</p>
+          <label
+            style={{ fontFamily: "Georgia, sans-serif" }}
+            className={styles.label}
+          >
+            <p
+              style={{ fontFamily: "Georgia, sans-serif" }}
+              className={styles.label1}
+            >
+              Contact No (2):
+            </p>
             <input
+              style={{ fontFamily: "Georgia, sans-serif" }}
               // disabled
               className={styles.input}
               type="text"
@@ -277,9 +386,18 @@ export default function Profile({ profile }) {
               }
             />
           </label>
-          <label className={styles.label}>
-            <p className={styles.label1}>Latitude</p>
+          <label
+            style={{ fontFamily: "Georgia, sans-serif" }}
+            className={styles.label}
+          >
+            <p
+              style={{ fontFamily: "Georgia, sans-serif" }}
+              className={styles.label1}
+            >
+              Latitude
+            </p>
             <input
+              style={{ fontFamily: "Georgia, sans-serif" }}
               className={styles.input}
               type="text"
               value={currLocationJs.latitude}
@@ -287,9 +405,18 @@ export default function Profile({ profile }) {
               //   onChange={(e) => setFirstName(e.target.value)}
             />
           </label>
-          <label className={styles.label}>
-            <p className={styles.label1}>Longitude</p>
+          <label
+            style={{ fontFamily: "Georgia, sans-serif" }}
+            className={styles.label}
+          >
+            <p
+              style={{ fontFamily: "Georgia, sans-serif" }}
+              className={styles.label1}
+            >
+              Longitude
+            </p>
             <input
+              style={{ fontFamily: "Georgia, sans-serif" }}
               className={styles.input}
               type="text"
               value={currLocationJs.longitude}
@@ -297,11 +424,42 @@ export default function Profile({ profile }) {
               //   onChange={(e) => setFirstName(e.target.value)}
             />
           </label>
-          <button className={styles.button} type="submit">
-            Save
+          <button
+            style={{ fontFamily: "Georgia, sans-serif" }}
+            className={styles.button}
+            type="submit"
+          >
+            Update
           </button>
         </form>
+        <button
+          style={{ fontFamily: "Georgia, sans-serif" }}
+          className={styles.button2}
+          onClick={() => setShowChangePasswordModal(true)}
+        >
+          Change Password
+        </button>
+        {showChangePasswordModal && (
+          <ChangePasswordModal
+            isOpen={showChangePasswordModal}
+            onClose={() => {
+              setShowChangePasswordModal(false);
+              // Clear the current password when closing the modal
+              setCurrentPassword("");
+            }}
+            email={profile.email}
+          />
+        )}
+        {/* Display the password change result */}
+        {passwordChangeResult && (
+          <div className={styles.passwordChangeResult}>
+            {passwordChangeResult}
+          </div>
+        )}
       </div>
+      {showAlert && (
+        <CustomAlert message={alertMessage} onClose={handleCloseAlert} />
+      )}
     </div>
   );
 }

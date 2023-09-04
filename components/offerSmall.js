@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import styles from "../styles/offerSmall.module.css";
 import ImageGallery from "./imageGallery";
+import CustomAlert from "./alert";
+import { toast } from "react-toastify";
 
 export default function OfferSmall({ offer, notification1, closeModal }) {
   const router = useRouter();
@@ -21,6 +23,24 @@ export default function OfferSmall({ offer, notification1, closeModal }) {
     offerId1: offerId,
     offerId2: offerId2,
   };
+  const showToast = (msg) => {
+    toast.success(msg, {
+      position: "bottom-right",
+      autoClose: 3000,
+      style: {
+        zIndex: 1000,
+      },
+    });
+  };
+  const showToastErr = (msg) => {
+    toast.error(msg, {
+      position: "bottom-right",
+      autoClose: 3000,
+      style: {
+        zIndex: 1000,
+      },
+    });
+  };
   const makeNotification = async () => {
     const response = await fetch(`/api/bookFriend/offersSmallFeed`, {
       method: "POST",
@@ -31,11 +51,15 @@ export default function OfferSmall({ offer, notification1, closeModal }) {
     });
     const data = await response.json();
     if (data.msg == "SUCCESS") {
-      alert("Offer accepted");
+      setAlertMessage("Offer accepted");
+      showToast("Successfully accepted this offer");
+      setShowAlert(true);
       setOfferStatus(0);
       closeModal();
     } else {
-      alert("Could not accept offer");
+      setAlertMessage("Could not accept offer");
+      showToastErr("Could not accept this offer");
+      setShowAlert(true);
     }
     router.push(`/bookFriend/notifications/${userId}`);
     setSeeOffers(0);
@@ -75,6 +99,12 @@ export default function OfferSmall({ offer, notification1, closeModal }) {
     thumbnail: photo,
     originalClass: styles.zoomableImage,
   }));
+
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
+  const handleCloseAlert = () => {
+    setShowAlert(false);
+  };
 
   return (
     <>
@@ -131,6 +161,9 @@ export default function OfferSmall({ offer, notification1, closeModal }) {
             />
           </div>
         </div>
+      )}
+      {showAlert && (
+        <CustomAlert message={alertMessage} onClose={handleCloseAlert} />
       )}
     </>
   );

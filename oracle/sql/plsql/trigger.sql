@@ -52,7 +52,7 @@ BEGIN
     BOOK1 := GET_BOOK_NAME_FROM_OFFERID(:NEW.OFFERID);
     INSERT INTO NOTI VALUES (
         NAME2
-        ||' wants to accept your offer of exchanging'
+        ||' wants to accept your offer of exchanging '
         ||BOOK1,
         SYSDATE,
         EMAIL1,
@@ -62,22 +62,116 @@ END;
 CREATE OR REPLACE TRIGGER CREATE_NOTI_FOR_DELIVERY_ACC AFTER INSERT ON DELIVARYOFFER FOR EACH ROW DECLARE EMAIL1 VARCHAR2(
     100
 );
+EMAIL2 VARCHAR2(100);
 NAME1 VARCHAR2(500);
 FEE NUMBER;
+OFFER1 NUMBER;
+OFFER2 NUMBER;
 BEGIN
     FEE := ROUND(:NEW.FEE/2, 2);
-    EMAIL1 := GET_EMAIL_FROM_OFFERID(:NEW.OFFERID);
+    SELECT
+        OFFERID1 INTO OFFER1
+    FROM
+        EXCHANGEOFFER
+    WHERE
+        EXCHANGEID=:NEW.EXCHANGEID;
+    SELECT
+        OFFERID2 INTO OFFER2
+    FROM
+        EXCHANGEOFFER
+    WHERE
+        EXCHANGEID=:NEW.EXCHANGEID;
+    EMAIL1 := GET_EMAIL_FROM_OFFERID(OFFER1);
+    EMAIL2 := GET_EMAIL_FROM_OFFERID(OFFER2);
     NAME1 := GET_NAME_FROM_EMAILID(GET_EMAIL_FROM_DELIVARYMANID(:NEW.DELIVARYMANID));
     INSERT INTO NOTI VALUES (
         'Delivery man '
         ||NAME1
-        ||' has accepted your order ##BIB'
+        ||' has accepted your order #BIB'
         ||:NEW.EXCHANGEID
         ||'. Delivery charge: '
         ||FEE
-        ||'TK',
+        ||'tk',
         SYSDATE,
         EMAIL1,
         'UNREAD'
     );
+    INSERT INTO NOTI VALUES (
+        'Delivery man '
+        ||NAME1
+        ||' has accepted your order #BIB'
+        ||:NEW.EXCHANGEID
+        ||'. Delivery charge: '
+        ||FEE
+        ||'tk',
+        SYSDATE,
+        EMAIL2,
+        'UNREAD'
+    );
+END;
+CREATE OR REPLACE TRIGGER CREATE_NOTI_FOR_DELIVERY_COMP AFTER
+UPDATE OF STATUS ON DELIVARYOFFER FOR EACH ROW WHEN (
+    NEW.STATUS='Delivered'
+) DECLARE EMAIL1 VARCHAR2(
+    100
+);
+EMAIL2 VARCHAR2(100);
+NAME1 VARCHAR2(500);
+FEE NUMBER;
+OFFER1 NUMBER;
+OFFER2 NUMBER;
+BEGIN
+    FEE := ROUND(:NEW.FEE/2, 2);
+    SELECT
+        OFFERID1 INTO OFFER1
+    FROM
+        EXCHANGEOFFER
+    WHERE
+        EXCHANGEID=:NEW.EXCHANGEID;
+    SELECT
+        OFFERID2 INTO OFFER2
+    FROM
+        EXCHANGEOFFER
+    WHERE
+        EXCHANGEID=:NEW.EXCHANGEID;
+    EMAIL1 := GET_EMAIL_FROM_OFFERID(OFFER1);
+    EMAIL2 := GET_EMAIL_FROM_OFFERID(OFFER2);
+    NAME1 := GET_NAME_FROM_EMAILID(GET_EMAIL_FROM_DELIVARYMANID(:NEW.DELIVARYMANID));
+    INSERT INTO NOTI VALUES (
+        'Delivery man '
+        ||NAME1
+        ||' has completed your order #BIB'
+        ||:NEW.EXCHANGEID,
+        SYSDATE,
+        EMAIL1,
+        'UNREAD'
+    );
+    INSERT INTO NOTI VALUES (
+        'Delivery man '
+        ||NAME1
+        ||' has completed your order #BIB'
+        ||:NEW.EXCHANGEID,
+        SYSDATE,
+        EMAIL2,
+        'UNREAD'
+    );
+END;
+CREATE OR REPLACE TRIGGER INITCAP_LAN BEFORE INSERT ON BOOK FOR EACH ROW DECLARE BEGIN :NEW.LANGUAGE := INITCAP(
+    :NEW.LANGUAGE
+);
+END;
+CREATE OR REPLACE TRIGGER DECLINE_OFFER AFTER
+DELETE ON NOTIFICATION1 FOR EACH ROW DECLARE STAT VARCHAR2(100);
+BEGIN
+    SELECT
+        STATUS INTO STAT
+    FROM
+        OFFER
+    WHERE
+        OFFERID=:OLD.OFFERID;
+    IF STAT = 'pending' THEN
+        UPDATE OFFER
+        SET
+            STATUS = 'offered';
+    END IF;
 END;

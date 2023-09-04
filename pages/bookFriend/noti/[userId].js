@@ -24,7 +24,14 @@ export default function Offers() {
       if (!isNaN(id)) {
         const response1 = await fetch(`/api/noti?term=${id}`);
         const data1 = await response1.json();
-        localStorage.setItem("notiCount", data1.length);
+        console.log(data1);
+        let c = 0;
+        for (let i = 0; i < data1.length; i++) {
+          if (data1[i].STATUS == "UNREAD") {
+            c++;
+          }
+        }
+        localStorage.setItem("notiCount", c);
       }
     };
     func();
@@ -51,10 +58,34 @@ export default function Offers() {
       setSearchResults(data);
       console.log(data);
       setCount(data.length);
+      // let c = 0;
+      // for (let i = 0; i < data.length; i++) {
+      //   if (data[i].STATUS == "UNREAD") {
+      //     c++;
+      //   }
+      // }
+      // localStorage.setItem("notiCount", c);
     } catch (error) {
       console.error("Error searching:", error);
     }
   };
+
+  const markAsRead = async () => {
+    try {
+      const response = await fetch(`/api/bookFriend/notiRead?term=${userId}`);
+      const data = await response.json();
+      // setSearchResults(data);
+      console.log(data);
+      // setCount(data.length);
+    } catch (error) {
+      console.error("Error searching:", error);
+    }
+  };
+
+  useEffect(() => {
+    const timer = setTimeout(() => markAsRead(), 50);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <>
@@ -78,7 +109,6 @@ export default function Offers() {
           {searchResults.map((noti, index) => {
             return (
               <div className={styles.offerCard}>
-                {/* {noti.MSG} */}
                 <Noti noti={noti} />
               </div>
             );
