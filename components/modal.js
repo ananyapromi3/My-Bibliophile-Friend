@@ -121,10 +121,11 @@ export default function Modal({ children, onClose, book }) {
       if (data.msg == "OFFER CREATED") {
         showToast("Offer successfully created");
         setAlertMessage("Offer Created");
-        setAlertMessage(true);
+        // setAlertMessage(true);
       } else {
+        showToastErr("Could not create offer");
         setAlertMessage("Could not create offer");
-        setAlertMessage(true);
+        // setAlertMessage(true);
         showToastErr("Could not create offer");
       }
     } else {

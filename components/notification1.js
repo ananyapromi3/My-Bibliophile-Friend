@@ -70,7 +70,7 @@ export default function Notification1({ notification1, search }) {
         showToast("Offer declined successfully");
         setNotiStatus(0);
         router.push(`/bookFriend/notifications/${userId}`);
-        router.reload();
+        // router.reload();
       } else {
         showToastErr("Could not decline offer");
       }

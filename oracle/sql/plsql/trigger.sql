@@ -175,3 +175,11 @@ BEGIN
             STATUS = 'offered';
     END IF;
 END;
+CREATE OR REPLACE TRIGGER DECLINE_OFFER_NOTI AFTER
+DELETE ON NOTIFICATION1 FOR EACH ROW DECLARE BEGIN INSERT INTO NOTI VALUES ( GET_NAME_FROM_EMAILID(GET_EMAIL_FROM_OFFERID(:OLD.OFFERID))
+                                                                             ||' has declined your request for exchanging '
+                                                                             ||GET_BOOK_NAME_FROM_OFFERID(:OLD.OFFERID),
+SYSDATE,
+:OLD.EMAILWHOREQUESTED,
+'UNREAD' );
+END;
