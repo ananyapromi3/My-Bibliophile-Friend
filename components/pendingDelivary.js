@@ -46,12 +46,12 @@ export default function PendingDelivary({
     // setAlertMessage("Offer accepted");
     // setShowAlert(true);
 
-    // const id = parseInt(delId);
-    // if (!isNaN(id)) {
-    //   const response1 = await fetch(`/api/delivaryAcceptedOffers?id=${delId}`);
-    //   const data1 = await response1.json();
-    //   localStorage.setItem("pendingDelCount", data1.length);
-    // }
+    const id = parseInt(delId);
+    if (!isNaN(id)) {
+      const response1 = await fetch(`/api/delivaryAcceptedOffers?id=${delId}`);
+      const data1 = await response1.json();
+      localStorage.setItem("pendingDelCount", data1.length);
+    }
     showToast("Offer marked as delivered");
     setOfferStatus(0);
     onStatusChange(offer.EXCHANGEID, "Delivered");
