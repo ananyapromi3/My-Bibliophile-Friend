@@ -10,7 +10,7 @@ export default function Author({ author }) {
         className={styles.authorName}
         style={{ fontFamily: "Georgia, sans-serif" }}
       >
-        {author.NAME}{" "}
+        <b>{author.NAME}</b>
       </p>
       <p
         className={styles.authorInfo}

@@ -8,6 +8,7 @@ import {
   faChevronRight,
   faChevronLeft,
   faXmark,
+  faUpload,
 } from "@fortawesome/free-solid-svg-icons";
 import { toast } from "react-toastify";
 
@@ -215,7 +216,7 @@ export default function Modal({ children, onClose, book }) {
               style={{ fontFamily: "Georgia, sans-serif" }}
               className={styles.buttonSmall}
             >
-              Upload Files
+              <FontAwesomeIcon icon={faUpload} /> Upload Files
             </button>
           )}
           {uploadData && uploadFlag ? <p>Uploaded</p> : <></>}

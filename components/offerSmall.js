@@ -105,6 +105,8 @@ export default function OfferSmall({ offer, notification1, closeModal }) {
   const handleCloseAlert = () => {
     setShowAlert(false);
   };
+  let t = new Date(offer.TIME);
+  t = JSON.stringify(t);
 
   return (
     <>
@@ -123,13 +125,22 @@ export default function OfferSmall({ offer, notification1, closeModal }) {
             className={styles.offerInfo}
             style={{ fontFamily: "Georgia, sans-serif" }}
           >
+            <b>{offer.BOOK}</b>
+          </p>
+          <p
+            className={styles.offerInfo}
+            style={{ fontFamily: "Georgia, sans-serif" }}
+          >
             {offer.MESSAGE}
           </p>
           <p
             className={styles.offerInfo}
             style={{ fontFamily: "Georgia, sans-serif" }}
           >
-            <b>Time:</b> {offer.TIME}
+            <b>Offered at: </b>
+            {t.split('"')[1].split("T")[0]}{" "}
+            {t.split('"')[1].split("T")[1].split(":")[0]}:
+            {t.split('"')[1].split("T")[1].split(":")[1]}
           </p>
           <br />
           <button

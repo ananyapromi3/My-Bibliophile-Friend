@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import BookFilters from "../../../components/bookFilter";
 import styles from "../../../styles/search.module.css";
 import Menu from "../../../components/menu";
+import DynamicBackground from "../../../components/dynamicBackground";
 
 export default function Search() {
   const router = useRouter();

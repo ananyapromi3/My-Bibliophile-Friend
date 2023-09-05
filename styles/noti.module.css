@@ -118,9 +118,11 @@
   font-size: 1rem;
   max-height: 100em; /* Adjust as needed */
   overflow: hidden;
-  margin-top: 2px;
-  margin-bottom: 2px;
+  margin-top: -20px;
+  margin-bottom: 0px;
   color: #2f4858;
+  margin-right: 100px;
+  margin-left: 50px;
 }
 .icon {
   margin: auto;
@@ -128,6 +130,8 @@
   margin-left: 10px;
   font-size: 1rem;
   color: #2f4858;
+  text-align: left;
+  left: 0px;
 }
 .bookISBN {
   font-size: 0.7rem;
@@ -191,4 +195,17 @@
 .carouselContainer {
   width: 80%;
   height: 80%;
+}
+
+.time {
+  /* margin: auto; */
+  /* margin-right: 20px; */
+  /* margin-left: 35vw; */
+  text-align: right;
+  right: 0px;
+  position: relative;
+  font-size: 0.7rem;
+  margin-bottom: 0px;
+  margin-top: -10px;
+  color: rgb(47, 72, 88, 0.7);
 }

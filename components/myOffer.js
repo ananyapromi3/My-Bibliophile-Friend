@@ -6,13 +6,28 @@ import ImageGallery from "./imageGallery";
 import { async } from "regenerator-runtime";
 import CustomAlert from "./alert";
 import { toast } from "react-toastify";
+import YesNoAlert from "./yesNoAlert";
+import { faL } from "@fortawesome/free-solid-svg-icons";
 
 export default function MyOffer({ offer, onStatusChange, onOfferAccepted }) {
   const router = useRouter();
   const [showAlert, setShowAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
+  const [showYesNo, setYesNo] = useState(false);
+  const [yesNoMessage, setYesNoMessage] = useState("");
+  const [cont, setCont] = useState(false);
   const handleCloseAlert = () => {
     setShowAlert(false);
+  };
+
+  const no = () => {
+    setCont(false);
+    setYesNo(false);
+  };
+  const yes = () => {
+    setCont(true);
+    setYesNo(false);
+    deleteOffer();
   };
   const offerId = offer.OFFERID;
   const userId = router.query.userId;
@@ -21,6 +36,7 @@ export default function MyOffer({ offer, onStatusChange, onOfferAccepted }) {
     userId: userId,
     offerId: offerId,
   };
+
   const showToast = (msg) => {
     toast.success(msg, {
       position: "bottom-right",
@@ -40,6 +56,10 @@ export default function MyOffer({ offer, onStatusChange, onOfferAccepted }) {
     });
   };
 
+  const helper = async () => {
+    setYesNoMessage("Are you sure you want to delete this offer?");
+    setYesNo(true);
+  };
   const deleteOffer = async () => {
     const response = await fetch(`/api/bookFriend/myOffersFeed`, {
       method: "POST",
@@ -97,6 +117,8 @@ export default function MyOffer({ offer, onStatusChange, onOfferAccepted }) {
     thumbnail: photo,
     originalClass: styles.zoomableImage,
   }));
+  let t = new Date(offer.TIME);
+  t = JSON.stringify(t);
 
   return (
     <>
@@ -116,6 +138,12 @@ export default function MyOffer({ offer, onStatusChange, onOfferAccepted }) {
             className={styles.offerInfo}
             style={{ fontFamily: "Georgia, sans-serif" }}
           >
+            <b>{offer.BOOK}</b>
+          </p>
+          <p
+            className={styles.offerInfo}
+            style={{ fontFamily: "Georgia, sans-serif" }}
+          >
             {offer.MESSAGE}
           </p>
           {/* <p
@@ -128,12 +156,15 @@ export default function MyOffer({ offer, onStatusChange, onOfferAccepted }) {
             className={styles.offerInfo}
             style={{ fontFamily: "Georgia, sans-serif" }}
           >
-            <b>Time:</b> {offer.TIME}
+            <b>Offered at: </b>
+            {t.split('"')[1].split("T")[0]}{" "}
+            {t.split('"')[1].split("T")[1].split(":")[0]}:
+            {t.split('"')[1].split("T")[1].split(":")[1]}
           </p>
           <br />
           <button
             className={styles.acceptButton}
-            onClick={deleteOffer}
+            onClick={helper}
             style={{ fontFamily: "Georgia, sans-serif" }}
           >
             Delete offer
@@ -158,6 +189,7 @@ export default function MyOffer({ offer, onStatusChange, onOfferAccepted }) {
       {showAlert && (
         <CustomAlert message={alertMessage} onClose={handleCloseAlert} />
       )}
+      {showYesNo && <YesNoAlert message={yesNoMessage} onYes={yes} onNo={no} />}
     </>
   );
 }

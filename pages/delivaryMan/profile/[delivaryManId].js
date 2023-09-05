@@ -34,7 +34,7 @@ export default function MyProfile() {
         `/api/delivaryMan/profile?term=${delivaryManId}`
       );
       const data = await response.json();
-    //   console.log(response);
+      //   console.log(response);
       setProfile({
         email: data[0].EMAILID,
         pass: data[0].PASSWORD,
@@ -45,6 +45,8 @@ export default function MyProfile() {
         contactno1: data[0].CONTACTNO1,
         contactno2: data[0].CONTACTNO2,
         pass: data[0].PASS,
+        lat: data[0].LATITUDE,
+        lon: data[0].LONGITUDE,
       });
     } catch (error) {
       console.error("Error searching:", error);

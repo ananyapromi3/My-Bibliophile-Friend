@@ -15,7 +15,7 @@ export default function DelivaryOffer({
   const distance = offer.DISTANCE;
   const delId = router.query.delivaryManId;
   const [offerStatus, setOfferStatus] = useState(1);
-  const fee = (distance * 100).toFixed(2);
+  const fee = (distance * 20).toFixed(2);
   const [showAlert, setShowAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
   const handleCloseAlert = () => {

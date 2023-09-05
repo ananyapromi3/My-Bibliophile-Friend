@@ -37,7 +37,14 @@ export default function Login() {
       const data = await response.json();
       if (data.success) {
         localStorage.setItem("token", data.token);
-        router.push(`/bookFriend/books/${data.id}`);
+        router.push(`/bookFriend/books/${data.id}`, undefined, {
+          shallow: true,
+        });
+        // window.location.reload();
+        setTimeout(() => {
+          window.location.reload();
+        }, 1000);
+        // router.push(`/bookFriend/books/${data.id}`);
       } else {
         setAlertMessage("Wrong information");
         setShowAlert(true);

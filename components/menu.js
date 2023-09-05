@@ -16,6 +16,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 import logo1 from "../public/pictures/logo_white.png";
 import { useState } from "react";
+import DynamicBackground from "./dynamicBackground";
 
 export default function Menu({ active }) {
   const router = useRouter();

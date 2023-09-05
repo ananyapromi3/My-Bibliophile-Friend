@@ -33,7 +33,12 @@ export default function Login() {
       const data = await response.json();
       if (data.success) {
         localStorage.setItem("token", data.token);
-        router.push(`/delivaryMan/offers/${data.id}`);
+        router.push(`/delivaryMan/offers/${data.id}`, undefined, {
+          shallow: true,
+        });
+        setTimeout(() => {
+          window.location.reload();
+        }, 1000);
       } else {
         setAlertMessage("Wrong information");
         setShowAlert(true);

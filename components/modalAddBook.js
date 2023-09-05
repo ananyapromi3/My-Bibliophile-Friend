@@ -66,6 +66,7 @@ export default function Modal({ children, onClose }) {
       setShowAlert(true);
       onClose();
       router.push(`/bookFriend/books/${userId}`);
+      router.reload();
     } else {
       setAlertMessage("Could not add this book");
       // showToastError("Could not add this book");

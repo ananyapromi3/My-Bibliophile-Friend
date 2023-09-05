@@ -80,6 +80,7 @@ export default function Offers() {
                   offer={offer}
                   onStatusChange={handleStatusChange}
                   onOfferAccepted={handleOfferAccepted}
+                  search={handleSearch}
                 />
               </div>
             );

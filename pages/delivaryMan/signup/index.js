@@ -12,6 +12,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import CustomAlert from "../../../components/alert";
+import { toast } from "react-toastify";
 
 function isPasswordValid(password) {
   const specialCharRegex = /[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]/;
@@ -46,10 +47,10 @@ export default function Login() {
 
   const getLocationJs = () => {
     navigator.geolocation.getCurrentPosition((position) => {
-      console.log(position);
+      // console.log(position);
       const { latitude, longitude } = position.coords;
       setCurrLocationJs({ latitude, longitude });
-      console.log(currLocationJs);
+      // console.log(currLocationJs);
     });
   };
 
@@ -70,6 +71,25 @@ export default function Login() {
   const [alertMessage, setAlertMessage] = useState("");
   const handleCloseAlert = () => {
     setShowAlert(false);
+  };
+
+  const showToast = (msg) => {
+    toast.success(msg, {
+      position: "bottom-right",
+      autoClose: 3000,
+      style: {
+        zIndex: 1000,
+      },
+    });
+  };
+  const showToastErr = (msg) => {
+    toast.error(msg, {
+      position: "bottom-right",
+      autoClose: 3000,
+      style: {
+        zIndex: 1000,
+      },
+    });
   };
   const [confirmPass, setConfirmPass] = useState("");
   const handleClick = async (event) => {
@@ -107,10 +127,10 @@ export default function Login() {
         },
       });
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
       if (data.msg1 == "SUCCESSFUL") {
         setAlertMessage("Account Created");
-        setShowAlert(true);
+        showToast("Account Created Successfully");
         router.push(`/delivaryMan/login`);
       } else if (data.msg1 == "DUPLICATE") {
         setAlertMessage("You already have an account");

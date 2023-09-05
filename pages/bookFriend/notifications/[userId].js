@@ -18,6 +18,7 @@ export default function Notifications1() {
   useEffect(() => {
     handleSearch();
   }, []);
+  
   const handleSearch = async () => {
     try {
       const response = await fetch(`/api/notifications?term=${userId}`);
@@ -71,7 +72,7 @@ export default function Notifications1() {
             className={styles.offerTitle}
             style={{ fontFamily: "Georgia, sans-serif" }}
           >
-            No offer available right now...
+            No request available right now...
           </h1>
         )}
         <br />

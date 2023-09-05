@@ -5,7 +5,7 @@ export default async function handler(req, res) {
   const x = req.query.term;
   console.log(x);
   const response = await runQueryWithBinds(
-    `SELECT EMAILID, 
+    `SELECT EMAILID, LATITUDE, LONGITUDE,
     UTL_RAW.CAST_TO_varchar2(DBMS_CRYPTO.decrypt(PASSWORD, 4353, 
       UTL_RAW.CAST_TO_RAW ('MyBibliophileFriend'))) PASS,
     FIRSTNAME, LASTNAME, DATEOFBIRTH, GENDER, CONTACTNO1, CONTACTNO2

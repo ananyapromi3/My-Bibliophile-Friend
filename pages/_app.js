@@ -54,10 +54,10 @@ import "react-toastify/dist/ReactToastify.css";
 export default function App({ Component, pageProps }) {
   const [user, setUser] = useState(null);
   return (
-    <div className="darkContainer">
+    <>
       <ToastContainer />
       {/* <h1 className="dark-text">MY BIBLIOPHILE FRIEND</h1> */}
       <Component {...pageProps} />
-    </div>
+    </>
   );
 }

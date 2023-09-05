@@ -10,5 +10,5 @@ export default async function handler(req, res) {
     WHERE EMAILID=GET_EMAIL_FROM_BOOKFRIENDID(:id)`,
     { id: x }
   );
-  res.json(response.rows);
+  res.json(response);
 }

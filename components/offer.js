@@ -6,7 +6,12 @@ import ImageGallery from "./imageGallery";
 import CustomAlert from "./alert";
 import { toast } from "react-toastify";
 
-export default function Offer({ offer, onStatusChange, onOfferAccepted }) {
+export default function Offer({
+  offer,
+  onStatusChange,
+  onOfferAccepted,
+  search,
+}) {
   const router = useRouter();
   const offerId = offer.OFFERID;
   const userId = router.query.userId;
@@ -29,6 +34,7 @@ export default function Offer({ offer, onStatusChange, onOfferAccepted }) {
       },
     });
     const data = await response.json();
+    search();
     if (data.msg == "NOTIFICATION1 SENT") {
       showToast("Successfully accepted this offer");
       setAlertMessage("Offer accepted");
@@ -96,6 +102,11 @@ export default function Offer({ offer, onStatusChange, onOfferAccepted }) {
     thumbnail: photo,
     originalClass: styles.zoomableImage,
   }));
+  let t = new Date(offer.TIME);
+  // t = t.toISOString();
+  // console.log(typeof t);
+  t = JSON.stringify(t);
+  console.log(t);
 
   return (
     <>
@@ -115,6 +126,12 @@ export default function Offer({ offer, onStatusChange, onOfferAccepted }) {
             className={styles.offerInfo}
             style={{ fontFamily: "Georgia, sans-serif" }}
           >
+            <b>{offer.BOOK}</b>
+          </p>
+          <p
+            className={styles.offerInfo}
+            style={{ fontFamily: "Georgia, sans-serif" }}
+          >
             {offer.MESSAGE}
           </p>
           <p
@@ -127,7 +144,14 @@ export default function Offer({ offer, onStatusChange, onOfferAccepted }) {
             className={styles.offerInfo}
             style={{ fontFamily: "Georgia, sans-serif" }}
           >
-            <b>Time:</b> {offer.TIME}
+            <b>Offered at: </b>
+            {t.split('"')[1].split("T")[0]}{" "}
+            {t.split('"')[1].split("T")[1].split(":")[0]}:
+            {t.split('"')[1].split("T")[1].split(":")[1]}
+            {/* {Date(offer.TIME).split(" ")[2]}-
+            {Date(offer.TIME).split(" ")[1]}-{Date(offer.TIME).split(" ")[3]}{" "}
+            {Date(offer.TIME).split(" ")[4].split(":")[0]}:
+            {Date(offer.TIME).split(" ")[4].split(":")[1]} */}
           </p>
           <p
             className={styles.offerInfo}

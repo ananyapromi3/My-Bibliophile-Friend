@@ -5,7 +5,13 @@ import { useEffect } from "react";
 import React from "react";
 import styles from "../styles/bookFilter.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlay, faStop, faUndo } from "@fortawesome/free-solid-svg-icons";
+import {
+  faMicrophone,
+  faPlay,
+  faPlus,
+  faStop,
+  faUndo,
+} from "@fortawesome/free-solid-svg-icons";
 import Modal from "../components/modalAddBook";
 
 import SpeechRecognition, {
@@ -45,7 +51,8 @@ export default function BookFilters({
         </button>
         <button className={styles.filterButton} onClick={resetTranscript}>
           <FontAwesomeIcon icon={faUndo} />
-        </button>
+        </button>{" "}
+        <FontAwesomeIcon className={styles.mic} icon={faMicrophone} />
         <input
           type="text"
           placeholder="Voice search by title..."
@@ -111,7 +118,7 @@ export default function BookFilters({
           className={styles.detailsButton}
           onClick={openModal}
         >
-          Add Book
+          <FontAwesomeIcon icon={faPlus} /> <b> Add Book</b>
         </button>
         {isModalOpen && <Modal onClose={closeModal}></Modal>}
       </div>

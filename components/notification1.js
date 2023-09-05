@@ -66,6 +66,11 @@ export default function Notification1({ notification1, search }) {
       const data = await response.json();
       // setSearchResults(data);
       console.log(data);
+      search();
+      const r = await fetch(`/api/notifications?term=${userId}`);
+      const d = await r.json();
+      console.log(d);
+      localStorage.setItem("notificationCount", d.length);
       if (data.msg == "DECLINED") {
         showToast("Offer declined successfully");
         setNotiStatus(0);
@@ -99,25 +104,26 @@ export default function Notification1({ notification1, search }) {
             style={{ fontFamily: "Georgia, sans-serif" }}
             className={styles.offerInfo}
           >
-            <b>{notification1.NAMEWHOREQUESTED}</b> has requested to accept you
+            <b>{notification1.NAMEWHOREQUESTED}</b> has requested to accept your
             offer for exchanging <b>{notification1.TITLE}</b>
           </p>
           <br />
-          <button
+          <div>
+          <button 
             onClick={openModal}
             className={styles.acceptButton}
             style={{ fontFamily: "Georgia, sans-serif" }}
           >
             See {fName[0]}'s Offers
           </button>
-          <br />
+          {/* <br /> */}
           <button
             onClick={decline}
             className={styles.acceptButton}
             style={{ fontFamily: "Georgia, sans-serif" }}
           >
             Decline request
-          </button>
+          </button></div>
         </div>
       ) : (
         <></>

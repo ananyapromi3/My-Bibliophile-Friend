@@ -17,8 +17,8 @@ export default function Profile({ profile }) {
   //   console.log(profile);
   const showToast = (msg) => {
     toast.success(msg, {
-      position: "bottom-right", 
-      autoClose: 3000, 
+      position: "bottom-right",
+      autoClose: 3000,
       style: {
         zIndex: 1000,
       },
@@ -80,10 +80,11 @@ export default function Profile({ profile }) {
     // const data = await response;
     console.log(response);
     // setAlertMessage("Account Updated");
-    showToast("Account updated successfully!");
+    showToast("Account and location updated successfully!");
     // setShowAlert(true);
-    router.push(`/bookFriend/profile/${userId}`);
+    // router.push(`/bookFriend/profile/${userId}`);
     // window.location.reload();
+    // router.reload();
   };
   const [showAlert, setShowAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
@@ -151,6 +152,7 @@ export default function Profile({ profile }) {
               style={{ fontFamily: "Georgia, sans-serif" }}
               className={styles.input}
               type="text"
+              required
               // disabled
               placeholder={profile.firstname}
               onChange={(e) =>
@@ -185,6 +187,7 @@ export default function Profile({ profile }) {
               Last Name:
             </p>
             <input
+              required
               style={{ fontFamily: "Georgia, sans-serif" }}
               className={styles.input}
               type="text"
@@ -400,7 +403,7 @@ export default function Profile({ profile }) {
               style={{ fontFamily: "Georgia, sans-serif" }}
               className={styles.input}
               type="text"
-              value={currLocationJs.latitude}
+              value={profile.lat}
               disabled
               //   onChange={(e) => setFirstName(e.target.value)}
             />
@@ -419,7 +422,7 @@ export default function Profile({ profile }) {
               style={{ fontFamily: "Georgia, sans-serif" }}
               className={styles.input}
               type="text"
-              value={currLocationJs.longitude}
+              value={profile.lon}
               disabled
               //   onChange={(e) => setFirstName(e.target.value)}
             />

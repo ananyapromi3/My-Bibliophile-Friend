@@ -141,7 +141,7 @@ export default function ChangePasswordModal({ isOpen, onClose, email }) {
             placeholder="Current Password"
             className={styles.passwordInput}
             style={{ fontFamily: "Georgia, sans-serif" }}
-            type="password"
+            type={showPassword ? "text" : "password"}
             value={currentPassword}
             onChange={(e) => setCurrentPassword(e.target.value)}
           />
@@ -164,7 +164,7 @@ export default function ChangePasswordModal({ isOpen, onClose, email }) {
             placeholder="New Password"
             className={styles.passwordInput}
             style={{ fontFamily: "Georgia, sans-serif" }}
-            type="password"
+            type={showPassword ? "text" : "password"}
             value={newPassword}
             onChange={(e) => setNewPassword(e.target.value)}
           />
@@ -187,7 +187,7 @@ export default function ChangePasswordModal({ isOpen, onClose, email }) {
             placeholder="Confirm Password"
             className={styles.passwordInput}
             style={{ fontFamily: "Georgia, sans-serif" }}
-            type="password"
+            type={showPassword ? "text" : "password"}
             value={confirmNewPassword}
             onChange={(e) => setConfirmNewPassword(e.target.value)}
           />
