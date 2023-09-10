@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import styles from "../styles/styles.module.css"; // Import the CSS module
+import styles from "../styles/styles.module.css"; 
 import dynamic from "next/dynamic";
 import DynamicBackground from "../components/dynamicBackground";
 import { useState, useEffect } from "react";

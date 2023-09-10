@@ -1,0 +1,66 @@
+/*
+ Navicat Premium Data Transfer
+
+ Source Server         : Project
+ Source Server Type    : Oracle
+ Source Server Version : 190000 (Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production)
+ Source Host           : 0.0.0.0:1521
+ Source Schema         : PROJECT
+
+ Target Server Type    : Oracle
+ Target Server Version : 190000 (Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production)
+ File Encoding         : 65001
+
+ Date: 10/09/2023 23:41:51
+*/
+
+
+-- ----------------------------
+-- Table structure for BOOK
+-- ----------------------------
+DROP TABLE "PROJECT"."BOOK";
+
+CREATE TABLE "PROJECT"."BOOK" (
+  "ISBN" VARCHAR2(50 BYTE) VISIBLE NOT NULL,
+  "TITLE" VARCHAR2(500 BYTE) VISIBLE NOT NULL,
+  "PAGECOUNT" NUMBER(5, 0) VISIBLE,
+  "LANGUAGE" VARCHAR2(20 BYTE) VISIBLE NOT NULL,
+  "PUBLISHYEAR" NUMBER(4, 0) VISIBLE,
+  "PRICE" NUMBER(5, 2) VISIBLE,
+  "COVERPHOTO" VARCHAR2(500 BYTE) VISIBLE,
+  "PUBLISHERNAME" VARCHAR2(100 BYTE) VISIBLE,
+  "SUMMARY" VARCHAR2(3500 BYTE) VISIBLE,
+  "GENRE" VARCHAR2(100 BYTE) VISIBLE
+) LOGGING NOCOMPRESS PCTFREE 10 INITRANS 1 STORAGE (
+  INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645 BUFFER_POOL DEFAULT
+) PARALLEL 1 NOCACHE DISABLE ROW MOVEMENT;
+
+-- ----------------------------
+-- Primary Key structure for table BOOK
+-- ----------------------------
+ALTER TABLE "PROJECT"."BOOK" ADD CONSTRAINT "SYS_C008116" PRIMARY KEY ("ISBN");
+
+-- ----------------------------
+-- Checks structure for table BOOK
+-- ----------------------------
+ALTER TABLE "PROJECT"."BOOK" ADD CONSTRAINT "SYS_C008112" CHECK ("ISBN" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+
+ALTER TABLE "PROJECT"."BOOK" ADD CONSTRAINT "SYS_C008113" CHECK ("TITLE" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+
+ALTER TABLE "PROJECT"."BOOK" ADD CONSTRAINT "SYS_C008114" CHECK ("LANGUAGE" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+
+-- ----------------------------
+-- Triggers structure for table BOOK
+-- ----------------------------
+CREATE TRIGGER "PROJECT"."INITCAP_LAN" BEFORE
+  INSERT ON "PROJECT"."BOOK" REFERENCING OLD AS "OLD" NEW AS "NEW" FOR EACH ROW
+DECLARE
+BEGIN
+  :NEW.LANGUAGE := INITCAP(:NEW.LANGUAGE);
+END;
+/
+
+-- ----------------------------
+-- Foreign Keys structure for table BOOK
+-- ----------------------------
+ALTER TABLE "PROJECT"."BOOK" ADD CONSTRAINT "SYS_C008117" FOREIGN KEY ("PUBLISHERNAME") REFERENCES "PROJECT"."PUBLISHER" ("NAME") ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;

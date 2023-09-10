@@ -41,18 +41,18 @@
             "IOTName": "",
             "IOTType": "",
             "isBackedUp": false,
-            "numRows": 61,
+            "numRows": 65,
             "blocks": 5,
             "emptyBlocks": 0,
             "avgSpace": 0,
             "chainCnt": 0,
-            "avgRowLen": 24,
+            "avgRowLen": 23,
             "avgSpaceFreelistBlocks": 0,
             "numFreelistBlocks": 0,
             "instances": 1,
             "hasTableLock": true,
-            "sampleSize": 61,
-            "lastAnalyzeTime": "2023-08-26 11:06:29",
+            "sampleSize": 65,
+            "lastAnalyzeTime": "2023-09-10 20:33:30",
             "isPartitioned": false,
             "isTemporary": false,
             "isSecondary": false,
@@ -286,18 +286,18 @@
             "IOTName": "",
             "IOTType": "",
             "isBackedUp": false,
-            "numRows": 299,
+            "numRows": 308,
             "blocks": 20,
             "emptyBlocks": 0,
             "avgSpace": 0,
             "chainCnt": 0,
-            "avgRowLen": 362,
+            "avgRowLen": 396,
             "avgSpaceFreelistBlocks": 0,
             "numFreelistBlocks": 0,
             "instances": 1,
             "hasTableLock": true,
-            "sampleSize": 299,
-            "lastAnalyzeTime": "2023-08-26 11:06:32",
+            "sampleSize": 308,
+            "lastAnalyzeTime": "2023-09-10 20:33:30",
             "isPartitioned": false,
             "isTemporary": false,
             "isSecondary": false,
@@ -705,18 +705,18 @@
             "IOTName": "",
             "IOTType": "",
             "isBackedUp": false,
-            "numRows": 5,
+            "numRows": 6,
             "blocks": 5,
             "emptyBlocks": 0,
             "avgSpace": 0,
             "chainCnt": 0,
-            "avgRowLen": 19,
+            "avgRowLen": 20,
             "avgSpaceFreelistBlocks": 0,
             "numFreelistBlocks": 0,
             "instances": 1,
             "hasTableLock": true,
-            "sampleSize": 5,
-            "lastAnalyzeTime": "2023-09-04 04:15:49",
+            "sampleSize": 6,
+            "lastAnalyzeTime": "2023-09-10 20:33:29",
             "isPartitioned": false,
             "isTemporary": false,
             "isSecondary": false,
@@ -941,7 +941,7 @@
             "IOTName": "",
             "IOTType": "",
             "isBackedUp": false,
-            "numRows": 2,
+            "numRows": 3,
             "blocks": 5,
             "emptyBlocks": 0,
             "avgSpace": 0,
@@ -951,8 +951,8 @@
             "numFreelistBlocks": 0,
             "instances": 1,
             "hasTableLock": true,
-            "sampleSize": 2,
-            "lastAnalyzeTime": "2023-09-02 11:08:43",
+            "sampleSize": 3,
+            "lastAnalyzeTime": "2023-09-10 20:33:27",
             "isPartitioned": false,
             "isTemporary": false,
             "isSecondary": false,
@@ -1182,13 +1182,13 @@
             "emptyBlocks": 0,
             "avgSpace": 0,
             "chainCnt": 0,
-            "avgRowLen": 19,
+            "avgRowLen": 22,
             "avgSpaceFreelistBlocks": 0,
             "numFreelistBlocks": 0,
             "instances": 1,
             "hasTableLock": true,
             "sampleSize": 6,
-            "lastAnalyzeTime": "2023-09-04 00:14:56",
+            "lastAnalyzeTime": "2023-09-10 20:33:29",
             "isPartitioned": false,
             "isTemporary": false,
             "isSecondary": false,
@@ -1369,7 +1369,7 @@
                 "referencingNew": "NEW",
                 "forEach": "Row",
                 "condition": "",
-                "definition": "DECLARE \r\nEMAIL1 VARCHAR2(100);\r\nEMAIL2 VARCHAR2(100);\r\nNAME1 VARCHAR2(500);\r\nFEE NUMBER;\r\nOFFER1 NUMBER;\r\nOFFER2 NUMBER;\r\nBEGIN\r\n    FEE := ROUND(:NEW.FEE/2, 2);\r\n\t\tSELECT OFFERID1 INTO OFFER1 FROM EXCHANGEOFFER WHERE EXCHANGEID=:NEW.EXCHANGEID;\r\n\t\tSELECT OFFERID2 INTO OFFER2 FROM EXCHANGEOFFER WHERE EXCHANGEID=:NEW.EXCHANGEID; \r\n    EMAIL1 := GET_EMAIL_FROM_OFFERID(OFFER1);\r\n\t\tEMAIL2 := GET_EMAIL_FROM_OFFERID(OFFER2);\r\n    NAME1 := GET_NAME_FROM_EMAILID(GET_EMAIL_FROM_DELIVARYMANID(:NEW.DELIVARYMANID));\r\n    INSERT INTO NOTI VALUES (\r\n        'Delivery man '\r\n        ||NAME1\r\n        ||' has accepted your order #BIB'\r\n        ||:NEW.EXCHANGEID\r\n        ||'. Delivery charge: '\r\n        ||FEE\r\n        ||'tk',\r\n        SYSDATE,\r\n        EMAIL1,\r\n        'UNREAD'\r\n    );\r\n\t\tINSERT INTO NOTI VALUES (\r\n        'Delivery man '\r\n        ||NAME1\r\n        ||' has accepted your order #BIB'\r\n        ||:NEW.EXCHANGEID\r\n        ||'. Delivery charge: '\r\n        ||FEE\r\n        ||'tk',\r\n        SYSDATE,\r\n        EMAIL2,\r\n        'UNREAD'\r\n    );\r\nEND;",
+                "definition": "DECLARE \r\nEMAIL1 VARCHAR2(100);\r\nEMAIL2 VARCHAR2(100);\r\nNAME1 VARCHAR2(500);\r\nFEE NUMBER;\r\nOFFER1 NUMBER;\r\nOFFER2 NUMBER;\r\nBEGIN\r\n    FEE := ROUND(:NEW.FEE/2, 2);\r\n\t\tSELECT OFFERID1 INTO OFFER1 FROM EXCHANGEOFFER WHERE EXCHANGEID=:NEW.EXCHANGEID;\r\n\t\tSELECT OFFERID2 INTO OFFER2 FROM EXCHANGEOFFER WHERE EXCHANGEID=:NEW.EXCHANGEID; \r\n    EMAIL1 := GET_EMAIL_FROM_OFFERID(OFFER1);\r\n\t\tEMAIL2 := GET_EMAIL_FROM_OFFERID(OFFER2);\r\n    NAME1 := GET_NAME_FROM_EMAILID(GET_EMAIL_FROM_DELIVARYMANID(:NEW.DELIVARYMANID));\r\n    INSERT INTO NOTI VALUES (\r\n        'Delivery man '\r\n        ||NAME1\r\n        ||' has accepted your order #BIB'\r\n        ||:NEW.EXCHANGEID\r\n        ||'. Delivery charge: '\r\n        ||FEE\r\n        ||'tk',\r\n        SYSDATE,\r\n        EMAIL1,\r\n        'UNREAD',\r\n\t\t\t\tGET_NEXT_NOTIID()\r\n    );\r\n\t\tINSERT INTO NOTI VALUES (\r\n        'Delivery man '\r\n        ||NAME1\r\n        ||' has accepted your order #BIB'\r\n        ||:NEW.EXCHANGEID\r\n        ||'. Delivery charge: '\r\n        ||FEE\r\n        ||'tk',\r\n        SYSDATE,\r\n        EMAIL2,\r\n        'UNREAD',\r\n\t\t\t\tGET_NEXT_NOTIID()\r\n    );\r\nEND;",
                 "isCompound": false,
                 "ordering": "None",
                 "isEnable": true,
@@ -1404,7 +1404,7 @@
                 "referencingNew": "NEW",
                 "forEach": "Row",
                 "condition": "NEW.STATUS='Delivered'",
-                "definition": "DECLARE \r\nEMAIL1 VARCHAR2(100);\r\nEMAIL2 VARCHAR2(100);\r\nNAME1 VARCHAR2(500);\r\nFEE NUMBER;\r\nOFFER1 NUMBER;\r\nOFFER2 NUMBER;\r\nBEGIN\r\n    FEE := ROUND(:NEW.FEE/2, 2);\r\n    SELECT\r\n        OFFERID1 INTO OFFER1\r\n    FROM\r\n        EXCHANGEOFFER\r\n    WHERE\r\n        EXCHANGEID=:NEW.EXCHANGEID;\r\n    SELECT\r\n        OFFERID2 INTO OFFER2\r\n    FROM\r\n        EXCHANGEOFFER\r\n    WHERE\r\n        EXCHANGEID=:NEW.EXCHANGEID;\r\n    EMAIL1 := GET_EMAIL_FROM_OFFERID(OFFER1);\r\n    EMAIL2 := GET_EMAIL_FROM_OFFERID(OFFER2);\r\n    NAME1 := GET_NAME_FROM_EMAILID(GET_EMAIL_FROM_DELIVARYMANID(:NEW.DELIVARYMANID));\r\n    INSERT INTO NOTI VALUES (\r\n        'Delivery man '\r\n        ||NAME1\r\n        ||' has completed your order #BIB'\r\n        ||:NEW.EXCHANGEID,\r\n        SYSDATE,\r\n        EMAIL1,\r\n        'UNREAD'\r\n    );\r\n    INSERT INTO NOTI VALUES (\r\n        'Delivery man '\r\n        ||NAME1\r\n        ||' has completed your order #BIB'\r\n        ||:NEW.EXCHANGEID,\r\n        SYSDATE,\r\n        EMAIL2,\r\n        'UNREAD'\r\n    );\r\nEND;",
+                "definition": "DECLARE \r\nEMAIL1 VARCHAR2(100);\r\nEMAIL2 VARCHAR2(100);\r\nNAME1 VARCHAR2(500);\r\nFEE NUMBER;\r\nOFFER1 NUMBER;\r\nOFFER2 NUMBER;\r\nBEGIN\r\n    FEE := ROUND(:NEW.FEE/2, 2);\r\n    SELECT\r\n        OFFERID1 INTO OFFER1\r\n    FROM\r\n        EXCHANGEOFFER\r\n    WHERE\r\n        EXCHANGEID=:NEW.EXCHANGEID;\r\n    SELECT\r\n        OFFERID2 INTO OFFER2\r\n    FROM\r\n        EXCHANGEOFFER\r\n    WHERE\r\n        EXCHANGEID=:NEW.EXCHANGEID;\r\n    EMAIL1 := GET_EMAIL_FROM_OFFERID(OFFER1);\r\n    EMAIL2 := GET_EMAIL_FROM_OFFERID(OFFER2);\r\n    NAME1 := GET_NAME_FROM_EMAILID(GET_EMAIL_FROM_DELIVARYMANID(:NEW.DELIVARYMANID));\r\n    INSERT INTO NOTI VALUES (\r\n        'Delivery man '\r\n        ||NAME1\r\n        ||' has completed your order #BIB'\r\n        ||:NEW.EXCHANGEID,\r\n        SYSDATE,\r\n        EMAIL1,\r\n        'UNREAD',\r\n\t\t\t\tGET_NEXT_NOTIID()\r\n    );\r\n    INSERT INTO NOTI VALUES (\r\n        'Delivery man '\r\n        ||NAME1\r\n        ||' has completed your order #BIB'\r\n        ||:NEW.EXCHANGEID,\r\n        SYSDATE,\r\n        EMAIL2,\r\n        'UNREAD',\r\n\t\t\t\tGET_NEXT_NOTIID()\r\n    );\r\nEND;",
                 "isCompound": false,
                 "ordering": "None",
                 "isEnable": true,
@@ -1420,7 +1420,7 @@
                 "ddlEvents": [],
                 "databaseEvents": [],
                 "actionType": "PL/SQL",
-                "description": "CREATE_NOTI_FOR_DELIVERY_COMP \r\nAFTER UPDATE \r\nOF STATUS\r\nON DELIVARYOFFER \r\nFOR EACH ROW \r\n",
+                "description": "\"PROJECT\".\"CREATE_NOTI_FOR_DELIVERY_COMP\" AFTER UPDATE OF \"STATUS\" ON \"PROJECT\".\"DELIVARYOFFER\" REFERENCING OLD AS \"OLD\" NEW AS \"NEW\" FOR EACH ROW ",
                 "edition": "None",
                 "orderingReferences": []
               }
@@ -1505,18 +1505,18 @@
             "IOTName": "",
             "IOTType": "",
             "isBackedUp": false,
-            "numRows": 20,
+            "numRows": 11,
             "blocks": 5,
             "emptyBlocks": 0,
             "avgSpace": 0,
             "chainCnt": 0,
-            "avgRowLen": 14,
+            "avgRowLen": 18,
             "avgSpaceFreelistBlocks": 0,
             "numFreelistBlocks": 0,
             "instances": 1,
             "hasTableLock": true,
-            "sampleSize": 20,
-            "lastAnalyzeTime": "2023-09-04 00:14:57",
+            "sampleSize": 11,
+            "lastAnalyzeTime": "2023-09-10 20:33:29",
             "isPartitioned": false,
             "isTemporary": false,
             "isSecondary": false,
@@ -1709,7 +1709,7 @@
                 "referencingNew": "NEW",
                 "forEach": "Row",
                 "condition": "",
-                "definition": "DECLARE\r\n\tEMAIL1 VARCHAR2(100);\r\n\tEMAIL2 VARCHAR2(100);\r\n\tNAME1 VARCHAR2(100);\r\n\tNAME2 VARCHAR2(100);\r\n\tBOOK1 VARCHAR2(500);\r\n\tBOOK2 VARCHAR2(500);\r\nBEGIN\r\n\tEMAIL1 := GET_EMAIL_FROM_OFFERID(:NEW.OFFERID1);\r\n\tEMAIL2 := GET_EMAIL_FROM_OFFERID(:NEW.OFFERID2);\r\n\tBOOK1 := GET_BOOK_NAME_FROM_OFFERID(:NEW.OFFERID1);\r\n\tBOOK2 := GET_BOOK_NAME_FROM_OFFERID(:NEW.OFFERID2);\r\n\tNAME1 := GET_NAME_FROM_EMAILID(EMAIL1);\r\n\tNAME2 := GET_NAME_FROM_EMAILID(EMAIL2);\r\n\tINSERT INTO NOTI VALUES (NAME2||' will exchage '||BOOK2||' with your '||BOOK1||'. Order ID: #BIB'||:NEW.EXCHANGEID, SYSDATE, EMAIL1, 'UNREAD');\r\n\tINSERT INTO NOTI VALUES (NAME1||' will exchage '||BOOK1||' with your '||BOOK2||'. Order ID: #BIB'||:NEW.EXCHANGEID, SYSDATE, EMAIL2, 'UNREAD');\r\nEND;",
+                "definition": "DECLARE\r\n\tEMAIL1 VARCHAR2(100);\r\n\tEMAIL2 VARCHAR2(100);\r\n\tNAME1 VARCHAR2(100);\r\n\tNAME2 VARCHAR2(100);\r\n\tBOOK1 VARCHAR2(500);\r\n\tBOOK2 VARCHAR2(500);\r\nBEGIN\r\n\tEMAIL1 := GET_EMAIL_FROM_OFFERID(:NEW.OFFERID1);\r\n\tEMAIL2 := GET_EMAIL_FROM_OFFERID(:NEW.OFFERID2);\r\n\tBOOK1 := GET_BOOK_NAME_FROM_OFFERID(:NEW.OFFERID1);\r\n\tBOOK2 := GET_BOOK_NAME_FROM_OFFERID(:NEW.OFFERID2);\r\n\tNAME1 := GET_NAME_FROM_EMAILID(EMAIL1);\r\n\tNAME2 := GET_NAME_FROM_EMAILID(EMAIL2);\r\n\tINSERT INTO NOTI VALUES (NAME2||' will exchage '||BOOK2||' with your '||BOOK1||'. Order ID: #BIB'||:NEW.EXCHANGEID, SYSDATE, EMAIL1, 'UNREAD', GET_NEXT_NOTIID());\r\n\tINSERT INTO NOTI VALUES (NAME1||' will exchage '||BOOK1||' with your '||BOOK2||'. Order ID: #BIB'||:NEW.EXCHANGEID, SYSDATE, EMAIL2, 'UNREAD', GET_NEXT_NOTIID());\r\nEND;",
                 "isCompound": false,
                 "ordering": "None",
                 "isEnable": true,
@@ -1810,18 +1810,18 @@
             "IOTName": "",
             "IOTType": "",
             "isBackedUp": false,
-            "numRows": 22,
+            "numRows": 69,
             "blocks": 5,
             "emptyBlocks": 0,
             "avgSpace": 0,
             "chainCnt": 0,
-            "avgRowLen": 95,
+            "avgRowLen": 121,
             "avgSpaceFreelistBlocks": 0,
             "numFreelistBlocks": 0,
             "instances": 1,
             "hasTableLock": true,
-            "sampleSize": 22,
-            "lastAnalyzeTime": "2023-09-04 04:15:49",
+            "sampleSize": 69,
+            "lastAnalyzeTime": "2023-09-10 20:33:26",
             "isPartitioned": false,
             "isTemporary": false,
             "isSecondary": false,
@@ -1929,9 +1929,36 @@
                 "dayPrecision": 0,
                 "fractionalSecondsPrecision": 0,
                 "isInvisible": "No"
+              },
+              {
+                "objectType": "TableField_ORA",
+                "name": "NOTIID",
+                "type": "NUMBER",
+                "size": 0,
+                "scale": 0,
+                "isNullable": false,
+                "comment": "",
+                "defaultValue": "",
+                "defaultValueType": "None",
+                "unit": "",
+                "schema": "",
+                "userDefinedType": "",
+                "oldName": "NOTIID",
+                "yearPrecision": 0,
+                "dayPrecision": 0,
+                "fractionalSecondsPrecision": 0,
+                "isInvisible": "No"
               }
             ],
             "indexes": [],
+            "primaryKey": {
+              "objectType": "PrimaryKey_ORA",
+              "name": "SYS_C008290",
+              "fields": [
+                "NOTIID"
+              ],
+              "oldName": "SYS_C008290"
+            },
             "foreignKeys": [
               {
                 "objectType": "ForeignKey_ORA",
@@ -2039,18 +2066,18 @@
             "IOTName": "",
             "IOTType": "",
             "isBackedUp": false,
-            "numRows": 29,
+            "numRows": 26,
             "blocks": 5,
             "emptyBlocks": 0,
             "avgSpace": 0,
             "chainCnt": 0,
-            "avgRowLen": 27,
+            "avgRowLen": 29,
             "avgSpaceFreelistBlocks": 0,
             "numFreelistBlocks": 0,
             "instances": 1,
             "hasTableLock": true,
-            "sampleSize": 29,
-            "lastAnalyzeTime": "2023-09-04 00:14:59",
+            "sampleSize": 26,
+            "lastAnalyzeTime": "2023-09-10 20:33:29",
             "isPartitioned": false,
             "isTemporary": false,
             "isSecondary": false,
@@ -2309,7 +2336,7 @@
                 "referencingNew": "NEW",
                 "forEach": "Row",
                 "condition": "",
-                "definition": "DECLARE \r\nBEGIN\r\n\t\tINSERT INTO NOTI VALUES (\r\n        GET_NAME_FROM_EMAILID(GET_EMAIL_FROM_OFFERID(:OLD.OFFERID))\r\n        ||' has declined your request for exchanging '\r\n        ||GET_BOOK_NAME_FROM_OFFERID(:OLD.OFFERID),\r\n        SYSDATE,\r\n        :OLD.EMAILWHOREQUESTED,\r\n        'UNREAD'\r\n    );\r\nEND;",
+                "definition": "DECLARE \r\nBEGIN\r\n\t\tINSERT INTO NOTI VALUES (\r\n        GET_NAME_FROM_EMAILID(GET_EMAIL_FROM_OFFERID(:OLD.OFFERID))\r\n        ||' has declined your request for exchanging '\r\n        ||GET_BOOK_NAME_FROM_OFFERID(:OLD.OFFERID),\r\n        SYSDATE,\r\n        :OLD.EMAILWHOREQUESTED,\r\n        'UNREAD',\r\n\t\t\t\tGET_NEXT_NOTIID()\r\n    );\r\nEND;",
                 "isCompound": false,
                 "ordering": "None",
                 "isEnable": true,
@@ -2325,7 +2352,7 @@
                 "ddlEvents": [],
                 "databaseEvents": [],
                 "actionType": "PL/SQL",
-                "description": "DECLINE_OFFER_NOTI AFTER\r\nDELETE ON NOTIFICATION1 FOR EACH ROW \r\n",
+                "description": "\"PROJECT\".\"DECLINE_OFFER_NOTI\" AFTER DELETE ON \"PROJECT\".\"NOTIFICATION1\" REFERENCING OLD AS \"OLD\" NEW AS \"NEW\" FOR EACH ROW \r\n",
                 "edition": "None",
                 "orderingReferences": []
               },
@@ -2342,7 +2369,7 @@
                 "referencingNew": "NEW",
                 "forEach": "Row",
                 "condition": "",
-                "definition": "DECLARE EMAIL1 VARCHAR2(\r\n    100\r\n);\r\nNAME2 VARCHAR2(100);\r\nBOOK1 VARCHAR2(500);\r\nBEGIN\r\n    EMAIL1 := GET_EMAIL_FROM_OFFERID(:NEW.OFFERID);\r\n    NAME2 := GET_NAME_FROM_EMAILID(:NEW.EMAILWHOREQUESTED);\r\n    BOOK1 := GET_BOOK_NAME_FROM_OFFERID(:NEW.OFFERID);\r\n    INSERT INTO NOTI VALUES (\r\n        NAME2\r\n        ||' wants to accept your offer of exchanging '\r\n        ||BOOK1,\r\n        SYSDATE,\r\n        EMAIL1,\r\n        'UNREAD'\r\n    );\r\nEND;",
+                "definition": "DECLARE EMAIL1 VARCHAR2(\r\n    100\r\n);\r\nNAME2 VARCHAR2(100);\r\nBOOK1 VARCHAR2(500);\r\nBEGIN\r\n    EMAIL1 := GET_EMAIL_FROM_OFFERID(:NEW.OFFERID);\r\n    NAME2 := GET_NAME_FROM_EMAILID(:NEW.EMAILWHOREQUESTED);\r\n    BOOK1 := GET_BOOK_NAME_FROM_OFFERID(:NEW.OFFERID);\r\n    INSERT INTO NOTI VALUES (\r\n        NAME2\r\n        ||' wants to accept your offer of exchanging '\r\n        ||BOOK1,\r\n        SYSDATE,\r\n        EMAIL1,\r\n        'UNREAD',\r\n\t\t\t\tGET_NEXT_NOTIID()\r\n    );\r\nEND;",
                 "isCompound": false,
                 "ordering": "None",
                 "isEnable": true,
@@ -2358,7 +2385,7 @@
                 "ddlEvents": [],
                 "databaseEvents": [],
                 "actionType": "PL/SQL",
-                "description": "OFFER_STATUS_CHANGE AFTER INSERT ON NOTIFICATION1 FOR EACH ROW ",
+                "description": "\"PROJECT\".\"OFFER_STATUS_CHANGE\" AFTER INSERT ON \"PROJECT\".\"NOTIFICATION1\" REFERENCING OLD AS \"OLD\" NEW AS \"NEW\" FOR EACH ROW \r\n",
                 "edition": "None",
                 "orderingReferences": []
               }
@@ -2448,13 +2475,13 @@
             "emptyBlocks": 0,
             "avgSpace": 0,
             "chainCnt": 0,
-            "avgRowLen": 181,
+            "avgRowLen": 250,
             "avgSpaceFreelistBlocks": 0,
             "numFreelistBlocks": 0,
             "instances": 1,
             "hasTableLock": true,
             "sampleSize": 50,
-            "lastAnalyzeTime": "2023-09-02 11:08:43",
+            "lastAnalyzeTime": "2023-09-10 20:33:29",
             "isPartitioned": false,
             "isTemporary": false,
             "isSecondary": false,
@@ -2880,18 +2907,18 @@
             "IOTName": "",
             "IOTType": "",
             "isBackedUp": false,
-            "numRows": 27,
+            "numRows": 34,
             "blocks": 5,
             "emptyBlocks": 0,
             "avgSpace": 0,
             "chainCnt": 0,
-            "avgRowLen": 32,
+            "avgRowLen": 29,
             "avgSpaceFreelistBlocks": 0,
             "numFreelistBlocks": 0,
             "instances": 1,
             "hasTableLock": true,
-            "sampleSize": 27,
-            "lastAnalyzeTime": "2023-08-26 11:06:29",
+            "sampleSize": 34,
+            "lastAnalyzeTime": "2023-09-10 20:33:30",
             "isPartitioned": false,
             "isTemporary": false,
             "isSecondary": false,
@@ -3068,18 +3095,18 @@
             "IOTName": "",
             "IOTType": "",
             "isBackedUp": false,
-            "numRows": 7,
+            "numRows": 9,
             "blocks": 5,
             "emptyBlocks": 0,
             "avgSpace": 0,
             "chainCnt": 0,
-            "avgRowLen": 89,
+            "avgRowLen": 108,
             "avgSpaceFreelistBlocks": 0,
             "numFreelistBlocks": 0,
             "instances": 1,
             "hasTableLock": true,
-            "sampleSize": 7,
-            "lastAnalyzeTime": "2023-09-04 04:15:49",
+            "sampleSize": 9,
+            "lastAnalyzeTime": "2023-09-10 20:33:26",
             "isPartitioned": false,
             "isTemporary": false,
             "isSecondary": false,
@@ -3485,7 +3512,7 @@
             "IOTName": "",
             "IOTType": "",
             "isBackedUp": false,
-            "numRows": 105,
+            "numRows": 114,
             "blocks": 5,
             "emptyBlocks": 0,
             "avgSpace": 0,
@@ -3495,8 +3522,8 @@
             "numFreelistBlocks": 0,
             "instances": 1,
             "hasTableLock": true,
-            "sampleSize": 105,
-            "lastAnalyzeTime": "2023-08-30 12:16:47",
+            "sampleSize": 114,
+            "lastAnalyzeTime": "2023-09-10 20:33:31",
             "isPartitioned": false,
             "isTemporary": false,
             "isSecondary": false,
@@ -3733,8 +3760,8 @@
           "type": "table",
           "schemaName": "PROJECT",
           "tableName": "AUTHOR",
-          "x": 670,
-          "y": 510,
+          "x": 60,
+          "y": 570,
           "width": 228,
           "height": 150,
           "isBold": false,
@@ -3749,8 +3776,8 @@
           "type": "table",
           "schemaName": "PROJECT",
           "tableName": "BOOK",
-          "x": 30,
-          "y": 640,
+          "x": 890,
+          "y": 300,
           "width": 256,
           "height": 250,
           "isBold": false,
@@ -3766,7 +3793,7 @@
           "schemaName": "PROJECT",
           "tableName": "BOOKFRIEND",
           "x": 30,
-          "y": 510,
+          "y": 240,
           "width": 227,
           "height": 90,
           "isBold": false,
@@ -3781,7 +3808,7 @@
           "type": "table",
           "schemaName": "PROJECT",
           "tableName": "DELIVARYMAN",
-          "x": 330,
+          "x": 620,
           "y": 30,
           "width": 236,
           "height": 90,
@@ -3797,8 +3824,8 @@
           "type": "table",
           "schemaName": "PROJECT",
           "tableName": "DELIVARYOFFER",
-          "x": 900,
-          "y": 20,
+          "x": 920,
+          "y": 30,
           "width": 236,
           "height": 130,
           "isBold": false,
@@ -3813,8 +3840,8 @@
           "type": "table",
           "schemaName": "PROJECT",
           "tableName": "EXCHANGEOFFER",
-          "x": 620,
-          "y": 120,
+          "x": 630,
+          "y": 150,
           "width": 216,
           "height": 130,
           "isBold": false,
@@ -3832,7 +3859,7 @@
           "x": 30,
           "y": 30,
           "width": 204,
-          "height": 130,
+          "height": 150,
           "isBold": false,
           "titleColor": {
             "r": 55,
@@ -3845,8 +3872,8 @@
           "type": "table",
           "schemaName": "PROJECT",
           "tableName": "NOTIFICATION1",
-          "x": 860,
-          "y": 260,
+          "x": 30,
+          "y": 410,
           "width": 287,
           "height": 130,
           "isBold": false,
@@ -3861,8 +3888,8 @@
           "type": "table",
           "schemaName": "PROJECT",
           "tableName": "OFFER",
-          "x": 340,
-          "y": 270,
+          "x": 390,
+          "y": 310,
           "width": 310,
           "height": 270,
           "isBold": false,
@@ -3877,8 +3904,8 @@
           "type": "table",
           "schemaName": "PROJECT",
           "tableName": "PUBLISHER",
-          "x": 400,
-          "y": 580,
+          "x": 940,
+          "y": 620,
           "width": 211,
           "height": 90,
           "isBold": false,
@@ -3893,8 +3920,8 @@
           "type": "table",
           "schemaName": "PROJECT",
           "tableName": "USERMAN",
-          "x": 30,
-          "y": 210,
+          "x": 300,
+          "y": 20,
           "width": 234,
           "height": 250,
           "isBold": false,
@@ -3909,8 +3936,8 @@
           "type": "table",
           "schemaName": "PROJECT",
           "tableName": "WRITTENBY",
-          "x": 920,
-          "y": 450,
+          "x": 700,
+          "y": 620,
           "width": 193,
           "height": 90,
           "isBold": false,
@@ -3932,25 +3959,25 @@
           "visible": true,
           "vertices": [
             {
-              "x": 885,
-              "y": 80
+              "x": 905,
+              "y": 70
             },
             {
-              "x": 790,
-              "y": 80
+              "x": 485,
+              "y": 70
             },
             {
-              "x": 790,
-              "y": 80
+              "x": 890,
+              "y": 70
             },
             {
-              "x": 315,
-              "y": 80
+              "x": 871,
+              "y": 70
             }
           ],
           "label": {
-            "x": 901,
-            "y": 67,
+            "x": 921,
+            "y": 57,
             "width": 95,
             "height": 30,
             "fontName": "Arial Unicode MS",
@@ -3974,25 +4001,25 @@
           "visible": true,
           "vertices": [
             {
-              "x": 990,
-              "y": 165
+              "x": 1050,
+              "y": 175
             },
             {
-              "x": 990,
-              "y": 180
+              "x": 1050,
+              "y": 210
             },
             {
-              "x": 990,
-              "y": 200
+              "x": 1010,
+              "y": 210
             },
             {
-              "x": 851,
-              "y": 200
+              "x": 861,
+              "y": 210
             }
           ],
           "label": {
-            "x": 998,
-            "y": 155,
+            "x": 1058,
+            "y": 165,
             "width": 95,
             "height": 30,
             "fontName": "Arial Unicode MS",
@@ -4016,25 +4043,25 @@
           "visible": true,
           "vertices": [
             {
-              "x": 605,
-              "y": 170
+              "x": 750,
+              "y": 295
             },
             {
-              "x": 490,
-              "y": 170
+              "x": 750,
+              "y": 410
             },
             {
-              "x": 490,
-              "y": 170
+              "x": 740,
+              "y": 410
             },
             {
-              "x": 490,
-              "y": 255
+              "x": 715,
+              "y": 410
             }
           ],
           "label": {
-            "x": 621,
-            "y": 172,
+            "x": 758,
+            "y": 285,
             "width": 95,
             "height": 30,
             "fontName": "Arial Unicode MS",
@@ -4058,25 +4085,25 @@
           "visible": true,
           "vertices": [
             {
-              "x": 720,
-              "y": 265
+              "x": 615,
+              "y": 210
             },
             {
-              "x": 720,
-              "y": 290
+              "x": 590,
+              "y": 210
             },
             {
-              "x": 720,
-              "y": 290
+              "x": 590,
+              "y": 240
             },
             {
-              "x": 665,
-              "y": 290
+              "x": 590,
+              "y": 295
             }
           ],
           "label": {
-            "x": 728,
-            "y": 255,
+            "x": 631,
+            "y": 212,
             "width": 95,
             "height": 30,
             "fontName": "Arial Unicode MS",
@@ -4100,25 +4127,25 @@
           "visible": true,
           "vertices": [
             {
-              "x": 845,
-              "y": 330
+              "x": 332,
+              "y": 460
             },
             {
-              "x": 770,
-              "y": 330
+              "x": 350,
+              "y": 460
             },
             {
-              "x": 670,
-              "y": 330
+              "x": 290,
+              "y": 460
             },
             {
-              "x": 665,
-              "y": 330
+              "x": 375,
+              "y": 460
             }
           ],
           "label": {
-            "x": 861,
-            "y": 332,
+            "x": 328,
+            "y": 462,
             "width": 95,
             "height": 30,
             "fontName": "Arial Unicode MS",
@@ -4142,25 +4169,25 @@
           "visible": true,
           "vertices": [
             {
-              "x": 325,
-              "y": 420
+              "x": 375,
+              "y": 370
             },
             {
-              "x": 278,
-              "y": 420
+              "x": 290,
+              "y": 370
             },
             {
-              "x": 278,
-              "y": 560
+              "x": 290,
+              "y": 300
             },
             {
               "x": 272,
-              "y": 560
+              "y": 300
             }
           ],
           "label": {
-            "x": 341,
-            "y": 407,
+            "x": 391,
+            "y": 357,
             "width": 95,
             "height": 30,
             "fontName": "Arial Unicode MS",
@@ -4184,25 +4211,25 @@
           "visible": true,
           "vertices": [
             {
-              "x": 360,
-              "y": 555
+              "x": 715,
+              "y": 480
             },
             {
-              "x": 360,
-              "y": 680
+              "x": 800,
+              "y": 480
             },
             {
-              "x": 160,
-              "y": 680
+              "x": 800,
+              "y": 480
             },
             {
-              "x": 160,
-              "y": 625
+              "x": 875,
+              "y": 480
             }
           ],
           "label": {
-            "x": 368,
-            "y": 545,
+            "x": 711,
+            "y": 482,
             "width": 95,
             "height": 30,
             "fontName": "Arial Unicode MS",
@@ -4226,25 +4253,25 @@
           "visible": true,
           "vertices": [
             {
-              "x": 301,
-              "y": 770
+              "x": 1060,
+              "y": 565
             },
             {
-              "x": 500,
-              "y": 770
+              "x": 1060,
+              "y": 640
             },
             {
-              "x": 500,
-              "y": 770
+              "x": 1060,
+              "y": 510
             },
             {
-              "x": 500,
-              "y": 685
+              "x": 1060,
+              "y": 605
             }
           ],
           "label": {
-            "x": 297,
-            "y": 772,
+            "x": 986,
+            "y": 555,
             "width": 95,
             "height": 30,
             "fontName": "Arial Unicode MS",
@@ -4268,25 +4295,25 @@
           "visible": true,
           "vertices": [
             {
-              "x": 140,
-              "y": 495
+              "x": 120,
+              "y": 225
             },
             {
-              "x": 140,
-              "y": 500
+              "x": 120,
+              "y": 210
             },
             {
-              "x": 140,
-              "y": 500
+              "x": 120,
+              "y": 210
             },
             {
-              "x": 140,
-              "y": 475
+              "x": 285,
+              "y": 210
             }
           ],
           "label": {
-            "x": 148,
-            "y": 505,
+            "x": 128,
+            "y": 235,
             "width": 95,
             "height": 30,
             "fontName": "Arial Unicode MS",
@@ -4310,25 +4337,25 @@
           "visible": true,
           "vertices": [
             {
-              "x": 315,
-              "y": 80
+              "x": 605,
+              "y": 70
             },
             {
-              "x": 312,
-              "y": 80
+              "x": 600,
+              "y": 70
             },
             {
-              "x": 312,
-              "y": 340
+              "x": 554,
+              "y": 70
             },
             {
-              "x": 279,
-              "y": 340
+              "x": 549,
+              "y": 70
             }
           ],
           "label": {
-            "x": 331,
-            "y": 82,
+            "x": 621,
+            "y": 72,
             "width": 95,
             "height": 30,
             "fontName": "Arial Unicode MS",
@@ -4352,17 +4379,25 @@
           "visible": true,
           "vertices": [
             {
-              "x": 140,
-              "y": 175
+              "x": 249,
+              "y": 120
             },
             {
-              "x": 140,
-              "y": 195
+              "x": 324,
+              "y": 120
+            },
+            {
+              "x": 260,
+              "y": 120
+            },
+            {
+              "x": 285,
+              "y": 120
             }
           ],
           "label": {
-            "x": 148,
-            "y": 165,
+            "x": 245,
+            "y": 122,
             "width": 113,
             "height": 30,
             "fontName": "Arial Unicode MS",
@@ -4386,25 +4421,25 @@
           "visible": true,
           "vertices": [
             {
-              "x": 1080,
-              "y": 555
+              "x": 790,
+              "y": 605
             },
             {
-              "x": 1080,
-              "y": 830
+              "x": 790,
+              "y": 530
             },
             {
-              "x": 386,
-              "y": 830
+              "x": 790,
+              "y": 530
             },
             {
-              "x": 301,
-              "y": 830
+              "x": 875,
+              "y": 530
             }
           ],
           "label": {
-            "x": 1085,
-            "y": 545,
+            "x": 798,
+            "y": 615,
             "width": 95,
             "height": 30,
             "fontName": "Arial Unicode MS",
@@ -4428,25 +4463,25 @@
           "visible": true,
           "vertices": [
             {
-              "x": 905,
-              "y": 470
+              "x": 685,
+              "y": 650
             },
             {
-              "x": 720,
-              "y": 470
+              "x": 380,
+              "y": 650
             },
             {
-              "x": 720,
-              "y": 480
+              "x": 370,
+              "y": 650
             },
             {
-              "x": 720,
-              "y": 495
+              "x": 303,
+              "y": 650
             }
           ],
           "label": {
-            "x": 921,
-            "y": 472,
+            "x": 701,
+            "y": 652,
             "width": 95,
             "height": 30,
             "fontName": "Arial Unicode MS",

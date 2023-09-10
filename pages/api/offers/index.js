@@ -17,7 +17,7 @@ export default async function handler(req, res) {
     GET_LONGITUDE_FROM_EMAIL(GET_EMAIL_FROM_BOOKFRIENDID(:id))) DISTANCE
     FROM OFFER WHERE USEREMAILID NOT LIKE GET_EMAIL_FROM_BOOKFRIENDID(:id) 
     AND STATUS = 'offered' 
-    ORDER BY DISTANCE ASC`,
+    ORDER BY DISTANCE ASC, TIME DESC`,
     { id: x }
   );
   res.json(response.rows);

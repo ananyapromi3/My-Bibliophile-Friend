@@ -37,10 +37,24 @@ export default function About() {
           className={styles.sectionContent}
           style={{ fontFamily: "Georgia, sans-serif" }}
         >
+          Supervised by <b>A.K.M. Mehedi Hasan</b>
+          <br />
+          Lecturer, Bangladesh University of Engineering and Technology
+        </p>
+        <p
+          className={styles.sectionContent}
+          style={{ fontFamily: "Georgia, sans-serif" }}
+        >
           This project leverages Oracle SQL, Node.js, JavaScript, and the
           Next.js framework to provide a seamless and robust user experience.
         </p>
         <br />
+        <h4
+          className={styles.sectionContent}
+          style={{ fontFamily: "Georgia, sans-serif" }}
+        >
+          How Bibliophile works...
+        </h4>
         <p
           className={styles.sectionContent}
           style={{ fontFamily: "Georgia, sans-serif" }}
@@ -63,9 +77,49 @@ export default function About() {
           className={styles.sectionContent}
           style={{ fontFamily: "Georgia, sans-serif" }}
         >
-          Join our platform to exchange books and even become a delivery person
-          for fellow readers. Connect, explore, and share your love for books
-          with our vibrant community.
+          Here, we offer you a unique opportunity to take your passion for books
+          a step further by becoming a delivery person in our book exchange
+          community. If you're someone who enjoys the thrill of connecting
+          people with their next great read, you can sign up as a delivery
+          person. As a delivery person, you'll play a vital role in ensuring the
+          smooth exchange of books between fellow readers. Whether it's sharing
+          your favorite titles or helping others discover hidden literary gems,
+          your role as a delivery person adds a personal touch to every book
+          exchange. It's not just about delivering books; it's about fostering a
+          sense of camaraderie within our community.
+        </p>
+        <p
+          className={styles.sectionContent}
+          style={{ fontFamily: "Georgia, sans-serif" }}
+        >
+          So, whether you're here to exchange, explore, or deliver, our platform
+          welcomes book enthusiasts from all walks of life. Join us today and be
+          a part of this exciting literary journey!
+        </p>
+        <br />
+        <h5
+          className={styles.sectionContent}
+          style={{ fontFamily: "Georgia, sans-serif" }}
+        >
+          Project outcomes...
+        </h5>
+        <p
+          className={styles.sectionContent}
+          style={{ fontFamily: "Georgia, sans-serif" }}
+        >
+          The successful culmination of this project has yielded several
+          significant outcomes. Foremost, the platform now offers a seamless and
+          user-centric book exchange experience, facilitating the dissemination
+          of knowledge and literature within the community. The integration of
+          advanced search and filtering functionalities empowers users to
+          effortlessly discover books of interest while establishing connections
+          with specific individuals. Moreover, the adoption of cutting-edge web
+          technologies and frameworks, including Oracle SQL, Node.js,
+          JavaScript, and Next.js, ensures a responsive, secure, and
+          high-performance platform. In sum, this project has delivered a
+          sophisticated and user-friendly environment, fostering meaningful
+          engagement and enabling book enthusiasts to partake in a world of
+          literary possibilities with ease and efficiency.
         </p>
       </div>
 
@@ -87,17 +141,18 @@ export default function About() {
             >
               Ananya Shahrin Promi
             </p>
+
             <p
               className={styles.memberInfo}
               style={{ fontFamily: "Georgia, sans-serif" }}
             >
               <b>ID: </b>2005079
-            </p>
-            <p
-              className={styles.memberInfo}
-              style={{ fontFamily: "Georgia, sans-serif" }}
-            >
+              <br />
+              Undergraduate student
+              <br />
               Level-2 Term-2
+              <br />
+              Bangladesh University of Engineering and Technology
             </p>
           </div>
         </div>
@@ -123,16 +178,17 @@ export default function About() {
               style={{ fontFamily: "Georgia, sans-serif" }}
             >
               <b>ID: </b>2005072
-            </p>
-            <p
-              className={styles.memberInfo}
-              style={{ fontFamily: "Georgia, sans-serif" }}
-            >
+              <br />
+              Undergraduate student
+              <br />
               Level-2 Term-2
+              <br />
+              Bangladesh University of Engineering and Technology
             </p>
           </div>
         </div>
       </div>
+      <br />
     </div>
   );
 }
