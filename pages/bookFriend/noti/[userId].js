@@ -108,7 +108,7 @@ export default function Offers() {
         <div className={styles.offerGrid}>
           {searchResults.map((noti, index) => {
             return (
-              <div className={styles.offerCard}>
+              <div key={noti.NOTIID} className={styles.offerCard}>
                 <Noti noti={noti} />
               </div>
             );
