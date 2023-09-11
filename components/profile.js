@@ -12,18 +12,19 @@ import { useRouter } from "next/router";
 import ChangePasswordModal from "./changePass";
 import CustomAlert from "./alert";
 import { toast } from "react-toastify";
+import YesNoAlert from "./yesNoAlert";
 
 export default function Profile({ profile }) {
   //   console.log(profile);
-  const showToast = (msg) => {
-    toast.success(msg, {
-      position: "bottom-right",
-      autoClose: 3000,
-      style: {
-        zIndex: 1000,
-      },
-    });
-  };
+  // const showToast = (msg) => {
+  //   toast.success(msg, {
+  //     position: "bottom-right",
+  //     autoClose: 3000,
+  //     style: {
+  //       zIndex: 1000,
+  //     },
+  //   });
+  // };
   const [showChangePasswordModal, setShowChangePasswordModal] = useState(false);
   const [currentPassword, setCurrentPassword] = useState("");
   const [passwordChangeResult, setPasswordChangeResult] = useState(null);
@@ -52,10 +53,83 @@ export default function Profile({ profile }) {
     latitude: currLocationJs.latitude,
     longitude: currLocationJs.longitude,
   });
-  console.log(loginInfo);
+  // console.log(loginInfo);
   const router = useRouter();
   const userId = router.query.userId;
 
+  const [showYesNo, setYesNo] = useState(false);
+  const [yesNoMessage, setYesNoMessage] = useState("");
+  const [cont, setCont] = useState(false);
+  const no = () => {
+    setCont(false);
+    setYesNo(false);
+  };
+  const yes = () => {
+    setCont(true);
+    setYesNo(false);
+    deleteUser();
+  };
+  const helper = async () => {
+    setYesNoMessage("Are you sure you want to delete your account?");
+    setYesNo(true);
+  };
+
+  const user = {
+    userId: userId,
+    email: profile.email,
+  };
+  const handleLogOut = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("notificationCount");
+    localStorage.removeItem("notiCount");
+    router.push("http://localhost:3000");
+  };
+
+  const deleteUser = async () => {
+    const response = await fetch(`/api/deleteAcc`, {
+      method: "POST",
+      body: JSON.stringify(user),
+      headers: {
+        "Contain-Type": "application/json",
+      },
+    });
+    const data = await response.json();
+    if (data.msg == "DELETED") {
+      alert("Your account has been deleted");
+      // setAlertMessage("Offer deleted");
+      // setShowAlert(true);
+      showToast("Account successfully deleted");
+      handleLogOut();
+      // setOfferStatus(0);
+      // onStatusChange(offer.OFFERID, "accepted");
+      // onOfferAccepted(offer.OFFERID);
+    } else {
+      alert("Account could not be deleted");
+      // setAlertMessage("Could not delete your account");
+      // setShowAlert(true);
+      showToastErr("Account could not be deleted");
+    }
+    // router.push(`/bookFriend/myOffers/${userId}`);
+    router.reload();
+  };
+  const showToast = (msg) => {
+    toast.success(msg, {
+      position: "bottom-right",
+      autoClose: 3000,
+      style: {
+        zIndex: 1000,
+      },
+    });
+  };
+  const showToastErr = (msg) => {
+    toast.error(msg, {
+      position: "bottom-right",
+      autoClose: 3000,
+      style: {
+        zIndex: 1000,
+      },
+    });
+  };
   const handleSubmit = async (event) => {
     event.preventDefault();
     setLoginInfo((prevState) => ({
@@ -442,6 +516,13 @@ export default function Profile({ profile }) {
         >
           Change Password
         </button>
+        {/* <button
+          style={{ fontFamily: "Georgia, sans-serif" }}
+          className={styles.button3}
+          onClick={helper}
+        >
+          Delete Account
+        </button> */}
         {showChangePasswordModal && (
           <ChangePasswordModal
             isOpen={showChangePasswordModal}
@@ -463,6 +544,7 @@ export default function Profile({ profile }) {
       {showAlert && (
         <CustomAlert message={alertMessage} onClose={handleCloseAlert} />
       )}
+      {showYesNo && <YesNoAlert message={yesNoMessage} onYes={yes} onNo={no} />}
     </div>
   );
 }

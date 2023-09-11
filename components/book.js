@@ -6,6 +6,10 @@ import styles from "../styles/book.module.css";
 // import styles from "../styles/bookGrid.module.css";
 // import { Modal } from "bootstrap";
 import Modal from "./modal";
+import YesNoAlert from "./yesNoAlert";
+import { toast } from "react-toastify";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 export default function Book({ book }) {
   const [isModalOpen, setIsModalOpen] = useState(false); // State to control modal
   const [selectedBook, setSelectedBook] = useState(null);
@@ -31,6 +35,73 @@ export default function Book({ book }) {
   const closeModal = () => {
     setSelectedBook(null);
     setIsModalOpen(false);
+  };
+
+  const [showYesNo, setYesNo] = useState(false);
+  const [yesNoMessage, setYesNoMessage] = useState("");
+  const [cont, setCont] = useState(false);
+  const no = () => {
+    setCont(false);
+    setYesNo(false);
+  };
+  const yes = () => {
+    setCont(true);
+    setYesNo(false);
+    deleteBook();
+  };
+  const helper = async () => {
+    setYesNoMessage("Are you sure you want to delete this book?");
+    setYesNo(true);
+  };
+  const delBook = {
+    isbn: book.ISBN,
+  };
+
+  const deleteBook = async () => {
+    const response = await fetch(`/api/deleteBook`, {
+      method: "POST",
+      body: JSON.stringify(delBook),
+      headers: {
+        "Contain-Type": "application/json",
+      },
+    });
+    const data = await response.json();
+    if (data.msg == "DELETED") {
+      // alert("This book has been deleted");
+      // setAlertMessage("Offer deleted");
+      // setShowAlert(true);
+      showToast("Book successfully deleted");
+      // handleLogOut();
+      // setOfferStatus(0);
+      // onStatusChange(offer.OFFERID, "accepted");
+      // onOfferAccepted(offer.OFFERID);
+    } else {
+      // alert("Account could not be deleted");
+      // setAlertMessage("Could not delete your account");
+      // setShowAlert(true);
+      showToastErr("This book could not be deleted");
+    }
+    // router.push(`/bookFriend/myOffers/${userId}`);
+    router.reload();
+  };
+
+  const showToast = (msg) => {
+    toast.success(msg, {
+      position: "bottom-right",
+      autoClose: 3000,
+      style: {
+        zIndex: 1000,
+      },
+    });
+  };
+  const showToastErr = (msg) => {
+    toast.error(msg, {
+      position: "bottom-right",
+      autoClose: 3000,
+      style: {
+        zIndex: 1000,
+      },
+    });
   };
 
   return (
@@ -156,7 +227,15 @@ export default function Book({ book }) {
       >
         Click Here to share this book
       </button>
+      <button
+        style={{ fontFamily: "Georgia, sans-serif" }}
+        className={styles.delButton}
+        onClick={helper}
+      >
+        <FontAwesomeIcon icon={faTrash} />
+      </button>
       {isModalOpen && <Modal onClose={closeModal} book={book}></Modal>}
+      {showYesNo && <YesNoAlert message={yesNoMessage} onYes={yes} onNo={no} />}
     </div>
   );
 }
