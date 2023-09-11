@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import runQueryWithBinds from "../../../oracle/queryBinds";
 export default async function handler(req, res) {
   const id = req.query.id;
-  console.log(id);
+  // console.log(id);
   const binds = {
     id: id,
   };
@@ -28,6 +28,6 @@ export default async function handler(req, res) {
     ORDER BY SHARED_COUNT DESC`,
     binds
   );
-  console.log(response);
+  // console.log(response);
   res.json(response.rows);
 }

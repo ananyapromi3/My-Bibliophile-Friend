@@ -6,7 +6,7 @@ export default async function handler(req, res) {
   // const router = useRouter();
   // const userId = router.query.userId;
   const x = req.query.term;
-  console.log(x);
+  // console.log(x);
   // console.log(x);
   const response = await runQueryWithBinds(
     `SELECT N.NOTIFICATIONID, O.OFFERID, O.MESSAGE, GET_BOOK_NAME_FROM_OFFERID(O.OFFERID) BOOK,

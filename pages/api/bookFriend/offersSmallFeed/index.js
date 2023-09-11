@@ -16,7 +16,7 @@ export default async function handler(req, res) {
     offerId2: offerId2,
     msg: { dir: oracledb.BIND_OUT, type: oracledb.STRING },
   };
-  console.log(binds);
+  // console.log(binds);
   const response = await runProcedureWithOutBinds(
     `DECLARE
         MS1 VARCHAR2(50);

@@ -17,7 +17,7 @@ export default async function handler(req, res) {
     phn1: loginInfo.phn1,
     phn2: loginInfo.phn2,
   };
-  console.log(binds);
+  // console.log(binds);
   const response = await runProcedureWithOutBinds(
     `UPDATE USERMAN 
     SET PASSWORD = DBMS_CRYPTO.encrypt(UTL_RAW.CAST_TO_RAW(:password), 4353, 
@@ -31,7 +31,7 @@ export default async function handler(req, res) {
     WHERE EMAILID = :email`,
     binds
   );
-  console.log(response);
+  // console.log(response);
   res.json(response);
   // res.status(200).json(response.rows);
 }

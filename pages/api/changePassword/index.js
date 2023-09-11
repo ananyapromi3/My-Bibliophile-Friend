@@ -14,7 +14,7 @@ export default async function handler(req, res) {
     newPass: loginInfo.newPassword,
     msg: { dir: oracledb.BIND_OUT, type: oracledb.STRING },
   };
-  console.log(binds);
+  // console.log(binds);
   const response = await runProcedureWithOutBinds(
     `BEGIN
         UPDATE_PASS (:email, :currPass, :newPass, :msg);
