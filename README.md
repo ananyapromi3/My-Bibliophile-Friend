@@ -15,3 +15,26 @@ So, whether you're here to exchange, explore, or deliver, our platform welcomes 
 
 Project outcomes...
 The successful culmination of this project has yielded several significant outcomes. Foremost, the platform now offers a seamless and user-centric book exchange experience, facilitating the dissemination of knowledge and literature within the community. The integration of advanced search and filtering functionalities empowers users to effortlessly discover books of interest while establishing connections with specific individuals. Moreover, the adoption of cutting-edge web technologies and frameworks, including Oracle SQL, Node.js, JavaScript, and Next.js, ensures a responsive, secure, and high-performance platform. In sum, this project has delivered a sophisticated and user-friendly environment, fostering meaningful engagement and enabling book enthusiasts to partake in a world of literary possibilities with ease and efficiency.
+
+## Getting Started
+
+### Prerequisites
+
+Before running the project, ensure you have the following prerequisites installed:
+
+- Node.js and npm (Node Package Manager)
+- Database (e.g., PostgreSQL, MySQL)
+- Git (for cloning the repository)
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/your-username/book-exchange-platform.git
+   cd book-exchange-platform
+
+   npm install
+
+   npm run dev
+   ```
