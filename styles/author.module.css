@@ -9,7 +9,7 @@
 
 .authorName {
   font-size: 1rem;
-  max-height: 2em; /* Adjust as needed */
+  max-height: 5em; /* Adjust as needed */
   overflow: hidden;
   margin-top: 2px;
   margin-bottom: 2px;

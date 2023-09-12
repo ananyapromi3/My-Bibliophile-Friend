@@ -227,13 +227,13 @@ export default function Book({ book }) {
       >
         Click Here to share this book
       </button>
-      <button
+      {/* <button
         style={{ fontFamily: "Georgia, sans-serif" }}
         className={styles.delButton}
         onClick={helper}
       >
         <FontAwesomeIcon icon={faTrash} />
-      </button>
+      </button> */}
       {isModalOpen && <Modal onClose={closeModal} book={book}></Modal>}
       {showYesNo && <YesNoAlert message={yesNoMessage} onYes={yes} onNo={no} />}
     </div>
