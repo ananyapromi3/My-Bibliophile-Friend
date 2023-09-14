@@ -15,7 +15,7 @@ So, whether you're here to exchange, explore, or deliver, our platform welcomes 
 The successful culmination of this project has yielded several significant outcomes. Foremost, the platform now offers a seamless and user-centric book exchange experience, facilitating the dissemination of knowledge and literature within the community. The integration of advanced search and filtering functionalities empowers users to effortlessly discover books of interest while establishing connections with specific individuals. Moreover, the adoption of cutting-edge web technologies and frameworks, including Oracle SQL, Node.js, JavaScript, and Next.js, ensures a responsive, secure, and high-performance platform. In sum, this project has delivered a sophisticated and user-friendly environment, fostering meaningful engagement and enabling book enthusiasts to partake in a world of literary possibilities with ease and efficiency.
 
 
-####Supervised by 
+#### Supervised by 
 A.K.M. Mehedi Hasan
 Lecturer, Bangladesh University of Engineering and Technology
 
